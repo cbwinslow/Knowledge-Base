@@ -1,0 +1,21 @@
+services:
+  # Minimal demo - refer to Dify docs for production setup
+  redis:
+    image: redis:7-alpine
+    ports: ["6379:6379"]
+    restart: unless-stopped
+  pg:
+    image: postgres:15
+    environment:
+      POSTGRES_PASSWORD: dify
+      POSTGRES_DB: dify
+    volumes: [ "./pg:/var/lib/postgresql/data" ]
+    restart: unless-stopped
+  dify:
+    image: langgenius/dify:latest
+    depends_on: [pg, redis]
+    environment:
+      DATABASE_URL: postgresql://postgres:dify@pg:5432/dify
+      REDIS_URL: redis://redis:6379/0
+    ports: ["8180:80"]
+    restart: unless-stopped

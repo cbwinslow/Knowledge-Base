@@ -1,0 +1,39 @@
+services:
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL:-admin@example.com}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD:-adminpass}
+    ports:
+      - "5050:80"
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+    restart: unless-stopped
+
+  mongo-express:
+    image: mongo-express:1.0.2-18
+    container_name: mongo-express
+    environment:
+      - ME_CONFIG_MONGODB_SERVER=host.docker.internal
+      - ME_CONFIG_MONGODB_ENABLE_ADMIN=true
+      - ME_CONFIG_BASICAUTH_USERNAME=${MONGO_EXPRESS_USER:-admin}
+      - ME_CONFIG_BASICAUTH_PASSWORD=${MONGO_EXPRESS_PASS:-adminpass}
+    ports:
+      - "8081:8081"
+    restart: unless-stopped
+
+  neo4j-bloom:
+    image: neo4j/bloom:latest
+    container_name: neo4j-bloom
+    environment:
+      - BLOOM_LICENSE=${BLOOM_LICENSE:-}
+      - BLOOM_NEO4J_URI=${BLOOM_NEO4J_URI:-bolt://host.docker.internal:7687}
+      - BLOOM_NEO4J_USER=${BLOOM_NEO4J_USER:-neo4j}
+      - BLOOM_NEO4J_PASS=${BLOOM_NEO4J_PASS:-changeme}
+    ports:
+      - "7475:7474"
+    restart: unless-stopped
+
+volumes:
+  pgadmin_data:

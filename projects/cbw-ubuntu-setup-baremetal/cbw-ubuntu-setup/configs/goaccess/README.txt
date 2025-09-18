@@ -1,0 +1,1 @@
+Place your web server access logs here or point goaccess at /var/log/nginx/access.log
