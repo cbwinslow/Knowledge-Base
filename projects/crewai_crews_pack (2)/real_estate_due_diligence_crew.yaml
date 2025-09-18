@@ -1,0 +1,37 @@
+crew:
+  name: RealEstateDueDiligenceCrew
+  description: "Automate document intake, zoning checks, comps, and risk reports for property deals."
+  process: sequential
+  settings:
+    output_dir: outputs/real_estate
+  agents:
+    - name: DocIntake
+      role: Document Ingestion
+      backstory: "Makes order from deeds, surveys, leases, and reports."
+      goals:
+        - OCR and classify deal documents
+        - Extract key terms, dates, covenants
+      tools:
+        - ocr_tool
+        - pdf_parser
+        - clause_extractor
+    - name: CompsAgent
+      role: Market Analyst
+      backstory: "Finds real comps, not wishful thinking."
+      goals:
+        - Gather comps and normalize features
+        - Produce valuation ranges with assumptions
+      tools:
+        - listings_api
+        - gis_tooling
+        - regression_model
+    - name: RiskReviewer
+      role: Risk & Zoning Analyst
+      backstory: "Flags legal, environmental, and zoning risks early."
+      goals:
+        - Check zoning/permit history and flood/fire risk
+        - Summarize red flags and mitigation plans
+      tools:
+        - zoning_db
+        - environmental_api
+        - map_renderer

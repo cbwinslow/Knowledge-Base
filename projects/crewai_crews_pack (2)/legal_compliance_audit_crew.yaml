@@ -1,0 +1,37 @@
+crew:
+  name: ComplianceAuditCrew
+  description: "Run periodic audits against frameworks (SOX, HIPAA, GDPR, PCI-DSS) with evidence collection."
+  process: hierarchical
+  settings:
+    output_dir: outputs/audits
+    frameworks: [SOX, HIPAA, GDPR, PCI-DSS]
+  agents:
+    - name: ControlMapper
+      role: Control Inventory Manager
+      backstory: "Maintains authoritative control catalog."
+      goals:
+        - Map framework requirements to internal controls
+        - Identify missing or weak controls
+      tools:
+        - grc_db
+        - control_library
+    - name: EvidenceCollector
+      role: Evidence Harvester
+      backstory: "Collects durable, tamper-evident artifacts."
+      goals:
+        - Pull configs, logs, screenshots as evidence
+        - Validate timestamps and integrity
+      tools:
+        - cloud_config_api
+        - log_archiver
+        - screenshotter
+    - name: Auditor
+      role: Gap Analyst & Reporter
+      backstory: "Writes audit-ready reports with POA&Ms."
+      goals:
+        - Determine compliance status and gaps
+        - Generate audit report and remediation plan
+      tools:
+        - report_generator
+        - ticketing_api
+        - metrics_dashboard

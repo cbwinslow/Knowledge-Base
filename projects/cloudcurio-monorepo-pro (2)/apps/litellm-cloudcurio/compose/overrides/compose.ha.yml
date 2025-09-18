@@ -1,0 +1,4 @@
+services:
+  litellm:
+    deploy:
+      replicas: 2

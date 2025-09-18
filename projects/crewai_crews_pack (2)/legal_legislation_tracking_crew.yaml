@@ -1,0 +1,38 @@
+crew:
+  name: LegislationTrackingCrew
+  description: "Continuously monitor bills, amendments, votes, and rulemakings; map impacts to internal policies."
+  process: hierarchical
+  settings:
+    output_dir: outputs/legislation
+    cadence: "daily"
+  agents:
+    - name: Watcher
+      role: Bill & Rulemaking Monitor
+      backstory: "Sleepless sentinel scanning legislatures and agencies."
+      goals:
+        - Ingest new bills, notices, dockets
+        - Track lifecycle changes (introduced, committee, floor, enacted)
+      tools:
+        - gov_api
+        - rss_monitor
+        - web_crawler
+    - name: Summarizer
+      role: Legislative Analyst
+      backstory: "Cuts through legalese to core obligations and impacts."
+      goals:
+        - Summarize bill contents and differences across versions
+        - Extract entities, citations, CFR/USC references
+      tools:
+        - nlp_extractor
+        - citation_resolver
+        - markdown_writer
+    - name: ImpactMapper
+      role: Compliance Impact Mapper
+      backstory: "Connects external rules to internal controls and policies."
+      goals:
+        - Map new obligations to control owners
+        - Open tasks/tickets for remediations
+      tools:
+        - policy_map_db
+        - project_tracker_api
+        - notification_api

@@ -1,0 +1,46 @@
+crew:
+  name: IncidentResponseCrew
+  description: "Detect, triage, investigate, contain, and report security incidents."
+  process: hierarchical
+  settings:
+    output_dir: outputs/ir
+    severity_threshold: "medium"
+  agents:
+    - name: Sentinel
+      role: Detection & Triage
+      backstory: "Watches logs and alerts like a hawk."
+      goals:
+        - Ingest SIEM alerts and triage severity
+        - Suppress noise and escalate true positives
+      tools:
+        - siem_api
+        - rule_engine
+        - anomaly_detector
+    - name: Investigator
+      role: Forensics & Root Cause
+      backstory: "Turns breadcrumbs into timelines."
+      goals:
+        - Build incident timelines; attribute root cause
+        - Extract IOCs and affected assets
+      tools:
+        - edr_api
+        - memory_forensics
+        - timeline_builder
+    - name: ContainmentOps
+      role: Containment & Eradication
+      backstory: "Swift, surgical remediation with minimal downtime."
+      goals:
+        - Quarantine hosts, block indicators, patch exposures
+        - Track tasks to closure and verify recovery
+      tools:
+        - edr_isolation
+        - firewall_api
+        - patch_manager
+    - name: Reporter
+      role: Incident Reporter
+      backstory: "Produces executive and regulatory reports."
+      goals:
+        - Draft post-incident report, lessons learned, metrics
+      tools:
+        - report_generator
+        - dashboard_export

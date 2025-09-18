@@ -1,0 +1,27 @@
+general_settings:
+  master_key: ${ADMIN_API_KEY}
+  telemetry: false
+  request_timeout: 60
+  max_timeout: 120
+  database_url: "sqlite:///data/litellm.sqlite3"
+  enable_cors: true
+model_list:
+  - model_name: gpt-4o-mini
+    litellm_params:
+      model: openai/gpt-4o-mini
+      api_key: ${OPENAI_API_KEY}
+router_settings:
+  routing_strategy: simple
+cache:
+  type: redis
+  params: { host: redis, port: 6379, password: ${REDIS_PASSWORD}, ttl: 300 }
+rate_limits:
+  - key: ${ADMIN_API_KEY}
+    rpm: 600
+logging:
+  log_prompts: false
+  log_responses: true
+  redact_keys: ["api_key","Authorization","X-API-Key"]
+server:
+  host: 0.0.0.0
+  port: ${LITELLM_PORT}

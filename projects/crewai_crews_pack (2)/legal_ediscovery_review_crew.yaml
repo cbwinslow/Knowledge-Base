@@ -1,0 +1,38 @@
+crew:
+  name: EDiscoveryReviewCrew
+  description: "Collect, process, review, and produce ESI with audit trails."
+  process: sequential
+  settings:
+    output_dir: outputs/ediscovery
+    hold_notices: true
+  agents:
+    - name: Collector
+      role: Data Collection Agent
+      backstory: "Forensically sound data collection and chain-of-custody."
+      goals:
+        - Collect from email, chat, drives with legal hold
+        - Hash and log collections with custodians
+      tools:
+        - o365_export
+        - google_vault_api
+        - hash_logger
+    - name: Processor
+      role: ETL & Culling
+      backstory: "Clears the haystack with dedupe, deNIST, and OCR."
+      goals:
+        - Deduplicate, deNIST, OCR, metadata normalize
+        - Apply date range and keyword culling
+      tools:
+        - ocr_tool
+        - nist_filter
+        - pst_eml_parser
+    - name: Reviewer
+      role: Relevance/Privilege Reviewer
+      backstory: "Prioritizes responsiveness and privilege sensitivity."
+      goals:
+        - Classify responsiveness/privilege; propose redactions
+        - Prepare productions with load files
+      tools:
+        - relevance_classifier
+        - privilege_model
+        - production_packager

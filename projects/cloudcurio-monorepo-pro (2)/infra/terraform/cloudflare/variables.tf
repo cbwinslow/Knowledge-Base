@@ -1,0 +1,12 @@
+variable "zone" {type=string}
+variable "account_id" {type=string}
+variable "hostname" {type=string}
+variable "tunnel_name" {type=string}
+variable "tunnel_secret" {type=string}
+variable "access_app_name" {type=string}
+variable "allowed_emails" {type=list(string)}
+variable "allowed_domains" {type=list(string)}
+variable "session_duration" {type=string}
+variable "enable_lb" {type=bool}
+variable "lb_name" {type=string}
+variable "origins" {type=list(string)}

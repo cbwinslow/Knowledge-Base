@@ -1,0 +1,36 @@
+crew:
+  name: HealthcareCodingCrew
+  description: "Assist with prior authorization, coding audits, and denial management."
+  process: sequential
+  settings:
+    output_dir: outputs/healthcare
+    standards: [ICD-10, CPT, HCPCS]
+  agents:
+    - name: IntakeNurse
+      role: Prior Auth Intake
+      backstory: "Collects medical necessity info and payer rules."
+      goals:
+        - Gather clinical documentation and payer criteria
+        - Prepare prior auth submissions
+      tools:
+        - emr_api
+        - payer_rules_api
+        - document_builder
+    - name: Coder
+      role: Medical Coder
+      backstory: "Assigns accurate codes to maximize compliance and revenue integrity."
+      goals:
+        - Suggest ICD/CPT/HCPCS codes from documentation
+        - Flag potential upcoding/undercoding risks
+      tools:
+        - coding_knowledge_base
+        - audit_rules
+    - name: DenialsAnalyst
+      role: Denial Management
+      backstory: "Fights unjust denials with well-cited appeals."
+      goals:
+        - Analyze denial reasons and draft appeals
+        - Track outcomes and improve templates
+      tools:
+        - appeals_template_library
+        - analytics_db

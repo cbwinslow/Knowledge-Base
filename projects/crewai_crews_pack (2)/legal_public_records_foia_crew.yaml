@@ -1,0 +1,37 @@
+crew:
+  name: PublicRecordsFOIACrew
+  description: "Plan, file, track, and analyze FOIA/Public Records requests; normalize releases for RAG."
+  process: sequential
+  settings:
+    output_dir: outputs/foia
+    jurisdiction_scope: ["federal","state","local"]
+  agents:
+    - name: RequestPlanner
+      role: Request Strategy Agent
+      backstory: "Finds the right agency, scope, and language for fast responses."
+      goals:
+        - Identify agencies and refine scope to minimize denials
+        - Draft FOIA/Public Records letters
+      tools:
+        - agency_directory
+        - letter_templates
+    - name: Tracker
+      role: Docket & Deadline Manager
+      backstory: "Never misses a statutory deadline."
+      goals:
+        - Track filings, fees, deadlines, appeals
+        - Notify stakeholders of required actions
+      tools:
+        - docket_db
+        - calendar_api
+        - email_api
+    - name: ReleaseProcessor
+      role: Data Normalizer
+      backstory: "Turns messy releases into clean, searchable corpora."
+      goals:
+        - OCR, dedupe, chunk, and embed documents
+        - Publish datasets to searchable indexes
+      tools:
+        - ocr_tool
+        - pdf_parser
+        - vector_db

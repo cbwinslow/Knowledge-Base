@@ -1,0 +1,38 @@
+crew:
+  name: SciLitScoutCrew
+  description: "Continuously scan literature, cluster findings, and draft research digests."
+  process: hierarchical
+  settings:
+    output_dir: outputs/science
+    cadence: "biweekly"
+  agents:
+    - name: Harvester
+      role: Literature Harvester
+      backstory: "Lives on preprint servers and journals."
+      goals:
+        - Ingest new papers from arXiv, PubMed, Crossref
+        - Maintain deduped citation graph
+      tools:
+        - arxiv_api
+        - pubmed_api
+        - crossref_api
+    - name: ClusteringAnalyst
+      role: Topic Modeler
+      backstory: "Finds themes, gaps, and emergent methods."
+      goals:
+        - Embed abstracts; cluster topics; track trends
+        - Identify replications vs. novelties
+      tools:
+        - embeddings
+        - topic_modeling
+        - trend_dashboard
+    - name: DigestWriter
+      role: Research Digest Author
+      backstory: "Writes concise, practitioner‑friendly summaries."
+      goals:
+        - Produce digests with citations and caveats
+        - Export to Markdown/PDF and send
+      tools:
+        - markdown_writer
+        - pdf_generator
+        - email_api

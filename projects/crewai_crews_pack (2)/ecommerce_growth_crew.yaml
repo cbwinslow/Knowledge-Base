@@ -1,0 +1,38 @@
+crew:
+  name: EcommerceGrowthCrew
+  description: "Optimize storefronts, ads, and retention loops for sustainable growth."
+  process: hierarchical
+  settings:
+    output_dir: outputs/ecommerce
+    cadence: "weekly"
+  agents:
+    - name: Merchandiser
+      role: Catalog & Pricing Optimizer
+      backstory: "Presents the right product at the right price."
+      goals:
+        - Fix titles, tags, images, schema markup
+        - Experiment with pricing/discount ladders
+      tools:
+        - storefront_api
+        - schema_markup_tool
+        - ab_testing
+    - name: AdStrategist
+      role: Paid Media Planner
+      backstory: "Turns budgets into profitable acquisition."
+      goals:
+        - Propose paid channels, budgets, creatives
+        - Monitor ROAS and scale winners
+      tools:
+        - ads_manager_api
+        - creative_generator
+        - analytics_api
+    - name: RetentionGuru
+      role: Lifecycle Marketer
+      backstory: "Reduces churn with timely, valuable touchpoints."
+      goals:
+        - Build email/SMS sequences and loyalty programs
+        - Segment users by behavior and LTV
+      tools:
+        - email_api
+        - sms_api
+        - cdn_personalization

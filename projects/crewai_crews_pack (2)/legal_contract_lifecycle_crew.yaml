@@ -1,0 +1,49 @@
+crew:
+  name: ContractLifecycleCrew
+  description: "End-to-end contract lifecycle: drafting, redlining, risk checks, signatures, and repository sync."
+  process: sequential
+  settings:
+    output_dir: outputs/contracts
+    max_iters: 5
+    allow_delegation: true
+  agents:
+    - name: Drafter
+      role: Contract Author
+      backstory: "Writes clear, enforceable language aligned with playbooks and precedent."
+      goals:
+        - Draft initial agreements from templates and prompts
+        - Align clauses with playbook rules and business positions
+      tools:
+        - template_repo
+        - clause_library
+        - markdown_writer
+    - name: Redliner
+      role: Negotiation Editor
+      backstory: "Sharp-eyed reviewer focused on risk and commercial clarity."
+      goals:
+        - Compare versions and propose redlines
+        - Annotate risk, obligations, and unusual terms
+      tools:
+        - diff_tool
+        - pdf_redline
+        - compliance_checker
+    - name: RiskOfficer
+      role: Legal Risk Analyst
+      backstory: "Ensures legal, regulatory, and policy compliance."
+      goals:
+        - Run playbook checks (privacy, IP, indemnity, limitation of liability)
+        - Produce risk summary with severity and mitigations
+      tools:
+        - policy_engine
+        - jurisdiction_rules
+        - gdpr_hipaa_checker
+    - name: SignatureBot
+      role: eSignature Coordinator
+      backstory: "Moves agreements to signature and archives ﬁnals."
+      goals:
+        - Route for approval/signature
+        - File fully executed copies to DMS/CLM
+      tools:
+        - esign_api
+        - dms_api
+        - crm_sync
