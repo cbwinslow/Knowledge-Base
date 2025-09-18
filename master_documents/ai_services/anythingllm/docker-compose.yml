@@ -1,0 +1,13 @@
+version: '3.6'
+
+services:
+  anything-llm:
+    image: mintplexlabs/anythingllm:latest
+    container_name: anythingllm
+    ports:
+      - "3001:3001"
+    environment:
+      - STORAGE_DIR=/app/server/storage
+    volumes:
+      - ./storage:/app/server/storage
+    restart: unless-stopped
