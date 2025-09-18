@@ -48,7 +48,7 @@ To run the web interface locally:
 
 The web interface is configured for static export and can be deployed to Cloudflare Pages or any static hosting service.
 
-See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed deployment instructions.
+See [CLOUDFLARE_PAGES_SETUP.md](CLOUDFLARE_PAGES_SETUP.md) for detailed deployment instructions.
 
 ## Security
 
