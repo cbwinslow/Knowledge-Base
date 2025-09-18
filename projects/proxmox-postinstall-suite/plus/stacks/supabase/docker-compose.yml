@@ -1,0 +1,28 @@
+services:
+  studio:
+    image: supabase/studio:latest
+    ports: ["8000:3000"]
+    environment:
+      - SUPABASE_URL=${SUPABASE_URL}
+      - SUPABASE_ANON_KEY=${SUPABASE_ANON_KEY}
+      - SUPABASE_SERVICE_ROLE_KEY=${SUPABASE_SERVICE_ROLE_KEY}
+    depends_on: [kong]
+
+  kong:
+    image: supabase/kong:latest
+    ports: ["8001:8001", "8003:8000"]
+    environment:
+      - KONG_DATABASE=off
+      - KONG_DECLARATIVE_CONFIG=/var/lib/kong/kong.yml
+    volumes: [ "kong-data:/var/lib/kong" ]
+
+  db:
+    image: supabase/postgres:15.1.0.89
+    ports: ["5432:5432"]
+    environment:
+      - POSTGRES_PASSWORD=${SUPABASE_DB_PASSWORD}
+    volumes: [ "db-data:/var/lib/postgresql/data" ]
+
+volumes:
+  db-data: {}
+  kong-data: {}

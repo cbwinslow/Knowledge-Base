@@ -1,0 +1,53 @@
+version: '3.8'
+volumes: {prometheus_data: {}, grafana_data: {}, loki_data: {}}
+services:
+  prometheus:
+    image: prom/prometheus:latest
+    ports: ["9090:9090"]
+    volumes:
+      - prometheus_data:/prometheus
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    command: --config.file=/etc/prometheus/prometheus.yml
+
+  grafana:
+    image: grafana/grafana:latest
+    ports: ["3002:3000"]
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./provisioning/datasources:/etc/grafana/provisioning/datasources
+      - ./provisioning/dashboards:/etc/grafana/provisioning/dashboards
+      - ./dashboards:/var/lib/grafana/dashboards
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=changeme
+
+  loki:
+    image: grafana/loki:latest
+    ports: ["3100:3100"]
+    command: -config.file=/etc/loki/local-config.yaml
+
+  promtail:
+    image: grafana/promtail:latest
+    volumes:
+      - /var/log:/var/log
+      - ./promtail-config.yml:/etc/promtail/config.yml
+    command: -config.file=/etc/promtail/config.yml
+
+  node-exporter:
+    image: prom/node-exporter:latest
+    ports: ["9100:9100"]
+
+  cadvisor:
+    image: gcr.io/cadvisor/cadvisor:latest
+    ports: ["8085:8080"]
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+
+  blackbox:
+    image: prom/blackbox-exporter:latest
+    ports: ["9115:9115"]
+    volumes:
+      - ./blackbox.yml:/etc/blackbox_exporter/config.yml

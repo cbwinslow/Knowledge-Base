@@ -1,0 +1,5 @@
+# Starter repos
+https://github.com/cbwinslow/opendiscourse
+https://github.com/cbwinslow/local-ai-packaged
+https://github.com/open-webui/open-webui
+https://github.com/qdrant/qdrant

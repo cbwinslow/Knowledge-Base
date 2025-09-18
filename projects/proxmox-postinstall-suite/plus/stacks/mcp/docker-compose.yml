@@ -1,0 +1,17 @@
+services:
+  mcp-hub:
+    build: ./mcp-hub
+    ports: ["8787:8787"]
+    environment:
+      - HUB_NAME=cloudcurio-mcp
+      - HUB_LOG_LEVEL=info
+    volumes: ["hub-data:/data"]
+
+  mcp-sample-agent:
+    build: ./mcp-sample-agent
+    environment:
+      - MCP_HUB_URL=http://mcp-hub:8787
+    depends_on: [mcp-hub]
+
+volumes:
+  hub-data: {}

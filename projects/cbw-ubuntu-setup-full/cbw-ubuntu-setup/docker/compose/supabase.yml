@@ -1,0 +1,53 @@
+services:
+  supabase-db:
+    image: supabase/postgres:15.6.1.0
+    container_name: supabase-db
+    environment:
+      - POSTGRES_PASSWORD=${SUPABASE_DB_PASSWORD:-supapass}
+      - POSTGRES_DB=${SUPABASE_DB:-postgres}
+      - POSTGRES_USER=${SUPABASE_USER:-postgres}
+    ports:
+      - "5433:5432"
+    volumes:
+      - supabase_pg_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  supabase-kong:
+    image: supabase/kong:latest
+    container_name: supabase-kong
+    environment:
+      - KONG_DATABASE=off
+      - KONG_DECLARATIVE_CONFIG=/kong.yml
+    volumes:
+      - supabase_kong:/var/lib/kong
+    ports:
+      - "8002:8000"
+      - "8445:8443"
+    restart: unless-stopped
+
+  supabase-auth:
+    image: supabase/gotrue:v2.164.0
+    container_name: supabase-auth
+    environment:
+      - API_EXTERNAL_URL=http://localhost:9999
+      - GOTRUE_JWT_SECRET=${SUPABASE_JWT_SECRET:-supersecretjwt}
+      - GOTRUE_DB_DRIVER=postgres
+      - DATABASE_URL=postgresql://postgres:${SUPABASE_DB_PASSWORD:-supapass}@supabase-db:5432/postgres
+    ports:
+      - "9999:9999"
+    restart: unless-stopped
+
+  supabase-rest:
+    image: supabase/postgrest:v12.2.6
+    container_name: supabase-rest
+    environment:
+      - PGRST_DB_URI=postgres://postgres:${SUPABASE_DB_PASSWORD:-supapass}@supabase-db:5432/postgres
+      - PGRST_DB_SCHEMAS=public
+      - PGRST_JWT_SECRET=${SUPABASE_JWT_SECRET:-supersecretjwt}
+    ports:
+      - "3001:3000"
+    restart: unless-stopped
+
+volumes:
+  supabase_pg_data:
+  supabase_kong:

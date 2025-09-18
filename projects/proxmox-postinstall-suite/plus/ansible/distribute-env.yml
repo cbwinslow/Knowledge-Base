@@ -1,0 +1,6 @@
+---
+- hosts: all
+  become: true
+  tasks:
+  - file: {path: /etc/cloudcurio, state: directory, mode: '0750'}
+  - copy: {src: ../.env, dest: /etc/cloudcurio/.env, mode: '0640'}
