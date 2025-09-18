@@ -1,0 +1,9 @@
+model_profile: default
+use_traefik: true
+use_nginx: true
+use_caddy: false
+basic_user: admin
+basic_pass_hash: BASIC_PASS_HASH
+anythingllm_port: 3001
+webui_port: 8080
+ollama_port: 11434
