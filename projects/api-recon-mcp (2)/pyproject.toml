@@ -1,0 +1,14 @@
+[project]
+name = "api-recon-mcp"
+version = "0.3.0"
+description = "MCP server for reverse engineering API endpoints"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "httpx",
+    "pydantic",
+    "pyyaml",
+    "mcp",
+    "starlette"
+]
