@@ -1,0 +1,3 @@
+# Task List & Microgoals
+- [x] Initial setup
+- [ ] Continue expanding...
