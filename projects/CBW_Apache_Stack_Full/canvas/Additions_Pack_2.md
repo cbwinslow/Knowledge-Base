@@ -1,0 +1,1 @@
+# Additions Pack 2 — RO DB, Grafana, OpenSearch, HTTPD, Hardening, Cloudflare\n\nIncludes scripts in /root/installers and roles under ansible/roles (subset completed).\n

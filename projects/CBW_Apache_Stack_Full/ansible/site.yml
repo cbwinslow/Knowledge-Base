@@ -1,0 +1,12 @@
+---
+- hosts: all
+  become: true
+  roles:
+    - { role: kafka, tags: ['kafka'] }
+    - { role: solr, tags: ['solr'] }
+    - { role: opensearch, tags: ['opensearch'] }
+    - { role: httpd, tags: ['httpd'] }
+    - { role: cloudflared, when: cloudflared.install | default(false), tags: ['cloudflared'] }
+    - { role: superset, tags: ['superset'], when: false }      # placeholder
+    - { role: guacamole, tags: ['guacamole'], when: false }    # placeholder
+    - { role: tika, tags: ['tika'], when: false }              # placeholder

@@ -1,0 +1,1 @@
+# Additions Pack 3 — Superset, Guacamole, Tika, CI, Repo Script\n\nCompleted installers and GitHub integrations included.\n
