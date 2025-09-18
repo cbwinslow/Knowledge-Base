@@ -1,0 +1,25 @@
+crew:
+  name: SEOContentPlannerCrew
+  description: "Topical clustering, briefs, schema markup, and calendar."
+  process: hierarchical
+  settings:
+    output_dir: outputs/marketing/seo
+  agents:
+    - name: Clusterer
+      role: Topic Clusterer
+      goals:
+        - Build clusters and internal link maps
+        - Prioritize by demand/difficulty
+      tools: [web_loader, embeddings, dashboard_export]
+    - name: BriefAuthor
+      role: Content Brief Author
+      goals:
+        - Draft briefs with outlines and SERP gaps
+        - Add schema markup recommendations
+      tools: [markdown_writer, schema_markup_tool]
+    - name: Calendarist
+      role: Calendar & Publishing
+      goals:
+        - Create content calendar and tasks
+        - Track performance post-publish
+      tools: [calendar_api, analytics_api, project_tracker_api]

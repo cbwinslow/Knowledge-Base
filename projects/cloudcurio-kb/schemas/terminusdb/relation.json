@@ -1,0 +1,25 @@
+{
+  "@type": "Class",
+  "@id": "Relation",
+  "id": "xsd:string",
+  "type": "RelationType",
+  "source_id": "xsd:string",
+  "target_id": "xsd:string",
+  "prov_doc_id": "xsd:string",
+  "prov_span_start": {
+    "@type": "Optional",
+    "@class": "xsd:integer"
+  },
+  "prov_span_end": {
+    "@type": "Optional",
+    "@class": "xsd:integer"
+  },
+  "score": {
+    "@type": "Optional",
+    "@class": "xsd:decimal"
+  },
+  "commit_id": {
+    "@type": "Optional",
+    "@class": "xsd:string"
+  }
+}

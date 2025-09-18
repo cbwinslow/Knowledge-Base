@@ -1,0 +1,25 @@
+crew:
+  name: SalesIntelListbuilderCrew
+  description: "ICP definitions, sourcing, enrichment, dedupe, and routing."
+  process: sequential
+  settings:
+    output_dir: outputs/revenue/sales_intel
+  agents:
+    - name: ICPDefiner
+      role: ICP/Persona Definer
+      goals:
+        - Define ICP/segments and filters
+        - Score prospects
+      tools: [crm_api, analytics_api, report_generator]
+    - name: Sourcer
+      role: Data Sourcer & Enricher
+      goals:
+        - Source leads and enrich fields
+        - Dedupe and validate emails/domains
+      tools: [lead_api, enrichment_api, dedupe_tool]
+    - name: Router
+      role: Routing & Handoff
+      goals:
+        - Route to AEs/SDRs with context
+        - Create sequences/tasks
+      tools: [crm_api, email_api, project_tracker_api]

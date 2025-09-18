@@ -1,0 +1,31 @@
+crew:
+  name: LegalPrivacyDPIACrew
+  description: "Data Protection Impact Assessment: intake → risk → mitigations → approvals → report."
+  process: sequential
+  settings:
+    output_dir: outputs/legal/dpia
+    frameworks: [GDPR, CCPA]
+    max_iters: 5
+    allow_delegation: true
+  agents:
+    - name: DPIAPlanner
+      role: DPIA Planner
+      backstory: "Privacy SME orchestrating DPIA workflow and stakeholder engagement."
+      goals:
+        - Scope systems, data categories, and data flows
+        - Identify stakeholders and lawful basis
+      tools: [policy_engine, template_repo, citation_resolver]
+    - name: RiskAssessor
+      role: Risk Assessor
+      backstory: "Quantifies likelihood/impact; maps mitigations to controls."
+      goals:
+        - Evaluate risks (confidentiality, integrity, availability, rights)
+        - Propose mitigations and residual risk
+      tools: [vector_db, pdf_parser, markdown_writer]
+    - name: Approvals
+      role: Approvals & Communications
+      backstory: "Routes to DPO/legal; publishes final DPIA and artifacts."
+      goals:
+        - Route for approvals and record decisions
+        - Publish DPIA report and archive evidence
+      tools: [esign_api, notification_api, report_generator]

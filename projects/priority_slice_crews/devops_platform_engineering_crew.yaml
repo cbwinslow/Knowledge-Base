@@ -1,0 +1,25 @@
+crew:
+  name: PlatformEngineeringCrew
+  description: "Paved paths: templates, golden images, policy as code, docs as code."
+  process: hierarchical
+  settings:
+    output_dir: outputs/devops/platform
+  agents:
+    - name: TemplateSmith
+      role: Template/GitOps Author
+      goals:
+        - Generate service templates (API, worker, cron)
+        - Bake policy and SLO defaults
+      tools: [kubernetes, policy_engine, markdown_writer]
+    - name: GoldenImage
+      role: Base Image Curator
+      goals:
+        - Produce hardened base images
+        - Embed SBOM and provenance
+      tools: [docker, syft, cosign]
+    - name: DocsBot
+      role: Docs as Code
+      goals:
+        - Generate runbooks and ADR skeletons
+        - Sync docs to portal
+      tools: [markdown_writer, diagram_tool, docs_api]

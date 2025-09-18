@@ -1,0 +1,47 @@
+{
+  "@type": "Class",
+  "@id": "Document",
+  "id": "xsd:string",
+  "title": "xsd:string",
+  "source_uri": "xsd:string",
+  "published_at": {
+    "@type": "Optional",
+    "@class": "xsd:dateTime"
+  },
+  "ingested_at": {
+    "@type": "Optional",
+    "@class": "xsd:dateTime"
+  },
+  "text": {
+    "@type": "Optional",
+    "@class": "xsd:string"
+  },
+  "content_type": {
+    "@type": "Optional",
+    "@class": "xsd:string"
+  },
+  "checksum": {
+    "@type": "Optional",
+    "@class": "xsd:string"
+  },
+  "topics": {
+    "@type": "Set",
+    "@class": "xsd:string"
+  },
+  "jurisdiction": {
+    "@type": "Optional",
+    "@class": "xsd:string"
+  },
+  "language": {
+    "@type": "Optional",
+    "@class": "xsd:string"
+  },
+  "cg_bill_id": {
+    "@type": "Optional",
+    "@class": "xsd:string"
+  },
+  "gi_package_id": {
+    "@type": "Optional",
+    "@class": "xsd:string"
+  }
+}

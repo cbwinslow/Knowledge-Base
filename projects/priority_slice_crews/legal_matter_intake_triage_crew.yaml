@@ -1,0 +1,28 @@
+crew:
+  name: LegalMatterIntakeTriageCrew
+  description: "Structured matter intake → entity extraction → routing to counsel/queues."
+  process: hierarchical
+  settings:
+    output_dir: outputs/legal/matter_intake
+  agents:
+    - name: Intake
+      role: Matter Intake
+      backstory: "Normalizes inbound submissions from email/forms/portals."
+      goals:
+        - Extract parties, dates, jurisdiction, deadlines
+        - Validate completeness and request missing info
+      tools: [pdf_parser, ocr_tool, citation_resolver, email_api]
+    - name: Triage
+      role: Triage & Routing
+      backstory: "Classifies matter type and assigns priority and owner."
+      goals:
+        - Classify and prioritize matters
+        - Route to counsel and create tickets
+      tools: [classification_model, crm_api, notification_api, project_tracker_api]
+    - name: Comms
+      role: Communications
+      backstory: "Confirms receipt and explains next steps to requestors."
+      goals:
+        - Send confirmations and SLAs
+        - Provide required documents checklist
+      tools: [email_api, markdown_writer]

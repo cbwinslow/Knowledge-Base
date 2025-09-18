@@ -1,0 +1,9 @@
+apiVersion: 1
+providers:
+  - name: 'kb-dashboards'
+    orgId: 1
+    folder: 'CloudCurio'
+    type: file
+    allowUiUpdates: true
+    options:
+      path: /var/lib/grafana/dashboards

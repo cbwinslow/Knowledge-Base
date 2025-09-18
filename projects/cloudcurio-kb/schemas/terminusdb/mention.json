@@ -1,0 +1,13 @@
+{
+  "@type": "Class",
+  "@id": "Mention",
+  "id": "xsd:string",
+  "doc_id": "xsd:string",
+  "entity_id": "xsd:string",
+  "span_start": "xsd:integer",
+  "span_end": "xsd:integer",
+  "confidence": {
+    "@type": "Optional",
+    "@class": "xsd:decimal"
+  }
+}

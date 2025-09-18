@@ -1,0 +1,25 @@
+crew:
+  name: DataPipelineReliabilityCrew
+  description: "DQ SLAs, anomaly detection, schema drift, backfill plans."
+  process: parallel
+  settings:
+    output_dir: outputs/data/reliability
+  agents:
+    - name: DQGuardian
+      role: Data Quality Guardian
+      goals:
+        - Define and monitor DQ checks
+        - Alert on failures with context
+      tools: [metrics, report_generator, notification_api]
+    - name: DriftWatcher
+      role: Schema/Drift Watcher
+      goals:
+        - Detect schema/range drift
+        - Suggest adjustments and tests
+      tools: [json_schema_validator, dashboard_export]
+    - name: BackfillPlanner
+      role: Backfill Planner
+      goals:
+        - Propose backfills and dependencies
+        - Track progress to completion
+      tools: [scheduler, sql_runner, project_tracker_api]

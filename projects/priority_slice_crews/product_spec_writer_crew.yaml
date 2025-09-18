@@ -1,0 +1,25 @@
+crew:
+  name: ProductSpecWriterCrew
+  description: "Generate PRDs, RFCs, and ADRs with stakeholder inputs and constraints."
+  process: sequential
+  settings:
+    output_dir: outputs/product/specs
+  agents:
+    - name: InputsHarvester
+      role: Stakeholder Input Harvester
+      goals:
+        - Collect use cases, requirements, constraints
+        - Map risks and assumptions
+      tools: [survey_tool, docs_api, markdown_writer]
+    - name: SpecAuthor
+      role: PRD/RFC Author
+      goals:
+        - Draft PRDs, RFCs, ADR templates
+        - Maintain change log
+      tools: [markdown_writer, diagram_tool]
+    - name: Reviewer
+      role: Review & Acceptance
+      goals:
+        - Route for review/approval
+        - Publish and archive
+      tools: [notification_api, esign_api, docs_api]

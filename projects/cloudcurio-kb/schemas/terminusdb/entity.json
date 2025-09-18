@@ -1,0 +1,15 @@
+{
+  "@type": "Class",
+  "@id": "Entity",
+  "id": "xsd:string",
+  "kind": "EntityKind",
+  "name": "xsd:string",
+  "aliases": {
+    "@type": "Set",
+    "@class": "xsd:string"
+  },
+  "external_ids": {
+    "@type": "Set",
+    "@class": "xsd:string"
+  }
+}

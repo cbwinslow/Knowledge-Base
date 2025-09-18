@@ -1,0 +1,28 @@
+crew:
+  name: GuardrailPolicyTuningCrew
+  description: "Guardrail tuning: run test matrices, detect gaps, propose patches, re-test."
+  process: parallel
+  settings:
+    output_dir: outputs/ai/guardrails
+  agents:
+    - name: ProbeRunner
+      role: Probe Runner
+      backstory: "Executes jailbreak/policy probes; logs violations."
+      goals:
+        - Run curated probe suites
+        - Capture failures with repro inputs
+      tools: [jailbreak_suite, guardrails, logger]
+    - name: GapAnalyzer
+      role: Gap Analyzer
+      backstory: "Clusters failure modes and prioritizes fixes."
+      goals:
+        - Cluster failures by pattern/impact
+        - Recommend targeted mitigations
+      tools: [embeddings, report_generator, dashboard_export]
+    - name: PatchAuthor
+      role: Policy/Patch Author
+      backstory: "Drafts policy and prompt/tool patches; re-tests for closure."
+      goals:
+        - Propose changes to prompts/policies/tools
+        - Validate patches close gaps
+      tools: [policy_engine, test_runner, markdown_writer]

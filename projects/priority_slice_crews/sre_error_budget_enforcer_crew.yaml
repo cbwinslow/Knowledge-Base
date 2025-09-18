@@ -1,0 +1,25 @@
+crew:
+  name: SREErrorBudgetEnforcerCrew
+  description: "Compute error budgets; gate risky deploys; auto-rollbacks."
+  process: hierarchical
+  settings:
+    output_dir: outputs/sre/error_budget
+  agents:
+    - name: SLOCalculator
+      role: SLO/Error Budget Calculator
+      goals:
+        - Compute SLO burn rates and budgets
+        - Expose gating signals
+      tools: [prometheus, metrics, dashboard_export]
+    - name: Gatekeeper
+      role: Deployment Gatekeeper
+      goals:
+        - Block deploys on burn-rate breaches
+        - Approve/deny with rationale
+      tools: [argo_rollouts, policy_engine, notification_api]
+    - name: Rollbacker
+      role: Remediator
+      goals:
+        - Trigger rollbacks on violations
+        - Verify recovery and close incident
+      tools: [kubernetes, alertmanager, report_generator]

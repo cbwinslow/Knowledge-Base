@@ -1,0 +1,13 @@
+{
+  "@type": "Enum",
+  "@id": "RelationType",
+  "@values": [
+    "SPONSORS",
+    "COSPONSORS",
+    "AMENDS",
+    "RELATED_TO",
+    "AFFILIATED_WITH",
+    "LOCATED_IN",
+    "CITED_BY"
+  ]
+}

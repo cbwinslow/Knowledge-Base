@@ -1,0 +1,11 @@
+http:
+  routers:
+    bff:
+      rule: Host(`kb.example.com`)
+      service: bff
+      entryPoints: [web]
+  services:
+    bff:
+      loadBalancer:
+        servers:
+          - url: "http://bff:8088"

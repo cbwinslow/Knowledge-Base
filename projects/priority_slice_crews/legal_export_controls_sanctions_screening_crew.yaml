@@ -1,0 +1,28 @@
+crew:
+  name: ExportControlsSanctionsScreeningCrew
+  description: "Screen parties/items against sanctions/export controls; document determinations."
+  process: sequential
+  settings:
+    output_dir: outputs/legal/export_controls
+  agents:
+    - name: PartyScreener
+      role: Denied Party Screener
+      backstory: "Cross-references parties with restricted lists."
+      goals:
+        - Screen parties against SDN/UK/EU lists
+        - Flag potential/false positives with reasoning
+      tools: [sanctions_api, policy_engine, report_generator]
+    - name: ECCNClassifier
+      role: ECCN Classifier
+      backstory: "Maps items/technology to ECCN and licensing needs."
+      goals:
+        - Suggest ECCN codes and rationale
+        - Identify license exceptions/requirements
+      tools: [nlp_extractor, citation_resolver, markdown_writer]
+    - name: ReportWriter
+      role: Screening Report Writer
+      backstory: "Compiles a determination memo and archives artifacts."
+      goals:
+        - Draft determination memo with audit trail
+        - Archive evidence and results
+      tools: [markdown_writer, artifacts_store]

@@ -1,0 +1,28 @@
+crew:
+  name: DatasetQualityAssuranceCrew
+  description: "Dataset QA: leakage, duplication, PII scanning, schema checks."
+  process: parallel
+  settings:
+    output_dir: outputs/ai/dataset_qa
+  agents:
+    - name: Leakage
+      role: Leakage Detector
+      backstory: "Compares splits for overlap and semantic leakage."
+      goals:
+        - Compute hash/embedding similarity across splits
+        - Report leakage findings with thresholds
+      tools: [embeddings, vector_db, report_generator]
+    - name: PIIScanner
+      role: PII Scanner
+      backstory: "Detects personal data and sensitive entities."
+      goals:
+        - Scan datasets for PII entities
+        - Summarize findings and remediation suggestions
+      tools: [policy_engine, ocr_tool, markdown_writer]
+    - name: SchemaGuard
+      role: Schema Checker
+      backstory: "Validates required fields, types, and ranges."
+      goals:
+        - Enforce schema and nullability constraints
+        - Emit QA summary and pass/fail
+      tools: [json_schema_validator, dashboard_export, report_generator]

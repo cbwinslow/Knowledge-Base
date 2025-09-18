@@ -1,0 +1,13 @@
+groups:
+  - name: bff.rules
+    rules:
+      - alert: BFFHighErrorRate
+        expr: sum(rate(http_requests_total{status=~"5.."}[5m])) / sum(rate(http_requests_total[5m])) > 0.05
+        for: 10m
+        labels: { severity: warning }
+        annotations: { summary: "BFF 5xx error rate > 5% (5m)" }
+      - alert: BFFDown
+        expr: up{job="bff"} == 0
+        for: 5m
+        labels: { severity: critical }
+        annotations: { summary: "BFF target is down" }

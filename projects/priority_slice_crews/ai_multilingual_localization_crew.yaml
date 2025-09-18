@@ -1,0 +1,26 @@
+crew:
+  name: MultilingualLocalizationCrew
+  description: "Localization at scale: style guides, memory, QA, and deployment."
+  process: hierarchical
+  settings:
+    output_dir: outputs/ai/i18n
+    locales: [en, es, fr, de, ja, zh]
+  agents:
+    - name: LocaleStrategist
+      role: Localization Strategist
+      goals:
+        - Create per-locale style/tone guides
+        - Define glossary and memory policy
+      tools: [glossary_manager, brand_voice_profiles, markdown_writer]
+    - name: Translator
+      role: MT + Post-Edit
+      goals:
+        - Translate with memory and glossary enforcement
+        - Flag cultural/brand mismatches
+      tools: [mt_api, glossaries, alignment_tool]
+    - name: QAInspector
+      role: Linguistic QA & Screens
+      goals:
+        - Run QA checks and screenshots
+        - Approve for release per locale
+      tools: [lint_i18n, screenshotter, report_generator]

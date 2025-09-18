@@ -1,0 +1,10 @@
+kc_url           = "https://keycloak.example.com"
+kc_client_id     = "admin-cli"
+kc_client_secret = "REDACTED"
+realm            = "cloudcurio"
+oidc_client_id   = "kb-bff"
+
+cf_api_token  = "REDACTED"
+cf_account_id = "abc123"
+zone          = "example.com"
+hostname      = "kb.example.com"

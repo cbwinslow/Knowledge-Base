@@ -1,0 +1,13 @@
+{
+  "@type": "Enum",
+  "@id": "EntityKind",
+  "@values": [
+    "Person",
+    "Organization",
+    "Committee",
+    "Bill",
+    "Legislation",
+    "Place",
+    "Topic"
+  ]
+}

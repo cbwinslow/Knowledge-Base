@@ -1,0 +1,68 @@
+{
+  "title": "BFF \u2014 Overview",
+  "uid": "bff-overview",
+  "schemaVersion": 38,
+  "version": 1,
+  "panels": [
+    {
+      "type": "stat",
+      "title": "5xx Rate",
+      "targets": [
+        {
+          "expr": "sum(rate(http_requests_total{status=~\"5..\"}[5m]))"
+        }
+      ],
+      "gridPos": {
+        "x": 0,
+        "y": 0,
+        "w": 6,
+        "h": 4
+      }
+    },
+    {
+      "type": "stat",
+      "title": "RPS",
+      "targets": [
+        {
+          "expr": "job:http_requests:rate1m"
+        }
+      ],
+      "gridPos": {
+        "x": 6,
+        "y": 0,
+        "w": 6,
+        "h": 4
+      }
+    },
+    {
+      "type": "graph",
+      "title": "Latency p95 (ms)",
+      "targets": [
+        {
+          "expr": "job:http_request_duration_seconds:p95"
+        }
+      ],
+      "gridPos": {
+        "x": 0,
+        "y": 4,
+        "w": 12,
+        "h": 8
+      }
+    },
+    {
+      "type": "stat",
+      "title": "ALERTS firing",
+      "targets": [
+        {
+          "expr": "sum(ALERTS{alertstate=\"firing\"})"
+        }
+      ],
+      "gridPos": {
+        "x": 0,
+        "y": 12,
+        "w": 6,
+        "h": 4
+      }
+    }
+  ]
+}
