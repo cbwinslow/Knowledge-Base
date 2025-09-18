@@ -1,0 +1,19 @@
+# Prevent diffing of certain files
+*.min.js diff=astextplain
+*.min.css diff=astextplain
+
+# Handle line endings automatically
+* text=auto
+
+# Denote all files that are truly binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.webp binary
+*.pdf binary
+*.zip binary
+*.tar.gz binary
+*.exe binary
+*.dll binary

@@ -1,0 +1,18 @@
+# Cloudflare Pages Configuration
+
+name = "knowledge-base"
+type = "nextjs"
+
+[env]
+  NODE_VERSION = "18"
+
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
