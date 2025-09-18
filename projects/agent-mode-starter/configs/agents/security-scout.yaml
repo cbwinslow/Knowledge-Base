@@ -1,0 +1,10 @@
+id: security-scout
+version: 1
+prompt: |
+  For each host, check for available security updates and known CVEs on installed packages.
+  Summarize critical/high CVEs with references and recommended actions.
+outputs:
+  - type: markdown
+    path: reports/cve_alerts.md
+automation:
+  rrule: "FREQ=DAILY;BYHOUR=2;BYMINUTE=0;BYSECOND=0"
