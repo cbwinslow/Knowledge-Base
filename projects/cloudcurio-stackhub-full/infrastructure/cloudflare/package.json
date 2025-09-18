@@ -7,7 +7,7 @@
     "deploy": "wrangler deploy"
   },
   "devDependencies": {
-    "esbuild": "0.21.5",
+    "esbuild": "0.25.0",
     "typescript": "5.4.5"
   }
 }
