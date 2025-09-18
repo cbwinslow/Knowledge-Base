@@ -1,0 +1,55 @@
+services:
+  db:
+    restart: unless-stopped
+    volumes:
+      - "${DATA_ROOT}/supabase/db:/var/lib/postgresql/data"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres} -h 127.0.0.1 || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+  storage:
+    restart: unless-stopped
+    volumes:
+      - "${DATA_ROOT}/supabase/storage:/var/lib/storage"
+  kong:
+    restart: unless-stopped
+    volumes:
+      - "${DATA_ROOT}/supabase/kong:/var/lib/kong"
+  qdrant:
+    restart: unless-stopped
+    volumes:
+      - "${DATA_ROOT}/qdrant:/qdrant/storage"
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:6333/readyz"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+  ollama:
+    restart: unless-stopped
+    volumes:
+      - "${DATA_ROOT}/ollama:/root/.ollama"
+  openwebui:
+    restart: unless-stopped
+    volumes:
+      - "${DATA_ROOT}/openwebui:/app/backend/data"
+  n8n:
+    restart: unless-stopped
+    volumes:
+      - "${DATA_ROOT}/n8n:/home/node/.n8n"
+    depends_on:
+      db:
+        condition: service_started
+  neo4j:
+    profiles: ["graph"]
+    image: neo4j:5
+    restart: unless-stopped
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    environment:
+      - NEO4J_AUTH=${NEO4J_USER:-neo4j}/${NEO4J_PASSWORD:-neo4j}
+      - NEO4J_dbms_security_auth__enabled=true
+    volumes:
+      - "${DATA_ROOT}/neo4j/data:/data"
+      - "${DATA_ROOT}/neo4j/logs:/logs"
