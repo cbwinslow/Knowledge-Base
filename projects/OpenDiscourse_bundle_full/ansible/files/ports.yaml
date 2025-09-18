@@ -1,0 +1,4 @@
+postgres: { port: 5432 }
+redis:    { port: 6379 }
+minio:    { api: 9000, console: 9001 }
+neo4j:    { bolt: 7687, http: 7474 }

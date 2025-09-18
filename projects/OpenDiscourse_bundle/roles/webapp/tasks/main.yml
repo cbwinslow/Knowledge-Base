@@ -1,0 +1,39 @@
+- apt: { name: [nodejs, npm], state: present }
+- npm:
+    name: pnpm
+    global: yes
+- user:
+    name: webapp
+    system: yes
+- file:
+    path: /opt/opendiscourse/webapp
+    state: directory
+    owner: webapp
+- unarchive:
+    src: /tmp/webapp-standalone.tar.gz
+    dest: /opt/opendiscourse/webapp
+    owner: webapp
+    group: webapp
+    remote_src: yes
+- copy:
+    dest: /etc/systemd/system/webapp.service
+    mode: '0644'
+    content: |
+      [Unit]
+      Description=OpenDiscourse Next.js Webapp
+      After=network.target
+
+      [Service]
+      User=webapp
+      WorkingDirectory=/opt/opendiscourse/webapp
+      EnvironmentFile=/etc/opendiscourse/webapp.env
+      ExecStart=/usr/bin/node server.js
+      Restart=always
+
+      [Install]
+      WantedBy=multi-user.target
+  notify: Restart webapp
+- systemd:
+    name: webapp
+    state: started
+    enabled: yes

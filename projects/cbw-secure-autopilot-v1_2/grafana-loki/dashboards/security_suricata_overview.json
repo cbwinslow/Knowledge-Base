@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 39,
+  "title": "CBW Security Overview (Suricata + System)",
+  "timezone": "browser",
+  "time": {
+    "from": "now-24h",
+    "to": "now"
+  },
+  "panels": [
+    {
+      "type": "stat",
+      "title": "EVE Total Lines (24h)",
+      "gridPos": {
+        "x": 0,
+        "y": 0,
+        "w": 6,
+        "h": 4
+      },
+      "targets": [
+        {
+          "expr": "sum(cbw_eve_total)",
+          "refId": "A"
+        }
+      ]
+    },
+    {
+      "type": "stat",
+      "title": "Alerts (24h)",
+      "gridPos": {
+        "x": 6,
+        "y": 0,
+        "w": 6,
+        "h": 4
+      },
+      "targets": [
+        {
+          "expr": "sum(cbw_eve_alert)",
+          "refId": "A"
+        }
+      ]
+    },
+    {
+      "type": "stat",
+      "title": "High-Severity Alerts (24h)",
+      "gridPos": {
+        "x": 12,
+        "y": 0,
+        "w": 6,
+        "h": 4
+      },
+      "targets": [
+        {
+          "expr": "sum(cbw_eve_alert_high)",
+          "refId": "A"
+        }
+      ]
+    },
+    {
+      "type": "logs",
+      "title": "Suricata Alerts (Recent)",
+      "gridPos": {
+        "x": 0,
+        "y": 4,
+        "w": 12,
+        "h": 12
+      },
+      "options": {
+        "dedupStrategy": "none"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "loki",
+            "uid": "-100"
+          },
+          "expr": "{job=\"suricata\", event_type=\"alert\"} | json | line_format \"[{{.alert.severity}}] {{.alert.signature}} src={{.src_ip}} dst={{.dest_ip}}\""
+        }
+      ]
+    },
+    {
+      "type": "logs",
+      "title": "Syslog (Recent)",
+      "gridPos": {
+        "x": 12,
+        "y": 4,
+        "w": 12,
+        "h": 12
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "loki",
+            "uid": "-100"
+          },
+          "expr": "{job=\"syslog\"} |~ \"kernel|suricata|sshd\""
+        }
+      ]
+    }
+  ]
+}

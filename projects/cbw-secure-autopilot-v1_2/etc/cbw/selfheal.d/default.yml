@@ -1,0 +1,14 @@
+version: 1
+rules:
+  - name: ensure-suricata-active
+    when: ids.suricata.active == False
+    action: systemctl restart suricata
+    severity: 2
+  - name: rotate-giant-syslog-when-df-full
+    when: '"100%" in disk.df'
+    action: logrotate /etc/logrotate.conf
+    severity: 1
+  - name: warn-many-high-severity-alerts
+    when: len(eve.high_sev_alerts) > 5
+    action: noop
+    severity: 2

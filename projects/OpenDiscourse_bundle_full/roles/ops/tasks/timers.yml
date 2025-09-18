@@ -1,0 +1,18 @@
+- name: Timer - PII scan weekly
+  copy:
+    dest: /etc/systemd/system/pii-scan.timer
+    content: |
+      [Unit]
+      Description=Weekly PII Scan
+      [Timer]
+      OnCalendar=Sun *-*-* 03:00:00
+      [Install]
+      WantedBy=timers.target
+- copy:
+    dest: /etc/systemd/system/pii-scan.service
+    content: |
+      [Unit]
+      Description=PII Scan
+      [Service]
+      ExecStart=/usr/bin/python3 /opt/opendiscourse/services/guardrails/pii_scan.py
+- systemd: { name: pii-scan.timer, state: started, enabled: yes }

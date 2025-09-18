@@ -1,0 +1,30 @@
+version: "3"
+services:
+  loki:
+    image: grafana/loki:2.9.8
+    command: ["-config.file=/etc/loki/config/loki-local-config.yml"]
+    ports: ["3100:3100"]
+    volumes:
+      - ./loki-config.yml:/etc/loki/config/loki-local-config.yml:ro
+      - loki-data:/loki
+  promtail:
+    image: grafana/promtail:2.9.8
+    command: ["-config.file=/etc/promtail/config.yml"]
+    volumes:
+      - ./promtail-config.yml:/etc/promtail/config.yml:ro
+      - /var/log:/var/log:ro
+      - /var/lib/docker/containers:/var/lib/docker/containers:ro
+    network_mode: host
+  grafana:
+    image: grafana/grafana:11.1.0
+    ports: ["3000:3000"]
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - ./provisioning:/etc/grafana/provisioning
+      - ./dashboards:/var/lib/grafana/dashboards
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_INSTALL_PLUGINS=grafana-clock-panel,grafana-piechart-panel
+volumes:
+  loki-data: {}
+  grafana-data: {}

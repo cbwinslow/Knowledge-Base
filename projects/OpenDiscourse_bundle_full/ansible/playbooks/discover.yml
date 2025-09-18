@@ -1,0 +1,56 @@
+---
+- hosts: all
+  gather_facts: false
+  become: true
+  vars:
+    ports_defaults: "{{ lookup('file', '../files/ports.yaml') | from_yaml }}"
+  tasks:
+    - name: Ensure config dir
+      file: { path: /etc/opendiscourse, state: directory, mode: '0755' }
+
+    - name: Push probe script
+      copy:
+        src: ../../tools/port_probe.py
+        dest: /usr/local/bin/port_probe.py
+        mode: '0755'
+
+    - name: Run probe
+      command: /usr/local/bin/port_probe.py
+      register: probe
+
+    - name: Parse probe result
+      set_fact:
+        od_discovery: "{{ probe.stdout | from_json }}"
+
+    - name: Resolve services
+      set_fact:
+        postgres_port: >-
+          {{ (od_discovery.postgres.ports|first) | default(ports_defaults.postgres.port) }}
+        postgres_reuse: >-
+          {{ od_discovery.postgres.compatible and (od_discovery.postgres.ports|length>0) }}
+        redis_port: >-
+          {{ (od_discovery.redis.ports|first) | default(ports_defaults.redis.port) }}
+        redis_reuse: >-
+          {{ od_discovery.redis.compatible and (od_discovery.redis.ports|length>0) }}
+        minio_api_port: >-
+          {{ (od_discovery.minio.ports|select('==', ports_defaults.minio.api) | list | first)
+             | default(ports_defaults.minio.api) }}
+        minio_reuse: >-
+          {{ od_discovery.minio.compatible and (od_discovery.minio.ports|length>0) }}
+        neo4j_bolt: "{{ ports_defaults.neo4j.bolt }}"
+        neo4j_http: "{{ (od_discovery.neo4j.ports|select('==', ports_defaults.neo4j.http) | list | first)
+                          | default(ports_defaults.neo4j.http) }}"
+        neo4j_reuse: >-
+          {{ od_discovery.neo4j.compatible and (od_discovery.neo4j.ports|length>0) }}
+
+    - name: Persist resolved ports & reuse flags
+      copy:
+        dest: /etc/opendiscourse/ports.resolved.json
+        mode: '0644'
+        content: |
+          {{ {
+              'postgres': {'port': postgres_port, 'reuse': postgres_reuse},
+              'redis':    {'port': redis_port,    'reuse': redis_reuse},
+              'minio':    {'api': minio_api_port, 'reuse': minio_reuse},
+              'neo4j':    {'http': neo4j_http, 'bolt': neo4j_bolt, 'reuse': neo4j_reuse}
+          } | to_nice_json }}

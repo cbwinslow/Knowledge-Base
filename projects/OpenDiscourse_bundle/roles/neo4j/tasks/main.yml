@@ -1,0 +1,14 @@
+- apt_key:
+    url: https://debian.neo4j.com/neotechnology.gpg.key
+    state: present
+- apt_repository:
+    repo: "deb https://debian.neo4j.com stable 5"
+    state: present
+- apt:
+    name: neo4j
+    state: present
+- lineinfile:
+    path: /etc/neo4j/neo4j.conf
+    regexp: '^#?dbms.default_listen_address='
+    line: 'dbms.default_listen_address=0.0.0.0'
+  notify: Restart neo4j

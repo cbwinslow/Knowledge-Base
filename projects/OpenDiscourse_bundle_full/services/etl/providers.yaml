@@ -1,0 +1,10 @@
+providers:
+  - name: govinfo
+    rpm: 60
+    tos_url: https://www.govinfo.gov/developers
+  - name: openstates
+    rpm: 60
+    tos_url: https://openstates.org/
+  - name: federal_register
+    rpm: 60
+    tos_url: https://www.federalregister.gov/developers
