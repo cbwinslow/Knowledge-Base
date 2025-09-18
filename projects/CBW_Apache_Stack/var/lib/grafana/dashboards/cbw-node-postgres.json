@@ -1,0 +1,27 @@
+{
+  "title": "CBW Node & Postgres",
+  "panels": [
+    {
+      "type": "graph",
+      "title": "CPU Load",
+      "targets": [
+        {
+          "expr": "node_load1"
+        }
+      ]
+    },
+    {
+      "type": "graph",
+      "title": "Postgres xact commit/s",
+      "targets": [
+        {
+          "expr": "rate(pg_stat_database_xact_commit[5m])"
+        }
+      ]
+    }
+  ],
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  }
+}

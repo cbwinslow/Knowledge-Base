@@ -1,0 +1,25 @@
+---
+ports:
+  kafka: 9092
+  kafka_ctrl: 9093
+  solr: 8983
+  apache_http: 8080
+  opensearch_http: 9200
+  opensearch_tcp: 9300
+  opensearch_dash: 5601
+
+cloudflared:
+  install: false
+  tunnel_name: cbw-tunnel
+  token: "REPLACE_WITH_CLOUDFLARED_TOKEN"
+  ingress:
+    - hostname: airflow.example.com
+      service: http://127.0.0.1:8081
+    - hostname: superset.example.com
+      service: http://127.0.0.1:8088
+    - hostname: metrics.example.com
+      service: http://127.0.0.1:9090
+    - hostname: grafana.example.com
+      service: http://127.0.0.1:3000
+    - hostname: osdash.example.com
+      service: http://127.0.0.1:5601

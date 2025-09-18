@@ -1,0 +1,9 @@
+{
+  "name": "cloudcurio-stackhub-pulumi",
+  "private": true,
+  "version": "0.1.0",
+  "dependencies": {
+    "@pulumi/cloudflare": "^5.40.0",
+    "@pulumi/pulumi": "^3.128.0"
+  }
+}

@@ -1,0 +1,50 @@
+---
+- hosts: localhost
+  vars: { node_version: "20" }
+  tasks:
+    - name: Ensure Node.js {{ node_version }} present
+      become: yes
+      shell: |
+        curl -fsSL https://deb.nodesource.com/setup_{{ node_version }}.x | bash -
+        apt-get install -y nodejs
+      args: { warn: false }
+    - name: Install Wrangler CLI
+      shell: npm i -g wrangler@latest
+    - name: Build Worker bundle
+      args: { chdir: "infrastructure/cloudflare" }
+      shell: |
+        npm i || true
+        npm run build
+    - name: Create D1 if missing (idempotent)
+      shell: |
+        npx wrangler d1 list --json | jq -e '.[] | select(.name=="stackhub_db")' ||         npx wrangler d1 create stackhub_db
+      environment: { CLOUDFLARE_API_TOKEN: "{{ cloudflare.api_token }}" }
+    - name: Apply D1 schema
+      shell: npx wrangler d1 execute stackhub_db --file d1/schema.sql --remote
+      args: { chdir: "infrastructure/cloudflare" }
+      environment: { CLOUDFLARE_API_TOKEN: "{{ cloudflare.api_token }}" }
+    - name: Ensure Vectorize index exists (REST API)
+      vars: { account: "{{ cloudflare.account_id }}", idx: "{{ stackhub.vectorize_index }}" }
+      uri:
+        url: "{{ cloudflare.api_url }}/accounts/{{ account }}/vectorize/v2/indexes"
+        method: POST
+        headers: { Authorization: "Bearer {{ cloudflare.api_token }}", Content-Type: "application/json" }
+        body_format: json
+        body: { name: "{{ idx }}", description: "StackHub semantic index", config: { dimensions: 768, metric: "cosine" } }
+        status_code: [201,409]
+    - name: Deploy Worker API
+      shell: npm run deploy
+      args: { chdir: "infrastructure/cloudflare" }
+      environment: { CLOUDFLARE_API_TOKEN: "{{ cloudflare.api_token }}" }
+    - name: Reindex (one-time seed)
+      uri: { url: "https://{{ stackhub.api_host }}/reindex", method: POST, status_code: [200] }
+    - name: Smoke test — GET /items
+      uri: { url: "https://{{ stackhub.api_host }}/items", return_content: yes }
+      register: items
+    - name: Assert items payload
+      assert: { that: [ "items.status == 200" ] }
+    - name: Smoke test — app homepage
+      uri: { url: "https://cloudcurio.cc", return_content: no }
+      register: apphome
+    - name: Assert app responds
+      assert: { that: [ "apphome.status == 200" ] }

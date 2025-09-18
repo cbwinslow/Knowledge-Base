@@ -1,0 +1,32 @@
+---
+- name: Install apache2
+  apt: { name: apache2, state: present, update_cache: true }
+
+- name: Configure ports and vhost
+  blockinfile:
+    path: /etc/apache2/sites-available/cbw-local.conf
+    create: yes
+    block: |
+      <VirtualHost 127.0.0.1:{{ ports.apache_http | default(8080) }}>
+        ServerName localhost
+        DocumentRoot /var/www/html
+        <Directory /var/www/html>
+          Options -Indexes +FollowSymLinks
+          AllowOverride None
+          Require all granted
+        </Directory>
+        ErrorLog ${APACHE_LOG_DIR}/cbw_error.log
+        CustomLog ${APACHE_LOG_DIR}/cbw_access.log combined
+      </VirtualHost>
+
+- name: Ensure ports.conf Listen
+  lineinfile:
+    path: /etc/apache2/ports.conf
+    regexp: '^Listen '
+    line: 'Listen 127.0.0.1:{{ ports.apache_http | default(8080) }}'
+
+- name: Enable site and modules
+  shell: a2dissite 000-default.conf || true && a2ensite cbw-local.conf && a2enmod headers ssl rewrite
+
+- name: Restart apache2
+  systemd: { name: apache2, state: restarted, enabled: true }

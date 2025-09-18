@@ -1,0 +1,9 @@
+---
+- hosts: all
+  become: true
+  roles:
+    - { role: kafka, tags: ['kafka'] }
+    - { role: solr, tags: ['solr'] }
+    - { role: opensearch, tags: ['opensearch'] }
+    - { role: httpd, tags: ['httpd'] }
+    - { role: cloudflared, when: cloudflared.install | default(false), tags: ['cloudflared'] }

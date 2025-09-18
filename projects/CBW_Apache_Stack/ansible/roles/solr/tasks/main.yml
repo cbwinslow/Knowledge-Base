@@ -1,0 +1,22 @@
+---
+- name: Download Solr
+  unarchive:
+    src: https://dlcdn.apache.org/solr/9.7.0/solr-9.7.0.tgz
+    dest: /tmp
+    remote_src: true
+
+- name: Install Solr as service
+  shell: bash /tmp/solr-9.7.0/bin/install_solr_service.sh /tmp/solr-9.7.0.tgz -n
+  args: { creates: /etc/default/solr.in.sh }
+
+- name: Bind to localhost & set port
+  lineinfile:
+    path: /etc/default/solr.in.sh
+    regexp: "^{{ item.key }}=.*"
+    line: "{{ item.key }}="{{ item.value }}""
+  loop:
+    - { key: SOLR_JETTY_HOST, value: 127.0.0.1 }
+    - { key: SOLR_PORT, value: "{{ ports.solr }}" }
+
+- name: Restart Solr
+  systemd: { name: solr, state: restarted }

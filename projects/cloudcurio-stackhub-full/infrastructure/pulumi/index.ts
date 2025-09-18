@@ -1,0 +1,13 @@
+import * as cloudflare from "@pulumi/cloudflare";
+const accountId = process.env.CLOUDFLARE_ACCOUNT_ID!;
+const zoneId = process.env.CLOUDFLARE_ZONE_ID!;
+const rootDomain = process.env.ROOT_DOMAIN || "cloudcurio.cc";
+const apiSub = process.env.API_SUBDOMAIN || "api";
+const db = new cloudflare.D1Database("stackhub-db", { accountId, name: "stackhub_db" });
+const r2 = new cloudflare.R2Bucket("artifacts", { accountId, name: "stackhub-artifacts" });
+const turnstile = new cloudflare.TurnstileWidget("stackhub", { accountId, name: "stackhub-public-forms", mode: "invisible" });
+const q = new cloudflare.Queue("embed", { accountId, queueName: "stackhub-embed-queue" });
+const pages = new cloudflare.PagesProject("app", { accountId, name: "cloudcurio-stackhub", productionBranch: "main", deploymentConfigs: { production: { environmentVariables: { NEXT_PUBLIC_STACKHUB_API: `https://${apiSub}.${rootDomain}`, NODE_VERSION: "20" } } } });
+new cloudflare.Record("app-root", { zoneId, name: rootDomain, type: "CNAME", value: pages.subdomain, proxied: true });
+new cloudflare.Record("api-cname", { zoneId, name: `${apiSub}.${rootDomain}`, type: "CNAME", value: "workers.dev", proxied: true });
+export const d1Id = db.uuid; export const turnstileSiteKey = turnstile.siteKey;

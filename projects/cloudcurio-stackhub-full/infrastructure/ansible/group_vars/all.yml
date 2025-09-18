@@ -1,0 +1,7 @@
+cloudflare:
+  account_id: "YOUR_ACCOUNT_ID"
+  api_token: "{{ lookup('env','CLOUDFLARE_API_TOKEN') }}"
+  api_url: "https://api.cloudflare.com/client/v4"
+stackhub:
+  api_host: "api.cloudcurio.cc"
+  vectorize_index: "stackhub_index"

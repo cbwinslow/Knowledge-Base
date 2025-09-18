@@ -1,0 +1,32 @@
+---
+- name: Install cloudflared
+  shell: |
+    mkdir -p /usr/local/bin
+    if ! command -v cloudflared >/dev/null; then
+      curl -fsSL https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 -o /usr/local/bin/cloudflared
+      chmod +x /usr/local/bin/cloudflared
+    fi
+
+- name: Configure cloudflared tunnel
+  copy:
+    dest: /etc/cloudflared/config.yml
+    mode: '0644'
+    content: |
+      tunnel: {{ cloudflared.tunnel_name }}
+      credentials-file: /etc/cloudflared/{{ cloudflared.tunnel_name }}.json
+      ingress:
+      {% for r in cloudflared.ingress %}
+        - hostname: {{ r.hostname }}
+          service: {{ r.service }}
+      {% endfor %}
+        - service: http_status:404
+
+- name: Write credentials (token-based)
+  shell: |
+    set -e
+    cloudflared service install {{ cloudflared.token }} || true
+  args:
+    creates: /etc/systemd/system/cloudflared.service
+
+- name: Ensure service
+  systemd: { name: cloudflared, state: started, enabled: true }

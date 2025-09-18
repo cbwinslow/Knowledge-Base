@@ -1,0 +1,13 @@
+{
+  "name": "cloudcurio-stackhub-api",
+  "private": true,
+  "version": "0.3.0",
+  "scripts": {
+    "build": "esbuild src/index.ts --bundle --format=esm --platform=neutral --outfile=dist/index.js",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "esbuild": "0.21.5",
+    "typescript": "5.4.5"
+  }
+}

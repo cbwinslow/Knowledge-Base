@@ -1,0 +1,29 @@
+---
+- name: Install OpenSearch + Dashboards
+  apt:
+    update_cache: true
+    name: [opensearch, opensearch-dashboards]
+    state: present
+
+- name: Configure OpenSearch
+  blockinfile:
+    path: /etc/opensearch/opensearch.yml
+    block: |
+      network.host: 127.0.0.1
+      http.port: {{ ports.opensearch_http | default(9200) }}
+      transport.port: {{ ports.opensearch_tcp | default(9300) }}
+      discovery.type: single-node
+      plugins.security.disabled: true
+
+- name: Configure Dashboards
+  lineinfile:
+    path: /etc/opensearch-dashboards/opensearch_dashboards.yml
+    regexp: '^{{ item.key }}:'
+    line: '{{ item.key }}: {{ item.val }}'
+  loop:
+    - { key: 'server.host', val: '"127.0.0.1"' }
+    - { key: 'server.port', val: '{{ ports.opensearch_dash | default(5601) }}' }
+
+- name: Start services
+  systemd: { name: '{{ item }}', state: started, enabled: true }
+  loop: [opensearch, opensearch-dashboards]

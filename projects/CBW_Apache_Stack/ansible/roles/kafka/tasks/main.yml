@@ -1,0 +1,49 @@
+---
+- name: Ensure kafka user
+  user: { name: kafka, create_home: yes, shell: /usr/sbin/nologin }
+
+- name: Download & install Kafka
+  unarchive:
+    src: https://downloads.apache.org/kafka/3.7.1/kafka_2.13-3.7.1.tgz
+    dest: /opt
+    remote_src: true
+
+- name: Symlink to /opt/kafka
+  file: { src: /opt/kafka_2.13-3.7.1, dest: /opt/kafka, state: link }
+
+- name: Create kraft.properties
+  copy:
+    dest: /opt/kafka/config/kraft.properties
+    content: |
+      process.roles=broker,controller
+      node.id=1
+      controller.quorum.voters=1@127.0.0.1:{{ ports.kafka_ctrl }}
+      listeners=PLAINTEXT://:{{ ports.kafka }},CONTROLLER://:{{ ports.kafka_ctrl }}
+      inter.broker.listener.name=PLAINTEXT
+      controller.listener.names=CONTROLLER
+      advertised.listeners=PLAINTEXT://127.0.0.1:{{ ports.kafka }}
+      log.dirs=/opt/kafka/kraft-data
+
+- name: Format storage (idempotent)
+  shell: |
+    test -f /opt/kafka/cluster.uuid || /opt/kafka/bin/kafka-storage.sh random-uuid > /opt/kafka/cluster.uuid
+    /opt/kafka/bin/kafka-storage.sh format -t "$(cat /opt/kafka/cluster.uuid)" -c /opt/kafka/config/kraft.properties
+  args: { creates: /opt/kafka/kraft-data }
+  become_user: kafka
+
+- name: systemd unit
+  copy:
+    dest: /etc/systemd/system/kafka.service
+    content: |
+      [Unit]
+      Description=Apache Kafka (KRaft)
+      After=network-online.target
+      [Service]
+      User=kafka
+      ExecStart=/opt/kafka/bin/kafka-server-start.sh /opt/kafka/config/kraft.properties
+      Restart=on-failure
+      [Install]
+      WantedBy=multi-user.target
+
+- name: Reload & start
+  systemd: { daemon_reload: true, name: kafka, state: started, enabled: true }
