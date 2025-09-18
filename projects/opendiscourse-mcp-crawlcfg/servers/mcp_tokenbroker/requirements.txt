@@ -1,0 +1,6 @@
+fastapi==0.112.0
+uvicorn[standard]==0.30.6
+pydantic==2.8.2
+
+playwright==1.47.2
+hvac==2.3.0
