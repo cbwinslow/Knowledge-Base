@@ -1,0 +1,120 @@
+{
+  "title": "LiteLLM Overview",
+  "schemaVersion": 39,
+  "version": 1,
+  "overwrite": true,
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "panels": [
+    {
+      "type": "stat",
+      "title": "Requests (24h)",
+      "gridPos": {
+        "x": 0,
+        "y": 0,
+        "w": 6,
+        "h": 4
+      },
+      "targets": [
+        {
+          "expr": "sum(increase(litellm_requests_total[24h]))",
+          "legendFormat": "requests"
+        }
+      ]
+    },
+    {
+      "type": "stat",
+      "title": "Errors (24h)",
+      "gridPos": {
+        "x": 6,
+        "y": 0,
+        "w": 6,
+        "h": 4
+      },
+      "targets": [
+        {
+          "expr": "sum(increase(litellm_errors_total[24h]))",
+          "legendFormat": "errors"
+        }
+      ]
+    },
+    {
+      "type": "gauge",
+      "title": "Cache Hit Ratio (24h)",
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        }
+      },
+      "gridPos": {
+        "x": 12,
+        "y": 0,
+        "w": 6,
+        "h": 4
+      },
+      "targets": [
+        {
+          "expr": "sum(increase(litellm_cache_hits_total[24h])) / sum(increase(litellm_requests_total[24h]))",
+          "legendFormat": "hit_ratio"
+        }
+      ]
+    },
+    {
+      "type": "timeseries",
+      "title": "Requests per Second",
+      "gridPos": {
+        "x": 0,
+        "y": 4,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "expr": "sum(rate(litellm_requests_total[5m]))",
+          "legendFormat": "rps"
+        }
+      ]
+    },
+    {
+      "type": "timeseries",
+      "title": "Error Rate per Second",
+      "gridPos": {
+        "x": 12,
+        "y": 4,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "expr": "sum(rate(litellm_errors_total[5m]))",
+          "legendFormat": "err/s"
+        }
+      ]
+    },
+    {
+      "type": "logs",
+      "title": "Recent LiteLLM Logs (Loki)",
+      "gridPos": {
+        "x": 0,
+        "y": 12,
+        "w": 24,
+        "h": 9
+      },
+      "options": {
+        "showTime": true
+      },
+      "targets": [
+        {
+          "query": "{job=\"docker\"} |= \"litellm\"",
+          "refId": "A"
+        }
+      ]
+    }
+  ]
+}

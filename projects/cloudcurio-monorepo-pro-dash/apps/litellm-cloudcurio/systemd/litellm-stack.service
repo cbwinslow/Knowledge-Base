@@ -1,0 +1,4 @@
+[Unit]
+Description=Litellm
+[Service]
+Type=oneshot

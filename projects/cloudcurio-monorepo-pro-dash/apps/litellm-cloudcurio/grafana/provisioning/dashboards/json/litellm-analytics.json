@@ -1,0 +1,88 @@
+{
+  "title": "LiteLLM Analytics (Postgres)",
+  "schemaVersion": 39,
+  "version": 1,
+  "overwrite": true,
+  "time": {
+    "from": "now-7d",
+    "to": "now"
+  },
+  "panels": [
+    {
+      "type": "timeseries",
+      "title": "Requests / Errors (5m)",
+      "gridPos": {
+        "x": 0,
+        "y": 0,
+        "w": 24,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres"
+          },
+          "format": "time_series",
+          "rawSql": "SELECT time_bucket('5 minutes', ts) AS time, sum(requests) AS value FROM metrics GROUP BY time ORDER BY time;",
+          "timeColumn": "time",
+          "metricColumn": "value"
+        },
+        {
+          "refId": "B",
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres"
+          },
+          "format": "time_series",
+          "rawSql": "SELECT time_bucket('5 minutes', ts) AS time, sum(errors) AS value FROM metrics GROUP BY time ORDER BY time;",
+          "timeColumn": "time",
+          "metricColumn": "value"
+        }
+      ]
+    },
+    {
+      "type": "stat",
+      "title": "Cache Hit % (last 24h)",
+      "gridPos": {
+        "x": 0,
+        "y": 8,
+        "w": 6,
+        "h": 4
+      },
+      "targets": [
+        {
+          "refId": "C",
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres"
+          },
+          "format": "table",
+          "rawSql": "SELECT CASE WHEN SUM(requests)=0 THEN 0 ELSE SUM(cache_hits)::float / SUM(requests) END AS value FROM metrics WHERE ts > now() - interval '24 hours';"
+        }
+      ]
+    },
+    {
+      "type": "table",
+      "title": "Raw Metrics (Recent)",
+      "gridPos": {
+        "x": 6,
+        "y": 8,
+        "w": 18,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "D",
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres"
+          },
+          "format": "table",
+          "rawSql": "SELECT ts, requests, errors, cache_hits FROM metrics ORDER BY ts DESC LIMIT 200;"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+version: "3.9"
+services:
+  litellm:
+    image: ghcr.io/berriai/litellm:latest
+    restart: always
+    env_file: ../env/.env
+    command: >
+      litellm --config /app/config.yaml --num_workers 2 --metrics
+    volumes:
+      - ../config/config.yaml:/app/config.yaml:ro
+      - ../data:/app/data
+    ports:
+      - "${LITELLM_PORT}:${LITELLM_PORT}"
+    networks:
+      - ${DOCKER_NETWORK}
+  redis:
+    image: redis:7-alpine
+    restart: always
+    command: redis-server --requirepass ${REDIS_PASSWORD}
+    networks: [ ${DOCKER_NETWORK} ]
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    restart: unless-stopped
+    env_file: ../env/.env
+    command: tunnel --no-autoupdate run
+    environment:
+      - TUNNEL_TOKEN=${CLOUDFLARE_TUNNEL_TOKEN}
+    depends_on: [ litellm ]
+    networks: [ ${DOCKER_NETWORK} ]
+  prometheus:
+    image: prom/prometheus:latest
+    restart: unless-stopped
+    user: "root"
+    volumes:
+      - ../prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - ../prometheus-data:/prometheus
+    command: --config.file=/etc/prometheus/prometheus.yml --storage.tsdb.path=/prometheus
+    networks: [ ${DOCKER_NETWORK} ]
+    profiles: [ "observability" ]
+  grafana:
+    image: grafana/grafana:latest
+    restart: unless-stopped
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    volumes:
+      - ../grafana-data:/var/lib/grafana
+      - ../grafana/provisioning:/etc/grafana/provisioning
+    networks: [ ${DOCKER_NETWORK} ]
+    depends_on: [ prometheus ]
+    profiles: [ "observability" ]
+networks:
+  ${DOCKER_NETWORK}:
+    driver: bridge
