@@ -1,0 +1,50 @@
+#!/bin/bash
+
+# Storage Optimization Demonstration Script
+# This script shows what the optimization would do without actually erasing data
+
+echo "=== Storage Optimization Demonstration ==="
+echo "This script demonstrates what the LVM optimization would do."
+echo ""
+
+echo "CURRENT STORAGE CONFIGURATION:"
+echo "------------------------------"
+echo "Boot Drive (sda): 1.1TB SSD"
+echo "  - sda1: 1.1GB vfat (EFI boot partition)"
+echo "  - sda2: 2GB ext4 (boot partition)"
+echo "  - sda3: 1.1TB LVM2 physical volume (root filesystem)"
+echo ""
+echo "Data Drives (currently unused):"
+echo "  - sdb: 1.1TB (ZFS member)"
+echo "  - sdc: 1.1TB (ZFS member)"
+echo "  - sdd: 1.1TB (ZFS member)"
+echo "  - sde: 586GB (ext4, unmounted)"
+echo "  - sdf: 1.1TB (ZFS member)"
+echo ""
+
+echo "WHAT THE OPTIMIZATION WOULD DO:"
+echo "-------------------------------"
+echo "1. Convert drives sdb, sdc, sdd, sde, and sdf to LVM physical volumes"
+echo "2. Create a volume group named 'data-vg' spanning all physical volumes"
+echo "3. Create three logical volumes with specific sizes:"
+echo "   - data-lv: 4TB for general data storage"
+echo "   - backup-lv: 700GB for backup storage"
+echo "   - archive-lv: Remaining space (~300GB) for archive storage"
+echo "4. Format the logical volumes with ext4 filesystems"
+echo "5. Create mount points at /data, /backup, and /archive"
+echo "6. Add entries to /etc/fstab for automatic mounting at boot"
+echo ""
+
+echo "EXPECTED RESULT:"
+echo "----------------"
+echo "You would gain access to approximately 5TB of additional storage:"
+echo "- Data volume (4TB) mounted at /data"
+echo "- Backup volume (700GB) mounted at /backup"
+echo "- Archive volume (~300GB) mounted at /archive"
+echo ""
+
+echo "To actually perform this optimization, you would run:"
+echo "  ./optimize_storage_better_sizes.sh"
+echo ""
+echo "WARNING: This would permanently erase all data on sdb, sdc, sdd, sde, and sdf."
+echo "Please ensure you have backed up any important data before running the actual script."

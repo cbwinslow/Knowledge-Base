@@ -1,0 +1,61 @@
+#!/bin/bash
+
+# Quick Status Summary Script
+# This script provides a quick overview of the current system status
+
+echo "=== Quick Status Summary ==="
+echo ""
+
+echo "## System Information"
+echo "Hostname: $(hostname)"
+echo "IP Address: $(hostname -I | awk '{print $1}')"
+echo "Date: $(date)"
+echo ""
+
+echo "## Running Services"
+echo "SSH: $(systemctl is-active ssh 2>/dev/null || echo 'Not installed')"
+echo "Docker: $(systemctl is-active docker 2>/dev/null || echo 'Not installed')"
+echo "PostgreSQL: $(systemctl is-active postgresql 2>/dev/null || echo 'Not installed')"
+echo "Apache: $(systemctl is-active apache2 2>/dev/null || echo 'Not installed')"
+echo "Suricata: $(systemctl is-active suricata 2>/dev/null || echo 'Not installed')"
+echo "Fail2ban: $(systemctl is-active fail2ban 2>/dev/null || echo 'Not installed')"
+echo ""
+
+echo "## Installed Tools"
+echo "nmap: $(command -v nmap &>/dev/null && echo 'Yes' || echo 'No')"
+echo "wireshark: $(command -v wireshark &>/dev/null && echo 'Yes' || echo 'No')"
+echo "tcpdump: $(command -v tcpdump &>/dev/null && echo 'Yes' || echo 'No')"
+echo "hydra: $(command -v hydra &>/dev/null && echo 'Yes' || echo 'No')"
+echo "john: $(command -v john &>/dev/null && echo 'Yes' || echo 'No')"
+echo "sqlmap: $(command -v sqlmap &>/dev/null && echo 'Yes' || echo 'No')"
+echo "nikto: $(command -v nikto &>/dev/null && echo 'Yes' || echo 'No')"
+echo "metasploit: $(command -v msfconsole &>/dev/null && echo 'Yes' || echo 'No')"
+echo ""
+
+echo "## Network Status"
+echo "Listening on port 22 (SSH): $(ss -tlnp | grep ':22 ' &>/dev/null && echo 'Yes' || echo 'No')"
+echo "Listening on port 80 (HTTP): $(ss -tlnp | grep ':80 ' &>/dev/null && echo 'Yes' || echo 'No')"
+echo "Listening on port 443 (HTTPS): $(ss -tlnp | grep ':443 ' &>/dev/null && echo 'Yes' || echo 'No')"
+echo "Listening on port 5432 (PostgreSQL): $(ss -tlnp | grep ':5432 ' &>/dev/null && echo 'Yes' || echo 'No')"
+echo ""
+
+echo "## Storage Status"
+echo "Available disk space:"
+df -h | grep -E "(Filesystem|/$)"
+echo ""
+
+echo "## Next Steps"
+echo "1. Install Nextcloud dependencies:"
+echo "   /home/cbwinslow/security_setup/install_nextcloud_deps.sh"
+echo ""
+echo "2. Install Nextcloud:"
+echo "   /home/cbwinslow/security_setup/install_nextcloud.sh"
+echo ""
+echo "3. Fix Suricata configuration:"
+echo "   /home/cbwinslow/security_setup/fix_suricata.sh"
+echo ""
+echo "4. Run complete security setup:"
+echo "   /home/cbwinslow/security_setup/run_master_installation.sh"
+echo ""
+echo "5. Check documentation in /home/cbwinslow/security_setup/docs/"
+echo ""

@@ -4,7 +4,17 @@ This directory contains various scripts organized by category.
 
 ## Categories
 
+- [AI Monitoring](ai_monitoring/) - Scripts for AI monitoring and related tools
+- [Database](database/) - Scripts for database management and configuration
+- [Deployment](deployment/) - Scripts for system deployment and setup
+- [Developer Tools](developer_tools/) - Scripts for developer tools (currently empty)
+- [Monitoring](monitoring/) - Scripts for system monitoring (currently empty)
+- [Networking](networking/) - Scripts for networking configuration
+- [Security](security/) - Scripts for security setup (currently empty)
 - [Server Setup](server_setup/) - Scripts for server setup and automation tasks
+- [Storage](storage/) - Scripts for storage management
+- [System Setup](system_setup/) - Scripts for system setup (currently empty)
+- [Utilities](utilities/) - Various utility scripts
 
 ## Overview
 

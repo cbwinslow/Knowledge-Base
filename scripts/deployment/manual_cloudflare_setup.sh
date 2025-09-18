@@ -1,0 +1,208 @@
+#!/bin/bash
+
+# Manual Cloudflare Tunnel Setup Script for Nextcloud
+# This script provides step-by-step instructions for setting up Cloudflare Tunnel
+
+echo "=== Manual Cloudflare Tunnel Setup for Nextcloud ==="
+echo ""
+
+echo "This script will guide you through setting up Cloudflare Tunnel for Nextcloud."
+echo "You'll need to run these commands manually with sudo privileges."
+echo ""
+
+# Create documentation
+DOCS_DIR="/home/cbwinslow/security_setup/docs"
+mkdir -p $DOCS_DIR
+
+{
+    echo "# Manual Cloudflare Tunnel Setup for Nextcloud"
+    echo ""
+    echo "Date: $(date)"
+    echo ""
+    echo "## Setup Instructions"
+    echo ""
+} > $DOCS_DIR/manual_cloudflare_setup.md
+
+# Function to log actions
+log_action() {
+    echo "$1"
+    echo "- $1" >> $DOCS_DIR/manual_cloudflare_setup.md
+}
+
+echo "Step 1: Install Cloudflare Tunnel (cloudflared)"
+echo "============================================="
+log_action "Step 1: Install Cloudflare Tunnel (cloudflared)"
+echo ""
+
+echo "Run the following commands manually:"
+echo ""
+echo "# Download cloudflared package"
+echo "wget -q https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb"
+echo ""
+echo "# Install the package (requires sudo)"
+echo "sudo dpkg -i cloudflared-linux-amd64.deb"
+echo ""
+echo "# Verify installation"
+echo "cloudflared --version"
+echo ""
+
+log_action "Commands to run manually:"
+log_action "wget -q https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb"
+log_action "sudo dpkg -i cloudflared-linux-amd64.deb"
+log_action "cloudflared --version"
+
+echo ""
+echo "Step 2: Authenticate with Cloudflare"
+echo "==================================="
+log_action "Step 2: Authenticate with Cloudflare"
+echo ""
+
+echo "Run the following command manually:"
+echo ""
+echo "# Login to Cloudflare"
+echo "cloudflared tunnel login"
+echo ""
+echo "This will open a browser window for authentication."
+echo "After authenticating, the certificate will be downloaded to ~/.cloudflared/"
+
+log_action "Commands to run manually:"
+log_action "cloudflared tunnel login"
+
+echo ""
+echo "Step 3: Create a Tunnel"
+echo "======================"
+log_action "Step 3: Create a Tunnel"
+echo ""
+
+echo "Run the following command manually:"
+echo ""
+echo "# Create a tunnel named 'nextcloud'"
+echo "cloudflared tunnel create nextcloud"
+echo ""
+echo "Note the tunnel ID from the output."
+
+log_action "Commands to run manually:"
+log_action "cloudflared tunnel create nextcloud"
+
+echo ""
+echo "Step 4: Configure the Tunnel"
+echo "==========================="
+log_action "Step 4: Configure the Tunnel"
+echo ""
+
+echo "Find your tunnel ID and create the configuration file:"
+echo ""
+echo "# Find your tunnel ID"
+echo "TUNNEL_ID=$(cloudflared tunnel list | grep nextcloud | awk '{print $1}')"
+echo ""
+echo "# Create the configuration directory (requires sudo)"
+echo "sudo mkdir -p /etc/cloudflared"
+echo ""
+echo "# Create the configuration file (requires sudo)"
+echo "sudo tee /etc/cloudflared/$TUNNEL_ID.json > /dev/null <<EOF"
+echo "{"
+echo "  \"tunnel\": \"$TUNNEL_ID\","
+echo "  \"credentials-file\": \"/home/$USER/.cloudflared/$TUNNEL_ID.json\","
+echo "  \"ingress\": ["
+echo "    {"
+echo "      \"hostname\": \"nextcloud.yourdomain.com\","
+echo "      \"service\": \"http://localhost:80\""
+echo "    },"
+echo "    {"
+echo "      \"service\": \"http_status:404\""
+echo "    }"
+echo "  ]"
+echo "}"
+echo "EOF"
+
+log_action "Commands to run manually:"
+log_action "TUNNEL_ID=$(cloudflared tunnel list | grep nextcloud | awk '{print $1}')"
+log_action "sudo mkdir -p /etc/cloudflared"
+log_action "sudo tee /etc/cloudflared/$TUNNEL_ID.json > /dev/null <<EOF (see above for content)"
+
+echo ""
+echo "Step 5: Route Traffic to Your Tunnel"
+echo "==================================="
+log_action "Step 5: Route Traffic to Your Tunnel"
+echo ""
+
+echo "Run the following command manually:"
+echo ""
+echo "# Route your domain to the tunnel"
+echo "cloudflared tunnel route dns nextcloud nextcloud.yourdomain.com"
+echo ""
+echo "Replace 'nextcloud.yourdomain.com' with your actual domain."
+
+log_action "Commands to run manually:"
+log_action "cloudflared tunnel route dns nextcloud nextcloud.yourdomain.com"
+
+echo ""
+echo "Step 6: Start the Tunnel"
+echo "======================="
+log_action "Step 6: Start the Tunnel"
+echo ""
+
+echo "Run the following command manually:"
+echo ""
+echo "# Run the tunnel"
+echo "cloudflared tunnel --config /etc/cloudflared/$TUNNEL_ID.json run"
+echo ""
+echo "Or run as a service (recommended for production):"
+echo ""
+echo "# Install as a service (requires sudo)"
+echo "sudo cloudflared service install --config /etc/cloudflared/$TUNNEL_ID.json"
+echo ""
+echo "# Enable and start the service (requires sudo)"
+echo "sudo systemctl enable cloudflared"
+echo "sudo systemctl start cloudflared"
+
+log_action "Commands to run manually:"
+log_action "cloudflared tunnel --config /etc/cloudflared/$TUNNEL_ID.json run"
+log_action "sudo cloudflared service install --config /etc/cloudflared/$TUNNEL_ID.json"
+log_action "sudo systemctl enable cloudflared"
+log_action "sudo systemctl start cloudflared"
+
+echo ""
+echo "=== Manual Setup Complete ==="
+echo ""
+echo "Documentation created in $DOCS_DIR/manual_cloudflare_setup.md"
+echo ""
+echo "Next steps:"
+echo "1. Run the commands above manually with sudo privileges"
+echo "2. Replace 'nextcloud.yourdomain.com' with your actual domain"
+echo "3. Access your Nextcloud at https://nextcloud.yourdomain.com"
+echo "4. Configure Cloudflare Access for authentication in the Cloudflare dashboard"
+
+{
+    echo ""
+    echo "## Next Steps"
+    echo ""
+    echo "1. Run the commands above manually with sudo privileges"
+    echo "2. Replace 'nextcloud.yourdomain.com' with your actual domain"
+    echo "3. Access your Nextcloud at https://nextcloud.yourdomain.com"
+    echo "4. Configure Cloudflare Access for authentication in the Cloudflare dashboard"
+    echo ""
+    echo "## Useful Commands"
+    echo ""
+    echo "- Check tunnel status: cloudflared tunnel list"
+    echo "- View tunnel logs: sudo journalctl -u cloudflared -f"
+    echo "- Check tunnel configuration: cloudflared tunnel info nextcloud"
+    echo "- Validate configuration: cloudflared tunnel validate --config /etc/cloudflared/$TUNNEL_ID.json"
+    echo ""
+    echo "## Troubleshooting"
+    echo ""
+    echo "- If the tunnel won't start, check the configuration file permissions"
+    echo "- Ensure the domain is correctly routed in the Cloudflare dashboard"
+    echo "- Check firewall settings if you're having connectivity issues"
+    echo "- Verify that Nextcloud is running locally at http://localhost/nextcloud"
+    echo ""
+    echo "## Security Recommendations"
+    echo ""
+    echo "- Use Cloudflare Access for authentication"
+    echo "- Enable two-factor authentication in Nextcloud"
+    echo "- Use strong, unique passwords"
+    echo "- Keep cloudflared updated regularly"
+    echo "- Monitor access logs regularly"
+} >> $DOCS_DIR/manual_cloudflare_setup.md
+
+echo "Manual setup instructions complete!"
