@@ -1,0 +1,7 @@
+
+flowchart LR
+  A[Ingestion] --> B[NER + Linking]
+  B --> C[Neo4j Graph]
+  C --> D[LangGraph Pipelines]
+  D --> E[Insights API]
+  E --> F[Next.js UI]

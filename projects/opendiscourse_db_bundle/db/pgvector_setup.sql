@@ -1,0 +1,1 @@
+-- placeholder: pgvector_setup.sql (already generated earlier)

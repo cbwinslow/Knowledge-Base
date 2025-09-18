@@ -1,0 +1,15 @@
+services:
+  nginx:
+    image: nginx:stable
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./conf.d:/etc/nginx/conf.d:ro
+      - ./html:/usr/share/nginx/html:ro
+    networks: [${DOCKER_NET}]
+    restart: unless-stopped
+
+networks:
+  ${DOCKER_NET}:
+    external: true

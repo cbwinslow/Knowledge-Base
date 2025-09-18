@@ -1,0 +1,14 @@
+{
+    email admin@cloudcurio.cc
+}
+
+:80 {
+    respond 200 "Caddy is up"
+    log
+}
+
+:443 {
+    respond 200 "Caddy is up (TLS)"
+    tls internal
+    log
+}

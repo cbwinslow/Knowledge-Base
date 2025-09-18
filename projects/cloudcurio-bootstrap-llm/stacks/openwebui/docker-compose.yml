@@ -1,0 +1,4 @@
+services:
+  openwebui:
+    image: ghcr.io/open-webui/open-webui:latest
+    ports: ["8080:8080"]

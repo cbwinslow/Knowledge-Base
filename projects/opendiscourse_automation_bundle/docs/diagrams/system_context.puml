@@ -1,0 +1,15 @@
+
+@startuml
+title OpenDiscourse - System Context
+actor User
+rectangle "Frontend (Next.js)" as FE
+rectangle "API (FastAPI)" as API
+database "PostgreSQL+pgvector" as PG
+rectangle "Weaviate Vector DB" as WV
+rectangle "LangChain / LangGraph Agents" as LC
+User --> FE : Queries / Actions
+FE --> API : REST / WS
+API --> PG : SQL / JSONB
+API --> WV : Vector Search
+API --> LC : RAG / Workflows
+@enduml

@@ -1,0 +1,1 @@
+-- placeholder: schema_postgres.sql (already generated earlier)

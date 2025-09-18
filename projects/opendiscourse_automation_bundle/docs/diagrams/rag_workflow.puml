@@ -1,0 +1,15 @@
+
+@startuml
+title RAG Workflow (LangGraph)
+start
+:User Query;
+:Retriever (Weaviate / pgvector);
+if (Context OK?) then (yes)
+  :Condense Prompt;
+else (no)
+  :Fallback Retrieve (BM25);
+endif
+:LLM Generate;
+:Citation PostProcess;
+stop
+@enduml
