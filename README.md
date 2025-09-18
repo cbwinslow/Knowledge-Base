@@ -1,78 +1,40 @@
 # Knowledge Base
 
-A centralized repository for documents, scripts, configurations, and other knowledge assets with a modern web interface.
+This repository contains documentation, scripts, and configurations for the server setup and management.
 
-## Folder Structure
+## Directories
 
-- **documents/** - Documentation files, guides, and manuals
-- **scripts/** - Executable scripts and code snippets
-- **configurations/** - Configuration files and templates
-- **projects/** - Project-specific documentation
-- **tasks/** - Task management and tracking files
-- **web/** - Next.js web application for browsing and managing the knowledge base
+- [scripts](scripts/) - Organized collection of utility scripts
+- [master_documents](master_documents/) - Core documentation and setup files
 
-## Web Interface
+## Master Documents
 
-The web interface is built with Next.js and provides a modern, responsive interface for browsing and managing your knowledge base.
+The [master_documents](master_documents/) directory contains:
 
-### Features
+- [install_scripts](master_documents/install_scripts/) - Installation scripts and documentation
+- [configuration_files](master_documents/configuration_files/) - Configuration files used in the setup
+- [reports](master_documents/reports/) - System reports and analysis tools
+- [logs](master_documents/logs/) - Log management and centralization
+- [ai_services](master_documents/ai_services/) - AI services setup and configuration
 
-- Responsive design that works on desktop and mobile
-- File browsing by category
-- Search functionality
-- File type icons for quick identification
-- Dark mode support
+## Scripts
 
-### Development
+The [scripts](scripts/) directory contains organized scripts by category:
 
-To run the web interface locally:
+- [AI Monitoring](scripts/ai_monitoring/) - Scripts for AI monitoring and related tools
+- [Database](scripts/database/) - Scripts for database management and configuration
+- [Deployment](scripts/deployment/) - Scripts for system deployment and setup
+- [Networking](scripts/networking/) - Scripts for networking configuration
+- [Storage](scripts/storage/) - Scripts for storage management
+- [Utilities](scripts/utilities/) - Various utility scripts
 
-1. Navigate to the `web/` directory:
-   ```bash
-   cd web
-   ```
+## Getting Started
 
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-3. Run the development server:
-   ```bash
-   npm run dev
-   ```
-
-4. Open [http://localhost:3000](http://localhost:3000) in your browser
-
-### Deployment
-
-The web interface is configured for static export and can be deployed to Cloudflare Pages or any static hosting service.
-
-See [CLOUDFLARE_PAGES_SETUP.md](CLOUDFLARE_PAGES_SETUP.md) for detailed deployment instructions.
-
-## Security
-
-This repository includes several security measures to prevent secrets from being committed:
-
-- Pre-commit hooks using gitleaks for secret scanning
-- GitHub Actions workflow for secret scanning
-- Comprehensive `.gitignore` file to exclude sensitive files
-
-## Configuration
-
-The knowledge base is configured using YAML files in the `configurations/` directory. See `configurations/kb_config.yaml` for details on the folder structure and naming conventions.
-
-## Project Documentation
-
-- [agents.md](projects/agents.md) - Documentation about agents used in this knowledge base
-- [qwen.md](projects/qwen.md) - Documentation about Qwen Code
-- [tasks.md](projects/tasks.md) - Documentation about task management
+1. Review the documentation in [master_documents](master_documents/)
+2. Use the report scripts in [master_documents/reports](master_documents/reports/) to gather system information
+3. Set up log centralization using the scripts in [master_documents/logs](master_documents/logs/)
+4. Install AI services using the configurations in [master_documents/ai_services](master_documents/ai_services/)
 
 ## Contributing
 
-To contribute to this knowledge base:
-1. Fork the repository
-2. Create a new branch for your changes
-3. Commit your changes
-4. Push to your fork
-5. Create a pull request
+Feel free to contribute by adding new scripts, updating documentation, or improving existing tools.
