@@ -1,0 +1,23 @@
+# Default crawler/server settings (override per-site in config/sites/<domain>.yml)
+user_agent: "OpenDiscourseGovDocs/0.1 (+https://opendiscourse.example)"
+crawl:
+  max_depth: 2
+  max_docs_per_run: 50
+  politeness_ms: 1500
+  retries: 3
+parsing:
+  html:
+    use_readability: true
+    min_text_chars: 500
+  pdf:
+    ocr_fallback: false   # enable in future
+storage:
+  bucket: "${MINIO_BUCKET:-opendiscourse}"
+  raw_prefix: "raw"
+  text_prefix: "text"
+ranking:
+  weights:
+    volume: 0.4
+    freshness: 0.3
+    quality: 0.2
+    reliability: 0.1

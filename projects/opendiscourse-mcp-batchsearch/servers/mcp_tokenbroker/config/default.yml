@@ -1,0 +1,5 @@
+storage_backend: "${SECRETS_BACKEND:-vault}"
+policy:
+  allow_semi_auto: true
+  require_checkpoint_for_2fa: true
+  redact_patterns: ["password", "token", "api key", "otp", "code"]

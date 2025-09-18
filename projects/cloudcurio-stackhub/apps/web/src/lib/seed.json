@@ -1,0 +1,101 @@
+{
+  "items": [
+    {
+      "id": "docker-core",
+      "name": "Install Docker Engine + Compose",
+      "category": "docker",
+      "description": "Installs Docker Engine and Docker Compose with validation checks.",
+      "tags": [
+        "docker",
+        "compose",
+        "container"
+      ],
+      "script_bash": "# Install Docker Engine + Compose (Ubuntu)\nif ! command -v docker >/dev/null 2>&1; then\n  sudo apt-get update -y\n  sudo apt-get install -y ca-certificates curl gnupg lsb-release\n  sudo install -m 0755 -d /etc/apt/keyrings\n  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg\n  echo           \"deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu           $(. /etc/os-release && echo $VERSION_CODENAME) stable\" |           sudo tee /etc/apt/sources.list.d/docker.list > /dev/null\n  sudo apt-get update -y\n  sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin\n  sudo usermod -aG docker \"$USER\" || true\nfi\ndocker --version\ndocker compose version || true\n",
+      "script_ansible": "---\n- name: Install Docker Engine + Compose (Ubuntu)\n  become: true\n  ansible.builtin.apt:\n    update_cache: true\n    name:\n      - ca-certificates\n      - curl\n      - gnupg\n      - lsb-release\n    state: present\n",
+      "terraform": "# (Example) No-op for Docker; kept for structure consistency.\n",
+      "pulumi": "// (Example) No-op placeholder for Docker in Pulumi.\n"
+    },
+    {
+      "id": "nvidia-ctk",
+      "name": "NVIDIA Container Toolkit",
+      "category": "docker",
+      "description": "Enable GPU workloads in Docker.",
+      "tags": [
+        "nvidia",
+        "gpu",
+        "docker"
+      ],
+      "script_bash": "# Install NVIDIA Container Toolkit (Ubuntu)\ndistribution=$(. /etc/os-release;echo $ID$VERSION_ID)           && curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg           && curl -fsSL https://nvidia.github.io/libnvidia-container/$distribution/libnvidia-container.list |              sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' |              sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list\nsudo apt-get update\nsudo apt-get install -y nvidia-container-toolkit\nsudo nvidia-ctk runtime configure --runtime=docker\nsudo systemctl restart docker\n",
+      "script_ansible": "---\n- name: Install NVIDIA Container Toolkit\n  become: true\n  ansible.builtin.shell: |\n    distribution=$(. /etc/os-release;echo $ID$VERSION_ID)               && curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg               && curl -fsSL https://nvidia.github.io/libnvidia-container/$distribution/libnvidia-container.list |                  sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' |                  sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list\n    sudo apt-get update\n    sudo apt-get install -y nvidia-container-toolkit\n    sudo nvidia-ctk runtime configure --runtime=docker\n    sudo systemctl restart docker\n"
+    },
+    {
+      "id": "fail2ban",
+      "name": "Fail2ban Harden",
+      "category": "security",
+      "description": "Basic SSH hardening with fail2ban and a sane jail config.",
+      "tags": [
+        "security",
+        "ssh",
+        "fail2ban"
+      ],
+      "script_bash": "sudo apt-get update -y\nsudo apt-get install -y fail2ban\nsudo bash -c 'cat >/etc/fail2ban/jail.local' <<'EOF'\n[sshd]\nenabled = true\nport    = ssh\nlogpath = %(sshd_log)s\nbackend = systemd\nmaxretry = 5\nbantime = 1h\nfindtime = 10m\nEOF\nsudo systemctl enable --now fail2ban\nsudo fail2ban-client status\n",
+      "script_ansible": "---\n- name: Install fail2ban\n  become: true\n  ansible.builtin.apt:\n    name: fail2ban\n    update_cache: true\n    state: present\n- name: Configure jail.local\n  become: true\n  ansible.builtin.copy:\n    dest: /etc/fail2ban/jail.local\n    content: |\n      [sshd]\n      enabled = true\n      port    = ssh\n      logpath = %(sshd_log)s\n      backend = systemd\n      maxretry = 5\n      bantime = 1h\n      findtime = 10m\n- name: Enable service\n  become: true\n  ansible.builtin.service:\n    name: fail2ban\n    enabled: true\n    state: started\n"
+    },
+    {
+      "id": "supabase-docker",
+      "name": "Supabase (Docker)",
+      "category": "databases",
+      "description": "Self-hosted Supabase via docker compose (dev-friendly).",
+      "tags": [
+        "supabase",
+        "postgres",
+        "auth",
+        "storage"
+      ],
+      "script_bash": "mkdir -p ~/supabase && cd ~/supabase\ncurl -fsSL https://raw.githubusercontent.com/supabase/supabase/develop/docker/docker-compose.yml -o docker-compose.yml\n# NOTE: Set env vars before first start.\ndocker compose up -d\n",
+      "script_ansible": "---\n- name: Deploy Supabase via docker compose\n  become: true\n  ansible.builtin.shell: |\n    set -Eeuo pipefail\n    mkdir -p ~/supabase && cd ~/supabase\n    curl -fsSL https://raw.githubusercontent.com/supabase/supabase/develop/docker/docker-compose.yml -o docker-compose.yml\n    docker compose up -d\n"
+    },
+    {
+      "id": "neo4j",
+      "name": "Neo4j (Docker)",
+      "category": "databases",
+      "description": "Launch Neo4j with APOC, GDS plugins.",
+      "tags": [
+        "neo4j",
+        "graph",
+        "gds",
+        "apoc"
+      ],
+      "script_bash": "docker run -d --name neo4j           -p 7474:7474 -p 7687:7687           -e NEO4J_AUTH=neo4j/test123           -e NEO4JLABS_PLUGINS='[\"apoc\",\"graph-data-science\"]'           -e NEO4J_dbms_security_auth__minimum__password__length=6           -v neo4j_data:/data           neo4j:5\n",
+      "script_ansible": "---\n- name: Run Neo4j\n  become: true\n  ansible.builtin.shell: |\n    docker run -d --name neo4j               -p 7474:7474 -p 7687:7687               -e NEO4J_AUTH=neo4j/test123               -e NEO4JLABS_PLUGINS='[\"apoc\",\"graph-data-science\"]'               -e NEO4J_dbms_security_auth__minimum__password__length=6               -v neo4j_data:/data               neo4j:5\n"
+    },
+    {
+      "id": "opensearch",
+      "name": "OpenSearch + Dashboards (Docker)",
+      "category": "monitoring",
+      "description": "OpenSearch cluster with Dashboards UI (single-node dev).",
+      "tags": [
+        "opensearch",
+        "dashboard",
+        "search"
+      ],
+      "script_bash": "mkdir -p ~/opensearch && cd ~/opensearch\ncat > docker-compose.yml <<'YML'\nversion: '3'\nservices:\n  opensearch:\n    image: opensearchproject/opensearch:2\n    environment:\n      - discovery.type=single-node\n      - plugins.security.disabled=true\n    ulimits:\n      memlock:\n        soft: -1\n        hard: -1\n    ports: ['9200:9200','9600:9600']\n  dashboards:\n    image: opensearchproject/opensearch-dashboards:2\n    environment:\n      - OPENSEARCH_HOSTS=[\"http://opensearch:9200\"]\n    ports: ['5601:5601']\nYML\ndocker compose up -d\n",
+      "script_ansible": "---\n- name: Deploy OpenSearch dev stack\n  become: true\n  ansible.builtin.shell: |\n    mkdir -p ~/opensearch && cd ~/opensearch\n    cat > docker-compose.yml <<'YML'\n    version: '3'\n    services:\n      opensearch:\n        image: opensearchproject/opensearch:2\n        environment:\n          - discovery.type=single-node\n          - plugins.security.disabled=true\n        ulimits:\n          memlock:\n            soft: -1\n            hard: -1\n        ports: ['9200:9200','9600:9600']\n      dashboards:\n        image: opensearchproject/opensearch-dashboards:2\n        environment:\n          - OPENSEARCH_HOSTS=[\"http://opensearch:9200\"]\n        ports: ['5601:5601']\n    YML\n    docker compose up -d\n"
+    },
+    {
+      "id": "cf-tunnel",
+      "name": "Cloudflare Tunnel (Docker)",
+      "category": "networking",
+      "description": "Expose internal services securely via Cloudflare Tunnel.",
+      "tags": [
+        "cloudflare",
+        "tunnel",
+        "reverse-proxy"
+      ],
+      "script_bash": "mkdir -p ~/cloudflared && cd ~/cloudflared\ncat > docker-compose.yml <<'YML'\nversion: '3'\nservices:\n  cloudflared:\n    image: cloudflare/cloudflared:latest\n    command: tunnel run\n    environment:\n      - TUNNEL_TOKEN=${TUNNEL_TOKEN}\n    restart: unless-stopped\nYML\n# export TUNNEL_TOKEN=...\ndocker compose up -d\n",
+      "script_ansible": "---\n- name: Cloudflare Tunnel\n  become: true\n  ansible.builtin.shell: |\n    mkdir -p ~/cloudflared && cd ~/cloudflared\n    cat > docker-compose.yml <<'YML'\n    version: '3'\n    services:\n      cloudflared:\n        image: cloudflare/cloudflared:latest\n        command: tunnel run\n        environment:\n          - TUNNEL_TOKEN=${TUNNEL_TOKEN}\n        restart: unless-stopped\n    YML\n    docker compose up -d\n",
+      "terraform": "# Example Cloudflare Tunnel resources (placeholder).\n# Provider and token must be configured.\n",
+      "pulumi": "// Example Pulumi (TS) for Cloudflare resources (placeholder).\n"
+    }
+  ]
+}

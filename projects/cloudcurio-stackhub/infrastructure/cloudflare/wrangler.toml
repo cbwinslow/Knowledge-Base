@@ -1,0 +1,19 @@
+name = "cloudcurio-stackhub-api"
+main = "src/index.ts"
+compatibility_date = "2024-11-04"
+
+[vars]
+# Add any environment variables here.
+
+[[d1_databases]]
+binding = "DB"
+database_name = "stackhub_db"
+database_id = "REPLACE_WITH_YOUR_D1_ID"
+
+[kv_namespaces]
+# [[kv_namespaces]]
+# binding = "STACKHUB_KV"
+# id = "REPLACE_WITH_KV_ID"
+
+[ai]
+# Optional: if you enable Cloudflare AI/Vectorize later.

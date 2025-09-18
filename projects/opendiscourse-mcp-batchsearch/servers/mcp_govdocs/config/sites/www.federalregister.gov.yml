@@ -1,0 +1,6 @@
+crawl:
+  max_docs_per_run: 200
+  politeness_ms: 800
+parsing:
+  html:
+    min_text_chars: 1000
