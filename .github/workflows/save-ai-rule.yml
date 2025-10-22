@@ -1,0 +1,66 @@
+name: Save AI Rule
+
+on:
+  workflow_dispatch:
+    inputs:
+      rule_name:
+        description: 'Name for the rule file (without extension)'
+        required: true
+        type: string
+      content:
+        description: 'Rule content'
+        required: true
+        type: string
+      priority:
+        description: 'Priority level'
+        required: false
+        type: choice
+        options:
+          - High
+          - Medium
+          - Low
+        default: 'Medium'
+      applies_to:
+        description: 'What this rule applies to (optional)'
+        required: false
+        type: string
+        default: 'All agents'
+
+permissions:
+  contents: write
+
+jobs:
+  save-rule:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create or update rule file
+        run: |
+          FILENAME="ai_agents/rules/${{ github.event.inputs.rule_name }}.md"
+
+          cat > "$FILENAME" << 'EOF'
+          # ${{ github.event.inputs.rule_name }}
+
+          **Priority:** ${{ github.event.inputs.priority }}
+          **Applies To:** ${{ github.event.inputs.applies_to }}
+          **Last Updated:** $(date +%Y-%m-%d)
+          **Updated By:** ${{ github.actor }}
+
+          ## Rule
+
+          ${{ github.event.inputs.content }}
+          EOF
+
+          echo "Created/updated rule file: $FILENAME"
+
+      - name: Commit and push
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add ai_agents/rules/
+          git commit -m "Add/update AI rule: ${{ github.event.inputs.rule_name }}"
+          git push

@@ -1,0 +1,61 @@
+#!/bin/bash
+# Example Bash Aliases
+# Copy this file to ~/.bash_aliases or source it from your .bashrc
+
+# Navigation
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias ~='cd ~'
+
+# ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias ls='ls --color=auto'
+
+# grep with color
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+# Git aliases
+alias gs='git status'
+alias ga='git add'
+alias gc='git commit'
+alias gp='git push'
+alias gl='git log --oneline --graph --decorate'
+alias gd='git diff'
+alias gco='git checkout'
+alias gb='git branch'
+
+# Safety aliases
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+
+# System
+alias update='sudo apt update && sudo apt upgrade -y'
+alias ports='netstat -tulanp'
+alias meminfo='free -h'
+alias cpuinfo='lscpu'
+alias diskinfo='df -h'
+
+# Docker aliases
+alias dps='docker ps'
+alias dpsa='docker ps -a'
+alias di='docker images'
+alias dex='docker exec -it'
+alias dlog='docker logs -f'
+alias dstop='docker stop'
+alias drm='docker rm'
+alias dprune='docker system prune -af'
+
+# Python
+alias python='python3'
+alias pip='pip3'
+
+# Quick edits
+alias bashrc='${EDITOR:-nano} ~/.bashrc'
+alias aliases='${EDITOR:-nano} ~/.bash_aliases'
+alias functions='${EDITOR:-nano} ~/.bash_functions'

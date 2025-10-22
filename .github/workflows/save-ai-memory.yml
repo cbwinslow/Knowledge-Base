@@ -1,0 +1,67 @@
+name: Save AI Memory
+
+on:
+  workflow_dispatch:
+    inputs:
+      memory_name:
+        description: 'Name for the memory file (without extension)'
+        required: true
+        type: string
+      content:
+        description: 'Memory content'
+        required: true
+        type: string
+      agent_name:
+        description: 'Name of the AI agent (optional)'
+        required: false
+        type: string
+        default: 'Unknown'
+      tags:
+        description: 'Comma-separated tags (optional)'
+        required: false
+        type: string
+        default: ''
+
+permissions:
+  contents: write
+
+jobs:
+  save-memory:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create memory file
+        run: |
+          TIMESTAMP=$(date +%Y%m%d_%H%M%S)
+          FILENAME="ai_agents/memories/${{ github.event.inputs.memory_name }}_${TIMESTAMP}.md"
+
+          cat > "$FILENAME" << 'EOF'
+          # ${{ github.event.inputs.memory_name }}
+
+          **Date:** $(date +%Y-%m-%d)
+          **Time:** $(date +%H:%M:%S)
+          **Agent:** ${{ github.event.inputs.agent_name }}
+          **Saved By:** ${{ github.actor }}
+
+          ## Content
+
+          ${{ github.event.inputs.content }}
+
+          ## Tags
+
+          $(echo "${{ github.event.inputs.tags }}" | sed 's/,/\n- /g' | sed 's/^/- /')
+          EOF
+
+          echo "Created memory file: $FILENAME"
+
+      - name: Commit and push
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add ai_agents/memories/
+          git commit -m "Add AI memory: ${{ github.event.inputs.memory_name }}"
+          git push

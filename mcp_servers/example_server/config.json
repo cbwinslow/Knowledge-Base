@@ -1,0 +1,44 @@
+{
+  "name": "example-filesystem-server",
+  "version": "1.0.0",
+  "description": "Example MCP server for file system operations",
+  "protocol_version": "1.0",
+  "capabilities": {
+    "tools": true,
+    "resources": false,
+    "prompts": false
+  },
+  "transport": {
+    "type": "stdio"
+  },
+  "tools": [
+    {
+      "name": "read_file",
+      "description": "Read contents of a file",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "description": "Path to the file to read"
+          }
+        },
+        "required": ["path"]
+      }
+    },
+    {
+      "name": "list_directory",
+      "description": "List contents of a directory",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "description": "Path to the directory to list"
+          }
+        },
+        "required": ["path"]
+      }
+    }
+  ]
+}

@@ -1,12 +1,12 @@
 # Knowledge Base
 
-This repository contains documentation, scripts, and configurations for the server setup and management.
+This repository contains documentation, scripts, and configurations for server setup and management, including AI agent memories, rules, dotfiles, and various configuration files.
 
 ## Directories
 
 - [scripts](scripts/) - Organized collection of utility scripts
 - [master_documents](master_documents/) - Core documentation and setup files
-- [documentation](documentation/) - Comprehensive documentation management system
+
 
 ## Master Documents
 
@@ -18,6 +18,54 @@ The [master_documents](master_documents/) directory contains:
 - [logs](master_documents/logs/) - Log management and centralization
 - [ai_services](master_documents/ai_services/) - AI services setup and configuration
 
+## AI Agents & Configuration Management
+
+The repository includes automated workflows and tools for managing AI configurations:
+
+### AI Agents
+- **[memories](ai_agents/memories/)** - Store and retrieve AI agent memories
+- **[rules](ai_agents/rules/)** - Define and manage AI agent rules
+- **[crews](ai_agents/crews/)** - CrewAI crew configurations
+
+### Dotfiles
+- **[bash](dotfiles/bash/)** - Bash configurations, functions, and aliases
+- **[zsh](dotfiles/zsh/)** - Zsh configurations, functions, and aliases
+
+### Infrastructure
+- **[mcp_servers](mcp_servers/)** - Model Context Protocol server configs
+- **[docker_configs](docker_configs/)** - Docker Compose and container configs
+
+### GitHub Workflows
+
+Use these workflows to save configurations:
+- `save-ai-memory.yml` - Save AI agent memories
+- `save-ai-rule.yml` - Save AI agent rules
+- `save-dotfile.yml` - Save shell dotfiles
+- `save-docker-config.yml` - Save Docker configurations
+- `save-mcp-server.yml` - Save MCP server configs
+- `save-crew-config.yml` - Save CrewAI crew configs
+
+### CLI Tool
+
+Use the `kb_manager.sh` script for quick access:
+
+```bash
+# Save a memory
+./scripts/utilities/kb_manager.sh memory "topic_name" "content here"
+
+# Save a rule
+./scripts/utilities/kb_manager.sh rule "rule_name" "rule content"
+
+# Search content
+./scripts/utilities/kb_manager.sh search "docker"
+
+# List items
+./scripts/utilities/kb_manager.sh list memories
+
+# Recall content
+./scripts/utilities/kb_manager.sh recall ai_agents/memories/file.md
+```
+
 ## Scripts
 
 The [scripts](scripts/) directory contains organized scripts by category:
@@ -28,7 +76,7 @@ The [scripts](scripts/) directory contains organized scripts by category:
 - [Documentation](scripts/documentation/) - Documentation management and knowledge base scripts
 - [Networking](scripts/networking/) - Scripts for networking configuration
 - [Storage](scripts/storage/) - Scripts for storage management
-- [Utilities](scripts/utilities/) - Various utility scripts
+- [Utilities](scripts/utilities/) - Various utility scripts including kb_manager.sh
 
 ## Documentation Management System
 
