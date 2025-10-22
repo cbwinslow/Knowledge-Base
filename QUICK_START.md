@@ -120,10 +120,10 @@ gh auth login
 
 ## Next Steps
 
-1. **Read the full documentation**: [AI_AGENT_WORKFLOWS.md](AI_AGENT_WORKFLOWS.md)
-2. **Explore examples**: Check the `example_*` files in each directory
-3. **Customize**: Modify workflows and scripts for your needs
-4. **Integrate**: Connect your AI agents to use these workflows
+1. Read the full documentation: [AI_AGENT_WORKFLOWS.md](AI_AGENT_WORKFLOWS.md)
+2. Explore examples: Check the `example_*` files in each directory
+3. Customize: Modify workflows and scripts for your needs
+4. Integrate: Connect your AI agents to use these workflows
 
 ## Security Notes
 
