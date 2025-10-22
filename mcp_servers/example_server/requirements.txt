@@ -1,0 +1,10 @@
+# MCP Server Dependencies
+# Model Context Protocol implementation
+
+# Core MCP library (adjust based on actual MCP library)
+# mcp>=1.0.0
+
+# Standard libraries used
+pathlib
+json
+sys

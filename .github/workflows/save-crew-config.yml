@@ -29,19 +29,19 @@ jobs:
         run: |
           CREW_NAME="${{ github.event.inputs.crew_name }}"
           FILE_NAME="${{ github.event.inputs.file_name }}"
-          
+
           DIRPATH="ai_agents/crews/${CREW_NAME}"
           mkdir -p "$DIRPATH"
           FILEPATH="${DIRPATH}/${FILE_NAME}"
-          
+
           # Create backup if file exists
           if [ -f "$FILEPATH" ]; then
             cp "$FILEPATH" "${FILEPATH}.backup-$(date +%Y%m%d_%H%M%S)"
           fi
-          
+
           # Write content to file
           echo '${{ github.event.inputs.content }}' > "$FILEPATH"
-          
+
           echo "Created/updated crew config file: $FILEPATH"
 
       - name: Commit and push

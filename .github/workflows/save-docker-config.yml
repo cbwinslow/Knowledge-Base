@@ -34,7 +34,7 @@ jobs:
         run: |
           CONFIG_NAME="${{ github.event.inputs.config_name }}"
           CONFIG_TYPE="${{ github.event.inputs.config_type }}"
-          
+
           case "$CONFIG_TYPE" in
             compose)
               DIRPATH="docker_configs/compose/${CONFIG_NAME}"
@@ -57,15 +57,15 @@ jobs:
               FILEPATH="${DIRPATH}/${CONFIG_NAME}.md"
               ;;
           esac
-          
+
           # Create backup if file exists
           if [ -f "$FILEPATH" ]; then
             cp "$FILEPATH" "${FILEPATH}.backup-$(date +%Y%m%d_%H%M%S)"
           fi
-          
+
           # Write content to file
           echo '${{ github.event.inputs.content }}' > "$FILEPATH"
-          
+
           echo "Created/updated Docker config: $FILEPATH"
 
       - name: Commit and push

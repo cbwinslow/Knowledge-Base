@@ -38,7 +38,7 @@ jobs:
       - name: Create or update rule file
         run: |
           FILENAME="ai_agents/rules/${{ github.event.inputs.rule_name }}.md"
-          
+
           cat > "$FILENAME" << 'EOF'
           # ${{ github.event.inputs.rule_name }}
 
@@ -51,7 +51,7 @@ jobs:
 
           ${{ github.event.inputs.content }}
           EOF
-          
+
           echo "Created/updated rule file: $FILENAME"
 
       - name: Commit and push

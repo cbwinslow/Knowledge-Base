@@ -43,7 +43,7 @@ jobs:
           SHELL="${{ github.event.inputs.shell }}"
           FILE_TYPE="${{ github.event.inputs.file_type }}"
           IS_EXAMPLE="${{ github.event.inputs.is_example }}"
-          
+
           # Determine filename based on shell and file type
           case "$FILE_TYPE" in
             rc)
@@ -59,22 +59,22 @@ jobs:
               FILENAME="${SHELL}_profile"
               ;;
           esac
-          
+
           # Add .example suffix if it's an example
           if [ "$IS_EXAMPLE" = "true" ]; then
             FILENAME="${FILENAME}.example"
           fi
-          
+
           FILEPATH="dotfiles/${SHELL}/${FILENAME}"
-          
+
           # Create backup if file exists
           if [ -f "$FILEPATH" ]; then
             cp "$FILEPATH" "${FILEPATH}.backup-$(date +%Y%m%d_%H%M%S)"
           fi
-          
+
           # Write content to file
           echo '${{ github.event.inputs.content }}' > "$FILEPATH"
-          
+
           echo "Created/updated dotfile: $FILEPATH"
 
       - name: Commit and push

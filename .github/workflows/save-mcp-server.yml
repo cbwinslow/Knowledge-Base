@@ -29,19 +29,19 @@ jobs:
         run: |
           SERVER_NAME="${{ github.event.inputs.server_name }}"
           FILE_NAME="${{ github.event.inputs.file_name }}"
-          
+
           DIRPATH="mcp_servers/${SERVER_NAME}"
           mkdir -p "$DIRPATH"
           FILEPATH="${DIRPATH}/${FILE_NAME}"
-          
+
           # Create backup if file exists
           if [ -f "$FILEPATH" ]; then
             cp "$FILEPATH" "${FILEPATH}.backup-$(date +%Y%m%d_%H%M%S)"
           fi
-          
+
           # Write content to file
           echo '${{ github.event.inputs.content }}' > "$FILEPATH"
-          
+
           echo "Created/updated MCP server file: $FILEPATH"
 
       - name: Commit and push

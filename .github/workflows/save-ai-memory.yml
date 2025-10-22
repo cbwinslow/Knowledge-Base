@@ -35,7 +35,7 @@ jobs:
         run: |
           TIMESTAMP=$(date +%Y%m%d_%H%M%S)
           FILENAME="ai_agents/memories/${{ github.event.inputs.memory_name }}_${TIMESTAMP}.md"
-          
+
           cat > "$FILENAME" << 'EOF'
           # ${{ github.event.inputs.memory_name }}
 
@@ -52,7 +52,7 @@ jobs:
 
           $(echo "${{ github.event.inputs.tags }}" | sed 's/,/\n- /g' | sed 's/^/- /')
           EOF
-          
+
           echo "Created memory file: $FILENAME"
 
       - name: Commit and push
