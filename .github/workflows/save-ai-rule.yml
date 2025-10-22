@@ -26,6 +26,9 @@ on:
         type: string
         default: 'All agents'
 
+permissions:
+  contents: write
+
 jobs:
   save-rule:
     runs-on: ubuntu-latest
