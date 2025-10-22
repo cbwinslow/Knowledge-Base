@@ -61,3 +61,22 @@ zsh_secrets
 
 # Cloudflare
 .wrangler/
+
+# Documentation system generated files
+documentation/index.json
+documentation/labels.json
+documentation/knowledge_summary.yaml
+documentation/labels_summary.yaml
+documentation/examples/examples_index.json
+documentation/examples/examples_summary.yaml
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv

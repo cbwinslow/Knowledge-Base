@@ -1,0 +1,68 @@
+# Documentation Management Configuration
+
+# Output directories
+output:
+  base_dir: "documentation"
+  ai_context: "documentation/ai_context"
+  examples: "documentation/examples"
+  scraped: "documentation/scraped"
+  top_100: "documentation/top_100"
+
+# Download settings
+download:
+  max_concurrent: 5
+  timeout: 30
+  retry_attempts: 3
+  delay_between_requests: 1.0
+
+# Crawl4AI settings
+crawl4ai:
+  max_depth: 3
+  follow_links: true
+  extract_code_blocks: true
+  save_screenshots: false
+  user_agent: "Mozilla/5.0 (Documentation Crawler Bot)"
+
+# Content filtering
+filters:
+  min_content_length: 100
+  exclude_extensions:
+    - .pdf
+    - .zip
+    - .tar.gz
+    - .exe
+  include_patterns:
+    - "*.md"
+    - "*.rst"
+    - "*.html"
+    - "*.txt"
+    - "README*"
+
+# Labeling settings
+labels:
+  auto_tag: true
+  categories:
+    - "tutorial"
+    - "reference"
+    - "guide"
+    - "api-docs"
+    - "examples"
+    - "best-practices"
+
+# Context7 MCP server settings
+context7:
+  enabled: true
+  max_results: 100
+  query_topics:
+    - "AI documentation"
+    - "MCP server documentation"
+    - "Python best practices"
+    - "API documentation examples"
+    - "Software architecture"
+    - "Development workflows"
+
+# Knowledge base management
+knowledge_base:
+  index_file: "documentation/index.json"
+  metadata_format: "yaml"
+  update_frequency: "daily"

@@ -1,0 +1,28 @@
+# Documentation Management Requirements
+# Core dependencies for downloading and managing documentation
+
+# Web scraping and crawling
+crawl4ai>=0.2.0
+beautifulsoup4>=4.12.0
+requests>=2.31.0
+aiohttp>=3.9.0
+
+# Data processing
+pyyaml>=6.0
+python-dotenv>=1.0.0
+
+# MCP (Model Context Protocol) integration
+mcp>=0.1.0
+
+# JSON processing
+jsonschema>=4.20.0
+
+# File operations
+pathlib2>=2.3.7
+gitpython>=3.1.40
+
+# Progress tracking
+tqdm>=4.66.0
+
+# Logging
+colorlog>=6.8.0
