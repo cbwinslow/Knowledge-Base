@@ -1,0 +1,86 @@
+name: Save Dotfile
+
+on:
+  workflow_dispatch:
+    inputs:
+      shell:
+        description: 'Shell type'
+        required: true
+        type: choice
+        options:
+          - bash
+          - zsh
+      file_type:
+        description: 'File type'
+        required: true
+        type: choice
+        options:
+          - rc
+          - functions
+          - aliases
+          - profile
+      content:
+        description: 'File content'
+        required: true
+        type: string
+      is_example:
+        description: 'Save as example template'
+        required: false
+        type: boolean
+        default: false
+
+jobs:
+  save-dotfile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create dotfile
+        run: |
+          SHELL="${{ github.event.inputs.shell }}"
+          FILE_TYPE="${{ github.event.inputs.file_type }}"
+          IS_EXAMPLE="${{ github.event.inputs.is_example }}"
+          
+          # Determine filename based on shell and file type
+          case "$FILE_TYPE" in
+            rc)
+              FILENAME="${SHELL}rc"
+              ;;
+            functions)
+              FILENAME="${SHELL}_functions"
+              ;;
+            aliases)
+              FILENAME="${SHELL}_aliases"
+              ;;
+            profile)
+              FILENAME="${SHELL}_profile"
+              ;;
+          esac
+          
+          # Add .example suffix if it's an example
+          if [ "$IS_EXAMPLE" = "true" ]; then
+            FILENAME="${FILENAME}.example"
+          fi
+          
+          FILEPATH="dotfiles/${SHELL}/${FILENAME}"
+          
+          # Create backup if file exists
+          if [ -f "$FILEPATH" ]; then
+            cp "$FILEPATH" "${FILEPATH}.backup-$(date +%Y%m%d_%H%M%S)"
+          fi
+          
+          # Write content to file
+          echo '${{ github.event.inputs.content }}' > "$FILEPATH"
+          
+          echo "Created/updated dotfile: $FILEPATH"
+
+      - name: Commit and push
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add dotfiles/
+          git commit -m "Update dotfile: ${{ github.event.inputs.shell }} ${{ github.event.inputs.file_type }}"
+          git push

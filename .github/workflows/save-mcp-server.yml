@@ -1,0 +1,53 @@
+name: Save MCP Server Configuration
+
+on:
+  workflow_dispatch:
+    inputs:
+      server_name:
+        description: 'MCP Server name'
+        required: true
+        type: string
+      file_name:
+        description: 'File name (e.g., config.json, server.py, README.md)'
+        required: true
+        type: string
+      content:
+        description: 'File content'
+        required: true
+        type: string
+
+jobs:
+  save-mcp-server:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create MCP server file
+        run: |
+          SERVER_NAME="${{ github.event.inputs.server_name }}"
+          FILE_NAME="${{ github.event.inputs.file_name }}"
+          
+          DIRPATH="mcp_servers/${SERVER_NAME}"
+          mkdir -p "$DIRPATH"
+          FILEPATH="${DIRPATH}/${FILE_NAME}"
+          
+          # Create backup if file exists
+          if [ -f "$FILEPATH" ]; then
+            cp "$FILEPATH" "${FILEPATH}.backup-$(date +%Y%m%d_%H%M%S)"
+          fi
+          
+          # Write content to file
+          echo '${{ github.event.inputs.content }}' > "$FILEPATH"
+          
+          echo "Created/updated MCP server file: $FILEPATH"
+
+      - name: Commit and push
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add mcp_servers/
+          git commit -m "Add/update MCP server: ${{ github.event.inputs.server_name }} - ${{ github.event.inputs.file_name }}"
+          git push

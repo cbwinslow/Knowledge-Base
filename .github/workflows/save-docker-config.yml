@@ -1,0 +1,77 @@
+name: Save Docker Configuration
+
+on:
+  workflow_dispatch:
+    inputs:
+      config_name:
+        description: 'Configuration name'
+        required: true
+        type: string
+      config_type:
+        description: 'Configuration type'
+        required: true
+        type: choice
+        options:
+          - compose
+          - dockerfile
+          - volume
+          - network
+      content:
+        description: 'Configuration content'
+        required: true
+        type: string
+
+jobs:
+  save-docker-config:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create configuration file
+        run: |
+          CONFIG_NAME="${{ github.event.inputs.config_name }}"
+          CONFIG_TYPE="${{ github.event.inputs.config_type }}"
+          
+          case "$CONFIG_TYPE" in
+            compose)
+              DIRPATH="docker_configs/compose/${CONFIG_NAME}"
+              mkdir -p "$DIRPATH"
+              FILEPATH="${DIRPATH}/docker-compose.yml"
+              ;;
+            dockerfile)
+              DIRPATH="docker_configs/dockerfiles"
+              mkdir -p "$DIRPATH"
+              FILEPATH="${DIRPATH}/Dockerfile.${CONFIG_NAME}"
+              ;;
+            volume)
+              DIRPATH="docker_configs/volumes"
+              mkdir -p "$DIRPATH"
+              FILEPATH="${DIRPATH}/${CONFIG_NAME}.md"
+              ;;
+            network)
+              DIRPATH="docker_configs/networks"
+              mkdir -p "$DIRPATH"
+              FILEPATH="${DIRPATH}/${CONFIG_NAME}.md"
+              ;;
+          esac
+          
+          # Create backup if file exists
+          if [ -f "$FILEPATH" ]; then
+            cp "$FILEPATH" "${FILEPATH}.backup-$(date +%Y%m%d_%H%M%S)"
+          fi
+          
+          # Write content to file
+          echo '${{ github.event.inputs.content }}' > "$FILEPATH"
+          
+          echo "Created/updated Docker config: $FILEPATH"
+
+      - name: Commit and push
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add docker_configs/
+          git commit -m "Add Docker config: ${{ github.event.inputs.config_name }} (${{ github.event.inputs.config_type }})"
+          git push
