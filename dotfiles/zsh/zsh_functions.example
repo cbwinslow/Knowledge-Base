@@ -26,7 +26,17 @@ extract() {
 
 # Create a directory and cd into it
 mkcd() {
-    mkdir -p "$1" && cd "$1"
+    if mkdir -p "$1"; then
+        if cd "$1"; then
+            return 0
+        else
+            echo "cd: failed to change directory to '$1'" >&2
+            return 1
+        fi
+    else
+        echo "mkdir: failed to create directory '$1'" >&2
+        return 1
+    fi
 }
 
 # Find and kill process by name
