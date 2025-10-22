@@ -1,0 +1,149 @@
+# Documentation Sources Configuration
+# Define sources to scrape and download documentation from
+
+sources:
+  # Official documentation sites
+  - name: "Python Official Docs"
+    url: "https://docs.python.org/3/"
+    type: "official"
+    priority: 1
+    categories: ["language", "reference"]
+
+  - name: "GitHub Docs"
+    url: "https://docs.github.com/"
+    type: "official"
+    priority: 1
+    categories: ["tools", "git"]
+
+  - name: "Docker Docs"
+    url: "https://docs.docker.com/"
+    type: "official"
+    priority: 1
+    categories: ["containers", "devops"]
+
+  - name: "Kubernetes Docs"
+    url: "https://kubernetes.io/docs/"
+    type: "official"
+    priority: 1
+    categories: ["orchestration", "devops"]
+
+  # Tutorial and learning sites
+  - name: "Real Python"
+    url: "https://realpython.com/"
+    type: "tutorial"
+    priority: 2
+    categories: ["python", "tutorial"]
+
+  - name: "MDN Web Docs"
+    url: "https://developer.mozilla.org/"
+    type: "reference"
+    priority: 1
+    categories: ["web", "javascript", "html", "css"]
+
+  # API documentation
+  - name: "OpenAI API Docs"
+    url: "https://platform.openai.com/docs/"
+    type: "api"
+    priority: 1
+    categories: ["ai", "api"]
+
+  - name: "Anthropic API Docs"
+    url: "https://docs.anthropic.com/"
+    type: "api"
+    priority: 1
+    categories: ["ai", "api"]
+
+  # Framework documentation
+  - name: "FastAPI Docs"
+    url: "https://fastapi.tiangolo.com/"
+    type: "framework"
+    priority: 1
+    categories: ["python", "api", "framework"]
+
+  - name: "Flask Docs"
+    url: "https://flask.palletsprojects.com/"
+    type: "framework"
+    priority: 2
+    categories: ["python", "web", "framework"]
+
+  - name: "Django Docs"
+    url: "https://docs.djangoproject.com/"
+    type: "framework"
+    priority: 1
+    categories: ["python", "web", "framework"]
+
+  - name: "React Docs"
+    url: "https://react.dev/"
+    type: "framework"
+    priority: 1
+    categories: ["javascript", "frontend", "framework"]
+
+  - name: "Next.js Docs"
+    url: "https://nextjs.org/docs"
+    type: "framework"
+    priority: 1
+    categories: ["javascript", "react", "framework"]
+
+  # Database documentation
+  - name: "PostgreSQL Docs"
+    url: "https://www.postgresql.org/docs/"
+    type: "database"
+    priority: 1
+    categories: ["database", "sql"]
+
+  - name: "MongoDB Docs"
+    url: "https://docs.mongodb.com/"
+    type: "database"
+    priority: 1
+    categories: ["database", "nosql"]
+
+  - name: "Redis Docs"
+    url: "https://redis.io/docs/"
+    type: "database"
+    priority: 1
+    categories: ["database", "cache"]
+
+# Repository sources for working examples
+repositories:
+  - name: "awesome-python"
+    url: "https://github.com/vinta/awesome-python"
+    type: "curated-list"
+    categories: ["python", "examples"]
+
+  - name: "awesome-selfhosted"
+    url: "https://github.com/awesome-selfhosted/awesome-selfhosted"
+    type: "curated-list"
+    categories: ["selfhosted", "examples"]
+
+  - name: "public-apis"
+    url: "https://github.com/public-apis/public-apis"
+    type: "curated-list"
+    categories: ["api", "examples"]
+
+  - name: "free-programming-books"
+    url: "https://github.com/EbookFoundation/free-programming-books"
+    type: "curated-list"
+    categories: ["learning", "books"]
+
+  - name: "system-design-primer"
+    url: "https://github.com/donnemartin/system-design-primer"
+    type: "educational"
+    categories: ["architecture", "design"]
+
+# Search queries for context7 MCP server
+context7_queries:
+  - "Python best practices documentation"
+  - "API design patterns"
+  - "Docker deployment examples"
+  - "Kubernetes configuration examples"
+  - "CI/CD pipeline examples"
+  - "Microservices architecture documentation"
+  - "Database schema design"
+  - "RESTful API documentation"
+  - "GraphQL API examples"
+  - "Authentication implementation examples"
+  - "Testing frameworks documentation"
+  - "Monitoring and observability"
+  - "Infrastructure as code examples"
+  - "Serverless architecture patterns"
+  - "Machine learning deployment"
