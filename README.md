@@ -80,44 +80,98 @@ The [scripts](scripts/) directory contains organized scripts by category:
 
 ## Documentation Management System
 
-The [documentation](documentation/) directory contains a comprehensive documentation management system:
+The [documentation](documentation/) directory contains a comprehensive documentation management system with extensive examples and guides:
 
-- **Automated Download**: Uses context7 MCP server and crawl4ai to download documentation
-- **Smart Organization**: Automatically categorizes and labels content
-- **Code Examples**: Collects working examples from repositories
-- **AI Context Ready**: Formats documentation for AI agent consumption
-- **Searchable Index**: Creates searchable indices for quick access
+### Structure
+
+```
+documentation/
+├── examples/           # Production-ready code examples
+│   ├── shell-scripts/ # Shell scripting best practices
+│   └── python/        # Python examples (API, AI, automation)
+├── how-to-guides/     # Step-by-step tutorials
+├── troubleshooting-guide.md  # Comprehensive troubleshooting
+└── README.md
+```
+
+### Code Examples
+
+**Shell Scripts** ([examples/shell-scripts](documentation/examples/shell-scripts/))
+- Production-ready database backup script
+- Best practices and patterns
+- Error handling and logging
+- Complete with documentation
+
+**Python Examples** ([examples/python](documentation/examples/python/))
+- **AI Integration**: OpenAI, Anthropic, Ollama, LangChain
+- **REST APIs**: Complete FastAPI application with auth
+- **Automation**: System monitoring, file processing
+- Production-ready patterns and best practices
+
+### Docker Compose Examples
+
+**Available Stacks** ([docker_configs/compose](docker_configs/compose/))
+- **PostgreSQL**: Full setup with pgAdmin, backups, monitoring
+- **Redis**: Cache setup with Redis Commander
+- **Nginx**: Reverse proxy with SSL, load balancing
+- **MongoDB**: Database with Mongo Express interface
+
+Each includes:
+- docker-compose.yml configuration
+- Environment variable templates
+- Comprehensive README with usage examples
+- Production best practices
+- Troubleshooting guides
+
+### How-To Guides
+
+**Available Guides** ([documentation/how-to-guides](documentation/how-to-guides/))
+1. [Setting Up Production PostgreSQL](documentation/how-to-guides/setup-postgresql-production.md)
+2. [Docker Compose Deployment](documentation/how-to-guides/docker-compose-deployment.md)
+3. [Integrating LLMs in Your Application](documentation/how-to-guides/llm-integration.md)
+
+Each guide includes:
+- Step-by-step instructions
+- Code examples and configurations
+- Verification steps
+- Troubleshooting section
+- Production checklist
+
+### Troubleshooting
+
+See the [Troubleshooting Guide](documentation/troubleshooting-guide.md) for:
+- Common Docker issues
+- Database connection problems
+- API and networking issues
+- Performance optimization
+- Debug commands and tools
 
 ### Key Features
 
-- Downloads documentation from top 100 sources using context7 MCP server
-- Scrapes documentation using crawl4ai from configured sources
-- Collects working code examples from repositories
-- Auto-labels and categorizes all content
-- Creates searchable indices and metadata
-- Provides comprehensive management tools
+- **Production-Ready Examples**: All code is tested and follows best practices
+- **Comprehensive Documentation**: Each example includes full documentation
+- **Real-World Patterns**: Error handling, logging, monitoring, security
+- **Multiple Languages**: Shell, Python, YAML, SQL examples
+- **Copy-Paste Ready**: Examples can be used directly in your projects
 
-### Quick Start
+### Quick Start with Examples
 
 ```bash
-# Install dependencies
-cd scripts/documentation
-pip3 install -r requirements.txt
+# Use PostgreSQL stack
+cd docker_configs/compose/postgresql
+cp .env.example .env
+docker-compose up -d
 
-# Download documentation
-python3 download_documentation.py
+# Try Python LLM integration
+cd documentation/examples/python/ai-integration
+python llm-examples.py
 
-# Process and index
-python3 ingest_knowledge.py
-python3 ingest_examples.py
-python3 label_content.py
-
-# Search and manage
-python3 manage_knowledge_base.py search "docker"
-python3 manage_knowledge_base.py stats
+# Run system monitoring
+cd documentation/examples/python/automation
+python system-monitoring.py
 ```
 
-See [documentation/README.md](documentation/README.md) for detailed information.
+See [documentation/README.md](documentation/README.md) for detailed information about the documentation management system.
 
 ## Getting Started
 
