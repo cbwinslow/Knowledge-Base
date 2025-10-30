@@ -1,0 +1,455 @@
+#!/bin/zsh
+# Knowledge Base ZSH Functions
+# Enhanced functions for easy knowledge base management
+# 
+# Installation:
+#   1. Copy this file to ~/.zsh_kb_functions
+#   2. Add to your .zshrc: source ~/.zsh_kb_functions
+#   3. Reload: source ~/.zshrc
+
+# Set knowledge base root (customize this path)
+export KB_ROOT="${KB_ROOT:-$HOME/Knowledge-Base}"
+
+# Colors for output
+KB_GREEN='\033[0;32m'
+KB_BLUE='\033[0;34m'
+KB_YELLOW='\033[1;33m'
+KB_RED='\033[0;31m'
+KB_NC='\033[0m' # No Color
+
+# =============================================================================
+# Core Functions
+# =============================================================================
+
+# Add a file to the knowledge base
+kb_add() {
+    local file="$1"
+    local category="${2:-general}"
+    local target_dir="$KB_ROOT/documentation/$category"
+    
+    if [[ -z "$file" ]]; then
+        echo "${KB_RED}Error: File path required${KB_NC}"
+        echo "Usage: kb_add <file> [category]"
+        return 1
+    fi
+    
+    if [[ ! -f "$file" ]]; then
+        echo "${KB_RED}Error: File not found: $file${KB_NC}"
+        return 1
+    fi
+    
+    # Create category directory if it doesn't exist
+    mkdir -p "$target_dir"
+    
+    # Copy file to knowledge base
+    local filename=$(basename "$file")
+    local timestamp=$(date +%Y%m%d_%H%M%S)
+    local target_file="$target_dir/${filename%.*}_${timestamp}.${filename##*.}"
+    
+    cp "$file" "$target_file"
+    echo "${KB_GREEN}✓ Added to knowledge base:${KB_NC} $target_file"
+    
+    # Optional: Add to git
+    if [[ -d "$KB_ROOT/.git" ]]; then
+        (cd "$KB_ROOT" && git add "$target_file")
+        echo "${KB_BLUE}  Git staged. Commit with: kb_commit${KB_NC}"
+    fi
+}
+
+# Add a folder to the knowledge base
+kb_add_folder() {
+    local folder="$1"
+    local category="${2:-general}"
+    local target_dir="$KB_ROOT/documentation/$category"
+    
+    if [[ -z "$folder" ]]; then
+        echo "${KB_RED}Error: Folder path required${KB_NC}"
+        echo "Usage: kb_add_folder <folder> [category]"
+        return 1
+    fi
+    
+    if [[ ! -d "$folder" ]]; then
+        echo "${KB_RED}Error: Folder not found: $folder${KB_NC}"
+        return 1
+    fi
+    
+    # Create category directory if it doesn't exist
+    mkdir -p "$target_dir"
+    
+    # Copy folder to knowledge base
+    local foldername=$(basename "$folder")
+    local timestamp=$(date +%Y%m%d_%H%M%S)
+    local target_folder="$target_dir/${foldername}_${timestamp}"
+    
+    cp -r "$folder" "$target_folder"
+    echo "${KB_GREEN}✓ Added folder to knowledge base:${KB_NC} $target_folder"
+    
+    # Count files added
+    local file_count=$(find "$target_folder" -type f | wc -l)
+    echo "${KB_BLUE}  Added $file_count files${KB_NC}"
+    
+    # Optional: Add to git
+    if [[ -d "$KB_ROOT/.git" ]]; then
+        (cd "$KB_ROOT" && git add "$target_folder")
+        echo "${KB_BLUE}  Git staged. Commit with: kb_commit${KB_NC}"
+    fi
+}
+
+# Quick note creation
+kb_note() {
+    local title="$1"
+    local category="${2:-notes}"
+    
+    if [[ -z "$title" ]]; then
+        echo "${KB_RED}Error: Note title required${KB_NC}"
+        echo "Usage: kb_note \"<title>\" [category]"
+        return 1
+    fi
+    
+    local target_dir="$KB_ROOT/documentation/$category"
+    mkdir -p "$target_dir"
+    
+    local timestamp=$(date +%Y%m%d_%H%M%S)
+    local filename="${title// /_}_${timestamp}.md"
+    local filepath="$target_dir/$filename"
+    
+    # Create note template
+    cat > "$filepath" << EOF
+# $title
+
+**Created:** $(date '+%Y-%m-%d %H:%M:%S')
+**Category:** $category
+
+## Notes
+
+EOF
+    
+    # Open in editor
+    ${EDITOR:-nano} "$filepath"
+    
+    echo "${KB_GREEN}✓ Note created:${KB_NC} $filepath"
+    
+    # Optional: Add to git
+    if [[ -d "$KB_ROOT/.git" ]]; then
+        (cd "$KB_ROOT" && git add "$filepath")
+        echo "${KB_BLUE}  Git staged. Commit with: kb_commit${KB_NC}"
+    fi
+}
+
+# Search knowledge base
+kb_search() {
+    local query="$1"
+    
+    if [[ -z "$query" ]]; then
+        echo "${KB_RED}Error: Search query required${KB_NC}"
+        echo "Usage: kb_search <query>"
+        return 1
+    fi
+    
+    echo "${KB_BLUE}Searching knowledge base for: ${KB_YELLOW}$query${KB_NC}"
+    echo ""
+    
+    # Use ripgrep if available, otherwise grep
+    if command -v rg &> /dev/null; then
+        rg -i --color=always "$query" "$KB_ROOT/documentation" 2>/dev/null
+    else
+        grep -r -i -n --color=always "$query" "$KB_ROOT/documentation" 2>/dev/null
+    fi
+}
+
+# List categories
+kb_list() {
+    local category="$1"
+    
+    if [[ -z "$category" ]]; then
+        echo "${KB_BLUE}Knowledge Base Categories:${KB_NC}"
+        ls -1 "$KB_ROOT/documentation" 2>/dev/null | grep -v "README.md"
+        return
+    fi
+    
+    local category_dir="$KB_ROOT/documentation/$category"
+    
+    if [[ ! -d "$category_dir" ]]; then
+        echo "${KB_RED}Error: Category not found: $category${KB_NC}"
+        return 1
+    fi
+    
+    echo "${KB_BLUE}Files in category '$category':${KB_NC}"
+    ls -lh "$category_dir"
+}
+
+# Quick commit to knowledge base
+kb_commit() {
+    local message="${1:-Update knowledge base}"
+    
+    if [[ ! -d "$KB_ROOT/.git" ]]; then
+        echo "${KB_RED}Error: Not a git repository: $KB_ROOT${KB_NC}"
+        return 1
+    fi
+    
+    (cd "$KB_ROOT" && \
+        git add . && \
+        git commit -m "$message" && \
+        echo "${KB_GREEN}✓ Committed to knowledge base${KB_NC}")
+}
+
+# Push knowledge base
+kb_push() {
+    if [[ ! -d "$KB_ROOT/.git" ]]; then
+        echo "${KB_RED}Error: Not a git repository: $KB_ROOT${KB_NC}"
+        return 1
+    fi
+    
+    (cd "$KB_ROOT" && \
+        git push && \
+        echo "${KB_GREEN}✓ Pushed to remote${KB_NC}")
+}
+
+# Pull knowledge base
+kb_pull() {
+    if [[ ! -d "$KB_ROOT/.git" ]]; then
+        echo "${KB_RED}Error: Not a git repository: $KB_ROOT${KB_NC}"
+        return 1
+    fi
+    
+    (cd "$KB_ROOT" && \
+        git pull && \
+        echo "${KB_GREEN}✓ Pulled from remote${KB_NC}")
+}
+
+# =============================================================================
+# Advanced Functions
+# =============================================================================
+
+# Web crawling integration
+kb_crawl() {
+    local url="$1"
+    local category="${2:-crawled}"
+    
+    if [[ -z "$url" ]]; then
+        echo "${KB_RED}Error: URL required${KB_NC}"
+        echo "Usage: kb_crawl <url> [category]"
+        return 1
+    fi
+    
+    echo "${KB_BLUE}Crawling: ${KB_YELLOW}$url${KB_NC}"
+    
+    if [[ ! -f "$KB_ROOT/scripts/documentation/web_crawler.py" ]]; then
+        echo "${KB_RED}Error: web_crawler.py not found${KB_NC}"
+        echo "Install with: pip install crawl4ai"
+        return 1
+    fi
+    
+    (cd "$KB_ROOT" && \
+        python3 scripts/documentation/web_crawler.py url "$url" -c "$category")
+}
+
+# Deep research integration
+kb_research() {
+    local topic="$1"
+    local depth="${2:-medium}"
+    
+    if [[ -z "$topic" ]]; then
+        echo "${KB_RED}Error: Research topic required${KB_NC}"
+        echo "Usage: kb_research \"<topic>\" [depth]"
+        echo "Depth: quick, medium, deep"
+        return 1
+    fi
+    
+    echo "${KB_BLUE}Researching: ${KB_YELLOW}$topic${KB_NC}"
+    echo "${KB_BLUE}Depth: ${KB_YELLOW}$depth${KB_NC}"
+    
+    if [[ ! -f "$KB_ROOT/scripts/documentation/deep_research.py" ]]; then
+        echo "${KB_RED}Error: deep_research.py not found${KB_NC}"
+        return 1
+    fi
+    
+    (cd "$KB_ROOT" && \
+        python3 scripts/documentation/deep_research.py "$topic" -d "$depth")
+}
+
+# Sync with Dell server
+kb_sync_dell() {
+    local server="${KB_DELL_SERVER:-your-dell-server.local}"
+    local remote_path="${KB_DELL_PATH:-/opt/knowledge-base}"
+    
+    echo "${KB_BLUE}Syncing with Dell server: ${KB_YELLOW}$server${KB_NC}"
+    
+    rsync -avz --delete \
+        --exclude='.git' \
+        --exclude='node_modules' \
+        --exclude='__pycache__' \
+        --exclude='*.pyc' \
+        "$KB_ROOT/" "$server:$remote_path/"
+    
+    if [[ $? -eq 0 ]]; then
+        echo "${KB_GREEN}✓ Synced to Dell server${KB_NC}"
+    else
+        echo "${KB_RED}✗ Sync failed${KB_NC}"
+        return 1
+    fi
+}
+
+# Deploy to Cloudflare
+kb_deploy_cloudflare() {
+    echo "${KB_BLUE}Deploying to Cloudflare Pages${KB_NC}"
+    
+    if [[ ! -d "$KB_ROOT/.git" ]]; then
+        echo "${KB_RED}Error: Not a git repository${KB_NC}"
+        return 1
+    fi
+    
+    # Commit and push
+    (cd "$KB_ROOT" && \
+        git add . && \
+        git commit -m "Deploy: $(date '+%Y-%m-%d %H:%M:%S')" && \
+        git push origin main)
+    
+    echo "${KB_GREEN}✓ Pushed to GitHub. Cloudflare will auto-deploy.${KB_NC}"
+    echo "${KB_BLUE}  Check status at: https://dash.cloudflare.com/pages${KB_NC}"
+}
+
+# Quick documentation generation
+kb_doc() {
+    local file="$1"
+    
+    if [[ -z "$file" ]]; then
+        echo "${KB_RED}Error: File required${KB_NC}"
+        echo "Usage: kb_doc <file>"
+        return 1
+    fi
+    
+    if [[ ! -f "$file" ]]; then
+        echo "${KB_RED}Error: File not found: $file${KB_NC}"
+        return 1
+    fi
+    
+    local filename=$(basename "$file")
+    local doc_file="${filename%.*}_doc.md"
+    
+    cat > "$doc_file" << EOF
+# Documentation: $filename
+
+**File:** $file
+**Created:** $(date '+%Y-%m-%d %H:%M:%S')
+
+## Overview
+
+[Brief description of what this file does]
+
+## Usage
+
+\`\`\`bash
+# Example usage
+\`\`\`
+
+## Configuration
+
+[Configuration options]
+
+## Dependencies
+
+[Required dependencies]
+
+## Notes
+
+[Additional notes]
+
+EOF
+    
+    ${EDITOR:-nano} "$doc_file"
+    
+    echo "${KB_GREEN}✓ Documentation created:${KB_NC} $doc_file"
+}
+
+# =============================================================================
+# Utility Functions
+# =============================================================================
+
+# Show knowledge base status
+kb_status() {
+    echo "${KB_BLUE}Knowledge Base Status${KB_NC}"
+    echo "Location: $KB_ROOT"
+    echo ""
+    
+    if [[ -d "$KB_ROOT/.git" ]]; then
+        echo "${KB_GREEN}Git Repository:${KB_NC}"
+        (cd "$KB_ROOT" && git status -s)
+        echo ""
+        echo "${KB_GREEN}Recent Commits:${KB_NC}"
+        (cd "$KB_ROOT" && git log --oneline -5)
+    else
+        echo "${KB_YELLOW}Not a git repository${KB_NC}"
+    fi
+    
+    echo ""
+    echo "${KB_GREEN}Statistics:${KB_NC}"
+    echo "  Documents: $(find "$KB_ROOT/documentation" -type f -name "*.md" 2>/dev/null | wc -l)"
+    echo "  Categories: $(ls -1 "$KB_ROOT/documentation" 2>/dev/null | wc -l)"
+    echo "  Total size: $(du -sh "$KB_ROOT" 2>/dev/null | cut -f1)"
+}
+
+# Show help
+kb_help() {
+    cat << 'EOF'
+Knowledge Base ZSH Functions
+
+Basic Commands:
+  kb_add <file> [category]         - Add file to knowledge base
+  kb_add_folder <folder> [cat]     - Add folder to knowledge base
+  kb_note "<title>" [category]     - Create quick note
+  kb_search <query>                - Search knowledge base
+  kb_list [category]               - List categories or files
+  kb_status                        - Show KB status
+
+Git Commands:
+  kb_commit [message]              - Commit changes
+  kb_push                          - Push to remote
+  kb_pull                          - Pull from remote
+
+Advanced:
+  kb_crawl <url> [category]        - Crawl website and add to KB
+  kb_research "<topic>" [depth]    - Perform deep research
+  kb_doc <file>                    - Generate documentation for file
+
+Deployment:
+  kb_sync_dell                     - Sync to Dell server
+  kb_deploy_cloudflare             - Deploy to Cloudflare Pages
+
+Examples:
+  kb_add ~/document.pdf research
+  kb_note "Docker tips" devops
+  kb_search "kubernetes"
+  kb_crawl https://example.com tech
+  kb_research "AI agents" deep
+
+Configuration:
+  KB_ROOT        - Knowledge base location (default: ~/Knowledge-Base)
+  KB_DELL_SERVER - Dell server hostname
+  KB_DELL_PATH   - Remote path on Dell server
+
+EOF
+}
+
+# =============================================================================
+# Auto-completion
+# =============================================================================
+
+# Tab completion for categories
+_kb_categories() {
+    local categories
+    if [[ -d "$KB_ROOT/documentation" ]]; then
+        categories=($(ls -1 "$KB_ROOT/documentation" 2>/dev/null))
+        _describe 'category' categories
+    fi
+}
+
+# Set up completions
+compdef _kb_categories kb_add
+compdef _kb_categories kb_add_folder
+compdef _kb_categories kb_note
+compdef _kb_categories kb_list
+
+echo "${KB_GREEN}✓ Knowledge Base functions loaded${KB_NC}"
+echo "  Type 'kb_help' for usage information"
+EOF
