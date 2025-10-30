@@ -1,12 +1,60 @@
-# Documentation Sources Configuration
+# Documentation Sources Configuration - COMPREHENSIVE EXPANDED VERSION
+# Includes ALL major software providers, dev tools, cloud platforms, and AI companies
+# Updated to include: Docker, Next.js, Vercel, shadcn, VS Code, Cursor, Windsurf, LocalAI,
+# Google, Apache, Microsoft, OpenAI, Meta, Mistral, Alibaba, Cloudflare, GitHub, GitLab, Gitea
 
-# This file defines all sources for documentation collection
-# Used by download_documentation.py and related scripts
-
-# Official Documentation Sites
 official_documentation:
   
-  # DevOps Tools
+  # Development Tools & IDEs - EXPANDED
+  dev_tools:
+    - name: "VS Code"
+      url: "https://code.visualstudio.com/docs"
+      category: "tools_platforms/development_tools/vscode"
+      depth: 3
+      
+    - name: "Cursor AI Editor"
+      url: "https://docs.cursor.sh/"
+      category: "tools_platforms/development_tools/cursor"
+      depth: 3
+      
+    - name: "Windsurf IDE"
+      url: "https://docs.codeium.com/windsurf"
+      category: "tools_platforms/development_tools/windsurf"
+      depth: 3
+      
+    - name: "Continue Dev"
+      url: "https://docs.continue.dev/"
+      category: "tools_platforms/development_tools/continue"
+      depth: 3
+      
+    - name: "GitHub Copilot"
+      url: "https://docs.github.com/en/copilot"
+      category: "tools_platforms/github/copilot"
+      depth: 3
+  
+  # Version Control & Git Platforms
+  git_platforms:
+    - name: "GitHub Docs"
+      url: "https://docs.github.com/"
+      category: "tools_platforms/github"
+      depth: 3
+      
+    - name: "GitLab Docs"
+      url: "https://docs.gitlab.com/"
+      category: "tools_platforms/gitlab"
+      depth: 3
+      
+    - name: "Gitea Documentation"
+      url: "https://docs.gitea.io/"
+      category: "tools_platforms/git"
+      depth: 3
+      
+    - name: "Git Official"
+      url: "https://git-scm.com/doc"
+      category: "tools_platforms/git"
+      depth: 3
+  
+  # DevOps & CI/CD Tools
   devops:
     - name: "GitHub Actions"
       url: "https://docs.github.com/en/actions"
@@ -16,6 +64,16 @@ official_documentation:
     - name: "GitLab CI/CD"
       url: "https://docs.gitlab.com/ee/ci/"
       category: "devops/ci_cd/gitlab_ci"
+      depth: 3
+      
+    - name: "Jenkins"
+      url: "https://www.jenkins.io/doc/"
+      category: "devops/ci_cd/jenkins"
+      depth: 3
+      
+    - name: "CircleCI"
+      url: "https://circleci.com/docs/"
+      category: "devops/ci_cd/circleci"
       depth: 3
       
     - name: "Terraform"
@@ -28,6 +86,11 @@ official_documentation:
       category: "devops/iac/ansible"
       depth: 3
       
+    - name: "Pulumi"
+      url: "https://www.pulumi.com/docs/"
+      category: "devops/iac/pulumi"
+      depth: 3
+      
     - name: "Prometheus"
       url: "https://prometheus.io/docs/"
       category: "devops/monitoring/prometheus"
@@ -38,9 +101,9 @@ official_documentation:
       category: "devops/monitoring/grafana"
       depth: 3
   
-  # AI/ML Platforms
+  # AI/ML Platforms - COMPREHENSIVE
   ai_ml:
-    - name: "OpenAI API"
+    - name: "OpenAI Platform"
       url: "https://platform.openai.com/docs"
       category: "ai_ml/llms/chatgpt"
       depth: 3
@@ -50,9 +113,34 @@ official_documentation:
       category: "ai_ml/llms/claude"
       depth: 3
       
-    - name: "Google Gemini"
+    - name: "Google AI (Gemini)"
       url: "https://ai.google.dev/docs"
       category: "ai_ml/llms/gemini"
+      depth: 3
+      
+    - name: "Meta AI (Llama)"
+      url: "https://ai.meta.com/llama/docs/"
+      category: "ai_ml/llms/llama"
+      depth: 3
+      
+    - name: "Mistral AI"
+      url: "https://docs.mistral.ai/"
+      category: "ai_ml/llms/mistral"
+      depth: 3
+      
+    - name: "Alibaba Qwen"
+      url: "https://qwenlm.github.io/docs/"
+      category: "ai_ml/llms/qwen"
+      depth: 3
+      
+    - name: "LocalAI"
+      url: "https://localai.io/docs/"
+      category: "ai_ml/local_ai/localai"
+      depth: 3
+      
+    - name: "Ollama"
+      url: "https://github.com/ollama/ollama/tree/main/docs"
+      category: "ai_ml/local_ai/ollama"
       depth: 3
       
     - name: "LangChain"
@@ -60,11 +148,28 @@ official_documentation:
       category: "ai_ml/ai_agents/agent_frameworks"
       depth: 3
       
+    - name: "LlamaIndex"
+      url: "https://docs.llamaindex.ai/"
+      category: "ai_ml/rag"
+      depth: 3
+      
     - name: "HuggingFace"
       url: "https://huggingface.co/docs"
       category: "ai_ml/embeddings/models"
       depth: 3
       
+    - name: "CrewAI"
+      url: "https://docs.crewai.com/"
+      category: "ai_ml/ai_agents/crewai"
+      depth: 3
+      
+    - name: "AutoGen"
+      url: "https://microsoft.github.io/autogen/docs/"
+      category: "ai_ml/ai_agents/autogen"
+      depth: 3
+  
+  # Vector Databases
+  vector_dbs:
     - name: "Pinecone"
       url: "https://docs.pinecone.io/"
       category: "databases/vector_databases/pinecone"
@@ -78,6 +183,28 @@ official_documentation:
     - name: "Qdrant"
       url: "https://qdrant.tech/documentation/"
       category: "databases/vector_databases/qdrant"
+      depth: 3
+      
+    - name: "Milvus"
+      url: "https://milvus.io/docs"
+      category: "databases/vector_databases/milvus"
+      depth: 3
+      
+    - name: "Chroma"
+      url: "https://docs.trychroma.com/"
+      category: "databases/vector_databases/chroma"
+      depth: 3
+  
+  # Memory & Agent Tools
+  memory_tools:
+    - name: "Mem0"
+      url: "https://docs.mem0.ai/"
+      category: "ai_ml/ai_agents/memory_management/mem0"
+      depth: 3
+      
+    - name: "Supabase"
+      url: "https://supabase.com/docs"
+      category: "ai_ml/local_ai/supabase"
       depth: 3
   
   # Programming Languages
@@ -107,8 +234,33 @@ official_documentation:
       category: "programming/rust"
       depth: 3
   
-  # Frameworks
+  # Web Frameworks - EXPANDED
   frameworks:
+    - name: "Next.js"
+      url: "https://nextjs.org/docs"
+      category: "web_technologies/frameworks/nextjs"
+      depth: 3
+      
+    - name: "React"
+      url: "https://react.dev/"
+      category: "web_technologies/frameworks/react"
+      depth: 3
+      
+    - name: "Vue"
+      url: "https://vuejs.org/guide/"
+      category: "web_technologies/frameworks/vue"
+      depth: 3
+      
+    - name: "Svelte"
+      url: "https://svelte.dev/docs"
+      category: "web_technologies/frameworks/svelte"
+      depth: 3
+      
+    - name: "Angular"
+      url: "https://angular.io/docs"
+      category: "web_technologies/frameworks/angular"
+      depth: 3
+      
     - name: "Django"
       url: "https://docs.djangoproject.com/"
       category: "programming/python/frameworks/django"
@@ -124,26 +276,43 @@ official_documentation:
       category: "programming/python/frameworks/fastapi"
       depth: 3
       
-    - name: "React"
-      url: "https://react.dev/"
-      category: "web_technologies/frameworks/react"
+    - name: "Express.js"
+      url: "https://expressjs.com/"
+      category: "web_technologies/frameworks/express"
       depth: 3
       
-    - name: "Next.js"
-      url: "https://nextjs.org/docs"
-      category: "web_technologies/frameworks/nextjs"
-      depth: 3
-      
-    - name: "Vue"
-      url: "https://vuejs.org/guide/"
-      category: "web_technologies/frameworks/vue"
+    - name: "NestJS"
+      url: "https://docs.nestjs.com/"
+      category: "web_technologies/frameworks/nest"
       depth: 3
   
-  # Infrastructure
+  # UI Libraries & Design Systems
+  ui_libraries:
+    - name: "shadcn/ui"
+      url: "https://ui.shadcn.com/docs"
+      category: "web_technologies/frontend"
+      depth: 3
+      
+    - name: "Tailwind CSS"
+      url: "https://tailwindcss.com/docs"
+      category: "web_technologies/frontend"
+      depth: 3
+      
+    - name: "Material-UI"
+      url: "https://mui.com/material-ui/getting-started/"
+      category: "web_technologies/frontend"
+      depth: 3
+  
+  # Infrastructure & Containers - COMPREHENSIVE
   infrastructure:
-    - name: "Docker"
+    - name: "Docker Documentation"
       url: "https://docs.docker.com/"
       category: "infrastructure/docker/basics"
+      depth: 3
+      
+    - name: "Docker Compose"
+      url: "https://docs.docker.com/compose/"
+      category: "infrastructure/docker/compose"
       depth: 3
       
     - name: "Kubernetes"
@@ -151,12 +320,17 @@ official_documentation:
       category: "infrastructure/kubernetes/basics"
       depth: 3
       
+    - name: "Helm"
+      url: "https://helm.sh/docs/"
+      category: "infrastructure/kubernetes/helm"
+      depth: 3
+      
     - name: "Nginx"
       url: "https://nginx.org/en/docs/"
       category: "web_technologies/web_servers/nginx"
       depth: 3
       
-    - name: "Apache"
+    - name: "Apache HTTP Server"
       url: "https://httpd.apache.org/docs/"
       category: "web_technologies/web_servers/apache"
       depth: 3
@@ -192,76 +366,207 @@ official_documentation:
       url: "https://redis.io/docs/"
       category: "databases/nosql/redis"
       depth: 3
+      
+    - name: "SQLite"
+      url: "https://www.sqlite.org/docs.html"
+      category: "databases/sql/sqlite"
+      depth: 3
   
-  # Cloud Providers
+  # Cloud Providers - ALL MAJOR ONES
   cloud:
     - name: "AWS Documentation"
       url: "https://docs.aws.amazon.com/"
       category: "tools_platforms/cloud/aws"
       depth: 2
       
-    - name: "Azure Documentation"
+    - name: "Microsoft Azure"
       url: "https://docs.microsoft.com/en-us/azure/"
       category: "tools_platforms/cloud/azure"
       depth: 2
       
-    - name: "GCP Documentation"
+    - name: "Google Cloud Platform"
       url: "https://cloud.google.com/docs"
       category: "tools_platforms/cloud/gcp"
       depth: 2
-      
-    - name: "DigitalOcean Docs"
-      url: "https://docs.digitalocean.com/"
-      category: "tools_platforms/cloud/digital_ocean"
-      depth: 3
       
     - name: "Cloudflare Developers"
       url: "https://developers.cloudflare.com/"
       category: "tools_platforms/cloud/cloudflare"
       depth: 3
+      
+    - name: "Cloudflare Workers"
+      url: "https://developers.cloudflare.com/workers/"
+      category: "tools_platforms/cloud/cloudflare"
+      depth: 3
+      
+    - name: "Vercel"
+      url: "https://vercel.com/docs"
+      category: "tools_platforms/cloud/vercel"
+      depth: 3
+      
+    - name: "Netlify"
+      url: "https://docs.netlify.com/"
+      category: "tools_platforms/cloud/netlify"
+      depth: 3
+      
+    - name: "DigitalOcean"
+      url: "https://docs.digitalocean.com/"
+      category: "tools_platforms/cloud/digital_ocean"
+      depth: 3
+      
+    - name: "Railway"
+      url: "https://docs.railway.app/"
+      category: "tools_platforms/cloud/railway"
+      depth: 3
+      
+    - name: "Render"
+      url: "https://render.com/docs"
+      category: "tools_platforms/cloud/render"
+      depth: 3
+  
+  # Microsoft Ecosystem
+  microsoft:
+    - name: "Microsoft Learn"
+      url: "https://learn.microsoft.com/"
+      category: "tools_platforms/microsoft"
+      depth: 2
+      
+    - name: "Visual Studio Code"
+      url: "https://code.visualstudio.com/docs"
+      category: "tools_platforms/development_tools/vscode"
+      depth: 3
+      
+    - name: ".NET Documentation"
+      url: "https://learn.microsoft.com/en-us/dotnet/"
+      category: "programming/dotnet"
+      depth: 3
+      
+    - name: "TypeScript"
+      url: "https://www.typescriptlang.org/docs/"
+      category: "programming/typescript"
+      depth: 3
+  
+  # Google Ecosystem
+  google:
+    - name: "Google Developers"
+      url: "https://developers.google.com/"
+      category: "tools_platforms/google"
+      depth: 2
+      
+    - name: "Google AI"
+      url: "https://ai.google/discover/"
+      category: "ai_ml/llms/gemini"
+      depth: 3
+      
+    - name: "Firebase"
+      url: "https://firebase.google.com/docs"
+      category: "tools_platforms/cloud/firebase"
+      depth: 3
+      
+    - name: "TensorFlow"
+      url: "https://www.tensorflow.org/learn"
+      category: "ai_ml/training"
+      depth: 3
+  
+  # Apache Software Foundation
+  apache:
+    - name: "Apache HTTP Server"
+      url: "https://httpd.apache.org/docs/"
+      category: "web_technologies/web_servers/apache"
+      depth: 3
+      
+    - name: "Apache Kafka"
+      url: "https://kafka.apache.org/documentation/"
+      category: "infrastructure/messaging"
+      depth: 3
+      
+    - name: "Apache Spark"
+      url: "https://spark.apache.org/docs/latest/"
+      category: "data_processing"
+      depth: 3
 
-# GitHub Repositories for Examples
+# GitHub Repositories for Examples - EXPANDED
 github_repositories:
   
   # AI/ML Examples
   ai_ml:
     - repo: "langchain-ai/langchain"
       category: "ai_ml/ai_agents/agent_frameworks"
-      description: "LangChain framework examples"
+      description: "LangChain framework"
       
     - repo: "openai/openai-python"
       category: "ai_ml/llms/chatgpt"
-      description: "OpenAI Python client examples"
+      description: "OpenAI Python SDK"
       
     - repo: "anthropics/anthropic-sdk-python"
       category: "ai_ml/llms/claude"
-      description: "Anthropic Claude Python SDK"
+      description: "Anthropic Claude SDK"
       
-    - repo: "hwchase17/langchain-hub"
+    - repo: "meta-llama/llama"
+      category: "ai_ml/llms/llama"
+      description: "Meta's Llama models"
+      
+    - repo: "mistralai/mistral-src"
+      category: "ai_ml/llms/mistral"
+      description: "Mistral AI"
+      
+    - repo: "QwenLM/Qwen"
+      category: "ai_ml/llms/qwen"
+      description: "Alibaba Qwen"
+      
+    - repo: "mudler/LocalAI"
+      category: "ai_ml/local_ai/localai"
+      description: "LocalAI implementation"
+      
+    - repo: "ollama/ollama"
+      category: "ai_ml/local_ai/ollama"
+      description: "Ollama local models"
+      
+    - repo: "run-llama/llama_index"
       category: "ai_ml/rag"
-      description: "LangChain prompts and chains"
+      description: "LlamaIndex RAG"
+      
+    - repo: "mem0ai/mem0"
+      category: "ai_ml/ai_agents/memory_management/mem0"
+      description: "Mem0 memory system"
+      
+    - repo: "joaomdmoura/crewAI"
+      category: "ai_ml/ai_agents/crewai"
+      description: "CrewAI framework"
+      
+    - repo: "microsoft/autogen"
+      category: "ai_ml/ai_agents/autogen"
+      description: "Microsoft AutoGen"
       
     - repo: "pinecone-io/examples"
       category: "databases/vector_databases/pinecone"
-      description: "Pinecone usage examples"
+      description: "Pinecone examples"
+      
+    - repo: "weaviate/weaviate"
+      category: "databases/vector_databases/weaviate"
+      description: "Weaviate vector DB"
+      
+    - repo: "qdrant/qdrant"
+      category: "databases/vector_databases/qdrant"
+      description: "Qdrant vector DB"
   
   # DevOps Examples
   devops:
     - repo: "terraform-aws-modules/terraform-aws-vpc"
       category: "devops/iac/terraform"
-      description: "AWS VPC Terraform module"
+      description: "Terraform AWS VPC"
       
     - repo: "ansible/ansible-examples"
       category: "devops/iac/ansible"
-      description: "Ansible playbook examples"
+      description: "Ansible examples"
       
     - repo: "prometheus/prometheus"
       category: "devops/monitoring/prometheus"
-      description: "Prometheus monitoring system"
+      description: "Prometheus"
       
     - repo: "grafana/grafana"
       category: "devops/monitoring/grafana"
-      description: "Grafana dashboards"
+      description: "Grafana"
   
   # Infrastructure Examples
   infrastructure:
@@ -275,122 +580,267 @@ github_repositories:
       
     - repo: "kelseyhightower/kubernetes-the-hard-way"
       category: "infrastructure/kubernetes/basics"
-      description: "Kubernetes setup guide"
+      description: "K8s the hard way"
   
-  # Programming Examples
-  programming:
+  # Web Framework Examples
+  web_frameworks:
+    - repo: "vercel/next.js"
+      category: "web_technologies/frameworks/nextjs"
+      description: "Next.js framework"
+      
+    - repo: "shadcn-ui/ui"
+      category: "web_technologies/frontend"
+      description: "shadcn/ui components"
+      
     - repo: "tiangolo/fastapi"
       category: "programming/python/frameworks/fastapi"
-      description: "FastAPI examples"
+      description: "FastAPI"
       
     - repo: "pallets/flask"
       category: "programming/python/frameworks/flask"
-      description: "Flask examples"
-      
-    - repo: "vercel/next.js"
-      category: "web_technologies/frameworks/nextjs"
-      description: "Next.js examples"
+      description: "Flask"
 
-# Context7 Search Queries
+# Context7 Search Queries - EXPANDED
 context7_queries:
-  - query: "docker best practices production deployment"
+  # Docker & Containers
+  - query: "docker best practices production deployment homelab"
     category: "infrastructure/docker/best_practices"
     
-  - query: "kubernetes deployment strategies rolling update"
+  - query: "docker compose stacks examples tutorial"
+    category: "infrastructure/docker/compose"
+    
+  - query: "kubernetes deployment strategies homelab setup"
     category: "infrastructure/kubernetes/deployments"
-    
-  - query: "terraform aws modules vpc networking"
-    category: "devops/iac/terraform"
-    
-  - query: "langchain rag retrieval augmented generation"
+  
+  # AI/ML
+  - query: "langchain rag implementation tutorial examples"
     category: "ai_ml/rag"
     
   - query: "vector database comparison pinecone weaviate qdrant"
     category: "databases/vector_databases"
     
-  - query: "fastapi async python api development"
-    category: "programming/python/frameworks/fastapi"
+  - query: "openai api chatgpt prompt engineering guide"
+    category: "ai_ml/llms/chatgpt"
     
-  - query: "prometheus alerting rules best practices"
-    category: "devops/monitoring/prometheus"
+  - query: "claude api anthropic best practices"
+    category: "ai_ml/llms/claude"
     
-  - query: "github actions ci cd pipeline examples"
-    category: "devops/ci_cd/github_actions"
+  - query: "localai setup configuration homelab"
+    category: "ai_ml/local_ai/localai"
     
-  - query: "nginx reverse proxy ssl configuration"
-    category: "web_technologies/web_servers/nginx"
-    
-  - query: "postgresql optimization query performance"
-    category: "databases/sql/postgresql"
+  - query: "ollama models setup usage"
+    category: "ai_ml/local_ai/ollama"
     
   - query: "ai agents mcp server implementation"
     category: "ai_ml/ai_agents/mcp_servers"
     
-  - query: "openai chatgpt api prompt engineering"
-    category: "ai_ml/llms/chatgpt"
+  - query: "mem0 memory management ai agents"
+    category: "ai_ml/ai_agents/memory_management/mem0"
+  
+  # Web Development
+  - query: "nextjs app router tutorial best practices"
+    category: "web_technologies/frameworks/nextjs"
     
-  - query: "semantic search cosine similarity embeddings"
-    category: "ai_ml/semantic_search"
+  - query: "vercel deployment configuration"
+    category: "tools_platforms/cloud/vercel"
+    
+  - query: "shadcn ui components setup usage"
+    category: "web_technologies/frontend"
+    
+  - query: "react server components next.js"
+    category: "web_technologies/frameworks/react"
+  
+  # DevOps
+  - query: "terraform aws modules vpc networking"
+    category: "devops/iac/terraform"
+    
+  - query: "github actions ci cd pipeline examples"
+    category: "devops/ci_cd/github_actions"
+    
+  - query: "gitlab ci cd configuration tutorial"
+    category: "devops/ci_cd/gitlab_ci"
+    
+  - query: "prometheus alerting rules best practices"
+    category: "devops/monitoring/prometheus"
+    
+  - query: "grafana dashboard prometheus monitoring"
+    category: "devops/monitoring/grafana"
+  
+  # Cloud Platforms
+  - query: "cloudflare workers edge functions tutorial"
+    category: "tools_platforms/cloud/cloudflare"
+    
+  - query: "aws lambda serverless deployment"
+    category: "tools_platforms/cloud/aws"
+    
+  - query: "azure functions deployment guide"
+    category: "tools_platforms/cloud/azure"
+  
+  # Development Tools
+  - query: "vscode extensions setup configuration"
+    category: "tools_platforms/development_tools/vscode"
+    
+  - query: "cursor ai editor tutorial"
+    category: "tools_platforms/development_tools/cursor"
+  
+  # Programming
+  - query: "fastapi async python api development"
+    category: "programming/python/frameworks/fastapi"
     
   - query: "typescript react best practices"
     category: "programming/typescript"
     
-  - query: "oauth2 authentication jwt tokens"
-    category: "security/application_security/authentication"
+  - query: "python async programming tutorial"
+    category: "programming/python/async"
+  
+  # Databases
+  - query: "postgresql optimization query performance"
+    category: "databases/sql/postgresql"
     
   - query: "redis caching patterns strategies"
     category: "databases/nosql/redis"
     
-  - query: "cloudflare workers edge computing"
-    category: "tools_platforms/cloud/cloudflare"
-    
-  - query: "grafana dashboard prometheus monitoring"
-    category: "devops/monitoring/grafana"
-    
-  - query: "sentence transformers embeddings models"
-    category: "ai_ml/embeddings/sentence_transformers"
-    
-  - query: "kubernetes helm charts deployment"
-    category: "infrastructure/kubernetes/helm"
+  - query: "mongodb aggregation pipeline examples"
+    category: "databases/nosql/mongodb"
 
-# Technical Blogs to Scrape
+# Technical Blogs & How-To Sites - EXPANDED
 technical_blogs:
+  # Major Tech Company Blogs
+  - name: "OpenAI Blog"
+    url: "https://openai.com/blog/"
+    category: "ai_ml/llms"
+    
+  - name: "Anthropic Blog"
+    url: "https://www.anthropic.com/news"
+    category: "ai_ml/llms"
+    
+  - name: "Google AI Blog"
+    url: "https://ai.googleblog.com/"
+    category: "ai_ml"
+    
+  - name: "Meta AI Blog"
+    url: "https://ai.meta.com/blog/"
+    category: "ai_ml"
+    
+  - name: "Microsoft AI Blog"
+    url: "https://blogs.microsoft.com/ai/"
+    category: "ai_ml"
+    
   - name: "AWS Blog"
-    url: "https://aws.amazon.com/blogs/aws/"
+    url: "https://aws.amazon.com/blogs/"
     category: "tools_platforms/cloud/aws"
     
   - name: "Google Cloud Blog"
     url: "https://cloud.google.com/blog/"
     category: "tools_platforms/cloud/gcp"
     
-  - name: "Netflix Tech Blog"
-    url: "https://netflixtechblog.com/"
-    category: "devops"
+  - name: "Microsoft Azure Blog"
+    url: "https://azure.microsoft.com/en-us/blog/"
+    category: "tools_platforms/cloud/azure"
+    
+  - name: "Cloudflare Blog"
+    url: "https://blog.cloudflare.com/"
+    category: "tools_platforms/cloud/cloudflare"
+    
+  - name: "Vercel Blog"
+    url: "https://vercel.com/blog"
+    category: "tools_platforms/cloud/vercel"
     
   - name: "GitHub Blog"
     url: "https://github.blog/"
     category: "tools_platforms/github"
     
-  - name: "OpenAI Blog"
-    url: "https://openai.com/blog/"
-    category: "ai_ml/llms"
+  - name: "GitLab Blog"
+    url: "https://about.gitlab.com/blog/"
+    category: "tools_platforms/gitlab"
+  
+  # DevOps & Engineering Blogs
+  - name: "Netflix Tech Blog"
+    url: "https://netflixtechblog.com/"
+    category: "devops"
     
-  - name: "HuggingFace Blog"
-    url: "https://huggingface.co/blog"
-    category: "ai_ml"
-
-# Tutorial Sites
-tutorial_sites:
-  - name: "Real Python"
-    url: "https://realpython.com/"
-    category: "programming/python"
+  - name: "Uber Engineering"
+    url: "https://www.uber.com/blog/engineering/"
+    category: "devops"
     
-  - name: "freeCodeCamp"
-    url: "https://www.freecodecamp.org/"
-    category: "programming"
+  - name: "Airbnb Engineering"
+    url: "https://medium.com/airbnb-engineering"
+    category: "devops"
     
+  - name: "Spotify Engineering"
+    url: "https://engineering.atspotify.com/"
+    category: "devops"
+  
+  # Homelab & Self-Hosted
+  - name: "Self-Hosted Blog"
+    url: "https://selfhosted.show/"
+    category: "tips_tricks_usage"
+    
+  - name: "Home Lab Subreddit"
+    url: "https://www.reddit.com/r/homelab/"
+    category: "tips_tricks_usage"
+  
+  # Tutorial Sites
   - name: "DigitalOcean Tutorials"
     url: "https://www.digitalocean.com/community/tutorials"
+    category: "tips_tricks_usage"
+    
+  - name: "Dev.to"
+    url: "https://dev.to/"
+    category: "tips_tricks_usage"
+    
+  - name: "freeCodeCamp"
+    url: "https://www.freecodecamp.org/news/"
+    category: "programming"
+
+# YouTube Channels for Transcript Collection
+youtube_channels:
+  # AI/ML Channels
+  - name: "AI Explained"
+    channel_id: "@aiexplained-official"
+    category: "ai_ml"
+    
+  - name: "OpenAI"
+    channel_id: "@OpenAI"
+    category: "ai_ml/llms/chatgpt"
+    
+  - name: "Anthropic"
+    channel_id: "@AnthropicAI"
+    category: "ai_ml/llms/claude"
+  
+  # DevOps & Infrastructure
+  - name: "TechWorld with Nana"
+    channel_id: "@TechWorldwithNana"
+    category: "devops"
+    
+  - name: "NetworkChuck"
+    channel_id: "@NetworkChuck"
+    category: "infrastructure"
+    
+  - name: "Jeff Geerling"
+    channel_id: "@JeffGeerling"
+    category: "infrastructure"
+  
+  # Programming
+  - name: "Fireship"
+    channel_id: "@Fireship"
+    category: "programming"
+    
+  - name: "ThePrimeagen"
+    channel_id: "@ThePrimeagen"
+    category: "programming"
+    
+  - name: "Web Dev Simplified"
+    channel_id: "@WebDevSimplified"
+    category: "web_technologies"
+  
+  # Cloud & Homelab
+  - name: "Wolfgang's Channel"
+    channel_id: "@WolfgangsChannel"
+    category: "infrastructure"
+    
+  - name: "Techno Tim"
+    channel_id: "@TechnoTim"
     category: "infrastructure"
 
 # Download Settings
@@ -404,3 +854,21 @@ settings:
   rate_limit_delay: 1.0
   max_file_size_mb: 10
   allowed_extensions: [".md", ".rst", ".html", ".txt", ".pdf"]
+  
+# Help & Support Pages to Scrape
+help_sections:
+  - name: "Docker Help"
+    url: "https://docs.docker.com/get-started/"
+    category: "infrastructure/docker"
+    
+  - name: "VS Code Help"
+    url: "https://code.visualstudio.com/docs/getstarted/tips-and-tricks"
+    category: "tools_platforms/development_tools/vscode"
+    
+  - name: "GitHub Help"
+    url: "https://docs.github.com/en/get-started"
+    category: "tools_platforms/github"
+    
+  - name: "Next.js Learn"
+    url: "https://nextjs.org/learn"
+    category: "web_technologies/frameworks/nextjs"
