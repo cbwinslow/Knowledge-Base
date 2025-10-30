@@ -3,12 +3,14 @@
 ## 📊 Statistics
 
 - **Total Directories**: 316
-- **README Files**: 17
-- **Main Categories**: 9
+- **README Files**: 18
+- **Main Categories**: 10
 - **Subcategories**: 150+
-- **Documentation Files**: 16 comprehensive guides
+- **Documentation Files**: 18 comprehensive guides
 
 ## 🗂️ Category Breakdown
+
+All 10 main categories are described below:
 
 ### 1. DevOps (devops/)
 - **Subcategories**: 7
@@ -122,7 +124,7 @@
 5. **RESEARCH_GUIDE.md** - Methodology for populating content
 6. **SOURCES.yaml** - Configuration with 100+ documentation sources
 
-### Category READMEs (11 files)
+### Category READMEs (10 files)
 1. **devops/README.md** - DevOps practices and tools (7,041 chars)
 2. **ai_ml/README.md** - AI/ML technologies (10,954 chars)
 3. **programming/README.md** - Programming languages (9,003 chars)

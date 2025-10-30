@@ -1,8 +1,8 @@
 # Knowledge Base Documentation Index
 
-This is a comprehensive knowledge base covering DevOps, AI/ML, Programming, Infrastructure, Web Technologies, Databases, Tools & Platforms, and Security topics.
+This is a comprehensive knowledge base covering DevOps, AI/ML, Programming, Infrastructure, Web Technologies, Databases, Tools & Platforms, Security, and more.
 
-## 📚 Main Categories
+## 📚 Main Categories (10)
 
 ### 1. [DevOps](devops/) - CI/CD, IaC, Monitoring, and Automation
 - [CI/CD](devops/ci_cd/) - Continuous Integration and Deployment
