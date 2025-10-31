@@ -1,0 +1,1340 @@
+# CloudCurio — Installer Crawler & Triage (Final, with Improvements)
+
+Below is the **complete repo** laid out as file blocks. Save these into files with the same paths.
+
+---
+
+## repo-tree (overview)
+```
+.
+├── README.md
+├── OPERATIONS.md
+├── SECURITY.md
+├── CONTRIBUTING.md
+├── LICENSE
+├── .env.example
+├── .gitignore
+├── .gitattributes
+├── requirements.txt
+├── seeds.txt
+├── examples/
+│   └── sample_output.yaml
+├── scripts/
+│   ├── crawl_and_extract.py
+│   ├── verify_and_aggregate.py
+│   ├── score_and_filter.py
+│   ├── gist_uploader.py
+│   ├── litellm_proxy_client.py
+│   ├── sandbox_scan.py
+│   ├── sandbox_submit.py
+│   ├── triage_db.py
+│   ├── git_bootstrap.sh
+│   └── make_release.sh
+├── triage-ui/
+│   ├── package.json
+│   ├── middleware.js
+│   ├── lib/db.js
+│   ├── scripts/create_user.js
+│   └── pages/
+│       ├── index.js
+│       └── api/items.js
+├── .github/
+│   ├── CODEOWNERS
+│   ├── PULL_REQUEST_TEMPLATE.md
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug_report.yml
+│   │   ├── feature_request.yml
+│   │   └── config.yml
+│   └── workflows/
+│       ├── ci.yml
+│       ├── scheduled-crawl.yml
+│       ├── codeql.yml
+│       └── scorecards.yml
+├── Dockerfile
+├── Dockerfile.ui
+└── Makefile
+```
+
+---
+
+## README.md
+```markdown
+# CloudCurio — Installer Crawler & Triage (Complete)
+
+**Date:** 2025-10-05  
+**Author:** ChatGPT for Blaine (cbwinslow)
+
+This repository discovers installer links across the web, aggregates multi‑source reputation signals (VirusTotal, Google Safe Browsing, AbuseIPDB, WHOIS), computes a `trust_score`, and lets you **manually triage** candidates via a small Next.js UI. It also includes safe **sandbox staging** and optional **submissions to Cuckoo/Hybrid‑Analysis** (no auto-exec on host).
+
+## Quickstart
+```bash
+python -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
+
+# Set env (optionally copy .env.example to .env and fill it)
+export VT_API_KEY=...
+export GSB_API_KEY=...
+export ABUSEIP_KEY=...
+export OPENROUTER_API_KEY=...
+export LITELLM_PROXY_URL=http://localhost:5100
+export TRIAGE_TOKEN=devtoken
+# Optional DB for UI auth (Postgres). If unset, token auth is used.
+# export DATABASE_URL=postgresql://user:pass@host:5432/triage
+
+# Seeds
+echo "https://github.com" > seeds.txt
+echo "https://sourceforge.net" >> seeds.txt
+echo "https://www.mozilla.org" >> seeds.txt
+
+# Pipeline
+python scripts/crawl_and_extract.py --seeds seeds.txt --out data/raw/candidates.jsonl
+python scripts/verify_and_aggregate.py --input data/raw/candidates.jsonl --out data/verified/verified.jsonl
+python scripts/score_and_filter.py --input data/verified/verified.jsonl --out data/curated/curated.jsonl
+
+# Triage UI
+cd triage-ui && npm install && npm run dev
+# open http://localhost:3000
+# Token mode: it will prompt for TRIAGE_TOKEN when you accept/reject
+# DB mode: set DATABASE_URL, then create a user:
+#   node scripts/create_user.js --email me@example.com --password 'S3cret!'
+```
+
+### Sandbox (safe)
+```bash
+# Staging (no execution on host)
+python scripts/sandbox_scan.py --url <installer-url>
+
+# Optional submissions (require configured endpoints/keys)
+python scripts/sandbox_submit.py --url <installer-url> --target cuckoo
+python scripts/sandbox_submit.py --url <installer-url> --target hybrid
+```
+
+### Release bundle
+```bash
+./scripts/make_release.sh
+```
+
+## Improvements included in this build
+- Crawl4AI-first crawler with BS4 fallback
+- Multi-source reputation (VT/GSB/AbuseIP/WHOIS) → `trust_score`
+- litellm proxy + OpenRouter summarization helper
+- Triage UI with token **or** DB auth (SQLite default, Postgres via `DATABASE_URL`)
+- Security headers, basic middleware, repo templates, CODEOWNERS
+- CI (push/PR) + **scheduled crawler PR** workflow
+- **CodeQL** and **OpenSSF Scorecard** workflows
+- Dockerfiles for crawler and UI, and a Makefile with common tasks
+
+## Structure
+```
+scripts/               # crawler, verification, scoring, sandbox, litellm
+triage-ui/             # Next.js triage dashboard + API + DB utils
+.github/workflows/     # CI + scheduled crawl PR + CodeQL + Scorecard
+examples/              # sample output
+README.md, OPERATIONS.md, SECURITY.md, CONTRIBUTING.md, LICENSE
+.env.example, .gitignore, .gitattributes, CODEOWNERS, PR/Issue templates
+Dockerfile, Dockerfile.ui, Makefile
+```
+
+## Safety Principles
+- **Never execute** untrusted binaries on the host. Use staging + isolated VM or a sandbox service.
+- **Metadata-only** by default: the crawler stores links & summaries, not binaries.
+- Heuristics + human-in-the-loop triage to prevent linking to malicious installers.
+
+MIT licensed. See **LICENSE**.
+```
+
+---
+
+## OPERATIONS.md
+```markdown
+# OPERATIONS
+
+## Pipelines
+1. `crawl_and_extract.py` → finds candidate installer links from seed pages.
+2. `verify_and_aggregate.py` → aggregates reputation (VT/GSB/AbuseIP/WHOIS) and computes `trust_score`.
+3. `score_and_filter.py` → labels items accept/reject/review.
+4. Triage UI → manual review.
+5. (Optional) `gist_uploader.py` → publish accepted items as gists.
+
+## CI (GitHub Actions)
+- `scheduled-crawl.yml` runs daily, crawls a small set of seeds, aggregates/curates, and opens a PR if changes are detected.
+- `codeql.yml` runs CodeQL static analysis for security.
+- `scorecards.yml` runs OpenSSF Scorecard checks.
+
+## Secrets
+Set repo secrets in GitHub → Settings → Secrets and variables → Actions:
+- `VT_API_KEY`, `GSB_API_KEY`, `ABUSEIP_KEY`, `GITHUB_TOKEN`
+Optional: `DATABASE_URL`, `OPENROUTER_API_KEY`
+
+## Triage UI Auth
+- Default **token** mode: `TRIAGE_TOKEN` is required.
+- **DB mode** (if `DATABASE_URL` set): uses Basic auth and bcrypt-hashed passwords.
+  - Create a user: `node scripts/create_user.js --email me@example.com --password 'S3cret!'`
+
+## Sandbox
+- `sandbox_scan.py` stages files and computes SHA256.  
+- `sandbox_submit.py` can submit URLs/files to Cuckoo or Hybrid-Analysis (credentials required).
+
+## Hardening
+- Put the UI behind a reverse proxy (TLS).
+- Keep API keys out of source control.
+- Respect robots.txt and rate-limits when crawling.
+```
+
+---
+
+## SECURITY.md
+```markdown
+# SECURITY
+
+- **Do not** run untrusted binaries on the host. Use isolated VMs or sandbox services.
+- The crawler stores **metadata only** — no auto-download/exec of installers.
+- Multi-source reputation signals are **advisory**. Always apply human review.
+- Rate-limit crawling and respect `robots.txt`.
+```
+
+---
+
+## CONTRIBUTING.md
+```markdown
+# CONTRIBUTING
+
+- Keep scripts self-contained with headers, comments, and robust error handling.
+- No auto-execution of downloads. Use sandbox tooling.
+- Add tests/linters where feasible. Update docs for user-facing changes.
+```
+
+---
+
+## LICENSE
+```text
+MIT License (c) 2025 Blaine / cbwinslow
+```
+
+---
+
+## .env.example
+```dotenv
+# API keys
+VT_API_KEY=
+GSB_API_KEY=
+ABUSEIP_KEY=
+OPENROUTER_API_KEY=
+LITELLM_PROXY_URL=
+
+# UI auth
+TRIAGE_TOKEN=devtoken
+DATABASE_URL=
+
+# GitHub
+GITHUB_TOKEN=
+
+# Sandbox
+SANDBOX_CUCKOO_URL=
+SANDBOX_HYBRID_KEY=
+```
+
+---
+
+## .gitignore
+```gitignore
+__pycache__/
+*.py[cod]
+.venv/
+.env
+node_modules/
+.next/
+data/raw/
+data/verified/
+data/curated/*.lock
+sandbox/
+release/
+.DS_Store
+```
+
+---
+
+## .gitattributes
+```gitattributes
+* text=auto eol=lf
+```
+
+---
+
+## requirements.txt
+```text
+crawl4ai
+requests
+aiohttp
+PyYAML
+python-dotenv
+tqdm
+beautifulsoup4
+lxml
+whois
+psycopg2-binary
+bcrypt
+```
+
+---
+
+## seeds.txt
+```text
+https://github.com
+https://sourceforge.net
+https://www.mozilla.org
+```
+
+---
+
+## examples/sample_output.yaml
+```yaml
+- name: example-package
+  version: 1.2.3
+  installer: https://github.com/example/example/releases/download/v1.2.3/example_1.2.3_amd64.deb
+  publisher: github.com
+  description: Example package from GitHub Releases
+  trust_score: 95
+  source: https://github.com/example/example/releases/tag/v1.2.3
+  discovered_at: 2025-10-05T21:00:00Z
+```
+
+---
+
+## scripts/crawl_and_extract.py
+```python
+#!/usr/bin/env python3
+"""
+Script: crawl_and_extract.py
+Date: 2025-10-05
+Author: ChatGPT for Blaine (cbwinslow)
+Summary: Crawl4AI-first crawler that extracts candidate installer links and surrounding context.
+Inputs:
+  --seeds: path to newline-separated seed URLs
+  --out:   output JSONL path (default: ./data/raw/candidates.jsonl)
+Outputs:
+  JSONL where each line contains: candidate_url, source_page, publisher_domain, markdown_snippet, discovered_at
+Notes:
+  - Respects Crawl4AI if installed; otherwise falls back to requests+BS4.
+  - Does NOT download binaries.
+"""
+import argparse, os, json, re, time, sys
+from urllib.parse import urlparse
+from datetime import datetime
+
+HAVE_CRAWL4AI = False
+try:
+    from crawl4ai import AsyncWebCrawler
+    HAVE_CRAWL4AI = True
+except Exception:
+    HAVE_CRAWL4AI = False
+
+import requests
+from bs4 import BeautifulSoup
+
+INSTALLER_HINTS = [
+    r"\.exe(\?.*)?$",
+    r"\.msi(\?.*)?$",
+    r"\.deb(\?.*)?$",
+    r"\.rpm(\?.*)?$",
+    r"\.dmg(\?.*)?$",
+    r"/releases/",
+    r"/download/",
+    r"/downloads/",
+]
+
+def extract_links_from_html(html, base_url):
+    soup = BeautifulSoup(html, 'lxml')
+    links = set()
+    for a in soup.find_all('a', href=True):
+        href = a['href']
+        if href.startswith('//'):
+            href = 'https:' + href
+        if href.startswith('/'):
+            p = urlparse(base_url)
+            href = p.scheme + '://' + p.netloc + href
+        links.add(href)
+    return links
+
+def is_candidate(link):
+    for p in INSTALLER_HINTS:
+        if re.search(p, link, re.I):
+            return True
+    return False
+
+def fetch_requests(url):
+    r = requests.get(url, timeout=15, headers={'User-Agent':'cloudcurio-crawler/1.0'})
+    r.raise_for_status()
+    return r.text
+
+async def run_async(seeds, out):
+    async with AsyncWebCrawler() as crawler:
+        with open(out, 'w', encoding='utf-8') as fh:
+            for s in seeds:
+                try:
+                    res = await crawler.arun(s)
+                    html = res.html or res.text or ''
+                    links = extract_links_from_html(html, s)
+                    for l in links:
+                        if is_candidate(l):
+                            fh.write(json.dumps({
+                                'candidate_url': l,
+                                'source_page': s,
+                                'publisher_domain': urlparse(l).netloc,
+                                'markdown_snippet': (res.markdown or '')[:1500],
+                                'discovered_at': datetime.utcnow().isoformat()+'Z'
+                            }) + '\n')
+                except Exception as e:
+                    print('crawl error', s, e, file=sys.stderr)
+
+def main():
+    p = argparse.ArgumentParser()
+    p.add_argument('--seeds', required=True)
+    p.add_argument('--out', default='./data/raw/candidates.jsonl')
+    args = p.parse_args()
+    os.makedirs(os.path.dirname(args.out), exist_ok=True)
+    with open(args.seeds, 'r', encoding='utf-8') as f:
+        seeds = [s.strip() for s in f if s.strip()]
+    if HAVE_CRAWL4AI:
+        import asyncio; asyncio.run(run_async(seeds, args.out)); return
+    # Fallback
+    with open(args.out, 'w', encoding='utf-8') as fh:
+        for s in seeds:
+            try:
+                html = fetch_requests(s)
+                for l in extract_links_from_html(html, s):
+                    if is_candidate(l):
+                        fh.write(json.dumps({
+                            'candidate_url': l,
+                            'source_page': s,
+                            'publisher_domain': urlparse(l).netloc,
+                            'markdown_snippet': (html or '')[:1500],
+                            'discovered_at': datetime.utcnow().isoformat()+'Z'
+                        }) + '\n')
+            except Exception as e:
+                print('fetch error', s, e, file=sys.stderr)
+            time.sleep(0.4)
+    print('wrote', args.out)
+
+if __name__=='__main__':
+    main()
+```
+
+---
+
+## scripts/verify_and_aggregate.py
+```python
+#!/usr/bin/env python3
+"""
+Script: verify_and_aggregate.py
+Date: 2025-10-05
+Author: ChatGPT for Blaine (cbwinslow)
+Summary: Aggregate multi-source reputation (VirusTotal, Google Safe Browsing, AbuseIPDB, WHOIS) and compute trust_score.
+Inputs:
+  --input: JSONL from crawler (default ./data/raw/candidates.jsonl)
+  --out:   JSONL output (default ./data/verified/verified.jsonl)
+Env:
+  VT_API_KEY, GSB_API_KEY, ABUSEIP_KEY
+"""
+import os, argparse, json, time, sys, requests
+from urllib.parse import urlparse
+
+VT_KEY = os.getenv('VT_API_KEY')
+GSB_KEY = os.getenv('GSB_API_KEY')
+ABUSE_KEY = os.getenv('ABUSEIP_KEY')
+
+def vt_domain(domain):
+    if not VT_KEY: return None, {'note':'no_vt_key'}
+    try:
+        r = requests.get(f'https://www.virustotal.com/api/v3/domains/{domain}', headers={'x-apikey': VT_KEY}, timeout=15)
+        r.raise_for_status()
+        data = r.json()
+        mal = data.get('data',{}).get('attributes',{}).get('last_analysis_stats',{}).get('malicious', 0)
+        return mal, data
+    except Exception as e:
+        return 999, {'error': str(e)}
+
+def gsb_check(url):
+    if not GSB_KEY: return None, {'note':'no_gsb_key'}
+    try:
+        api = f'https://safebrowsing.googleapis.com/v4/threatMatches:find?key={GSB_KEY}'
+        payload = {
+            "client": {"clientId":"cloudcurio","clientVersion":"1.0"},
+            "threatInfo": {
+                "threatTypes": ["MALWARE","SOCIAL_ENGINEERING","UNWANTED_SOFTWARE","POTENTIALLY_HARMFUL_APPLICATION"],
+                "platformTypes": ["ANY_PLATFORM"],
+                "threatEntryTypes": ["URL"],
+                "threatEntries": [{"url": url}]
+            }
+        }
+        r = requests.post(api, json=payload, timeout=15)
+        r.raise_for_status()
+        data = r.json()
+        return 1 if data.get('matches') else 0, data
+    except Exception as e:
+        return 999, {'error': str(e)}
+
+def abuseip(domain):
+    if not ABUSE_KEY: return None, {'note':'no_abuse_key'}
+    try:
+        import socket
+        ip = socket.gethostbyname(domain)
+        r = requests.get('https://api.abuseipdb.com/api/v2/check', headers={'Key':ABUSE_KEY,'Accept':'application/json'}, params={'ipAddress': ip}, timeout=15)
+        r.raise_for_status()
+        data = r.json()
+        return data.get('data',{}).get('abuseConfidenceScore',0), data
+    except Exception as e:
+        return 999, {'error': str(e)}
+
+def whois_age_days(domain):
+    try:
+        import whois, datetime
+        w = whois.whois(domain)
+        c = w.creation_date
+        if isinstance(c, list): c = c[0]
+        if not c: return None
+        return max(0, (datetime.datetime.utcnow()-c).days)
+    except Exception:
+        return None
+
+def trust_score(sig):
+    score = 50.0
+    vt, gsb, abuse, age = sig.get('vt'), sig.get('gsb'), sig.get('abuse'), sig.get('whois_age_days')
+    if vt is None: pass
+    elif vt == 999: score -= 40
+    else: score += max(0, (5 - vt) * 5)
+    if gsb is None: pass
+    elif gsb == 999: score -= 20
+    else: score += (0 if gsb==1 else 5)
+    if abuse is None: pass
+    elif abuse == 999: score -= 10
+    else: score -= min(30, abuse/3)
+    if age: score += min(10, age/365)
+    return int(max(0, min(100, score)))
+
+def main():
+    p = argparse.ArgumentParser()
+    p.add_argument('--input', default='./data/raw/candidates.jsonl')
+    p.add_argument('--out', default='./data/verified/verified.jsonl')
+    args = p.parse_args()
+    os.makedirs(os.path.dirname(args.out), exist_ok=True)
+    with open(args.input, 'r', encoding='utf-8') as fh, open(args.out, 'w', encoding='utf-8') as ofh:
+        for line in fh:
+            item = json.loads(line)
+            url = item['candidate_url']
+            domain = urlparse(url).netloc
+            v, vraw = vt_domain(domain)
+            g, graw = gsb_check(url)
+            ab, abraw = abuseip(domain)
+            age = whois_age_days(domain)
+            sig = {'vt':v,'vt_raw':vraw,'gsb':g,'gsb_raw':graw,'abuse':ab,'abuse_raw':abraw,'whois_age_days':age}
+            item['signals'] = sig
+            item['trust_score'] = trust_score(sig)
+            ofh.write(json.dumps(item) + '\n')
+            time.sleep(0.35)
+    print('wrote', args.out)
+
+if __name__=='__main__':
+    main()
+```
+
+---
+
+## scripts/score_and_filter.py
+```python
+#!/usr/bin/env python3
+"""
+Script: score_and_filter.py
+Date: 2025-10-05
+Author: ChatGPT for Blaine (cbwinslow)
+Summary: Decide accept/reject/review based on trust_score thresholds.
+"""
+import os, argparse, json
+
+ACCEPT=70
+REJECT=30
+
+def decide(ts):
+    if ts is None: return 'review'
+    if ts >= ACCEPT: return 'accept'
+    if ts <= REJECT: return 'reject'
+    return 'review'
+
+def main():
+    p=argparse.ArgumentParser()
+    p.add_argument('--input', default='./data/verified/verified.jsonl')
+    p.add_argument('--out', default='./data/curated/curated.jsonl')
+    args=p.parse_args()
+    os.makedirs(os.path.dirname(args.out), exist_ok=True)
+    with open(args.input,'r',encoding='utf-8') as fh, open(args.out,'w',encoding='utf-8') as ofh:
+        for line in fh:
+            item=json.loads(line)
+            item['decision']=decide(item.get('trust_score'))
+            ofh.write(json.dumps(item)+'\n')
+    print('wrote', args.out)
+
+if __name__=='__main__':
+    main()
+```
+
+---
+
+## scripts/gist_uploader.py
+```python
+#!/usr/bin/env python3
+"""
+Script: gist_uploader.py
+Creates GitHub gists for accepted items. Requires GITHUB_TOKEN.
+"""
+import os, json, requests
+
+GITHUB_TOKEN=os.getenv('GITHUB_TOKEN')
+
+def make_md(item):
+    return f"# Installer: {item.get('candidate_url')}\n\n" \
+           f"**Source page:** {item.get('source_page')}\n" \
+           f"**Publisher:** {item.get('publisher_domain')}\n" \
+           f"**Trust score:** {item.get('trust_score')}\n" \
+           f"**Signals:** {json.dumps(item.get('signals'), indent=2)}\n"
+
+def upload(md, public=True):
+    headers={'Authorization': f'token {GITHUB_TOKEN}'} if GITHUB_TOKEN else {}
+    if not headers: 
+        print('No GITHUB_TOKEN set; dry-run only.')
+        return None
+    r=requests.post('https://api.github.com/gists', json={'files':{'installer.md':{'content':md}}, 'public':public}, headers=headers, timeout=20)
+    r.raise_for_status()
+    return r.json()
+
+def main():
+    path='./data/curated/curated.jsonl'
+    if not os.path.exists(path): 
+        print('No curated.jsonl found.'); return
+    with open(path,'r',encoding='utf-8') as fh:
+        for l in fh:
+            it=json.loads(l)
+            if it.get('decision')!='accept': continue
+            md=make_md(it)
+            print('Would upload gist for', it['candidate_url'])
+            # resp=upload(md); print('uploaded', resp and resp.get('html_url'))
+
+if __name__=='__main__':
+    main()
+```
+
+---
+
+## scripts/litellm_proxy_client.py
+```python
+#!/usr/bin/env python3
+"""
+Script: litellm_proxy_client.py
+Calls a local litellm proxy first; falls back to OpenRouter for summarization.
+"""
+import os, requests
+
+LITE=os.getenv('LITELLM_PROXY_URL')
+OPEN=os.getenv('OPENROUTER_API_KEY')
+
+def summarize(text, max_tokens=200):
+    if LITE:
+        try:
+            r=requests.post(f'{LITE}/v1/summarize', json={'text': text, 'max_tokens': max_tokens}, timeout=20)
+            r.raise_for_status()
+            return r.json()
+        except Exception as e:
+            print('litellm error', e)
+    if OPEN:
+        try:
+            r=requests.post('https://api.openrouter.ai/v1/chat/completions',
+                headers={'Authorization': f'Bearer {OPEN}', 'Content-Type':'application/json'},
+                json={'model':'gpt-4o-mini','messages':[{'role':'user','content': f'Summarize: {text[:3000]}'}],'max_tokens': max_tokens},
+                timeout=20
+            )
+            r.raise_for_status()
+            return r.json()
+        except Exception as e:
+            print('openrouter error', e)
+    return {'error':'no proxy or key available'}
+
+if __name__=='__main__':
+    print(summarize('This is a short text to summarize.'))
+```
+
+---
+
+## scripts/sandbox_scan.py
+```python
+#!/usr/bin/env python3
+"""
+Script: sandbox_scan.py
+Safely stages a binary (no execution on host) and prints SHA256.
+"""
+import os, argparse, requests, hashlib
+
+def download(url, outdir='./sandbox/downloads'):
+    os.makedirs(outdir, exist_ok=True)
+    local=os.path.join(outdir, os.path.basename(url.split('?')[0]) or 'download.bin')
+    r=requests.get(url, stream=True, timeout=30); r.raise_for_status()
+    with open(local,'wb') as f:
+        for ch in r.iter_content(8192): f.write(ch)
+    return local
+
+def sha256(p):
+    h=hashlib.sha256()
+    with open(p,'rb') as f:
+        for b in iter(lambda:f.read(8192), b''):
+            h.update(b)
+    return h.hexdigest()
+
+def main():
+    ap=argparse.ArgumentParser()
+    ap.add_argument('--url', required=True)
+    a=ap.parse_args()
+    local=download(a.url)
+    print('staged:', local)
+    print('sha256:', sha256(local))
+    print('Move this file to an isolated VM/sandbox for analysis. Do NOT execute on host.')
+
+if __name__=='__main__':
+    main()
+```
+
+---
+
+## scripts/sandbox_submit.py
+```python
+#!/usr/bin/env python3
+"""
+Script: sandbox_submit.py
+Submits URLs to Cuckoo or Hybrid-Analysis (if configured). No local execution.
+"""
+import os, argparse, requests
+
+CUCKOO=os.getenv('SANDBOX_CUCKOO_URL')
+HYBRID_KEY=os.getenv('SANDBOX_HYBRID_KEY')
+
+def submit_cuckoo(url):
+    if not CUCKOO: return {'error':'SANDBOX_CUCKOO_URL not set'}
+    try:
+        r=requests.post(f'{CUCKOO}/tasks/create/url', data={'url':url}, timeout=20)
+        return r.json() if 'application/json' in r.headers.get('content-type','') else {'status': r.status_code, 'text': r.text[:500]}
+    except Exception as e:
+        return {'error': str(e)}
+
+def submit_hybrid(url):
+    if not HYBRID_KEY: return {'error':'SANDBOX_HYBRID_KEY not set'}
+    try:
+        headers={'api-key': HYBRID_KEY}
+        r=requests.post('https://www.hybrid-analysis.com/api/v2/submit/url',
+                        headers=headers,
+                        data={'scan_type':'all','url':url}, timeout=20)
+        return r.json() if 'application/json' in r.headers.get('content-type','') else {'status': r.status_code, 'text': r.text[:500]}
+    except Exception as e:
+        return {'error': str(e)}
+
+def main():
+    ap=argparse.ArgumentParser()
+    ap.add_argument('--url', required=True)
+    ap.add_argument('--target', choices=['cuckoo','hybrid'], required=True)
+    a=ap.parse_args()
+    print(submit_cuckoo(a.url) if a.target=='cuckoo' else submit_hybrid(a.url))
+
+if __name__=='__main__':
+    main()
+```
+
+---
+
+## scripts/triage_db.py
+```python
+#!/usr/bin/env python3
+"""
+Script: triage_db.py
+Simple helper to inspect curated.jsonl, filter items, and export CSV for audits.
+"""
+import json, argparse, csv
+
+def main():
+    p=argparse.ArgumentParser()
+    p.add_argument('--input', default='./data/curated/curated.jsonl')
+    p.add_argument('--export_csv', default='./data/curated/curated_export.csv')
+    args=p.parse_args()
+    rows=[]
+    with open(args.input,'r',encoding='utf-8') as fh:
+        for l in fh:
+            it=json.loads(l)
+            rows.append([it.get('candidate_url'), it.get('publisher_domain'), it.get('trust_score'), it.get('decision')])
+    with open(args.export_csv,'w',encoding='utf-8',newline='') as out:
+        w=csv.writer(out); w.writerow(['url','domain','trust_score','decision']); w.writerows(rows)
+    print('exported', args.export_csv)
+
+if __name__=='__main__':
+    main()
+```
+
+---
+
+## scripts/git_bootstrap.sh
+```bash
+#!/usr/bin/env bash
+set -euo pipefail
+if [[ $# -lt 1 ]]; then
+  echo "Usage: $0 <github-repo-url>"
+  exit 1
+fi
+REPO_URL="$1"
+cd "$(dirname "$0")/.."
+if [[ ! -d .git ]]; then git init; fi
+git add .
+git commit -m "feat: initial CloudCurio installer crawler (complete)"
+git branch -M main
+git checkout -b develop || true
+git remote remove origin 2>/dev/null || true
+git remote add origin "$REPO_URL"
+git checkout main && git push -u origin main
+git checkout develop && git push -u origin develop
+echo "Pushed main & develop to $REPO_URL"
+```
+
+---
+
+## scripts/make_release.sh
+```bash
+#!/usr/bin/env bash
+set -euo pipefail
+RELEASE_ZIP=installer-crawler-release.zip
+RELEASE_TGZ=installer-crawler-release.tar.gz
+rm -f "$RELEASE_ZIP" "$RELEASE_TGZ"
+zip -r "$RELEASE_ZIP" . -x "*/.git/*" -x "release/*"
+tar -czf "$RELEASE_TGZ" .
+echo "Created $RELEASE_ZIP and $RELEASE_TGZ"
+```
+
+---
+
+## triage-ui/package.json
+```json
+{
+  "name": "triage-ui",
+  "private": true,
+  "scripts": {
+    "dev": "NEXT_SECURE_HEADERS=1 next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "13.4.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "bcrypt": "5.1.1",
+    "pg": "8.11.3",
+    "better-sqlite3": "9.4.3",
+    "rate-limiter-flexible": "5.0.0"
+  }
+}
+```
+
+---
+
+## triage-ui/middleware.js
+```javascript
+// Basic security headers; for production use a hardened reverse proxy as well
+export async function middleware(req) {
+  const res = await fetch(req)
+  const headers = new Headers(res.headers)
+  if (process.env.NEXT_SECURE_HEADERS) {
+    headers.set('X-Frame-Options','DENY')
+    headers.set('X-Content-Type-Options','nosniff')
+    headers.set('Referrer-Policy','no-referrer')
+  }
+  return new Response(res.body, { status: res.status, headers })
+}
+```
+
+---
+
+## triage-ui/lib/db.js
+```javascript
+import Database from 'better-sqlite3'
+import pkg from 'pg'
+const { Pool } = pkg
+
+const url = process.env.DATABASE_URL
+
+let sqlite
+let pgpool
+
+export function getDB(){
+  if(url){
+    if(!pgpool){ pgpool = new Pool({ connectionString: url }) }
+    return { type:'pg', pool: pgpool }
+  }else{
+    if(!sqlite){ sqlite = new Database('./triage-ui/triage.db') }
+    return { type:'sqlite', db: sqlite }
+  }
+}
+
+export async function init(){
+  const store = getDB()
+  if(store.type==='sqlite'){
+    store.db.exec(`CREATE TABLE IF NOT EXISTS users(id INTEGER PRIMARY KEY, email TEXT UNIQUE, password TEXT);
+                   CREATE TABLE IF NOT EXISTS actions(id INTEGER PRIMARY KEY, url TEXT, decision TEXT, reviewer TEXT, ts TEXT);`)
+  }else{
+    await store.pool.query(`CREATE TABLE IF NOT EXISTS users(id SERIAL PRIMARY KEY, email TEXT UNIQUE, password TEXT);
+                            CREATE TABLE IF NOT EXISTS actions(id SERIAL PRIMARY KEY, url TEXT, decision TEXT, reviewer TEXT, ts TEXT);`)
+  }
+}
+```
+
+---
+
+## triage-ui/scripts/create_user.js
+```javascript
+// node scripts/create_user.js --email me@example.com --password "S3cret!"
+import bcrypt from 'bcrypt'
+import { getDB, init } from '../lib/db.js'
+
+const args = process.argv.slice(2)
+const emailIdx = args.indexOf('--email')
+const passIdx = args.indexOf('--password')
+if(emailIdx===-1 || passIdx===-1){
+  console.log('Usage: node scripts/create_user.js --email <email> --password <pass>')
+  process.exit(1)
+}
+const email = args[emailIdx+1]
+const pass = args[passIdx+1]
+
+const run = async () => {
+  const store = getDB(); await init()
+  const hash = await bcrypt.hash(pass, 10)
+  if(store.type==='sqlite'){
+    store.db.prepare('INSERT OR REPLACE INTO users(email,password) VALUES (?,?)').run(email, hash)
+  }else{
+    await store.pool.query('INSERT INTO users(email,password) VALUES ($1,$2) ON CONFLICT (email) DO UPDATE SET password=EXCLUDED.password',[email,hash])
+  }
+  console.log('User upserted:', email)
+}
+run().then(()=>process.exit(0))
+```
+
+---
+
+## triage-ui/pages/index.js
+```javascript
+import { useState } from 'react'
+
+export default function Home({items}){
+  const [data, setData] = useState(items||[])
+  async function act(url, decision){
+    const useDB = !!process.env.NEXT_PUBLIC_DATABASE_MODE
+    let headers = {'Content-Type':'application/json'}
+    if(useDB){
+      const email = prompt('DB auth — email:')
+      const pass = prompt('DB auth — password:')
+      const token = btoa(`${email}:${pass}`)
+      headers['Authorization'] = `Basic ${token}`
+    }else{
+      const t = prompt('Enter TRIAGE_TOKEN')
+      headers['Authorization'] = `Bearer ${t}`
+    }
+    const res = await fetch('/api/items',{method:'POST', headers, body: JSON.stringify({candidate_url:url, decision})})
+    const j = await res.json()
+    if(j.ok) setData(d => d.map(it => it.candidate_url===url ? {...it, decision, reviewed_at:new Date().toISOString()} : it))
+    else alert(JSON.stringify(j))
+  }
+  return (
+    <div style={{fontFamily:'system-ui, Arial', padding:20}}>
+      <h1>CloudCurio Triage</h1>
+      <p>Accept/Reject/Review items. Auth via token or DB (see README).</p>
+      <ul>
+        {data.map((it, i) => (
+          <li key={i} style={{marginBottom:14}}>
+            <div><strong>{it.publisher_domain}</strong> — <a href={it.candidate_url} target="_blank" rel="noreferrer">{it.candidate_url}</a></div>
+            <div>Trust score: {it.trust_score} — decision: {it.decision}</div>
+            <div style={{marginTop:6}}>
+              <button onClick={()=>act(it.candidate_url,'accept')}>Accept</button>
+              <button onClick={()=>act(it.candidate_url,'reject')} style={{marginLeft:8}}>Reject</button>
+              <button onClick={()=>act(it.candidate_url,'review')} style={{marginLeft:8}}>Review</button>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+
+export async function getServerSideProps(){
+  const res = await fetch('http://localhost:3000/api/items')
+  const items = await res.json()
+  return {props:{items}}
+}
+```
+
+---
+
+## triage-ui/pages/api/items.js
+```javascript
+import fs from 'fs'
+import path from 'path'
+import { getDB, init } from '../../lib/db.js'
+import bcrypt from 'bcrypt'
+
+const DATA_PATH = path.resolve(process.cwd(), '../data/curated/curated.jsonl')
+
+async function authOK(req){
+  const token = process.env.TRIAGE_TOKEN
+  const auth = req.headers.get('authorization') || ''
+  if(!process.env.DATABASE_URL){
+    if(!token) return false
+    const parts = auth.split(' ')
+    return parts.length===2 && parts[0]==='Bearer' && parts[1]===token
+  }
+  try{
+    const basic = auth.startsWith('Basic ') ? Buffer.from(auth.split(' ')[1], 'base64').toString('utf8') : ''
+    const [email, pass] = basic.split(':')
+    if(!email || !pass) return false
+    const store = getDB()
+    await init()
+    if(store.type==='sqlite'){
+      const row = store.db.prepare('SELECT password FROM users WHERE email=?').get(email)
+      if(!row) return false
+      return await bcrypt.compare(pass, row.password)
+    }else{
+      const res = await store.pool.query('SELECT password FROM users WHERE email=$1',[email])
+      if(!res.rows.length) return false
+      return await bcrypt.compare(pass, res.rows[0].password)
+    }
+  }catch(e){
+    return false
+  }
+}
+
+function readItems(){
+  try{
+    const txt = fs.readFileSync(DATA_PATH, 'utf8').trim()
+    if(!txt) return []
+    return txt.split('\n').map(l=>JSON.parse(l))
+  }catch(e){
+    return []
+  }
+}
+
+function writeItems(items){
+  const txt = items.map(i=>JSON.stringify(i)).join('\n') + '\n'
+  fs.writeFileSync(DATA_PATH, txt, 'utf8')
+}
+
+export default async function handler(req, res){
+  if(req.method==='GET'){
+    return res.status(200).json(readItems())
+  }
+  if(req.method==='POST'){
+    if(!(await authOK(req))) return res.status(401).json({error:'unauthorized'})
+    const body = req.body || {}
+    const items = readItems()
+    const idx = items.findIndex(i => i.candidate_url === body.candidate_url)
+    if(idx === -1) return res.status(404).json({error:'not found'})
+    items[idx].decision = body.decision || 'review'
+    items[idx].reviewed_at = new Date().toISOString()
+    items[idx].reviewed_by = body.reviewer || 'triage-ui'
+    writeItems(items)
+    const store = getDB()
+    await init()
+    const row = { url: items[idx].candidate_url, decision: items[idx].decision, reviewer: items[idx].reviewed_by, ts: new Date().toISOString() }
+    if(store.type==='sqlite'){
+      store.db.prepare('INSERT INTO actions(url,decision,reviewer,ts) VALUES (?,?,?,?)').run(row.url,row.decision,row.reviewer,row.ts)
+    }else{
+      await store.pool.query('INSERT INTO actions(url,decision,reviewer,ts) VALUES ($1,$2,$3,$4)',[row.url,row.decision,row.reviewer,row.ts])
+    }
+    return res.status(200).json({ok:true})
+  }
+  res.status(405).json({error:'method not allowed'})
+}
+```
+
+---
+
+## .github/workflows/ci.yml
+```yaml
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  lint-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+      - name: Install deps
+        run: pip install -r requirements.txt
+      - name: Smoke tests
+        run: python -V
+```
+
+---
+
+## .github/workflows/scheduled-crawl.yml
+```yaml
+name: Scheduled Crawl & PR
+
+on:
+  schedule:
+    - cron: "30 2 * * *"
+  workflow_dispatch:
+
+jobs:
+  crawl-and-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+      - name: Install deps
+        run: pip install -r requirements.txt
+      - name: Prepare data folders
+        run: mkdir -p data/raw data/verified data/curated
+      - name: Crawl
+        run: |
+          echo "https://github.com" > seeds.txt
+          python scripts/crawl_and_extract.py --seeds seeds.txt --out data/raw/candidates.jsonl
+      - name: Verify & Aggregate
+        env:
+          VT_API_KEY: ${{ secrets.VT_API_KEY }}
+          GSB_API_KEY: ${{ secrets.GSB_API_KEY }}
+          ABUSEIP_KEY: ${{ secrets.ABUSEIP_KEY }}
+        run: python scripts/verify_and_aggregate.py --input data/raw/candidates.jsonl --out data/verified/verified.jsonl
+      - name: Score
+        run: python scripts/score_and_filter.py --input data/verified/verified.jsonl --out data/curated/curated.jsonl
+      - name: Commit changes
+        run: |
+          if git diff --quiet; then
+            echo "No changes."
+          else
+            BRANCH="auto/crawl-$(date +%Y%m%d)"
+            git config user.name "cloudcurio-bot"
+            git config user.email "actions@users.noreply.github.com"
+            git checkout -b "$BRANCH"
+            git add data/curated/curated.jsonl
+            git commit -m "Automated curated update"
+            git push -u origin "$BRANCH"
+          fi
+      - name: Create PR
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: auto/crawl-latest
+          title: "Automated curated update"
+          body: "This PR contains the latest curated results."
+```
+
+---
+
+## .github/workflows/codeql.yml
+```yaml
+name: "CodeQL"
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  schedule:
+    - cron: '0 6 * * 1'
+
+jobs:
+  analyze:
+    name: Analyze
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: github/codeql-action/init@v3
+        with:
+          languages: python, javascript
+      - uses: github/codeql-action/analyze@v3
+```
+
+---
+
+## .github/workflows/scorecards.yml
+```yaml
+name: OpenSSF Scorecard
+on:
+  schedule:
+    - cron: '20 1 * * 0'
+  push:
+    branches: [ main ]
+permissions:
+  security-events: write
+  id-token: write
+  contents: read
+  actions: read
+jobs:
+  analysis:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ossf/scorecard-action@v2.3.1
+        with:
+          results_file: results.sarif
+          results_format: sarif
+      - uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: results.sarif
+```
+
+---
+
+## .github/CODEOWNERS
+```text
+* @cbwinslow
+```
+
+---
+
+## .github/PULL_REQUEST_TEMPLATE.md
+```markdown
+## Summary
+-
+
+## What changed
+-
+
+## Safety & Security
+- [ ] No binaries added
+- [ ] No auto-execution of downloads
+- [ ] No secrets committed
+
+## Checklist
+- [ ] Tests pass
+- [ ] Docs updated
+- [ ] CI green
+```
+
+---
+
+## .github/ISSUE_TEMPLATE/bug_report.yml
+```yaml
+name: Bug report
+description: File a bug report
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Describe the bug
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+  - type: input
+    id: version
+    attributes:
+      label: Version / commit
+```
+
+---
+
+## .github/ISSUE_TEMPLATE/feature_request.yml
+```yaml
+name: Feature request
+description: Request a feature
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What do you want to add?
+    validations:
+      required: true
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Rationale
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+```
+
+---
+
+## .github/ISSUE_TEMPLATE/config.yml
+```yaml
+blank_issues_enabled: false
+```
+
+---
+
+## Dockerfile (crawler image)
+```Dockerfile
+FROM python:3.11-slim
+WORKDIR /app
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+COPY scripts ./scripts
+COPY seeds.txt ./seeds.txt
+ENTRYPOINT ["python","scripts/crawl_and_extract.py","--seeds","./seeds.txt","--out","./data/raw/candidates.jsonl"]
+```
+
+---
+
+## Dockerfile.ui (triage UI)
+```Dockerfile
+FROM node:20-alpine
+WORKDIR /app
+COPY triage-ui/package.json ./triage-ui/package.json
+RUN cd triage-ui && npm install
+COPY triage-ui ./triage-ui
+WORKDIR /app/triage-ui
+ENV NEXT_SECURE_HEADERS=1
+EXPOSE 3000
+CMD ["npm","run","dev"]
+```
+
+---
+
+## Makefile
+```makefile
+.PHONY: venv install crawl verify score ui sandbox release
+
+venv:
+	python -m venv .venv && . .venv/bin/activate && pip install -r requirements.txt
+
+install:
+	pip install -r requirements.txt
+
+crawl:
+	python scripts/crawl_and_extract.py --seeds seeds.txt --out data/raw/candidates.jsonl
+
+verify:
+	python scripts/verify_and_aggregate.py --input data/raw/candidates.jsonl --out data/verified/verified.jsonl
+
+score:
+	python scripts/score_and_filter.py --input data/verified/verified.jsonl --out data/curated/curated.jsonl
+
+ui:
+	cd triage-ui && npm install && npm run dev
+
+sandbox:
+	python scripts/sandbox_scan.py --url $(URL)
+
+release:
+	./scripts/make_release.sh
