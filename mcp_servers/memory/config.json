@@ -1,0 +1,192 @@
+{
+  "name": "memory-mcp-server",
+  "version": "1.0.0",
+  "description": "MCP server for AI agent memory management (short-term and long-term)",
+  "protocol_version": "1.0",
+  "capabilities": {
+    "tools": true,
+    "resources": true,
+    "prompts": true
+  },
+  "transport": {
+    "type": "stdio"
+  },
+  "tools": [
+    {
+      "name": "memory_store",
+      "description": "Store information in memory",
+      "parameters": {
+        "content": {
+          "type": "string",
+          "description": "Content to store",
+          "required": true
+        },
+        "type": {
+          "type": "string",
+          "enum": ["short_term", "long_term"],
+          "description": "Memory type",
+          "required": true
+        },
+        "key": {
+          "type": "string",
+          "description": "Memory key/identifier",
+          "required": false
+        },
+        "tags": {
+          "type": "array",
+          "description": "Memory tags",
+          "required": false
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Additional metadata",
+          "required": false
+        }
+      }
+    },
+    {
+      "name": "memory_retrieve",
+      "description": "Retrieve information from memory",
+      "parameters": {
+        "key": {
+          "type": "string",
+          "description": "Memory key",
+          "required": false
+        },
+        "query": {
+          "type": "string",
+          "description": "Search query",
+          "required": false
+        },
+        "type": {
+          "type": "string",
+          "enum": ["short_term", "long_term", "all"],
+          "description": "Memory type to search",
+          "required": false
+        },
+        "limit": {
+          "type": "integer",
+          "description": "Maximum results",
+          "required": false
+        }
+      }
+    },
+    {
+      "name": "memory_update",
+      "description": "Update existing memory",
+      "parameters": {
+        "key": {
+          "type": "string",
+          "description": "Memory key",
+          "required": true
+        },
+        "content": {
+          "type": "string",
+          "description": "Updated content",
+          "required": false
+        },
+        "tags": {
+          "type": "array",
+          "description": "Updated tags",
+          "required": false
+        }
+      }
+    },
+    {
+      "name": "memory_delete",
+      "description": "Delete memory",
+      "parameters": {
+        "key": {
+          "type": "string",
+          "description": "Memory key",
+          "required": true
+        }
+      }
+    },
+    {
+      "name": "memory_search",
+      "description": "Search memories by content or tags",
+      "parameters": {
+        "query": {
+          "type": "string",
+          "description": "Search query",
+          "required": true
+        },
+        "type": {
+          "type": "string",
+          "enum": ["short_term", "long_term", "all"],
+          "description": "Memory type",
+          "required": false
+        },
+        "tags": {
+          "type": "array",
+          "description": "Filter by tags",
+          "required": false
+        }
+      }
+    },
+    {
+      "name": "memory_clear",
+      "description": "Clear memories",
+      "parameters": {
+        "type": {
+          "type": "string",
+          "enum": ["short_term", "long_term", "all"],
+          "description": "Type of memories to clear",
+          "required": true
+        },
+        "older_than": {
+          "type": "string",
+          "description": "Clear memories older than duration (e.g., '7d', '24h')",
+          "required": false
+        }
+      }
+    },
+    {
+      "name": "memory_consolidate",
+      "description": "Consolidate short-term memories into long-term",
+      "parameters": {
+        "keys": {
+          "type": "array",
+          "description": "Memory keys to consolidate",
+          "required": false
+        },
+        "auto": {
+          "type": "boolean",
+          "description": "Automatically select memories to consolidate",
+          "required": false
+        }
+      }
+    },
+    {
+      "name": "memory_get_stats",
+      "description": "Get memory usage statistics",
+      "parameters": {}
+    }
+  ],
+  "resources": [
+    {
+      "uri": "memory://short-term",
+      "name": "Short-term Memory",
+      "description": "Access to short-term memory store"
+    },
+    {
+      "uri": "memory://long-term",
+      "name": "Long-term Memory",
+      "description": "Access to long-term memory store"
+    }
+  ],
+  "memory_config": {
+    "short_term": {
+      "ttl": "24h",
+      "max_size": 1000,
+      "storage": "redis"
+    },
+    "long_term": {
+      "ttl": null,
+      "max_size": 100000,
+      "storage": "postgresql",
+      "embedding_model": "sentence-transformers/all-MiniLM-L6-v2"
+    }
+  }
+}

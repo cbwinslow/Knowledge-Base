@@ -1,0 +1,104 @@
+{
+  "name": "docker-mcp-server",
+  "version": "1.0.0",
+  "description": "MCP server for Docker container and image operations",
+  "protocol_version": "1.0",
+  "capabilities": {
+    "tools": true,
+    "resources": true,
+    "prompts": true
+  },
+  "transport": {
+    "type": "stdio"
+  },
+  "tools": [
+    {
+      "name": "docker_list_containers",
+      "description": "List Docker containers",
+      "parameters": {
+        "all": {
+          "type": "boolean",
+          "description": "Show all containers (including stopped)",
+          "required": false
+        },
+        "filters": {
+          "type": "object",
+          "description": "Filter containers",
+          "required": false
+        }
+      }
+    },
+    {
+      "name": "docker_start_container",
+      "description": "Start container",
+      "parameters": {
+        "container_id": {
+          "type": "string",
+          "required": true
+        }
+      }
+    },
+    {
+      "name": "docker_stop_container",
+      "description": "Stop container",
+      "parameters": {
+        "container_id": {
+          "type": "string",
+          "required": true
+        }
+      }
+    },
+    {
+      "name": "docker_list_images",
+      "description": "List Docker images",
+      "parameters": {
+        "filters": {
+          "type": "object",
+          "required": false
+        }
+      }
+    },
+    {
+      "name": "docker_pull_image",
+      "description": "Pull Docker image",
+      "parameters": {
+        "image": {
+          "type": "string",
+          "required": true
+        },
+        "tag": {
+          "type": "string",
+          "required": false
+        }
+      }
+    },
+    {
+      "name": "docker_get_logs",
+      "description": "Get container logs",
+      "parameters": {
+        "container_id": {
+          "type": "string",
+          "required": true
+        },
+        "tail": {
+          "type": "integer",
+          "required": false
+        }
+      }
+    },
+    {
+      "name": "docker_exec",
+      "description": "Execute command in container",
+      "parameters": {
+        "container_id": {
+          "type": "string",
+          "required": true
+        },
+        "command": {
+          "type": "array",
+          "required": true
+        }
+      }
+    }
+  ]
+}

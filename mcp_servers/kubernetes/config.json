@@ -1,0 +1,141 @@
+{
+  "name": "kubernetes-mcp-server",
+  "version": "1.0.0",
+  "description": "MCP server for Kubernetes cluster operations",
+  "protocol_version": "1.0",
+  "capabilities": {
+    "tools": true,
+    "resources": true,
+    "prompts": true
+  },
+  "transport": {
+    "type": "stdio"
+  },
+  "tools": [
+    {
+      "name": "k8s_list_pods",
+      "description": "List pods in namespace",
+      "parameters": {
+        "namespace": {
+          "type": "string",
+          "required": false
+        },
+        "label_selector": {
+          "type": "string",
+          "required": false
+        }
+      }
+    },
+    {
+      "name": "k8s_get_pod",
+      "description": "Get pod details",
+      "parameters": {
+        "name": {
+          "type": "string",
+          "required": true
+        },
+        "namespace": {
+          "type": "string",
+          "required": false
+        }
+      }
+    },
+    {
+      "name": "k8s_get_logs",
+      "description": "Get pod logs",
+      "parameters": {
+        "pod": {
+          "type": "string",
+          "required": true
+        },
+        "namespace": {
+          "type": "string",
+          "required": false
+        },
+        "container": {
+          "type": "string",
+          "required": false
+        },
+        "tail": {
+          "type": "integer",
+          "required": false
+        }
+      }
+    },
+    {
+      "name": "k8s_list_deployments",
+      "description": "List deployments",
+      "parameters": {
+        "namespace": {
+          "type": "string",
+          "required": false
+        }
+      }
+    },
+    {
+      "name": "k8s_scale_deployment",
+      "description": "Scale deployment",
+      "parameters": {
+        "name": {
+          "type": "string",
+          "required": true
+        },
+        "namespace": {
+          "type": "string",
+          "required": false
+        },
+        "replicas": {
+          "type": "integer",
+          "required": true
+        }
+      }
+    },
+    {
+      "name": "k8s_list_services",
+      "description": "List services",
+      "parameters": {
+        "namespace": {
+          "type": "string",
+          "required": false
+        }
+      }
+    },
+    {
+      "name": "k8s_apply_manifest",
+      "description": "Apply Kubernetes manifest",
+      "parameters": {
+        "manifest": {
+          "type": "string",
+          "description": "YAML manifest content",
+          "required": true
+        },
+        "namespace": {
+          "type": "string",
+          "required": false
+        }
+      }
+    },
+    {
+      "name": "k8s_delete_resource",
+      "description": "Delete Kubernetes resource",
+      "parameters": {
+        "kind": {
+          "type": "string",
+          "required": true
+        },
+        "name": {
+          "type": "string",
+          "required": true
+        },
+        "namespace": {
+          "type": "string",
+          "required": false
+        }
+      }
+    }
+  ],
+  "authentication": {
+    "type": "kubeconfig",
+    "methods": ["kubeconfig_file", "in_cluster_config", "service_account"]
+  }
+}

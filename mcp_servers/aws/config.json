@@ -1,0 +1,164 @@
+{
+  "name": "aws-mcp-server",
+  "version": "1.0.0",
+  "description": "MCP server providing AWS service integration and operations",
+  "protocol_version": "1.0",
+  "capabilities": {
+    "tools": true,
+    "resources": true,
+    "prompts": true
+  },
+  "transport": {
+    "type": "stdio"
+  },
+  "tools": [
+    {
+      "name": "aws_ec2_list_instances",
+      "description": "List EC2 instances with optional filters",
+      "parameters": {
+        "region": {
+          "type": "string",
+          "description": "AWS region",
+          "required": false
+        },
+        "filters": {
+          "type": "object",
+          "description": "Filters for instance selection",
+          "required": false
+        }
+      }
+    },
+    {
+      "name": "aws_s3_list_buckets",
+      "description": "List S3 buckets",
+      "parameters": {}
+    },
+    {
+      "name": "aws_s3_get_object",
+      "description": "Get object from S3 bucket",
+      "parameters": {
+        "bucket": {
+          "type": "string",
+          "description": "S3 bucket name",
+          "required": true
+        },
+        "key": {
+          "type": "string",
+          "description": "Object key",
+          "required": true
+        }
+      }
+    },
+    {
+      "name": "aws_lambda_list_functions",
+      "description": "List Lambda functions",
+      "parameters": {
+        "region": {
+          "type": "string",
+          "description": "AWS region",
+          "required": false
+        }
+      }
+    },
+    {
+      "name": "aws_lambda_invoke",
+      "description": "Invoke Lambda function",
+      "parameters": {
+        "function_name": {
+          "type": "string",
+          "description": "Lambda function name",
+          "required": true
+        },
+        "payload": {
+          "type": "object",
+          "description": "Function payload",
+          "required": false
+        }
+      }
+    },
+    {
+      "name": "aws_rds_list_instances",
+      "description": "List RDS database instances",
+      "parameters": {
+        "region": {
+          "type": "string",
+          "description": "AWS region",
+          "required": false
+        }
+      }
+    },
+    {
+      "name": "aws_cloudwatch_get_metrics",
+      "description": "Get CloudWatch metrics",
+      "parameters": {
+        "namespace": {
+          "type": "string",
+          "description": "Metric namespace",
+          "required": true
+        },
+        "metric_name": {
+          "type": "string",
+          "description": "Metric name",
+          "required": true
+        },
+        "dimensions": {
+          "type": "array",
+          "description": "Metric dimensions",
+          "required": false
+        }
+      }
+    },
+    {
+      "name": "aws_ecs_list_clusters",
+      "description": "List ECS clusters",
+      "parameters": {
+        "region": {
+          "type": "string",
+          "description": "AWS region",
+          "required": false
+        }
+      }
+    },
+    {
+      "name": "aws_ecs_list_services",
+      "description": "List services in ECS cluster",
+      "parameters": {
+        "cluster": {
+          "type": "string",
+          "description": "ECS cluster name",
+          "required": true
+        }
+      }
+    }
+  ],
+  "resources": [
+    {
+      "uri": "aws://ec2/instances",
+      "name": "EC2 Instances",
+      "description": "Access to EC2 instance information"
+    },
+    {
+      "uri": "aws://s3/buckets",
+      "name": "S3 Buckets",
+      "description": "Access to S3 bucket information"
+    },
+    {
+      "uri": "aws://lambda/functions",
+      "name": "Lambda Functions",
+      "description": "Access to Lambda function information"
+    },
+    {
+      "uri": "aws://rds/instances",
+      "name": "RDS Instances",
+      "description": "Access to RDS database information"
+    }
+  ],
+  "authentication": {
+    "type": "aws_credentials",
+    "methods": [
+      "environment_variables",
+      "aws_profile",
+      "iam_role"
+    ]
+  }
+}

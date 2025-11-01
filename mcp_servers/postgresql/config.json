@@ -1,0 +1,153 @@
+{
+  "name": "postgresql-mcp-server",
+  "version": "1.0.0",
+  "description": "MCP server for PostgreSQL database operations",
+  "protocol_version": "1.0",
+  "capabilities": {
+    "tools": true,
+    "resources": true,
+    "prompts": true
+  },
+  "transport": {
+    "type": "stdio"
+  },
+  "tools": [
+    {
+      "name": "pg_execute_query",
+      "description": "Execute SQL query",
+      "parameters": {
+        "query": {
+          "type": "string",
+          "description": "SQL query to execute",
+          "required": true
+        },
+        "database": {
+          "type": "string",
+          "description": "Database name",
+          "required": false
+        }
+      }
+    },
+    {
+      "name": "pg_list_databases",
+      "description": "List all databases",
+      "parameters": {}
+    },
+    {
+      "name": "pg_list_tables",
+      "description": "List tables in database",
+      "parameters": {
+        "database": {
+          "type": "string",
+          "description": "Database name",
+          "required": true
+        },
+        "schema": {
+          "type": "string",
+          "description": "Schema name",
+          "required": false
+        }
+      }
+    },
+    {
+      "name": "pg_describe_table",
+      "description": "Get table schema information",
+      "parameters": {
+        "table": {
+          "type": "string",
+          "description": "Table name",
+          "required": true
+        },
+        "database": {
+          "type": "string",
+          "description": "Database name",
+          "required": false
+        }
+      }
+    },
+    {
+      "name": "pg_get_table_stats",
+      "description": "Get table statistics",
+      "parameters": {
+        "table": {
+          "type": "string",
+          "description": "Table name",
+          "required": true
+        },
+        "database": {
+          "type": "string",
+          "description": "Database name",
+          "required": false
+        }
+      }
+    },
+    {
+      "name": "pg_explain_query",
+      "description": "Get query execution plan",
+      "parameters": {
+        "query": {
+          "type": "string",
+          "description": "SQL query to explain",
+          "required": true
+        },
+        "analyze": {
+          "type": "boolean",
+          "description": "Execute query and show actual times",
+          "required": false
+        }
+      }
+    },
+    {
+      "name": "pg_create_backup",
+      "description": "Create database backup",
+      "parameters": {
+        "database": {
+          "type": "string",
+          "description": "Database to backup",
+          "required": true
+        },
+        "output_file": {
+          "type": "string",
+          "description": "Backup file path",
+          "required": true
+        }
+      }
+    },
+    {
+      "name": "pg_list_connections",
+      "description": "List active connections",
+      "parameters": {
+        "database": {
+          "type": "string",
+          "description": "Filter by database",
+          "required": false
+        }
+      }
+    }
+  ],
+  "resources": [
+    {
+      "uri": "postgresql://databases",
+      "name": "Databases",
+      "description": "Access to database information"
+    },
+    {
+      "uri": "postgresql://tables",
+      "name": "Tables",
+      "description": "Access to table schemas"
+    },
+    {
+      "uri": "postgresql://queries",
+      "name": "Queries",
+      "description": "Access to query performance data"
+    }
+  ],
+  "authentication": {
+    "type": "database_credentials",
+    "methods": [
+      "connection_string",
+      "environment_variables",
+      "pgpass_file"
+    ]
+  }
+}

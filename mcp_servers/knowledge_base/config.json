@@ -1,0 +1,149 @@
+{
+  "name": "knowledge-base-mcp-server",
+  "version": "1.0.0",
+  "description": "MCP server for accessing and managing knowledge base content",
+  "protocol_version": "1.0",
+  "capabilities": {
+    "tools": true,
+    "resources": true,
+    "prompts": true
+  },
+  "transport": {
+    "type": "stdio"
+  },
+  "tools": [
+    {
+      "name": "kb_search",
+      "description": "Search knowledge base content",
+      "parameters": {
+        "query": {
+          "type": "string",
+          "description": "Search query",
+          "required": true
+        },
+        "category": {
+          "type": "string",
+          "description": "Filter by category",
+          "required": false
+        },
+        "limit": {
+          "type": "integer",
+          "description": "Maximum results",
+          "required": false
+        }
+      }
+    },
+    {
+      "name": "kb_get_document",
+      "description": "Retrieve specific document",
+      "parameters": {
+        "document_id": {
+          "type": "string",
+          "description": "Document identifier",
+          "required": true
+        }
+      }
+    },
+    {
+      "name": "kb_list_documents",
+      "description": "List documents in knowledge base",
+      "parameters": {
+        "category": {
+          "type": "string",
+          "description": "Filter by category",
+          "required": false
+        },
+        "tags": {
+          "type": "array",
+          "description": "Filter by tags",
+          "required": false
+        }
+      }
+    },
+    {
+      "name": "kb_add_document",
+      "description": "Add new document to knowledge base",
+      "parameters": {
+        "title": {
+          "type": "string",
+          "description": "Document title",
+          "required": true
+        },
+        "content": {
+          "type": "string",
+          "description": "Document content",
+          "required": true
+        },
+        "category": {
+          "type": "string",
+          "description": "Document category",
+          "required": false
+        },
+        "tags": {
+          "type": "array",
+          "description": "Document tags",
+          "required": false
+        }
+      }
+    },
+    {
+      "name": "kb_update_document",
+      "description": "Update existing document",
+      "parameters": {
+        "document_id": {
+          "type": "string",
+          "description": "Document identifier",
+          "required": true
+        },
+        "content": {
+          "type": "string",
+          "description": "Updated content",
+          "required": false
+        },
+        "tags": {
+          "type": "array",
+          "description": "Updated tags",
+          "required": false
+        }
+      }
+    },
+    {
+      "name": "kb_delete_document",
+      "description": "Delete document from knowledge base",
+      "parameters": {
+        "document_id": {
+          "type": "string",
+          "description": "Document identifier",
+          "required": true
+        }
+      }
+    },
+    {
+      "name": "kb_get_categories",
+      "description": "List all categories",
+      "parameters": {}
+    },
+    {
+      "name": "kb_get_tags",
+      "description": "List all tags",
+      "parameters": {}
+    }
+  ],
+  "resources": [
+    {
+      "uri": "kb://documents",
+      "name": "Knowledge Base Documents",
+      "description": "Access to all documents"
+    },
+    {
+      "uri": "kb://categories",
+      "name": "Categories",
+      "description": "Document categories"
+    },
+    {
+      "uri": "kb://tags",
+      "name": "Tags",
+      "description": "Document tags"
+    }
+  ]
+}

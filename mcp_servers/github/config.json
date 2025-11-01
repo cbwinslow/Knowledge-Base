@@ -1,0 +1,137 @@
+{
+  "name": "github-mcp-server",
+  "version": "1.0.0",
+  "description": "MCP server for GitHub repository and workflow operations",
+  "protocol_version": "1.0",
+  "capabilities": {
+    "tools": true,
+    "resources": true,
+    "prompts": true
+  },
+  "transport": {
+    "type": "stdio"
+  },
+  "tools": [
+    {
+      "name": "github_list_repos",
+      "description": "List repositories",
+      "parameters": {
+        "org": {
+          "type": "string",
+          "description": "Organization name",
+          "required": false
+        },
+        "user": {
+          "type": "string",
+          "description": "User name",
+          "required": false
+        }
+      }
+    },
+    {
+      "name": "github_get_repo",
+      "description": "Get repository information",
+      "parameters": {
+        "owner": {
+          "type": "string",
+          "description": "Repository owner",
+          "required": true
+        },
+        "repo": {
+          "type": "string",
+          "description": "Repository name",
+          "required": true
+        }
+      }
+    },
+    {
+      "name": "github_list_prs",
+      "description": "List pull requests",
+      "parameters": {
+        "owner": {
+          "type": "string",
+          "required": true
+        },
+        "repo": {
+          "type": "string",
+          "required": true
+        },
+        "state": {
+          "type": "string",
+          "enum": ["open", "closed", "all"],
+          "required": false
+        }
+      }
+    },
+    {
+      "name": "github_create_issue",
+      "description": "Create new issue",
+      "parameters": {
+        "owner": {
+          "type": "string",
+          "required": true
+        },
+        "repo": {
+          "type": "string",
+          "required": true
+        },
+        "title": {
+          "type": "string",
+          "required": true
+        },
+        "body": {
+          "type": "string",
+          "required": false
+        },
+        "labels": {
+          "type": "array",
+          "required": false
+        }
+      }
+    },
+    {
+      "name": "github_list_workflows",
+      "description": "List GitHub Actions workflows",
+      "parameters": {
+        "owner": {
+          "type": "string",
+          "required": true
+        },
+        "repo": {
+          "type": "string",
+          "required": true
+        }
+      }
+    },
+    {
+      "name": "github_trigger_workflow",
+      "description": "Trigger workflow run",
+      "parameters": {
+        "owner": {
+          "type": "string",
+          "required": true
+        },
+        "repo": {
+          "type": "string",
+          "required": true
+        },
+        "workflow_id": {
+          "type": "string",
+          "required": true
+        },
+        "ref": {
+          "type": "string",
+          "required": false
+        },
+        "inputs": {
+          "type": "object",
+          "required": false
+        }
+      }
+    }
+  ],
+  "authentication": {
+    "type": "token",
+    "methods": ["personal_access_token", "github_app"]
+  }
+}
