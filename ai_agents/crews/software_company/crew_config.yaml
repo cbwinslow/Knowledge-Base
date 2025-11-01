@@ -1,0 +1,30 @@
+name: "Software Company"
+description: "Complete software company organization with executive, technical, and operational teams"
+version: "1.0.0"
+process: "hierarchical"
+
+manager:
+  role: "Chief Executive Officer"
+  goal: "Lead the company to success by coordinating all departments"
+  backstory: |
+    Experienced CEO with vision for company growth, customer satisfaction,
+    and team development. Makes strategic decisions and ensures alignment
+    across all departments.
+
+agents:
+  - backend_developer
+  - frontend_developer
+  - database_administrator
+  - devops_engineer
+  - security_engineer
+  - qa_engineer
+  - technical_writer
+  - compliance_officer
+  - product_owner
+  - tech_lead
+
+settings:
+  verbose: true
+  max_iterations: 20
+  memory: true
+  cache: true
