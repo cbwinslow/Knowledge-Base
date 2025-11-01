@@ -1,0 +1,109 @@
+{
+  "name": "codeql-mcp-server",
+  "version": "1.0.0",
+  "description": "MCP server for CodeQL security code analysis",
+  "protocol_version": "1.0",
+  "capabilities": {
+    "tools": true,
+    "resources": true,
+    "prompts": true
+  },
+  "transport": {
+    "type": "stdio"
+  },
+  "tools": [
+    {
+      "name": "codeql_create_database",
+      "description": "Create CodeQL database from source code",
+      "parameters": {
+        "language": {
+          "type": "string",
+          "enum": ["java", "javascript", "python", "cpp", "csharp", "go", "ruby"],
+          "required": true
+        },
+        "source_root": {
+          "type": "string",
+          "description": "Source code root directory",
+          "required": true
+        },
+        "database_path": {
+          "type": "string",
+          "description": "Output database path",
+          "required": true
+        }
+      }
+    },
+    {
+      "name": "codeql_run_queries",
+      "description": "Run CodeQL queries on database",
+      "parameters": {
+        "database_path": {
+          "type": "string",
+          "required": true
+        },
+        "query_suite": {
+          "type": "string",
+          "enum": ["security-extended", "security-and-quality", "code-scanning"],
+          "required": true
+        },
+        "output_format": {
+          "type": "string",
+          "enum": ["sarif", "csv", "json"],
+          "required": false
+        }
+      }
+    },
+    {
+      "name": "codeql_analyze_results",
+      "description": "Analyze query results",
+      "parameters": {
+        "results_file": {
+          "type": "string",
+          "required": true
+        },
+        "severity_filter": {
+          "type": "string",
+          "enum": ["error", "warning", "note"],
+          "required": false
+        }
+      }
+    },
+    {
+      "name": "codeql_list_queries",
+      "description": "List available CodeQL queries",
+      "parameters": {
+        "language": {
+          "type": "string",
+          "required": false
+        }
+      }
+    },
+    {
+      "name": "codeql_get_sarif",
+      "description": "Get results in SARIF format",
+      "parameters": {
+        "results_file": {
+          "type": "string",
+          "required": true
+        }
+      }
+    }
+  ],
+  "resources": [
+    {
+      "uri": "codeql://databases",
+      "name": "CodeQL Databases",
+      "description": "Access to CodeQL databases"
+    },
+    {
+      "uri": "codeql://queries",
+      "name": "Queries",
+      "description": "Available security queries"
+    },
+    {
+      "uri": "codeql://results",
+      "name": "Analysis Results",
+      "description": "Query execution results"
+    }
+  ]
+}

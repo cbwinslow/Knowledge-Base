@@ -1,0 +1,16 @@
+name: "Security & Compliance Team"
+description: "Team focused on security, compliance, and audit readiness"
+version: "1.0.0"
+process: "sequential"
+
+agents:
+  - security_engineer
+  - compliance_officer
+  - qa_engineer
+  - technical_writer
+
+settings:
+  verbose: true
+  max_iterations: 15
+  memory: true
+  cache: true

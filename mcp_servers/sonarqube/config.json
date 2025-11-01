@@ -1,0 +1,126 @@
+{
+  "name": "sonarqube-mcp-server",
+  "version": "1.0.0",
+  "description": "MCP server for SonarQube code quality analysis",
+  "protocol_version": "1.0",
+  "capabilities": {
+    "tools": true,
+    "resources": true,
+    "prompts": true
+  },
+  "transport": {
+    "type": "stdio"
+  },
+  "tools": [
+    {
+      "name": "sonar_list_projects",
+      "description": "List SonarQube projects",
+      "parameters": {}
+    },
+    {
+      "name": "sonar_get_project",
+      "description": "Get project details",
+      "parameters": {
+        "project_key": {
+          "type": "string",
+          "required": true
+        }
+      }
+    },
+    {
+      "name": "sonar_get_measures",
+      "description": "Get project measures (metrics)",
+      "parameters": {
+        "project_key": {
+          "type": "string",
+          "required": true
+        },
+        "metric_keys": {
+          "type": "array",
+          "description": "Metrics to retrieve (coverage, bugs, vulnerabilities, code_smells)",
+          "required": true
+        }
+      }
+    },
+    {
+      "name": "sonar_list_issues",
+      "description": "List issues in project",
+      "parameters": {
+        "project_key": {
+          "type": "string",
+          "required": true
+        },
+        "severity": {
+          "type": "string",
+          "enum": ["BLOCKER", "CRITICAL", "MAJOR", "MINOR", "INFO"],
+          "required": false
+        },
+        "type": {
+          "type": "string",
+          "enum": ["BUG", "VULNERABILITY", "CODE_SMELL"],
+          "required": false
+        },
+        "resolved": {
+          "type": "boolean",
+          "required": false
+        }
+      }
+    },
+    {
+      "name": "sonar_get_quality_gate",
+      "description": "Get quality gate status",
+      "parameters": {
+        "project_key": {
+          "type": "string",
+          "required": true
+        }
+      }
+    },
+    {
+      "name": "sonar_get_hotspots",
+      "description": "Get security hotspots",
+      "parameters": {
+        "project_key": {
+          "type": "string",
+          "required": true
+        },
+        "status": {
+          "type": "string",
+          "enum": ["TO_REVIEW", "REVIEWED", "ACKNOWLEDGED"],
+          "required": false
+        }
+      }
+    },
+    {
+      "name": "sonar_trigger_analysis",
+      "description": "Trigger code analysis",
+      "parameters": {
+        "project_key": {
+          "type": "string",
+          "required": true
+        }
+      }
+    }
+  ],
+  "resources": [
+    {
+      "uri": "sonarqube://projects",
+      "name": "Projects",
+      "description": "Access to project information"
+    },
+    {
+      "uri": "sonarqube://issues",
+      "name": "Issues",
+      "description": "Access to code issues"
+    },
+    {
+      "uri": "sonarqube://metrics",
+      "name": "Metrics",
+      "description": "Access to quality metrics"
+    }
+  ],
+  "authentication": {
+    "type": "token",
+    "methods": ["user_token", "project_token"]
+  }
+}
