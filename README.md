@@ -45,6 +45,17 @@ Use these workflows to save configurations:
 - `save-mcp-server.yml` - Save MCP server configs
 - `save-crew-config.yml` - Save CrewAI crew configs
 
+### Security
+
+This repository uses automated secret scanning to prevent accidental commits of sensitive information:
+
+- **`secret-scanning.yml`** - Automatically scans all commits and pull requests for secrets using [Gitleaks](https://github.com/gitleaks/gitleaks)
+  - Runs on every push and pull request to any branch
+  - Blocks commits and PRs that contain secrets (API keys, passwords, tokens, etc.)
+  - To enable protection, configure branch protection rules in repository settings to require this check to pass
+
+**Important:** Always review your code before committing to ensure no sensitive data is included. The secret scanner helps catch common mistakes but should not be your only line of defense.
+
 ### CLI Tool
 
 Use the `kb_manager.sh` script for quick access:
