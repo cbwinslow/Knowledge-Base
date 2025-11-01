@@ -1,0 +1,16 @@
+name: "Data Engineering Team"
+description: "Team focused on data pipelines, warehouses, and data infrastructure"
+version: "1.0.0"
+process: "sequential"
+
+agents:
+  - data_engineer
+  - database_administrator
+  - backend_developer
+  - devops_engineer
+
+settings:
+  verbose: true
+  max_iterations: 15
+  memory: true
+  cache: true

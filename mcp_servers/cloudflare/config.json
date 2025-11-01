@@ -1,0 +1,204 @@
+{
+  "name": "cloudflare-mcp-server",
+  "version": "1.0.0",
+  "description": "MCP server for Cloudflare DNS, CDN, and security management",
+  "protocol_version": "1.0",
+  "capabilities": {
+    "tools": true,
+    "resources": true,
+    "prompts": true
+  },
+  "transport": {
+    "type": "stdio"
+  },
+  "tools": [
+    {
+      "name": "cf_list_zones",
+      "description": "List Cloudflare zones (domains)",
+      "parameters": {}
+    },
+    {
+      "name": "cf_get_zone",
+      "description": "Get zone details",
+      "parameters": {
+        "zone_id": {
+          "type": "string",
+          "description": "Zone identifier",
+          "required": true
+        }
+      }
+    },
+    {
+      "name": "cf_list_dns_records",
+      "description": "List DNS records for a zone",
+      "parameters": {
+        "zone_id": {
+          "type": "string",
+          "required": true
+        },
+        "type": {
+          "type": "string",
+          "enum": ["A", "AAAA", "CNAME", "MX", "TXT"],
+          "required": false
+        }
+      }
+    },
+    {
+      "name": "cf_create_dns_record",
+      "description": "Create DNS record",
+      "parameters": {
+        "zone_id": {
+          "type": "string",
+          "required": true
+        },
+        "type": {
+          "type": "string",
+          "enum": ["A", "AAAA", "CNAME", "MX", "TXT"],
+          "required": true
+        },
+        "name": {
+          "type": "string",
+          "required": true
+        },
+        "content": {
+          "type": "string",
+          "required": true
+        },
+        "ttl": {
+          "type": "integer",
+          "required": false
+        },
+        "proxied": {
+          "type": "boolean",
+          "required": false
+        }
+      }
+    },
+    {
+      "name": "cf_update_dns_record",
+      "description": "Update DNS record",
+      "parameters": {
+        "zone_id": {
+          "type": "string",
+          "required": true
+        },
+        "record_id": {
+          "type": "string",
+          "required": true
+        },
+        "content": {
+          "type": "string",
+          "required": false
+        },
+        "proxied": {
+          "type": "boolean",
+          "required": false
+        }
+      }
+    },
+    {
+      "name": "cf_delete_dns_record",
+      "description": "Delete DNS record",
+      "parameters": {
+        "zone_id": {
+          "type": "string",
+          "required": true
+        },
+        "record_id": {
+          "type": "string",
+          "required": true
+        }
+      }
+    },
+    {
+      "name": "cf_get_analytics",
+      "description": "Get zone analytics",
+      "parameters": {
+        "zone_id": {
+          "type": "string",
+          "required": true
+        },
+        "since": {
+          "type": "string",
+          "description": "Start time (ISO 8601)",
+          "required": false
+        },
+        "until": {
+          "type": "string",
+          "description": "End time (ISO 8601)",
+          "required": false
+        }
+      }
+    },
+    {
+      "name": "cf_purge_cache",
+      "description": "Purge cache for zone",
+      "parameters": {
+        "zone_id": {
+          "type": "string",
+          "required": true
+        },
+        "files": {
+          "type": "array",
+          "description": "Specific files to purge",
+          "required": false
+        },
+        "purge_everything": {
+          "type": "boolean",
+          "required": false
+        }
+      }
+    },
+    {
+      "name": "cf_list_firewall_rules",
+      "description": "List firewall rules",
+      "parameters": {
+        "zone_id": {
+          "type": "string",
+          "required": true
+        }
+      }
+    },
+    {
+      "name": "cf_create_firewall_rule",
+      "description": "Create firewall rule",
+      "parameters": {
+        "zone_id": {
+          "type": "string",
+          "required": true
+        },
+        "expression": {
+          "type": "string",
+          "description": "Rule expression",
+          "required": true
+        },
+        "action": {
+          "type": "string",
+          "enum": ["allow", "block", "challenge", "js_challenge"],
+          "required": true
+        }
+      }
+    }
+  ],
+  "resources": [
+    {
+      "uri": "cloudflare://zones",
+      "name": "Zones",
+      "description": "Access to zone information"
+    },
+    {
+      "uri": "cloudflare://dns",
+      "name": "DNS Records",
+      "description": "Access to DNS record information"
+    },
+    {
+      "uri": "cloudflare://analytics",
+      "name": "Analytics",
+      "description": "Access to analytics data"
+    }
+  ],
+  "authentication": {
+    "type": "api_token",
+    "methods": ["api_token", "api_key_email"]
+  }
+}

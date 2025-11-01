@@ -1,0 +1,17 @@
+name: "Incident Response Team"
+description: "Team specialized in responding to and resolving production incidents"
+version: "1.0.0"
+process: "sequential"
+
+agents:
+  - incident_response_specialist
+  - sre
+  - devops_engineer
+  - technical_writer
+
+settings:
+  verbose: true
+  max_iterations: 20
+  memory: true
+  cache: true
+  max_rpm: 30

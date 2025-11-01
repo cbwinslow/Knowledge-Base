@@ -1,0 +1,110 @@
+tasks:
+  - description: |
+      Conduct comprehensive security assessment for {system_name}.
+      
+      Assessment scope:
+      - Application security review
+      - Infrastructure security assessment
+      - Code security analysis (SAST)
+      - Dependency vulnerability scanning
+      - Configuration security review
+      - Authentication/authorization testing
+      - API security testing
+      - Network security assessment
+      
+      Identify vulnerabilities and security gaps.
+    agent: "security_engineer"
+    expected_output: |
+      Security assessment report with findings categorized by severity,
+      CVSS scores, affected components, and remediation recommendations.
+
+  - description: |
+      Perform compliance assessment for {compliance_framework}.
+      
+      Framework: {compliance_framework} (SOC2, HIPAA, GDPR, etc.)
+      
+      Assessment tasks:
+      - Review compliance requirements
+      - Assess existing controls
+      - Identify compliance gaps
+      - Document control evidence
+      - Evaluate risk levels
+      - Create remediation plan
+      
+      Work with Security Engineer on technical controls.
+    agent: "compliance_officer"
+    expected_output: |
+      Compliance assessment report with control evaluations,
+      gap analysis, evidence documentation, and remediation roadmap.
+
+  - description: |
+      Test security controls and validate implementations.
+      
+      Testing scope:
+      - Authentication mechanisms
+      - Authorization controls
+      - Input validation
+      - Session management
+      - Encryption implementation
+      - Security headers
+      - API security
+      - Error handling
+      
+      Verify security fixes and controls work as expected.
+    agent: "qa_engineer"
+    expected_output: |
+      Security test results with pass/fail status for each control,
+      identified issues, and validation evidence.
+
+  - description: |
+      Implement security fixes and hardening measures.
+      
+      Based on findings from security assessment:
+      - Fix identified vulnerabilities
+      - Implement security controls
+      - Update configurations
+      - Apply security patches
+      - Enhance authentication/authorization
+      - Implement encryption where needed
+      
+      Document all security improvements made.
+    agent: "security_engineer"
+    expected_output: |
+      Security remediation report with fixes implemented,
+      before/after comparison, and verification results.
+
+  - description: |
+      Create comprehensive security and compliance documentation.
+      
+      Documentation requirements:
+      - Security policies and procedures
+      - Compliance control descriptions
+      - Risk assessment documentation
+      - Incident response procedures
+      - Security architecture documentation
+      - Access control policies
+      - Data protection policies
+      - Audit evidence collection
+      
+      Ensure documentation meets audit requirements.
+    agent: "technical_writer"
+    expected_output: |
+      Complete security and compliance documentation package
+      ready for audit review.
+
+  - description: |
+      Final compliance validation and audit preparation.
+      
+      Validation tasks:
+      - Review all security fixes implemented
+      - Verify compliance controls in place
+      - Validate documentation completeness
+      - Prepare audit evidence
+      - Create executive summary
+      - Define monitoring and maintenance plan
+      
+      Confirm readiness for external audit.
+    agent: "compliance_officer"
+    expected_output: |
+      Audit readiness report with compliance status,
+      evidence package, and recommendations for audit success.

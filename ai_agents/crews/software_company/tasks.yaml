@@ -1,0 +1,197 @@
+tasks:
+  - description: |
+      Define the product requirements and business objectives for {project_name}.
+      
+      As CEO, coordinate with Product Owner to:
+      - Define business goals and success metrics
+      - Identify target market and customers
+      - Set budget and timeline constraints
+      - Determine compliance requirements
+      - Establish quality standards
+      
+      Ensure alignment across all departments.
+    agent: "ceo"
+    expected_output: |
+      Strategic document with business objectives, success metrics,
+      budget, timeline, and high-level requirements.
+
+  - description: |
+      Create detailed product requirements for {project_name}.
+      
+      Tasks:
+      - Define user stories and acceptance criteria
+      - Prioritize features based on business value
+      - Create product roadmap
+      - Define MVP scope
+      - Document user personas and journeys
+      
+      Work with CEO to align with business objectives.
+    agent: "product_owner"
+    expected_output: |
+      Product requirements document with prioritized user stories,
+      acceptance criteria, and product roadmap.
+
+  - description: |
+      Design the technical architecture for {project_name}.
+      
+      Tasks:
+      - Define system architecture
+      - Choose technology stack
+      - Plan database design
+      - Define API contracts
+      - Consider scalability and security
+      - Document architectural decisions
+      
+      Coordinate with DBA and DevOps for infrastructure planning.
+    agent: "tech_lead"
+    expected_output: |
+      Architecture document with system design, technology choices,
+      and technical specifications.
+
+  - description: |
+      Design and optimize the database for {project_name}.
+      
+      Tasks:
+      - Create database schema
+      - Design indexes and constraints
+      - Plan for scalability
+      - Set up replication and backups
+      - Define security policies
+      
+      Work with Tech Lead and Backend Developer on data requirements.
+    agent: "database_administrator"
+    expected_output: |
+      Database design document with schema, optimization plan,
+      and backup strategy.
+
+  - description: |
+      Set up infrastructure and CI/CD pipeline for {project_name}.
+      
+      Tasks:
+      - Provision cloud infrastructure
+      - Set up CI/CD pipelines
+      - Configure monitoring and alerting
+      - Implement infrastructure as code
+      - Plan deployment strategy
+      
+      Coordinate with Security Engineer on security requirements.
+    agent: "devops_engineer"
+    expected_output: |
+      Infrastructure setup with CI/CD pipeline, monitoring,
+      and deployment automation.
+
+  - description: |
+      Implement backend services for {project_name}.
+      
+      Tasks:
+      - Develop API endpoints
+      - Implement business logic
+      - Integrate with database
+      - Add authentication/authorization
+      - Write tests
+      
+      Follow architecture and API contracts defined by Tech Lead.
+    agent: "backend_developer"
+    expected_output: |
+      Working backend implementation with APIs, tests,
+      and documentation.
+
+  - description: |
+      Build the user interface for {project_name}.
+      
+      Tasks:
+      - Implement UI components
+      - Integrate with backend APIs
+      - Ensure responsive design
+      - Add accessibility features
+      - Write component tests
+      
+      Work with Backend Developer on API integration.
+    agent: "frontend_developer"
+    expected_output: |
+      Working frontend application with responsive UI,
+      API integration, and tests.
+
+  - description: |
+      Perform security assessment for {project_name}.
+      
+      Tasks:
+      - Conduct security code review
+      - Perform vulnerability scanning
+      - Test authentication/authorization
+      - Review infrastructure security
+      - Document security findings
+      - Recommend security improvements
+      
+      Work with all technical teams on security fixes.
+    agent: "security_engineer"
+    expected_output: |
+      Security assessment report with findings, risk ratings,
+      and remediation recommendations.
+
+  - description: |
+      Execute comprehensive testing for {project_name}.
+      
+      Tasks:
+      - Create test plans
+      - Perform functional testing
+      - Execute integration tests
+      - Test across browsers/devices
+      - Document bugs and issues
+      - Verify bug fixes
+      
+      Coordinate with developers on bug resolution.
+    agent: "qa_engineer"
+    expected_output: |
+      Test results with test coverage report, bug list,
+      and quality assessment.
+
+  - description: |
+      Ensure compliance requirements are met for {project_name}.
+      
+      Tasks:
+      - Review compliance requirements (SOC2, GDPR, etc.)
+      - Audit security controls
+      - Review data handling practices
+      - Verify audit logging
+      - Document compliance status
+      - Prepare for external audits
+      
+      Work with Security Engineer and DBA on compliance controls.
+    agent: "compliance_officer"
+    expected_output: |
+      Compliance report with control assessments,
+      gaps, and remediation plan.
+
+  - description: |
+      Create comprehensive documentation for {project_name}.
+      
+      Tasks:
+      - Write API documentation
+      - Create user guides
+      - Document architecture
+      - Write deployment runbooks
+      - Create troubleshooting guides
+      
+      Gather information from all team members.
+    agent: "technical_writer"
+    expected_output: |
+      Complete documentation set including API docs, user guides,
+      architecture documentation, and runbooks.
+
+  - description: |
+      Final review and approval for {project_name} release.
+      
+      As CEO, review:
+      - Business objectives achievement
+      - Quality standards compliance
+      - Security and compliance status
+      - Documentation completeness
+      - Team readiness for launch
+      - Go-to-market strategy
+      
+      Make final go/no-go decision.
+    agent: "ceo"
+    expected_output: |
+      Executive summary with final assessment, go/no-go decision,
+      and launch plan.

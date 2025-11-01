@@ -1,0 +1,16 @@
+name: "Infrastructure Team"
+description: "Team focused on managing and optimizing cloud infrastructure"
+version: "1.0.0"
+process: "sequential"
+
+agents:
+  - cloud_architect
+  - devops_engineer
+  - sre
+  - security_engineer
+
+settings:
+  verbose: true
+  max_iterations: 15
+  memory: true
+  cache: true

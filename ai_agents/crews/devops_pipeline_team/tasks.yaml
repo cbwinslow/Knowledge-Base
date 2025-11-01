@@ -1,0 +1,106 @@
+tasks:
+  - description: |
+      Design the CI/CD pipeline architecture for {application_name}.
+      
+      Requirements:
+      - Define pipeline stages (build, test, security scan, deploy)
+      - Choose CI/CD platform and tools
+      - Plan multi-environment strategy (dev, staging, prod)
+      - Design deployment strategy (blue-green, canary, rolling)
+      - Plan for secrets management
+      - Consider security scanning integration
+      
+      Work with Platform Engineer on infrastructure requirements.
+    agent: "devops_engineer"
+    expected_output: |
+      Pipeline architecture document with stages, tools, deployment
+      strategy, and infrastructure requirements.
+
+  - description: |
+      Implement the CI/CD pipeline infrastructure for {application_name}.
+      
+      Requirements:
+      - Set up CI/CD platform (Jenkins, GitLab CI, GitHub Actions)
+      - Configure pipeline stages
+      - Implement infrastructure as code
+      - Set up artifact repository
+      - Configure deployment automation
+      - Implement rollback mechanisms
+      - Add pipeline monitoring
+      
+      Coordinate with Security Engineer on security scanning integration.
+    agent: "devops_engineer"
+    expected_output: |
+      Working CI/CD pipeline with all stages configured,
+      deployment automation, and monitoring in place.
+
+  - description: |
+      Build self-service deployment platform for {application_name}.
+      
+      Requirements:
+      - Create deployment templates and standards
+      - Build CLI tools for developers
+      - Set up GitOps workflows
+      - Create deployment documentation
+      - Implement guardrails and policies
+      - Build developer portal integration
+      
+      Make deployment easy and standardized for all teams.
+    agent: "platform_engineer"
+    expected_output: |
+      Self-service platform with templates, CLI tools,
+      GitOps setup, and comprehensive documentation.
+
+  - description: |
+      Integrate security scanning into the CI/CD pipeline.
+      
+      Requirements:
+      - Add SAST (static analysis) scanning
+      - Add DAST (dynamic analysis) scanning
+      - Implement dependency scanning
+      - Add container image scanning
+      - Configure security gates and policies
+      - Set up vulnerability reporting
+      - Integrate secrets scanning
+      
+      Define which findings block deployments vs warnings.
+    agent: "security_engineer"
+    expected_output: |
+      Security scanning integrated in pipeline with
+      policies, gates, and reporting configured.
+
+  - description: |
+      Set up monitoring and reliability measures for deployments.
+      
+      Requirements:
+      - Define deployment SLIs and SLOs
+      - Set up deployment monitoring
+      - Configure deployment alerts
+      - Create deployment dashboards
+      - Implement deployment verification tests
+      - Set up automated rollback on failures
+      - Document incident response procedures
+      
+      Ensure deployments are reliable and observable.
+    agent: "sre"
+    expected_output: |
+      Deployment monitoring with SLOs defined, dashboards created,
+      alerts configured, and automated rollback implemented.
+
+  - description: |
+      Validate and optimize the complete pipeline for {application_name}.
+      
+      Requirements:
+      - Test full pipeline end-to-end
+      - Measure pipeline performance (duration)
+      - Identify bottlenecks and optimize
+      - Verify security gates work correctly
+      - Test rollback procedures
+      - Validate monitoring and alerts
+      - Create runbooks for common issues
+      
+      Ensure pipeline is production-ready.
+    agent: "devops_engineer"
+    expected_output: |
+      Pipeline validation report with performance metrics,
+      optimization recommendations, and runbooks.

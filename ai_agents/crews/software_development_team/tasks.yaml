@@ -1,0 +1,113 @@
+tasks:
+  - description: |
+      Design the backend architecture for {feature_name}.
+      
+      Requirements:
+      - Define API endpoints and data models
+      - Choose appropriate technologies and frameworks
+      - Plan database schema
+      - Consider scalability and security
+      - Document architectural decisions
+      
+      Collaborate with the frontend developer to ensure API contracts
+      are well-defined and meet UI requirements.
+    agent: "backend_developer"
+    expected_output: |
+      Architecture document with:
+      - API specification (endpoints, request/response)
+      - Database schema design
+      - Technology stack recommendations
+      - Security considerations
+      - Scalability plan
+
+  - description: |
+      Implement the backend API for {feature_name} based on the architecture.
+      
+      Requirements:
+      - Implement all API endpoints
+      - Set up database models and migrations
+      - Add authentication and authorization
+      - Write unit and integration tests
+      - Implement error handling and logging
+      - Document the API
+      
+      Ensure code follows best practices and is well-tested.
+    agent: "backend_developer"
+    expected_output: |
+      Working backend implementation with:
+      - Implemented API endpoints
+      - Database migrations
+      - Comprehensive tests (>80% coverage)
+      - API documentation
+      - Deployed to development environment
+
+  - description: |
+      Implement the frontend user interface for {feature_name}.
+      
+      Requirements:
+      - Build responsive UI components
+      - Integrate with backend API
+      - Implement state management
+      - Add form validation and error handling
+      - Ensure accessibility (WCAG 2.1 AA)
+      - Write component tests
+      - Optimize performance
+      
+      Work with backend developer to handle any API adjustments needed.
+    agent: "frontend_developer"
+    expected_output: |
+      Working frontend implementation with:
+      - Responsive UI components
+      - API integration
+      - Form validation
+      - Accessibility features
+      - Component tests
+      - Performance optimized
+
+  - description: |
+      Create comprehensive test plan and execute testing for {feature_name}.
+      
+      Requirements:
+      - Review requirements and acceptance criteria
+      - Create test cases for all scenarios
+      - Perform functional testing
+      - Execute integration tests
+      - Test API endpoints
+      - Perform accessibility testing
+      - Test across different browsers
+      - Document bugs and issues
+      
+      Work with developers to verify bug fixes.
+    agent: "qa_engineer"
+    expected_output: |
+      Test results with:
+      - Test plan document
+      - Test case execution results
+      - List of bugs found (with severity)
+      - Regression test results
+      - Test coverage report
+      - Final quality assessment
+
+  - description: |
+      Review the complete implementation and ensure quality standards.
+      
+      Requirements:
+      - Review code for quality and best practices
+      - Ensure architectural decisions are sound
+      - Verify test coverage is adequate
+      - Check documentation completeness
+      - Validate security considerations
+      - Assess performance characteristics
+      - Approve for release or request changes
+      
+      Provide constructive feedback and guidance to the team.
+    agent: "tech_lead"
+    expected_output: |
+      Technical review with:
+      - Code review feedback
+      - Architecture assessment
+      - Quality metrics (coverage, complexity)
+      - Security review results
+      - Performance evaluation
+      - Go/no-go decision for release
+      - List of improvements for next iteration

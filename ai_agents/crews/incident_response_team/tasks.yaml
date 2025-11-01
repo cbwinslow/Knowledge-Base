@@ -1,0 +1,109 @@
+tasks:
+  - description: |
+      Lead the incident response for: {incident_description}
+      
+      Severity: {severity}
+      Impact: {impact}
+      
+      Immediate actions:
+      - Assess incident severity and impact
+      - Establish incident command
+      - Coordinate response team
+      - Communicate with stakeholders
+      - Initiate investigation
+      - Track incident timeline
+      
+      Delegate technical investigation to SRE and fixes to DevOps Engineer.
+    agent: "incident_response_specialist"
+    expected_output: |
+      Incident coordination report with severity assessment,
+      team coordination status, and stakeholder communication log.
+
+  - description: |
+      Investigate the root cause of the incident: {incident_description}
+      
+      Investigation tasks:
+      - Analyze monitoring data and metrics
+      - Review application and system logs
+      - Check recent deployments and changes
+      - Identify affected components
+      - Determine root cause
+      - Assess scope and impact
+      - Recommend immediate mitigation
+      - Suggest long-term fixes
+      
+      Provide detailed findings to Incident Response Lead.
+    agent: "sre"
+    expected_output: |
+      Root cause analysis with findings, affected components,
+      impact assessment, and recommended actions.
+
+  - description: |
+      Implement emergency fix for: {incident_description}
+      
+      Based on SRE's findings:
+      - Implement immediate mitigation
+      - Deploy emergency fix or rollback
+      - Verify fix effectiveness
+      - Monitor system stability
+      - Document changes made
+      
+      Coordinate with Incident Response Lead on deployment timing.
+    agent: "devops_engineer"
+    expected_output: |
+      Fix implementation report with changes made,
+      deployment details, and verification results.
+
+  - description: |
+      Monitor incident resolution and validate system recovery.
+      
+      Validation tasks:
+      - Monitor system metrics after fix
+      - Verify error rates returned to normal
+      - Check all affected services recovered
+      - Validate performance metrics
+      - Confirm customer impact resolved
+      - Monitor for any related issues
+      
+      Confirm with Incident Response Lead when system is stable.
+    agent: "sre"
+    expected_output: |
+      System recovery validation with metrics showing
+      normal operation and confirmation of resolution.
+
+  - description: |
+      Create comprehensive post-mortem report for the incident.
+      
+      Post-mortem should include:
+      - Incident summary and timeline
+      - Root cause analysis
+      - Impact assessment (users, revenue, SLA)
+      - Actions taken during incident
+      - What went well
+      - What could be improved
+      - Action items to prevent recurrence
+      - Lessons learned
+      
+      Follow blameless post-mortem practices.
+    agent: "technical_writer"
+    expected_output: |
+      Complete post-mortem document with timeline, root cause,
+      impact, actions taken, and improvement action items.
+
+  - description: |
+      Close the incident and ensure all follow-up actions are tracked.
+      
+      Closure checklist:
+      - Confirm system fully recovered
+      - Verify all stakeholders notified
+      - Ensure post-mortem is complete
+      - Create follow-up action items
+      - Schedule post-mortem review meeting
+      - Update runbooks if needed
+      - Archive incident documentation
+      
+      Mark incident as resolved in tracking system.
+    agent: "incident_response_specialist"
+    expected_output: |
+      Incident closure report with confirmation of resolution,
+      stakeholder notification, and follow-up action tracking.

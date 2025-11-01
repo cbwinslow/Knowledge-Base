@@ -1,0 +1,164 @@
+{
+  "name": "rules-mcp-server",
+  "version": "1.0.0",
+  "description": "MCP server for business rules and policy management",
+  "protocol_version": "1.0",
+  "capabilities": {
+    "tools": true,
+    "resources": true,
+    "prompts": true
+  },
+  "transport": {
+    "type": "stdio"
+  },
+  "tools": [
+    {
+      "name": "rules_list",
+      "description": "List all rules",
+      "parameters": {
+        "category": {
+          "type": "string",
+          "description": "Filter by category",
+          "required": false
+        },
+        "active_only": {
+          "type": "boolean",
+          "required": false
+        }
+      }
+    },
+    {
+      "name": "rules_get",
+      "description": "Get specific rule",
+      "parameters": {
+        "rule_id": {
+          "type": "string",
+          "required": true
+        }
+      }
+    },
+    {
+      "name": "rules_create",
+      "description": "Create new rule",
+      "parameters": {
+        "name": {
+          "type": "string",
+          "required": true
+        },
+        "description": {
+          "type": "string",
+          "required": true
+        },
+        "category": {
+          "type": "string",
+          "required": true
+        },
+        "conditions": {
+          "type": "object",
+          "description": "Rule conditions",
+          "required": true
+        },
+        "actions": {
+          "type": "array",
+          "description": "Actions to execute",
+          "required": true
+        },
+        "priority": {
+          "type": "integer",
+          "required": false
+        }
+      }
+    },
+    {
+      "name": "rules_update",
+      "description": "Update existing rule",
+      "parameters": {
+        "rule_id": {
+          "type": "string",
+          "required": true
+        },
+        "conditions": {
+          "type": "object",
+          "required": false
+        },
+        "actions": {
+          "type": "array",
+          "required": false
+        },
+        "active": {
+          "type": "boolean",
+          "required": false
+        }
+      }
+    },
+    {
+      "name": "rules_delete",
+      "description": "Delete rule",
+      "parameters": {
+        "rule_id": {
+          "type": "string",
+          "required": true
+        }
+      }
+    },
+    {
+      "name": "rules_evaluate",
+      "description": "Evaluate rules against data",
+      "parameters": {
+        "data": {
+          "type": "object",
+          "description": "Data to evaluate",
+          "required": true
+        },
+        "category": {
+          "type": "string",
+          "description": "Evaluate specific category only",
+          "required": false
+        }
+      }
+    },
+    {
+      "name": "rules_validate",
+      "description": "Validate rule definition",
+      "parameters": {
+        "rule": {
+          "type": "object",
+          "description": "Rule to validate",
+          "required": true
+        }
+      }
+    },
+    {
+      "name": "rules_get_history",
+      "description": "Get rule execution history",
+      "parameters": {
+        "rule_id": {
+          "type": "string",
+          "required": false
+        },
+        "since": {
+          "type": "string",
+          "description": "Start date",
+          "required": false
+        }
+      }
+    }
+  ],
+  "resources": [
+    {
+      "uri": "rules://active",
+      "name": "Active Rules",
+      "description": "Currently active rules"
+    },
+    {
+      "uri": "rules://categories",
+      "name": "Rule Categories",
+      "description": "Available rule categories"
+    },
+    {
+      "uri": "rules://history",
+      "name": "Execution History",
+      "description": "Rule execution history"
+    }
+  ]
+}

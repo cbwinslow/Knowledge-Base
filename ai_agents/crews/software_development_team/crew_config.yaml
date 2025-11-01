@@ -1,0 +1,16 @@
+name: "Software Development Team"
+description: "A complete software development team for building web applications"
+version: "1.0.0"
+process: "sequential"
+
+agents:
+  - backend_developer
+  - frontend_developer
+  - qa_engineer
+  - tech_lead
+
+settings:
+  verbose: true
+  max_iterations: 15
+  memory: true
+  cache: true

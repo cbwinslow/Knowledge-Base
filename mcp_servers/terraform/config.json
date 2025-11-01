@@ -1,0 +1,183 @@
+{
+  "name": "terraform-mcp-server",
+  "version": "1.0.0",
+  "description": "MCP server for Terraform operations and state management",
+  "protocol_version": "1.0",
+  "capabilities": {
+    "tools": true,
+    "resources": true,
+    "prompts": true
+  },
+  "transport": {
+    "type": "stdio"
+  },
+  "tools": [
+    {
+      "name": "terraform_init",
+      "description": "Initialize Terraform working directory",
+      "parameters": {
+        "directory": {
+          "type": "string",
+          "description": "Terraform working directory",
+          "required": true
+        }
+      }
+    },
+    {
+      "name": "terraform_plan",
+      "description": "Generate and show execution plan",
+      "parameters": {
+        "directory": {
+          "type": "string",
+          "description": "Terraform working directory",
+          "required": true
+        },
+        "var_file": {
+          "type": "string",
+          "description": "Variable file path",
+          "required": false
+        }
+      }
+    },
+    {
+      "name": "terraform_apply",
+      "description": "Apply Terraform configuration",
+      "parameters": {
+        "directory": {
+          "type": "string",
+          "description": "Terraform working directory",
+          "required": true
+        },
+        "auto_approve": {
+          "type": "boolean",
+          "description": "Skip interactive approval",
+          "required": false
+        }
+      }
+    },
+    {
+      "name": "terraform_destroy",
+      "description": "Destroy Terraform-managed infrastructure",
+      "parameters": {
+        "directory": {
+          "type": "string",
+          "description": "Terraform working directory",
+          "required": true
+        },
+        "auto_approve": {
+          "type": "boolean",
+          "description": "Skip interactive approval",
+          "required": false
+        }
+      }
+    },
+    {
+      "name": "terraform_state_list",
+      "description": "List resources in Terraform state",
+      "parameters": {
+        "directory": {
+          "type": "string",
+          "description": "Terraform working directory",
+          "required": true
+        }
+      }
+    },
+    {
+      "name": "terraform_state_show",
+      "description": "Show resource in Terraform state",
+      "parameters": {
+        "directory": {
+          "type": "string",
+          "description": "Terraform working directory",
+          "required": true
+        },
+        "resource": {
+          "type": "string",
+          "description": "Resource address",
+          "required": true
+        }
+      }
+    },
+    {
+      "name": "terraform_validate",
+      "description": "Validate Terraform configuration",
+      "parameters": {
+        "directory": {
+          "type": "string",
+          "description": "Terraform working directory",
+          "required": true
+        }
+      }
+    },
+    {
+      "name": "terraform_fmt",
+      "description": "Format Terraform configuration files",
+      "parameters": {
+        "directory": {
+          "type": "string",
+          "description": "Terraform working directory",
+          "required": true
+        },
+        "check": {
+          "type": "boolean",
+          "description": "Check if files are formatted",
+          "required": false
+        }
+      }
+    },
+    {
+      "name": "terraform_import",
+      "description": "Import existing infrastructure into Terraform",
+      "parameters": {
+        "directory": {
+          "type": "string",
+          "description": "Terraform working directory",
+          "required": true
+        },
+        "address": {
+          "type": "string",
+          "description": "Resource address",
+          "required": true
+        },
+        "id": {
+          "type": "string",
+          "description": "Resource ID",
+          "required": true
+        }
+      }
+    },
+    {
+      "name": "terraform_output",
+      "description": "Show output values",
+      "parameters": {
+        "directory": {
+          "type": "string",
+          "description": "Terraform working directory",
+          "required": true
+        },
+        "output_name": {
+          "type": "string",
+          "description": "Specific output name",
+          "required": false
+        }
+      }
+    }
+  ],
+  "resources": [
+    {
+      "uri": "terraform://state",
+      "name": "Terraform State",
+      "description": "Access to Terraform state information"
+    },
+    {
+      "uri": "terraform://modules",
+      "name": "Terraform Modules",
+      "description": "Access to Terraform module information"
+    },
+    {
+      "uri": "terraform://providers",
+      "name": "Terraform Providers",
+      "description": "Access to provider configurations"
+    }
+  ]
+}
