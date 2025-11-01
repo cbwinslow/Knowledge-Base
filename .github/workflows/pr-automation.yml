@@ -1,0 +1,215 @@
+name: PR Automation
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, labeled]
+  pull_request_review:
+    types: [submitted]
+
+permissions:
+  pull-requests: write
+  contents: read
+  issues: read
+
+jobs:
+  pr-labeler:
+    runs-on: ubuntu-latest
+    if: github.event.action == 'opened' || github.event.action == 'synchronize'
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Auto-label PR
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { data: files } = await github.rest.pulls.listFiles({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.issue.number
+            });
+            
+            const labels = new Set();
+            
+            files.forEach(file => {
+              const path = file.filename;
+              
+              // Documentation changes
+              if (path.includes('documentation/')) labels.add('documentation');
+              if (path.includes('README.md')) labels.add('documentation');
+              
+              // Examples and templates
+              if (path.includes('examples_scripts/')) labels.add('examples');
+              if (path.includes('templates/')) labels.add('templates');
+              
+              // Programming languages
+              if (path.endsWith('.py')) labels.add('python');
+              if (path.endsWith('.ts') || path.endsWith('.tsx')) labels.add('typescript');
+              if (path.endsWith('.js') || path.endsWith('.jsx')) labels.add('javascript');
+              if (path.endsWith('.go')) labels.add('go');
+              if (path.endsWith('.rs')) labels.add('rust');
+              
+              // Infrastructure
+              if (path.includes('docker') || path.includes('Dockerfile')) labels.add('docker');
+              if (path.includes('kubernetes') || path.includes('k8s')) labels.add('kubernetes');
+              if (path.endsWith('.yml') || path.endsWith('.yaml')) labels.add('config');
+              
+              // CI/CD
+              if (path.includes('.github/workflows/')) labels.add('ci-cd');
+              
+              // AI/ML
+              if (path.includes('ai_ml/') || path.includes('ai_agents/')) labels.add('ai-ml');
+            });
+            
+            // Size labels
+            const additions = files.reduce((sum, f) => sum + f.additions, 0);
+            const deletions = files.reduce((sum, f) => sum + f.deletions, 0);
+            const total = additions + deletions;
+            
+            if (total < 10) labels.add('size:xs');
+            else if (total < 50) labels.add('size:s');
+            else if (total < 250) labels.add('size:m');
+            else if (total < 1000) labels.add('size:l');
+            else labels.add('size:xl');
+            
+            // Apply labels
+            if (labels.size > 0) {
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                labels: Array.from(labels)
+              });
+            }
+  
+  pr-checklist:
+    runs-on: ubuntu-latest
+    if: github.event.action == 'opened'
+    steps:
+      - name: Add PR checklist comment
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const comment = `### PR Checklist
+
+Thank you for your contribution! 🎉 Please ensure:
+
+- [ ] **Code Quality**
+  - [ ] Code follows project style guidelines
+  - [ ] No linting errors
+  - [ ] Comments added for complex logic
+  
+- [ ] **Documentation**
+  - [ ] README updated if needed
+  - [ ] Examples include usage instructions
+  - [ ] API changes documented
+  
+- [ ] **Testing**
+  - [ ] Code examples tested and working
+  - [ ] Links verified
+  - [ ] No broken references
+  
+- [ ] **Organization**
+  - [ ] Files in correct directories
+  - [ ] Naming conventions followed
+  - [ ] Metadata added (tags, categories)
+
+**Helpful Commands:**
+\`\`\`bash
+# Test examples
+cd examples_scripts && python3 test_examples.py
+
+# Check links
+python3 scripts/documentation/manage_knowledge_base.py validate
+
+# Update index
+python3 scripts/documentation/manage_knowledge_base.py update
+\`\`\`
+
+A maintainer will review your PR soon!`;
+            
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: comment
+            });
+  
+  pr-size-warning:
+    runs-on: ubuntu-latest
+    if: github.event.action == 'opened' || github.event.action == 'synchronize'
+    steps:
+      - name: Check PR size
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { data: files } = await github.rest.pulls.listFiles({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.issue.number
+            });
+            
+            const additions = files.reduce((sum, f) => sum + f.additions, 0);
+            const deletions = files.reduce((sum, f) => sum + f.deletions, 0);
+            const total = additions + deletions;
+            
+            if (total > 1000) {
+              const comment = `### ⚠️ Large PR Detected
+
+This PR modifies ${total} lines (${additions} additions, ${deletions} deletions).
+
+**Recommendations:**
+- Consider splitting into smaller PRs
+- Each PR should focus on a single concern
+- Large PRs are harder to review and may take longer
+
+**If this PR cannot be split:**
+- Provide detailed description of changes
+- Add comments explaining complex sections
+- Highlight key files for reviewers`;
+              
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: comment
+              });
+            }
+  
+  link-to-issues:
+    runs-on: ubuntu-latest
+    if: github.event.action == 'opened'
+    steps:
+      - name: Find related issues
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = context.payload.pull_request.title.toLowerCase();
+            const body = context.payload.pull_request.body?.toLowerCase() || '';
+            const text = `${title} ${body}`;
+            
+            // Extract issue numbers
+            const issueRefs = text.match(/#\d+/g) || [];
+            
+            if (issueRefs.length === 0) {
+              // Search for related issues
+              const keywords = title.split(' ').filter(word => word.length > 4);
+              
+              if (keywords.length > 0) {
+                const { data: issues } = await github.rest.search.issuesAndPullRequests({
+                  q: `repo:${context.repo.owner}/${context.repo.repo} is:issue is:open ${keywords.slice(0, 3).join(' ')}`,
+                  per_page: 3
+                });
+                
+                if (issues.items.length > 0) {
+                  const relatedList = issues.items.map(i => `- #${i.number}: ${i.title}`).join('\n');
+                  const comment = `### Potentially Related Issues\n\n${relatedList}\n\n*Link this PR to an issue if it closes or addresses one by adding "Closes #issue_number" to the description.*`;
+                  
+                  await github.rest.issues.createComment({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    issue_number: context.issue.number,
+                    body: comment
+                  });
+                }
+              }
+            }
