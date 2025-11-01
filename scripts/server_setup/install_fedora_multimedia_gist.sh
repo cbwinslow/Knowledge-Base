@@ -233,7 +233,7 @@ install_multimedia_group() {
     
     # Install the multimedia group
     # The -y flag automatically answers 'yes' to all prompts
-    if sudo dnf group install -y multimedia 2>&1 | tee /dev/tty | grep -q "Complete!"; then
+    if sudo dnf group install -y multimedia; then
         log_success "Multimedia group packages installed successfully"
         return 0
     else
@@ -255,7 +255,7 @@ swap_ffmpeg() {
     
     # The --allowerasing flag allows DNF to remove conflicting packages
     # This is necessary because ffmpeg and ffmpeg-free conflict
-    if sudo dnf swap -y 'ffmpeg-free' 'ffmpeg' --allowerasing 2>&1 | tee /dev/tty | grep -q "Complete!"; then
+    if sudo dnf swap -y 'ffmpeg-free' 'ffmpeg' --allowerasing; then
         log_success "Successfully switched to full FFmpeg"
         
         # Verify FFmpeg installation and display version
@@ -297,7 +297,7 @@ upgrade_multimedia() {
     # conflicts with other package managers
     if sudo dnf upgrade -y @multimedia \
         --setopt="install_weak_deps=False" \
-        --exclude=PackageKit-gstreamer-plugin 2>&1 | tee /dev/tty | grep -q -E "(Complete!|Nothing to do)"; then
+        --exclude=PackageKit-gstreamer-plugin; then
         log_success "Multimedia packages upgraded successfully"
         return 0
     else
@@ -319,7 +319,7 @@ install_sound_video() {
     echo ""
     
     # Install the sound-and-video group
-    if sudo dnf group install -y sound-and-video 2>&1 | tee /dev/tty | grep -q "Complete!"; then
+    if sudo dnf group install -y sound-and-video; then
         log_success "Sound and video packages installed successfully"
         return 0
     else
@@ -470,16 +470,17 @@ main() {
     
     # Execute installation steps with error handling
     # Each function returns 0 on success, 1 on failure
-    install_multimedia_group || true
+    # If a step fails, the error handler will catch it and exit
+    install_multimedia_group
     echo ""
     
-    swap_ffmpeg || true
+    swap_ffmpeg
     echo ""
     
-    upgrade_multimedia || true
+    upgrade_multimedia
     echo ""
     
-    install_sound_video || true
+    install_sound_video
     echo ""
     
     # Display comprehensive summary
