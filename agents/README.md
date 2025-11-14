@@ -1,181 +1,330 @@
-# AI Agents Directory
+# Agents Directory
 
-This directory contains comprehensive AI agent configurations for DevOps, software development, and organizational roles. These agents can be used individually or composed into crews for collaborative work.
+This directory contains configuration files for specialized AI agents designed for specific tasks and workflows.
 
-## Directory Structure
+## 🤖 Available Agents
 
+### 🔍 Web Research Agent (`web_research_agent.json`)
+**Purpose**: Comprehensive web research and data extraction
+
+**Specialization**: Online research, source validation, content analysis
+
+**Key Features**:
+- Multi-source research coordination
+- Source credibility assessment
+- Academic citation formatting
+- Content synthesis and analysis
+- Rate-limited web scraping
+
+**Ideal For**:
+- Academic research projects
+- Market intelligence gathering
+- Competitive analysis
+- Content aggregation
+
+**Configuration Highlights**:
+- Max 15 sources per topic
+- 1.5s delay between requests
+- Critical source validation
+- Academic citation support
+
+### 💻 Code Analysis Agent (`code_analysis_agent.json`)
+**Purpose**: Comprehensive code analysis and security auditing
+
+**Specialization**: Static analysis, security scanning, quality assessment
+
+**Key Features**:
+- Multi-language support (8+ languages)
+- Security vulnerability detection
+- Code quality metrics
+- Performance analysis
+- Refactoring recommendations
+
+**Ideal For**:
+- Security audits
+- Code quality assessments
+- Performance optimization
+- Documentation generation
+
+**Configuration Highlights**:
+- Comprehensive security scanning
+- Industry best practices
+- CI/CD integration support
+- Detailed reporting with fix suggestions
+
+### 📊 Data Processing Agent (`data_processing_agent.json`)
+**Purpose**: Data processing, analysis, and visualization
+
+**Specialization**: Data ingestion, cleaning, statistical analysis
+
+**Key Features**:
+- Multi-format data support
+- Automated data cleaning
+- Statistical analysis pipeline
+- Visualization generation
+- Quality assurance checks
+
+**Ideal For**:
+- Data analysis projects
+- Business intelligence
+- Research data processing
+- Report generation
+
+**Configuration Highlights**:
+- 500MB data size limit
+- 6+ format support
+- Privacy-focused processing
+- Automated quality checks
+
+## 🏗️ Agent Architecture
+
+### Standard Configuration Structure
+
+All agent configurations follow this standardized structure:
+
+```json
+{
+  "agent_name": "Agent Name",
+  "agent_type": "category",
+  "version": "1.0.0",
+  "description": "Agent description",
+  "capabilities": ["capability1", "capability2"],
+  "tools": ["tool1", "tool2"],
+  "toolsets": ["toolset1"],
+  "configuration": {...},
+  "behavior": {...},
+  "output_format": {...},
+  "safety_constraints": {...},
+  "memory_management": {...},
+  "error_handling": {...}
+}
 ```
-agents/
-├── developers/          # Software development agents
-├── infrastructure/      # Infrastructure and operations agents
-├── quality/            # Quality assurance and security agents
-├── management/         # Leadership and management agents
-├── specialists/        # Specialized technical roles
-├── documentation/      # Documentation specialists
-├── compliance/         # Compliance and governance agents
-└── operations/         # Operations and incident management agents
+
+### Core Components
+
+#### 🎯 Capabilities
+List of specific abilities and skills the agent possesses.
+
+#### 🛠️ Tools & Toolsets
+Individual tools and combined toolsets the agent uses.
+
+#### ⚙️ Configuration
+Operational parameters, limits, and settings.
+
+#### 🧠 Behavior
+Decision-making approaches and interaction styles.
+
+#### 📤 Output Format
+Preferred output formats and alternatives.
+
+#### 🛡️ Safety Constraints
+Security, privacy, and operational limits.
+
+#### 💾 Memory Management
+Memory usage, caching, and cleanup policies.
+
+#### ⚠️ Error Handling
+Error recovery and fallback strategies.
+
+## 🚀 Creating New Agents
+
+When creating new agent configurations:
+
+### 1. Define the Purpose
+- Clear problem statement
+- Target use cases
+- Expected outcomes
+
+### 2. Select Tools and Toolsets
+- Choose appropriate individual tools
+- Combine relevant toolsets
+- Ensure compatibility
+
+### 3. Configure Behavior
+- Set operational parameters
+- Define decision-making approach
+- Establish interaction style
+
+### 4. Implement Safety
+- Set appropriate constraints
+- Configure error handling
+- Ensure privacy compliance
+
+### Template
+```json
+{
+  "agent_name": "New Agent",
+  "agent_type": "category",
+  "version": "1.0.0",
+  "description": "Clear description of agent purpose",
+  "capabilities": [
+    "primary_capability",
+    "secondary_capability"
+  ],
+  "tools": [
+    "required_tool1",
+    "required_tool2"
+  ],
+  "toolsets": [
+    "relevant_toolset"
+  ],
+  "configuration": {
+    "key_parameter": "value",
+    "limit_setting": 100
+  },
+  "behavior": {
+    "approach": "systematic",
+    "interaction_style": "professional"
+  },
+  "output_format": {
+    "default": "structured_json",
+    "alternatives": ["summary", "detailed"]
+  },
+  "safety_constraints": {
+    "max_operations": 1000,
+    "privacy_level": "high"
+  },
+  "memory_management": {
+    "max_memory_mb": 512,
+    "cleanup_policy": "automatic"
+  },
+  "error_handling": {
+    "retry_attempts": 3,
+    "fallback_strategy": "graceful_degradation"
+  },
+  "custom_prompts": {
+    "task_initiation": "Custom prompt for starting tasks",
+    "error_recovery": "Custom prompt for error handling"
+  },
+  "integration_points": {
+    "apis": ["api1", "api2"],
+    "databases": ["db1"],
+    "services": ["service1"]
+  },
+  "version_history": [
+    {
+      "version": "1.0.0",
+      "date": "2025-11-12",
+      "changes": "Initial release"
+    }
+  ],
+  "maintenance": {
+    "last_updated": "2025-11-12",
+    "next_review": "2025-12-12",
+    "update_frequency": "monthly"
+  }
+}
 ```
 
-## Agent Categories
+## 📋 Agent Categories
 
-### Developers
-Software development specialists across different domains:
-- **Backend Developer** - Server-side applications, APIs, databases
-- **Frontend Developer** - User interfaces, web applications
-- **Full-Stack Developer** - End-to-end application development
-- **Mobile Developer** - iOS and Android applications
+### 🔍 Research & Analysis
+- **Web Research Agent**: Online research and data extraction
+- **Data Analysis Agent**: Statistical analysis and insights
+- **Market Research Agent**: Competitive intelligence
 
-### Infrastructure
-Infrastructure and platform specialists:
-- **DevOps Engineer** - CI/CD, automation, infrastructure
-- **Site Reliability Engineer (SRE)** - Reliability, monitoring, incidents
-- **Cloud Architect** - Cloud architecture and strategy
-- **Platform Engineer** - Internal platforms and developer tools
+### 💻 Development & Engineering
+- **Code Analysis Agent**: Static analysis and security
+- **Testing Agent**: Automated testing and QA
+- **Deployment Agent**: Deployment and monitoring
 
-### Quality Assurance
-Quality and security specialists:
-- **QA Engineer** - Testing strategies and automation
-- **Security Engineer** - Application and infrastructure security
+### 📊 Data & Analytics
+- **Data Processing Agent**: Data cleaning and transformation
+- **Visualization Agent**: Chart and dashboard creation
+- **Business Intelligence Agent**: Business insights and reporting
 
-### Management
-Leadership and coordination roles:
-- **Tech Lead** - Technical leadership and mentoring
-- **Product Owner** - Product vision and backlog management
+### 🎨 Content & Media
+- **Content Generation Agent**: Automated content creation
+- **Media Processing Agent**: Image/video/audio processing
+- **SEO Agent**: Search engine optimization
 
-### Specialists
-Specialized technical roles:
-- **Database Administrator (DBA)** - Database management and optimization
-- **Data Engineer** - Data pipelines and data infrastructure
+### 🏢 Business & Operations
+- **Workflow Agent**: Business process automation
+- **Customer Support Agent**: Automated customer service
+- **Compliance Agent**: Regulatory compliance checking
 
-### Documentation
-Documentation specialists:
-- **Technical Writer** - Technical documentation and user guides
+## ⚙️ Configuration Guidelines
 
-### Compliance
-Compliance and governance:
-- **Compliance Officer** - Regulatory compliance and audits
+### Safety First
+- Always include safety constraints
+- Set reasonable limits
+- Implement error handling
+- Protect sensitive data
 
-### Operations
-Operations and incident management:
-- **Release Manager** - Release planning and coordination
-- **Incident Response Specialist** - Incident management and resolution
+### Performance Optimization
+- Configure appropriate memory limits
+- Set timeout values
+- Enable caching where beneficial
+- Monitor resource usage
 
-## Agent Configuration Format
+### Integration Ready
+- Define integration points clearly
+- Support multiple output formats
+- Include version history
+- Plan for maintenance
 
-Each agent configuration follows a standard format:
+## 🧪 Testing Agents
 
-```markdown
-# Agent Name
-
-## Agent Configuration
-- Name, Role, Type, Expertise Level
-
-## Goal
-Primary objective and purpose
-
-## Backstory
-Agent's experience and expertise context
-
-## Skills & Expertise
-Technical skills and knowledge areas
-
-## Tools
-Available tools and integrations
-
-## Capabilities
-What the agent can do
-
-## Configuration
-YAML configuration for CrewAI integration
-
-## Example Tasks
-Sample tasks the agent can perform
-```
-
-## Using Agents
-
-### As Individual Agents
-
-Agents can be used individually for specific tasks:
+Test agent configurations using:
 
 ```python
-from crewai import Agent
+import json
 
-backend_dev = Agent(
-    name="backend_developer",
-    role="Senior Backend Developer",
-    goal="Design and develop scalable backend systems",
-    backstory="...",
-    tools=[...],
-    verbose=True
-)
+# Load agent configuration
+with open('agents/web_research_agent.json', 'r') as f:
+    config = json.load(f)
+
+# Validate configuration
+def validate_agent_config(config):
+    required_fields = ['agent_name', 'agent_type', 'capabilities', 'tools']
+    for field in required_fields:
+        if field not in config:
+            raise ValueError(f"Missing required field: {field}")
+    
+    print(f"✅ {config['agent_name']} configuration is valid")
+
+validate_agent_config(config)
 ```
 
-### In Crews
+## 📞 Usage Examples
 
-Agents can be composed into crews for collaborative work (see `ai_agents/crews/` directory):
-
+### Loading and Using an Agent
 ```python
-from crewai import Crew
+from agents.web_research_agent import WebResearchAgent
 
-software_team = Crew(
-    agents=[backend_dev, frontend_dev, qa_engineer],
-    tasks=[...],
-    process="sequential"
-)
+# Initialize agent
+agent = WebResearchAgent()
+
+# Execute task
+result = agent.research_topic("artificial intelligence ethics")
+print(result)
 ```
 
-## Agent Capabilities
+### Customizing Agent Behavior
+```python
+# Load configuration
+with open('agents/web_research_agent.json', 'r') as f:
+    config = json.load(f)
 
-### Communication & Collaboration
-- Agents can delegate tasks to other agents
-- Agents can request information and clarification
-- Agents work together in crews to solve complex problems
+# Customize settings
+config['configuration']['max_sources_per_topic'] = 25
+config['behavior']['verification_level'] = 'maximum'
 
-### Tools & Integrations
-- Code editors and IDEs
-- Version control systems (Git)
-- CI/CD pipelines
-- Cloud platforms (AWS, GCP, Azure)
-- Monitoring and alerting tools
-- Databases and data stores
-- Testing frameworks
-- Security scanning tools
+# Initialize with custom config
+agent = WebResearchAgent(config)
+```
 
-### Best Practices
-- Follow coding standards and conventions
-- Implement comprehensive testing
-- Document decisions and implementations
-- Ensure security best practices
-- Optimize for performance and scalability
-- Collaborate with team members
-- Maintain code quality
+## 🔄 Version Management
 
-## Extending Agents
+Maintain version history in configurations:
+- Track changes and improvements
+- Document breaking changes
+- Plan regular updates
+- Monitor performance over time
 
-To add new agents:
+## 📚 Additional Resources
 
-1. Choose the appropriate category directory
-2. Create a new markdown file following the standard format
-3. Define the agent's role, skills, tools, and capabilities
-4. Include example tasks and configuration
-5. Update this README to list the new agent
-
-## Integration with CrewAI
-
-These agent configurations are designed to work with CrewAI framework. Each agent includes:
-
-- Role definition and backstory
-- Goal and objectives
-- Available tools
-- Delegation capabilities
-- Memory and iteration settings
-
-See the `ai_agents/crews/` directory for examples of how agents are composed into crews.
-
-## References
-
-- [CrewAI Documentation](https://docs.crewai.com/)
-- [Agent Configuration Best Practices](../ai_agents/README.md)
-- [Crew Examples](../ai_agents/crews/)
-- [Tools and Toolsets](../../tools/)
+- [Tools Documentation](../tools/README.md)
+- [Toolsets Documentation](../toolsets/README.md)
+- [CrewAI Configurations](../crews/)
+- [MCP Server Configs](../mcp-servers/)
