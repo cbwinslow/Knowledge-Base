@@ -1,0 +1,1 @@
+alias aider='aider'

@@ -1,0 +1,80 @@
+#!/bin/bash
+# Knowledge Base CLI Tool
+# A standalone command-line interface for the knowledge base
+
+# Get the directory where this script is located
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+KB_PATH="$(dirname "$(dirname "$SCRIPT_DIR")")"
+
+# Source the knowledge base functions
+source "$SCRIPT_DIR/kb_functions.sh"
+
+# Main command dispatcher
+case "${1:-help}" in
+    "init")
+        kb_init
+        ;;
+    "search")
+        kb_search "$2" "${3:-5}" "$4"
+        ;;
+    "lookup")
+        kb_lookup "$2"
+        ;;
+    "add")
+        kb_add "$2" "$3"
+        ;;
+    "remove")
+        kb_remove "$2"
+        ;;
+    "copy")
+        kb_copy "$2" "$3"
+        ;;
+    "open")
+        kb_open "$2"
+        ;;
+    "bookmark")
+        kb_bookmark "$2" "$3"
+        ;;
+    "bookmarks")
+        kb_bookmarks
+        ;;
+    "unbookmark")
+        kb_unbookmark "$2"
+        ;;
+    "stats")
+        kb_stats
+        ;;
+    "update")
+        kb_update
+        ;;
+    "toc")
+        kb_toc
+        ;;
+    "help"|*)
+        echo "Knowledge Base CLI Tool"
+        echo ""
+        echo "Usage: $0 <command> [arguments]"
+        echo ""
+        echo "Commands:"
+        echo "  init                    Initialize the knowledge base"
+        echo "  search <query> [n]      Search knowledge base"
+        echo "  lookup <pattern>        Find documents by name"
+        echo "  add <file> [desc]       Add document to KB"
+        echo "  remove <pattern>        Remove documents from KB"
+        echo "  copy <source> [dest]    Copy file from KB"
+        echo "  open <pattern>          Open document from KB"
+        echo "  bookmark <file> [note]  Save a bookmark"
+        echo "  bookmarks               List all bookmarks"
+        echo "  unbookmark <num>        Remove bookmark"
+        echo "  stats                   Show KB statistics"
+        echo "  update                  Rebuild the search index"
+        echo "  toc                     Generate table of contents"
+        echo "  help                    Show this help"
+        echo ""
+        echo "Examples:"
+        echo "  $0 search 'docker compose' 10"
+        echo "  $0 add ./my-doc.md 'Important config'"
+        echo "  $0 bookmark 'docker-compose.yml' 'Production config'"
+        echo "  $0 open 'README.md'"
+        ;;
+esac

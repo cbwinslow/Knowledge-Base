@@ -1,0 +1,1 @@
+alias qwen='qwen-code'

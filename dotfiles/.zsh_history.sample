@@ -1,0 +1,43 @@
+: 1762553477:0;opencode
+: 1762632426:0;cd
+: 1762632433:0;nano settings.json
+: 1762632442:0;sudo apt install nano
+: 1762632449:0;sudo dnf install nano
+: 1762632457:0;nano settings.json
+: 1762632465:0;nano ss.txt
+: 1762632474:0;exit
+: 1762632484:0;nano ss.txt
+: 1762632487:0;opencode
+: 1762918272:0;ls
+: 1762918556:0;nano .env
+: 1762918563:0;bash
+: 1762921031:0;opencode
+: 1762940014:0;	nano ~/.zshrc
+: 1762940021:0;bash
+: 1762940081:0;opencode
+: 1762946936:0;curl -LsSf https://astral.sh/uv/install.sh | sh
+: 1762947456:0;opencode
+: 1762980409:0;brew install code-completion
+: 1762980430:0;brew install docker-completion
+: 1762980442:0;brew install docker-completion@2
+: 1762980456:0;brew install open-completion
+: 1762980471:0;brew install code-completion
+: 1762980484:0;brew install bash-completion
+: 1762980532:0;nano .bashrc
+: 1762980537:0;bash
+: 1762983696:0;opencode
+: 1762993708:0;openccode
+: 1762993723:0;opencode
+: 1763005524:0;cd cbw-agents
+: 1763005528:0;cbw-tools
+: 1763005530:0;ls
+: 1763005539:0;cd
+: 1763005540:0;ls
+: 1763005551:0;cd zsh_functions.d
+: 1763005552:0;ls
+: 1763005604:0;./install_goose.zsh
+: 1763005610:0;sudo ./install_goose.sh
+: 1763005628:0;sudo ./install_goose.zsh
+: 1763005636:0;sudo zsh ./install_goose.zsh
+: 1763005654:0;sudo install_goose.zsh
+: 1763005668:0;codex

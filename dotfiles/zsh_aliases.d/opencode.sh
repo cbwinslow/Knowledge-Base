@@ -1,0 +1,1 @@
+alias opencode='opencode'

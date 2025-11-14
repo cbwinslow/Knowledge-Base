@@ -1,0 +1,14 @@
+# =============================================================================
+# Login-specific profile for cbwinslow
+# Ensures that required directories/files exist before ~/.zshrc loads.
+# =============================================================================
+
+for dir in "$HOME/zsh_aliases.d" "$HOME/zsh_functions.d" "$HOME/zsh_secrets.d" "$HOME/.local/bin" "$HOME/Knowledge-Base/dotfiles"; do
+    [[ -d "$dir" ]] || mkdir -p "$dir"
+done
+
+[[ -f "$HOME/.zsh_history" ]] || touch "$HOME/.zsh_history"
+
+export KB_DOTFILES_ROOT="$HOME/Knowledge-Base/dotfiles"
+export CBW_AI_CONFIG_ARCHIVE="${CBW_AI_CONFIG_ARCHIVE:-$HOME/Knowledge-Base/dotfiles/ai_configs}"
+mkdir -p "$CBW_AI_CONFIG_ARCHIVE"

@@ -1,0 +1,1360 @@
+# Dynamic Table of Contents
+
+*Generated on: 2025-11-12T14:45:45.301087*  
+*Total items: 1333*  
+
+- **Knowledge-Base**
+  - **agents**
+    - **compliance**
+      - **compliance_officer** ([agents/compliance/compliance_officer.md](agents/compliance/compliance_officer.md)) - **Name:** Compliance Officer **Role:** Senior Compliance Officer **Type:** Compliance `security`, `compliance`, `agents`, `typescript`, `ai`
+    - **developers**
+      - **backend_developer** ([agents/developers/backend_developer.md](agents/developers/backend_developer.md)) - **Name:** Backend Developer **Role:** Senior Backend Developer **Type:** Developer `security`, `devops`, `kubernetes`, `api`, `database`
+      - **frontend_developer** ([agents/developers/frontend_developer.md](agents/developers/frontend_developer.md)) - **Name:** Frontend Developer **Role:** Senior Frontend Developer **Type:** Developer `security`, `devops`, `api`, `database`, `agents`
+      - **fullstack_developer** ([agents/developers/fullstack_developer.md](agents/developers/fullstack_developer.md)) - **Name:** Full-Stack Developer **Role:** Senior Full-Stack Developer **Type:** Developer `ai`, `security`, `devops`, `kubernetes`, `api`
+      - **mobile_developer** ([agents/developers/mobile_developer.md](agents/developers/mobile_developer.md)) - **Name:** Mobile Developer **Role:** Senior Mobile Developer **Type:** Developer `devops`, `database`, `agents`, `developers`, `typescript`
+    - **documentation**
+      - **technical_writer** ([agents/documentation/technical_writer.md](agents/documentation/technical_writer.md)) - **Name:** Technical Writer **Role:** Senior Technical Writer **Type:** Documentation `security`, `devops`, `documentation`, `kubernetes`, `database`
+    - **infrastructure**
+      - **cloud_architect** ([agents/infrastructure/cloud_architect.md](agents/infrastructure/cloud_architect.md)) - **Name:** Cloud Architect **Role:** Senior Cloud Architect **Type:** Infrastructure `security`, `devops`, `infrastructure`, `agents`, `typescript`
+      - **devops_engineer** ([agents/infrastructure/devops_engineer.md](agents/infrastructure/devops_engineer.md)) - **Name:** DevOps Engineer **Role:** Senior DevOps Engineer **Type:** Infrastructure `security`, `devops`, `kubernetes`, `infrastructure`, `database`
+      - **platform_engineer** ([agents/infrastructure/platform_engineer.md](agents/infrastructure/platform_engineer.md)) - **Name:** Platform Engineer **Role:** Senior Platform Engineer **Type:** Infrastructure `security`, `devops`, `kubernetes`, `infrastructure`, `agents`
+      - **sre** ([agents/infrastructure/sre.md](agents/infrastructure/sre.md)) - **Name:** Site Reliability Engineer **Role:** Senior SRE **Type:** Infrastructure `kubernetes`, `infrastructure`, `database`, `agents`, `typescript`
+    - **management**
+      - **product_owner** ([agents/management/product_owner.md](agents/management/product_owner.md)) - **Name:** Product Owner **Role:** Product Owner / Product Manager **Type:** Management `database`, `agents`, `typescript`, `ai`, `md`
+      - **tech_lead** ([agents/management/tech_lead.md](agents/management/tech_lead.md)) - **Name:** Tech Lead **Role:** Technical Lead / Engineering Lead **Type:** Management `security`, `devops`, `agents`, `typescript`, `ai`
+    - **operations**
+      - **incident_response_specialist** ([agents/operations/incident_response_specialist.md](agents/operations/incident_response_specialist.md)) - **Name:** Incident Response Specialist **Role:** Incident Response Lead **Type:** Operations `database`, `agents`, `operations`, `typescript`, `ai`
+      - **release_manager** ([agents/operations/release_manager.md](agents/operations/release_manager.md)) - **Name:** Release Manager **Role:** Release Manager **Type:** Operations `devops`, `kubernetes`, `agents`, `operations`, `typescript`
+    - **quality**
+      - **qa_engineer** ([agents/quality/qa_engineer.md](agents/quality/qa_engineer.md)) - **Name:** QA Engineer **Role:** Senior QA Engineer **Type:** Quality Assurance `security`, `devops`, `quality`, `api`, `agents`
+      - **security_engineer** ([agents/quality/security_engineer.md](agents/quality/security_engineer.md)) - **Name:** Security Engineer **Role:** Senior Security Engineer **Type:** Quality Assurance / Security `security`, `quality`, `agents`, `typescript`, `docker`
+    - **specialists**
+      - **data_engineer** ([agents/specialists/data_engineer.md](agents/specialists/data_engineer.md)) - **Name:** Data Engineer **Role:** Senior Data Engineer **Type:** Specialist `specialists`, `devops`, `database`, `agents`, `typescript`
+      - **database_administrator** ([agents/specialists/database_administrator.md](agents/specialists/database_administrator.md)) - **Name:** Database Administrator **Role:** Senior Database Administrator **Type:** Specialist `specialists`, `security`, `database`, `agents`, `typescript`
+    - **agents** ([agents/README.md](agents/README.md)) - This directory contains comprehensive AI agent configurations for DevOps, software development, and organizational roles. These agents can be used individually or composed into crews for collaborative... `security`, `devops`, `database`, `agents`, `typescript`
+  - **ai_agents**
+    - **crews**
+      - **data_engineering_team**
+        - **agents** ([ai_agents/crews/data_engineering_team/agents.yaml](ai_agents/crews/data_engineering_team/agents.yaml)) `crews`, `yaml`, `ai_agents`, `data_engineering_team`
+        - **crew_config** ([ai_agents/crews/data_engineering_team/crew_config.yaml](ai_agents/crews/data_engineering_team/crew_config.yaml)) `crews`, `yaml`, `ai_agents`, `data_engineering_team`
+      - **devops_pipeline_team**
+        - **agents** ([ai_agents/crews/devops_pipeline_team/agents.yaml](ai_agents/crews/devops_pipeline_team/agents.yaml)) `crews`, `devops_pipeline_team`, `yaml`, `ai_agents`
+        - **crew_config** ([ai_agents/crews/devops_pipeline_team/crew_config.yaml](ai_agents/crews/devops_pipeline_team/crew_config.yaml)) `crews`, `devops_pipeline_team`, `yaml`, `ai_agents`
+        - **devops_pipeline_team** ([ai_agents/crews/devops_pipeline_team/README.md](ai_agents/crews/devops_pipeline_team/README.md)) - A specialized team focused on building and maintaining CI/CD pipelines, deployment automation, and platform tooling. `security`, `devops`, `ai_agents`, `kubernetes`, `crews`
+        - **tasks** ([ai_agents/crews/devops_pipeline_team/tasks.yaml](ai_agents/crews/devops_pipeline_team/tasks.yaml)) `crews`, `devops_pipeline_team`, `yaml`, `ai_agents`
+      - **example_research_crew**
+        - **agents** ([ai_agents/crews/example_research_crew/agents.yaml](ai_agents/crews/example_research_crew/agents.yaml)) `crews`, `yaml`, `example_research_crew`, `ai_agents`
+        - **crew_config** ([ai_agents/crews/example_research_crew/crew_config.yaml](ai_agents/crews/example_research_crew/crew_config.yaml)) `crews`, `yaml`, `example_research_crew`, `ai_agents`
+        - **example_research_crew** ([ai_agents/crews/example_research_crew/README.md](ai_agents/crews/example_research_crew/README.md)) - This is an example CrewAI crew configuration for a research and documentation team. `ai_agents`, `crews`, `example_research_crew`, `typescript`, `ai`
+        - **tasks** ([ai_agents/crews/example_research_crew/tasks.yaml](ai_agents/crews/example_research_crew/tasks.yaml)) `crews`, `yaml`, `example_research_crew`, `ai_agents`
+      - **incident_response_team**
+        - **agents** ([ai_agents/crews/incident_response_team/agents.yaml](ai_agents/crews/incident_response_team/agents.yaml)) `crews`, `yaml`, `ai_agents`, `incident_response_team`
+        - **crew_config** ([ai_agents/crews/incident_response_team/crew_config.yaml](ai_agents/crews/incident_response_team/crew_config.yaml)) `crews`, `yaml`, `ai_agents`, `incident_response_team`
+        - **tasks** ([ai_agents/crews/incident_response_team/tasks.yaml](ai_agents/crews/incident_response_team/tasks.yaml)) `crews`, `yaml`, `ai_agents`, `incident_response_team`
+      - **infrastructure_team**
+        - **agents** ([ai_agents/crews/infrastructure_team/agents.yaml](ai_agents/crews/infrastructure_team/agents.yaml)) `crews`, `yaml`, `infrastructure_team`, `ai_agents`
+        - **crew_config** ([ai_agents/crews/infrastructure_team/crew_config.yaml](ai_agents/crews/infrastructure_team/crew_config.yaml)) `crews`, `yaml`, `infrastructure_team`, `ai_agents`
+      - **release_management_team**
+        - **agents** ([ai_agents/crews/release_management_team/agents.yaml](ai_agents/crews/release_management_team/agents.yaml)) `crews`, `release_management_team`, `yaml`, `ai_agents`
+        - **crew_config** ([ai_agents/crews/release_management_team/crew_config.yaml](ai_agents/crews/release_management_team/crew_config.yaml)) `crews`, `release_management_team`, `yaml`, `ai_agents`
+      - **security_compliance_team**
+        - **agents** ([ai_agents/crews/security_compliance_team/agents.yaml](ai_agents/crews/security_compliance_team/agents.yaml)) `crews`, `yaml`, `ai_agents`, `security_compliance_team`
+        - **crew_config** ([ai_agents/crews/security_compliance_team/crew_config.yaml](ai_agents/crews/security_compliance_team/crew_config.yaml)) `crews`, `yaml`, `ai_agents`, `security_compliance_team`
+        - **tasks** ([ai_agents/crews/security_compliance_team/tasks.yaml](ai_agents/crews/security_compliance_team/tasks.yaml)) `crews`, `yaml`, `ai_agents`, `security_compliance_team`
+      - **software_company**
+        - **agents** ([ai_agents/crews/software_company/agents.yaml](ai_agents/crews/software_company/agents.yaml)) `crews`, `yaml`, `ai_agents`, `software_company`
+        - **crew_config** ([ai_agents/crews/software_company/crew_config.yaml](ai_agents/crews/software_company/crew_config.yaml)) `crews`, `yaml`, `ai_agents`, `software_company`
+        - **tasks** ([ai_agents/crews/software_company/tasks.yaml](ai_agents/crews/software_company/tasks.yaml)) `crews`, `yaml`, `ai_agents`, `software_company`
+      - **software_development_team**
+        - **agents** ([ai_agents/crews/software_development_team/agents.yaml](ai_agents/crews/software_development_team/agents.yaml)) `crews`, `software_development_team`, `yaml`, `ai_agents`
+        - **crew_config** ([ai_agents/crews/software_development_team/crew_config.yaml](ai_agents/crews/software_development_team/crew_config.yaml)) `crews`, `software_development_team`, `yaml`, `ai_agents`
+        - **software_development_team** ([ai_agents/crews/software_development_team/README.md](ai_agents/crews/software_development_team/README.md)) - A complete software development team crew for building web applications from start to finish. `security`, `devops`, `ai_agents`, `kubernetes`, `crews`
+        - **tasks** ([ai_agents/crews/software_development_team/tasks.yaml](ai_agents/crews/software_development_team/tasks.yaml)) `crews`, `software_development_team`, `yaml`, `ai_agents`
+      - **crews** ([ai_agents/crews/README.md](ai_agents/crews/README.md)) - This directory stores CrewAI crew configurations. `ai_agents`, `crews`, `typescript`, `ai`, `md`
+    - **memories**
+      - **example_memory_20251022_134100** ([ai_agents/memories/example_memory_20251022_134100.md](ai_agents/memories/example_memory_20251022_134100.md)) - **Date:** 2025-10-22 **Time:** 13:41:00 **Agent:** ExampleAgent `ai_agents`, `memories`, `typescript`, `md`, `python`
+      - **memories** ([ai_agents/memories/README.md](ai_agents/memories/README.md)) - This directory stores memories and learnings from AI agents. `ai_agents`, `memories`, `typescript`, `ai`, `md`
+    - **rules**
+      - **code_quality_rules** ([ai_agents/rules/code_quality_rules.md](ai_agents/rules/code_quality_rules.md)) - **Priority:** High **Applies To:** All coding agents **Last Updated:** 2025-10-22 `security`, `devops`, `ai_agents`, `rules`, `database`
+      - **communication_rules** ([ai_agents/rules/communication_rules.md](ai_agents/rules/communication_rules.md)) - **Priority:** High **Applies To:** All AI agents with user interaction **Last Updated:** 2025-11-12 `ai_agents`, `rules`, `database`, `typescript`, `ai`
+      - **documentation_rules** ([ai_agents/rules/documentation_rules.md](ai_agents/rules/documentation_rules.md)) - **Priority:** Medium **Applies To:** All AI agents **Last Updated:** 2025-11-12 `security`, `devops`, `ai_agents`, `kubernetes`, `api`
+      - **error_handling_rules** ([ai_agents/rules/error_handling_rules.md](ai_agents/rules/error_handling_rules.md)) - **Priority:** High **Applies To:** All AI agents **Last Updated:** 2025-11-12 `ai_agents`, `rules`, `database`, `typescript`, `ai`
+      - **memory_management_rules** ([ai_agents/rules/memory_management_rules.md](ai_agents/rules/memory_management_rules.md)) - **Priority:** High **Applies To:** All AI agents with memory capabilities **Last Updated:** 2025-11-12 `ai_agents`, `rules`, `typescript`, `ai`, `md`
+      - **performance_rules** ([ai_agents/rules/performance_rules.md](ai_agents/rules/performance_rules.md)) - **Priority:** Medium **Applies To:** All AI agents **Last Updated:** 2025-11-12 `ai_agents`, `rules`, `database`, `typescript`, `ai`
+      - **rules** ([ai_agents/rules/README.md](ai_agents/rules/README.md)) - This directory contains comprehensive rules and guidelines for AI agents, organized by category with clear, searchable titles. `security`, `ai_agents`, `rules`, `typescript`, `ai`
+      - **RULES_INDEX** ([ai_agents/rules/RULES_INDEX.md](ai_agents/rules/RULES_INDEX.md)) - This directory contains comprehensive rules and guidelines for AI agents. Each rule file is organized by category with clear, searchable titles. `security`, `ai_agents`, `rules`, `typescript`, `ai`
+      - **security_privacy_rules** ([ai_agents/rules/security_privacy_rules.md](ai_agents/rules/security_privacy_rules.md)) - **Priority:** Critical **Applies To:** All AI agents **Last Updated:** 2025-11-12 `security`, `ai_agents`, `rules`, `typescript`, `ai`
+      - **testing_quality_rules** ([ai_agents/rules/testing_quality_rules.md](ai_agents/rules/testing_quality_rules.md)) - **Priority:** High **Applies To:** All AI agents **Last Updated:** 2025-11-12 `security`, `devops`, `ai_agents`, `kubernetes`, `api`
+    - **ai_agents** ([ai_agents/README.md](ai_agents/README.md)) - This directory contains AI agent configurations, memories, and rules. `ai`, `md`, `typescript`, `ai_agents`
+  - **configurations**
+    - **kb_config** ([configurations/kb_config.yaml](configurations/kb_config.yaml)) `yaml`, `configurations`
+  - **docker_configs**
+    - **compose**
+      - **example_app**
+        - **docker-compose** ([docker_configs/compose/example_app/docker-compose.yml](docker_configs/compose/example_app/docker-compose.yml)) `yml`, `example_app`, `compose`, `docker_configs`
+        - **example_app** ([docker_configs/compose/example_app/README.md](docker_configs/compose/example_app/README.md)) - This is an example multi-container application setup with: - Nginx web server - Python application `docker_configs`, `compose`, `database`, `example_app`, `typescript`
+      - **mongodb**
+        - **.env** ([docker_configs/compose/mongodb/.env.example](docker_configs/compose/mongodb/.env.example)) `compose`, `example`, `docker_configs`, `mongodb`
+        - **docker-compose** ([docker_configs/compose/mongodb/docker-compose.yml](docker_configs/compose/mongodb/docker-compose.yml)) `yml`, `compose`, `docker_configs`, `mongodb`
+        - **mongodb** ([docker_configs/compose/mongodb/README.md](docker_configs/compose/mongodb/README.md)) - Complete MongoDB setup with Mongo Express for web-based management. `security`, `devops`, `docker_configs`, `mongodb`, `api`
+      - **nginx**
+        - **.env** ([docker_configs/compose/nginx/.env.example](docker_configs/compose/nginx/.env.example)) `compose`, `example`, `docker_configs`, `nginx`
+        - **docker-compose** ([docker_configs/compose/nginx/docker-compose.yml](docker_configs/compose/nginx/docker-compose.yml)) `yml`, `compose`, `docker_configs`, `nginx`
+        - **nginx** ([docker_configs/compose/nginx/README.md](docker_configs/compose/nginx/README.md)) - Complete Nginx reverse proxy configuration with SSL support, load balancing, and caching. `security`, `devops`, `docker_configs`, `kubernetes`, `api`
+        - **nginx** ([docker_configs/compose/nginx/nginx.conf](docker_configs/compose/nginx/nginx.conf)) `compose`, `docker_configs`, `conf`, `nginx`
+      - **postgresql**
+        - **.env** ([docker_configs/compose/postgresql/.env.example](docker_configs/compose/postgresql/.env.example)) `postgresql`, `compose`, `example`, `docker_configs`
+        - **docker-compose** ([docker_configs/compose/postgresql/docker-compose.yml](docker_configs/compose/postgresql/docker-compose.yml)) `yml`, `postgresql`, `compose`, `docker_configs`
+        - **postgresql** ([docker_configs/compose/postgresql/README.md](docker_configs/compose/postgresql/README.md)) - Complete PostgreSQL database setup with pgAdmin for easy management. `postgresql`, `security`, `docker_configs`, `compose`, `database`
+      - **redis**
+        - **.env** ([docker_configs/compose/redis/.env.example](docker_configs/compose/redis/.env.example)) `compose`, `example`, `redis`, `docker_configs`
+        - **docker-compose** ([docker_configs/compose/redis/docker-compose.yml](docker_configs/compose/redis/docker-compose.yml)) `yml`, `compose`, `redis`, `docker_configs`
+        - **redis** ([docker_configs/compose/redis/README.md](docker_configs/compose/redis/README.md)) - Production-ready Redis cache setup with Redis Commander for management. `security`, `docker_configs`, `python`, `api`, `compose`
+    - **dockerfiles**
+      - **Dockerfile** ([docker_configs/dockerfiles/Dockerfile.example](docker_configs/dockerfiles/Dockerfile.example)) `dockerfiles`, `example`, `docker_configs`
+    - **docker_configs** ([docker_configs/README.md](docker_configs/README.md)) - This directory stores Docker and container-related configurations. `security`, `docker_configs`, `typescript`, `docker`, `ai`
+  - **documentation**
+    - **ai_context**
+      - **ai_context** ([documentation/ai_context/README.md](documentation/ai_context/README.md)) - This directory contains documentation specifically formatted for AI agent context. `documentation`, `typescript`, `ai_context`, `ai`, `md`
+    - **ai_ml**
+      - **ai_ml** ([documentation/ai_ml/README.md](documentation/ai_ml/README.md)) - Comprehensive documentation covering AI, Machine Learning, Large Language Models, AI Agents, and related technologies. `security`, `devops`, `documentation`, `kubernetes`, `ai_ml`
+    - **databases**
+      - **databases** ([documentation/databases/README.md](documentation/databases/README.md)) - Comprehensive documentation covering SQL, NoSQL, vector databases, optimization, and data management. `security`, `devops`, `documentation`, `kubernetes`, `api`
+    - **devops**
+      - **devops** ([documentation/devops/README.md](documentation/devops/README.md)) - Comprehensive documentation covering DevOps practices, tools, and methodologies. `security`, `devops`, `documentation`, `kubernetes`, `database`
+    - **examples**
+      - **python**
+        - **python** ([documentation/examples/python/README.md](documentation/examples/python/README.md)) - Comprehensive Python code examples demonstrating best practices, common patterns, and real-world applications. `documentation`, `api`, `database`, `typescript`, `ai`
+      - **shell-scripts**
+        - **database-backup** ([documentation/examples/shell-scripts/database-backup.sh](documentation/examples/shell-scripts/database-backup.sh)) `sh`, `documentation`, `shell-scripts`, `examples`
+        - **shell-scripts** ([documentation/examples/shell-scripts/README.md](documentation/examples/shell-scripts/README.md)) - This directory contains comprehensive examples of shell scripts demonstrating best practices, common patterns, error handling, and production-ready techniques. `security`, `devops`, `documentation`, `shell-scripts`, `kubernetes`
+      - **examples** ([documentation/examples/README.md](documentation/examples/README.md)) - This directory contains working code examples collected from various repositories and documentation sources. `examples`, `documentation`, `api`, `database`, `typescript`
+    - **examples_scripts**
+      - **examples_scripts** ([documentation/examples_scripts/README.md](documentation/examples_scripts/README.md)) - Working code examples, automation scripts, and practical implementations across various domains. `security`, `devops`, `documentation`, `kubernetes`, `api`
+    - **how-to-guides**
+      - **docker-compose-deployment** ([documentation/how-to-guides/docker-compose-deployment.md](documentation/how-to-guides/docker-compose-deployment.md)) - Complete guide to deploying multi-container applications with Docker Compose. `security`, `devops`, `documentation`, `kubernetes`, `api`
+      - **how-to-guides** ([documentation/how-to-guides/README.md](documentation/how-to-guides/README.md)) - Practical, task-oriented guides for common operations and workflows. `security`, `devops`, `documentation`, `kubernetes`, `database`
+      - **llm-integration** ([documentation/how-to-guides/llm-integration.md](documentation/how-to-guides/llm-integration.md)) - Comprehensive guide to integrating Large Language Models into your applications. `security`, `documentation`, `api`, `database`, `typescript`
+    - **infrastructure**
+      - **infrastructure** ([documentation/infrastructure/README.md](documentation/infrastructure/README.md)) - Comprehensive documentation covering containerization, orchestration, virtualization, networking, and storage. `security`, `devops`, `documentation`, `kubernetes`, `infrastructure`
+    - **programming**
+      - **programming** ([documentation/programming/README.md](documentation/programming/README.md)) - Comprehensive documentation covering programming languages, frameworks, techniques, and optimization. `security`, `devops`, `documentation`, `kubernetes`, `api`
+    - **scraped**
+      - **scraped** ([documentation/scraped/README.md](documentation/scraped/README.md)) - This directory contains documentation scraped from various official and community sources using crawl4ai. `security`, `scraped`, `documentation`, `kubernetes`, `api`
+    - **security**
+      - **security** ([documentation/security/README.md](documentation/security/README.md)) - Comprehensive documentation covering secrets management, network security, application security, monitoring, and compliance. `security`, `devops`, `documentation`, `kubernetes`, `api`
+    - **tips_tricks_usage**
+      - **tips_tricks_usage** ([documentation/tips_tricks_usage/README.md](documentation/tips_tricks_usage/README.md)) - Practical knowledge, troubleshooting guides, best practices, cheatsheets, and common gotchas. `security`, `devops`, `documentation`, `tips_tricks_usage`, `kubernetes`
+    - **tools_platforms**
+      - **tools_platforms** ([documentation/tools_platforms/README.md](documentation/tools_platforms/README.md)) - Comprehensive documentation covering version control, GitHub, GitLab, cloud providers, AI platforms, and development tools. `security`, `devops`, `documentation`, `kubernetes`, `api`
+    - **top_100**
+      - **top_100** ([documentation/top_100/README.md](documentation/top_100/README.md)) - This directory contains the top 100 most relevant documentation results retrieved using the context7 MCP server. `security`, `top_100`, `documentation`, `devops`, `kubernetes`
+    - **web_technologies**
+      - **web_technologies** ([documentation/web_technologies/README.md](documentation/web_technologies/README.md)) - Comprehensive documentation covering web servers, frameworks, APIs, protocols, and web development. `security`, `devops`, `documentation`, `kubernetes`, `api`
+    - **CHANGELOG** ([documentation/CHANGELOG.md](documentation/CHANGELOG.md)) - Each major category README includes: - Comprehensive table of contents with subcategories - Key concepts explanation `security`, `devops`, `documentation`, `kubernetes`, `api`
+    - **documentation** ([documentation/INDEX.md](documentation/INDEX.md)) - This is a comprehensive knowledge base covering DevOps, AI/ML, Programming, Infrastructure, Web Technologies, Databases, Tools & Platforms, Security, and more. `security`, `devops`, `documentation`, `kubernetes`, `api`
+    - **documentation** ([documentation/README.md](documentation/README.md)) - This directory contains the comprehensive documentation management system for the Knowledge Base repository. The system automatically downloads, organizes, labels, and indexes documentation from vario... `security`, `devops`, `documentation`, `kubernetes`, `api`
+    - **NEW_FEATURES_GUIDE** ([documentation/NEW_FEATURES_GUIDE.md](documentation/NEW_FEATURES_GUIDE.md)) - This guide covers the new features added to enhance the Knowledge Base with web crawling, deep research, deployment automation, and ZSH integration. `security`, `devops`, `documentation`, `kubernetes`, `api`
+    - **QUICKSTART** ([documentation/QUICKSTART.md](documentation/QUICKSTART.md)) - Get started with the comprehensive DevOps and AI knowledge base in minutes. `security`, `devops`, `documentation`, `kubernetes`, `database`
+    - **RESEARCH_GUIDE** ([documentation/RESEARCH_GUIDE.md](documentation/RESEARCH_GUIDE.md)) - This guide explains how to populate the knowledge base with comprehensive, high-quality documentation from various sources. `security`, `devops`, `documentation`, `kubernetes`, `api`
+    - **SOURCES** ([documentation/SOURCES.yaml](documentation/SOURCES.yaml)) `yaml`, `documentation`
+    - **STRUCTURE_SUMMARY** ([documentation/STRUCTURE_SUMMARY.md](documentation/STRUCTURE_SUMMARY.md)) - All 10 main categories are described below: `security`, `devops`, `documentation`, `kubernetes`, `api`
+    - **troubleshooting-guide** ([documentation/troubleshooting-guide.md](documentation/troubleshooting-guide.md)) - Comprehensive troubleshooting guide for common issues with Docker, databases, APIs, and more. `security`, `devops`, `documentation`, `kubernetes`, `api`
+  - **dotfiles**
+    - **bash**
+      - **bash_aliases** ([dotfiles/bash/bash_aliases.example](dotfiles/bash/bash_aliases.example)) `dotfiles`, `bash`, `example`
+      - **bash_functions** ([dotfiles/bash/bash_functions.example](dotfiles/bash/bash_functions.example)) `dotfiles`, `bash`, `example`
+      - **bash_secrets** ([dotfiles/bash/bash_secrets.example](dotfiles/bash/bash_secrets.example)) `dotfiles`, `bash`, `example`
+    - **cloud**
+      - **aws**
+        - **bash_functions_aws** ([dotfiles/cloud/aws/bash_functions_aws.sh](dotfiles/cloud/aws/bash_functions_aws.sh)) `dotfiles`, `aws`, `cloud`, `sh`
+    - **development**
+      - **docker**
+        - **bash_aliases_docker** ([dotfiles/development/docker/bash_aliases_docker.sh](dotfiles/development/docker/bash_aliases_docker.sh)) `dotfiles`, `sh`, `development`, `docker`
+        - **bash_functions_docker** ([dotfiles/development/docker/bash_functions_docker.sh](dotfiles/development/docker/bash_functions_docker.sh)) `dotfiles`, `sh`, `development`, `docker`
+        - **docker** ([dotfiles/development/docker/README.md](dotfiles/development/docker/README.md)) - Configuration files, functions, and aliases for Docker container management. `dotfiles`, `development`, `typescript`, `docker`, `ai`
+      - **git**
+        - **bash_aliases_git** ([dotfiles/development/git/bash_aliases_git.sh](dotfiles/development/git/bash_aliases_git.sh)) `dotfiles`, `git`, `development`, `sh`
+        - **bash_functions_git** ([dotfiles/development/git/bash_functions_git.sh](dotfiles/development/git/bash_functions_git.sh)) `dotfiles`, `git`, `development`, `sh`
+      - **kubernetes**
+        - **bash_aliases_kubernetes** ([dotfiles/development/kubernetes/bash_aliases_kubernetes.sh](dotfiles/development/kubernetes/bash_aliases_kubernetes.sh)) `dotfiles`, `sh`, `development`, `kubernetes`
+        - **bash_functions_kubernetes** ([dotfiles/development/kubernetes/bash_functions_kubernetes.sh](dotfiles/development/kubernetes/bash_functions_kubernetes.sh)) `dotfiles`, `sh`, `development`, `kubernetes`
+    - **shells**
+      - **bash**
+        - **bash_aliases** ([dotfiles/shells/bash/bash_aliases.example](dotfiles/shells/bash/bash_aliases.example)) `dotfiles`, `bash`, `shells`, `example`
+        - **bash_functions** ([dotfiles/shells/bash/bash_functions.example](dotfiles/shells/bash/bash_functions.example)) `dotfiles`, `bash`, `shells`, `example`
+        - **bash_secrets** ([dotfiles/shells/bash/bash_secrets.example](dotfiles/shells/bash/bash_secrets.example)) `dotfiles`, `bash`, `shells`, `example`
+      - **zsh**
+        - **zsh_aliases** ([dotfiles/shells/zsh/zsh_aliases.example](dotfiles/shells/zsh/zsh_aliases.example)) `dotfiles`, `shells`, `example`, `zsh`
+        - **zsh_functions** ([dotfiles/shells/zsh/zsh_functions.example](dotfiles/shells/zsh/zsh_functions.example)) `dotfiles`, `shells`, `example`, `zsh`
+        - **zsh_kb_functions** ([dotfiles/shells/zsh/zsh_kb_functions](dotfiles/shells/zsh/zsh_kb_functions)) `dotfiles`, `shells`, `zsh`
+        - **zsh_secrets** ([dotfiles/shells/zsh/zsh_secrets.example](dotfiles/shells/zsh/zsh_secrets.example)) `dotfiles`, `shells`, `example`, `zsh`
+    - **templates**
+      - **functions**
+        - **bash_functions_system** ([dotfiles/templates/functions/bash_functions_system.sh](dotfiles/templates/functions/bash_functions_system.sh)) `dotfiles`, `functions`, `templates`, `sh`
+    - **zsh**
+      - **zsh_aliases** ([dotfiles/zsh/zsh_aliases.example](dotfiles/zsh/zsh_aliases.example)) `dotfiles`, `example`, `zsh`
+      - **zsh_functions** ([dotfiles/zsh/zsh_functions.example](dotfiles/zsh/zsh_functions.example)) `dotfiles`, `example`, `zsh`
+      - **zsh_kb_functions** ([dotfiles/zsh/zsh_kb_functions](dotfiles/zsh/zsh_kb_functions)) `dotfiles`, `zsh`
+      - **zsh_secrets** ([dotfiles/zsh/zsh_secrets.example](dotfiles/zsh/zsh_secrets.example)) `dotfiles`, `example`, `zsh`
+    - **dotfiles** ([dotfiles/README.md](dotfiles/README.md)) - A comprehensive, organized collection of configuration files, shell functions, and aliases for consistent development and DevOps environments across all systems. `dotfiles`, `security`, `devops`, `kubernetes`, `api`
+    - **FILESYSTEM_STRUCTURE** ([dotfiles/FILESYSTEM_STRUCTURE.md](dotfiles/FILESYSTEM_STRUCTURE.md)) - This document defines the standard filesystem structure and naming conventions for organizing dotfiles, configurations, and scripts across all environments. `dotfiles`, `security`, `devops`, `kubernetes`, `api`
+    - **ORGANIZATION_PLAN** ([dotfiles/ORGANIZATION_PLAN.md](dotfiles/ORGANIZATION_PLAN.md)) - ``` dotfiles/ ├── shells/                    # Shell configurations by type `dotfiles`, `kubernetes`, `database`, `typescript`, `docker`
+    - **README.old** ([dotfiles/README.old.md](dotfiles/README.old.md)) - This directory stores shell configuration files, functions, aliases, and secrets. `dotfiles`, `security`, `typescript`, `ai`, `md`
+    - **RULES** ([dotfiles/RULES.md](dotfiles/RULES.md)) - This document defines the standards, conventions, and best practices for managing dotfiles across all development and DevOps environments. `dotfiles`, `security`, `devops`, `kubernetes`, `api`
+  - **master_documents**
+    - **ai_services**
+      - **anythingllm**
+        - **anythingllm** ([master_documents/ai_services/anythingllm/README.md](master_documents/ai_services/anythingllm/README.md)) - AnythingLLM is a private ChatGPT-like application that allows you to chat with any documents you have locally. `md`, `anythingllm`, `typescript`, `docker`, `ai`
+        - **docker-compose** ([master_documents/ai_services/anythingllm/docker-compose.yml](master_documents/ai_services/anythingllm/docker-compose.yml)) `yml`, `master_documents`, `anythingllm`, `ai_services`
+        - **setup_anythingllm** ([master_documents/ai_services/anythingllm/setup_anythingllm.sh](master_documents/ai_services/anythingllm/setup_anythingllm.sh)) `master_documents`, `anythingllm`, `ai_services`, `sh`
+      - **localai**
+        - **docker-compose** ([master_documents/ai_services/localai/docker-compose.yml](master_documents/ai_services/localai/docker-compose.yml)) `yml`, `master_documents`, `localai`, `ai_services`
+        - **localai** ([master_documents/ai_services/localai/README.md](master_documents/ai_services/localai/README.md)) - LocalAI is an API to run LLMs locally, written in Go with a focus on performance and versatility. `md`, `localai`, `docker`, `ai`, `master_documents`
+        - **setup_localai** ([master_documents/ai_services/localai/setup_localai.sh](master_documents/ai_services/localai/setup_localai.sh)) `master_documents`, `localai`, `ai_services`, `sh`
+      - **ai_services** ([master_documents/ai_services/README.md](master_documents/ai_services/README.md)) - This directory contains setup and configuration files for AI services. `md`, `typescript`, `docker`, `ai`, `master_documents`
+    - **configuration_files**
+      - **configuration_files** ([master_documents/configuration_files/README.md](master_documents/configuration_files/README.md)) - This directory contains important configuration files used in the server setup. `md`, `security`, `configuration_files`, `typescript`, `ai`
+    - **docs-bitwarden**
+      - **_layouts**
+        - **default** ([master_documents/docs-bitwarden/_layouts/default.html](master_documents/docs-bitwarden/_layouts/default.html)) `_layouts`, `master_documents`, `docs-bitwarden`, `html`
+      - **api**
+        - **index** ([master_documents/docs-bitwarden/api/index.html](master_documents/docs-bitwarden/api/index.html)) `html`, `master_documents`, `docs-bitwarden`, `api`
+      - **.nojekyll** ([master_documents/docs-bitwarden/.nojekyll](master_documents/docs-bitwarden/.nojekyll)) `master_documents`, `docs-bitwarden`
+      - **_config** ([master_documents/docs-bitwarden/_config.yml](master_documents/docs-bitwarden/_config.yml)) `yml`, `master_documents`, `docs-bitwarden`
+      - **_config-sub** ([master_documents/docs-bitwarden/_config-sub.yml](master_documents/docs-bitwarden/_config-sub.yml)) `yml`, `master_documents`, `docs-bitwarden`
+      - **browserconfig** ([master_documents/docs-bitwarden/browserconfig.xml](master_documents/docs-bitwarden/browserconfig.xml)) `master_documents`, `docs-bitwarden`, `xml`
+      - **docs-bitwarden** ([master_documents/docs-bitwarden/README.md](master_documents/docs-bitwarden/README.md)) - [![Join the chat at https://gitter.im/bitwarden/Lobby](https://badges.gitter.im/bitwarden/Lobby.svg)](https://gitter.im/bitwarden/Lobby) `md`, `docs-bitwarden`, `api`, `database`, `typescript`
+      - **favicon** ([master_documents/docs-bitwarden/favicon.ico](master_documents/docs-bitwarden/favicon.ico)) `master_documents`, `ico`, `docs-bitwarden`
+      - **index** ([master_documents/docs-bitwarden/index.html](master_documents/docs-bitwarden/index.html)) `master_documents`, `docs-bitwarden`, `html`
+      - **llms** ([master_documents/docs-bitwarden/llms.txt](master_documents/docs-bitwarden/llms.txt)) - Access tokens are objects that facilitate [machine account](https://bitwarden.com/help/machine-accounts/) access to, and the ability to decrypt, edit, and create [secrets](https://bitwarden.com/help/s... `master_documents`, `txt`, `docs-bitwarden`
+      - **manifest** ([master_documents/docs-bitwarden/manifest.json](master_documents/docs-bitwarden/manifest.json)) `master_documents`, `docs-bitwarden`, `json`
+      - **package** ([master_documents/docs-bitwarden/package.json](master_documents/docs-bitwarden/package.json)) `master_documents`, `docs-bitwarden`, `json`
+      - **package-lock** ([master_documents/docs-bitwarden/package-lock.json](master_documents/docs-bitwarden/package-lock.json)) `master_documents`, `docs-bitwarden`, `json`
+    - **install_scripts**
+      - **agents** ([master_documents/install_scripts/agents.md](master_documents/install_scripts/agents.md)) - This document describes the agents involved in the Ubuntu server setup project. `md`, `security`, `devops`, `install_scripts`, `typescript`
+      - **automation_github_integration** ([master_documents/install_scripts/automation_github_integration.md](master_documents/install_scripts/automation_github_integration.md)) - **Doc ID:** ODS‑AUTOMATION‑20250721‑01\ **Revision Date:** 2025‑07‑21\ **Status:** Draft for internal review `md`, `security`, `devops`, `kubernetes`, `api`
+      - **context_documents** ([master_documents/install_scripts/context_documents.md](master_documents/install_scripts/context_documents.md)) - This file collects concise context summaries—in Markdown—for each major area covered in the project. --- `md`, `security`, `devops`, `kubernetes`, `api`
+      - **install_scripts** ([master_documents/install_scripts/README.md](master_documents/install_scripts/README.md)) - This project documents the complete setup of an Ubuntu server with networking tools, security configurations, and essential services. `md`, `security`, `install_scripts`, `react`, `typescript`
+      - **mcp_gov_docs_collector_autonomous_srs_design** ([master_documents/install_scripts/mcp_gov_docs_collector_autonomous_srs_design.md](master_documents/install_scripts/mcp_gov_docs_collector_autonomous_srs_design.md)) - An MCP server that autonomously discovers, evaluates, ingests, normalizes, and publishes government documents across jurisdictions. Adds **domain learning**, **crawler memory**, **site ranking**, and ... `md`, `security`, `devops`, `kubernetes`, `api`
+      - **mcp_token_broker_api_token_assistant_srs_design** ([master_documents/install_scripts/mcp_token_broker_api_token_assistant_srs_design.md](master_documents/install_scripts/mcp_token_broker_api_token_assistant_srs_design.md)) - An MCP server that helps users acquire API tokens/keys safely and compliantly using **guided** or **semi‑automated** browser flows. Ships a recorder to capture a one‑time manual token creation and con... `md`, `security`, `devops`, `kubernetes`, `api`
+      - **open_discourse_master_feature_systems_plan_v_0** ([master_documents/install_scripts/open_discourse_master_feature_systems_plan_v_0.md](master_documents/install_scripts/open_discourse_master_feature_systems_plan_v_0.md)) - > A consolidated blueprint for building a real‑time, objective political intelligence and news analytics platform. Optimized for local or server deployment, with clear inter‑app contracts and an exten... `md`, `security`, `devops`, `kubernetes`, `api`
+      - **Qwen** ([master_documents/install_scripts/Qwen.md](master_documents/install_scripts/Qwen.md)) - This directory contains a comprehensive Ubuntu server setup project with networking tools, security configurations, and essential services. It provides a complete infrastructure for server operations ... `md`, `security`, `install_scripts`, `typescript`, `react`
+    - **reports**
+      - **scripts**
+        - **system_report** ([master_documents/reports/scripts/system_report.sh](master_documents/reports/scripts/system_report.sh)) `scripts`, `master_documents`, `reports`, `sh`
+      - **reports** ([master_documents/reports/README.md](master_documents/reports/README.md)) - This directory contains scripts and tools for generating system reports and analysis. `md`, `typescript`, `ai`, `master_documents`, `reports`
+    - **master_documents** ([master_documents/README.md](master_documents/README.md)) - This directory contains all the essential documentation, installation scripts, and configuration files for the server setup. `ai`, `master_documents`, `typescript`, `md`
+  - **mcp_servers**
+    - **aws**
+      - **aws** ([mcp_servers/aws/README.md](mcp_servers/aws/README.md)) - Model Context Protocol server for AWS service integration. `security`, `devops`, `kubernetes`, `api`, `database`
+      - **config** ([mcp_servers/aws/config.json](mcp_servers/aws/config.json)) `aws`, `mcp_servers`, `json`
+      - **requirements** ([mcp_servers/aws/requirements.txt](mcp_servers/aws/requirements.txt)) - botocore>=1.31.0 pydantic>=2.0.0 python-dotenv>=1.0.0 `txt`, `aws`, `mcp_servers`
+    - **cloudflare**
+      - **config** ([mcp_servers/cloudflare/config.json](mcp_servers/cloudflare/config.json)) `cloudflare`, `mcp_servers`, `json`
+    - **codeql**
+      - **config** ([mcp_servers/codeql/config.json](mcp_servers/codeql/config.json)) `json`, `mcp_servers`, `codeql`
+    - **docker**
+      - **config** ([mcp_servers/docker/config.json](mcp_servers/docker/config.json)) `json`, `mcp_servers`, `docker`
+    - **example_server**
+      - **config** ([mcp_servers/example_server/config.json](mcp_servers/example_server/config.json)) `example_server`, `mcp_servers`, `json`
+      - **example_server** ([mcp_servers/example_server/README.md](mcp_servers/example_server/README.md)) - This is an example Model Context Protocol (MCP) server that provides file system access tools. `security`, `example_server`, `mcp_servers`, `typescript`, `ai`
+      - **requirements** ([mcp_servers/example_server/requirements.txt](mcp_servers/example_server/requirements.txt)) - pathlib json sys `txt`, `example_server`, `mcp_servers`
+      - **server** ([mcp_servers/example_server/server.py](mcp_servers/example_server/server.py)) `py`, `example_server`, `mcp_servers`
+    - **github**
+      - **config** ([mcp_servers/github/config.json](mcp_servers/github/config.json)) `github`, `mcp_servers`, `json`
+    - **knowledge_base**
+      - **config** ([mcp_servers/knowledge_base/config.json](mcp_servers/knowledge_base/config.json)) `json`, `mcp_servers`, `knowledge_base`
+    - **kubernetes**
+      - **config** ([mcp_servers/kubernetes/config.json](mcp_servers/kubernetes/config.json)) `json`, `mcp_servers`, `kubernetes`
+    - **memory**
+      - **config** ([mcp_servers/memory/config.json](mcp_servers/memory/config.json)) `memory`, `mcp_servers`, `json`
+    - **postgresql**
+      - **config** ([mcp_servers/postgresql/config.json](mcp_servers/postgresql/config.json)) `postgresql`, `mcp_servers`, `json`
+    - **rules**
+      - **config** ([mcp_servers/rules/config.json](mcp_servers/rules/config.json)) `rules`, `mcp_servers`, `json`
+    - **sonarqube**
+      - **config** ([mcp_servers/sonarqube/config.json](mcp_servers/sonarqube/config.json)) `sonarqube`, `mcp_servers`, `json`
+    - **terraform**
+      - **config** ([mcp_servers/terraform/config.json](mcp_servers/terraform/config.json)) `terraform`, `mcp_servers`, `json`
+    - **mcp_servers** ([mcp_servers/README.md](mcp_servers/README.md)) - Comprehensive collection of Model Context Protocol (MCP) servers for various services and integrations. `security`, `devops`, `kubernetes`, `api`, `database`
+  - **opencodetmp**
+    - **opencode-linux-x64** ([opencodetmp/opencode-linux-x64.zip](opencodetmp/opencode-linux-x64.zip)) `zip`, `opencodetmp`
+  - **projects**
+    - **agent-mode-starter**
+      - **configs**
+        - **globals** ([projects/agent-mode-starter/configs/globals.yaml](projects/agent-mode-starter/configs/globals.yaml)) `configs`, `agent-mode-starter`, `projects`, `yaml`
+      - **docs**
+        - **AGENTS** ([projects/agent-mode-starter/docs/AGENTS.md](projects/agent-mode-starter/docs/AGENTS.md)) `docs`, `projects`, `agent-mode-starter`, `typescript`, `md`
+        - **SRS** ([projects/agent-mode-starter/docs/SRS.md](projects/agent-mode-starter/docs/SRS.md)) `md`, `docs`, `agent-mode-starter`, `projects`
+        - **TASKS** ([projects/agent-mode-starter/docs/TASKS.md](projects/agent-mode-starter/docs/TASKS.md)) `md`, `docs`, `agent-mode-starter`, `projects`
+      - **scripts**
+        - **agent_runner** ([projects/agent-mode-starter/scripts/agent_runner.py](projects/agent-mode-starter/scripts/agent_runner.py)) `scripts`, `agent-mode-starter`, `projects`, `py`
+      - **agent-mode-starter** ([projects/agent-mode-starter/README.md](projects/agent-mode-starter/README.md)) - A batteries-included template to create, schedule, and audit “Agent Mode” jobs. `md`, `agent-mode-starter`, `projects`, `python`
+      - **Makefile** ([projects/agent-mode-starter/Makefile](projects/agent-mode-starter/Makefile)) `agent-mode-starter`, `projects`
+      - **pyproject** ([projects/agent-mode-starter/pyproject.toml](projects/agent-mode-starter/pyproject.toml)) `toml`, `agent-mode-starter`, `projects`
+    - **api-recon-mcp**
+      - **recon**
+        - **core** ([projects/api-recon-mcp/recon/core.py](projects/api-recon-mcp/recon/core.py)) `py`, `recon`, `projects`, `api-recon-mcp`
+        - **emit** ([projects/api-recon-mcp/recon/emit.py](projects/api-recon-mcp/recon/emit.py)) `py`, `recon`, `projects`, `api-recon-mcp`
+      - **http_mount** ([projects/api-recon-mcp/http_mount.py](projects/api-recon-mcp/http_mount.py)) `py`, `projects`, `api-recon-mcp`
+      - **mcp_server** ([projects/api-recon-mcp/mcp_server.py](projects/api-recon-mcp/mcp_server.py)) `py`, `projects`, `api-recon-mcp`
+      - **pyproject** ([projects/api-recon-mcp/pyproject.toml](projects/api-recon-mcp/pyproject.toml)) `toml`, `projects`, `api-recon-mcp`
+    - **api-recon-mcp (2)**
+      - **recon**
+        - **core** ([projects/api-recon-mcp (2)/recon/core.py](projects/api-recon-mcp (2)/recon/core.py)) `recon`, `projects`, `py`, `api-recon-mcp (2)`
+        - **emit** ([projects/api-recon-mcp (2)/recon/emit.py](projects/api-recon-mcp (2)/recon/emit.py)) `recon`, `projects`, `py`, `api-recon-mcp (2)`
+      - **http_mount** ([projects/api-recon-mcp (2)/http_mount.py](projects/api-recon-mcp (2)/http_mount.py)) `projects`, `py`, `api-recon-mcp (2)`
+      - **mcp_server** ([projects/api-recon-mcp (2)/mcp_server.py](projects/api-recon-mcp (2)/mcp_server.py)) `projects`, `py`, `api-recon-mcp (2)`
+      - **pyproject** ([projects/api-recon-mcp (2)/pyproject.toml](projects/api-recon-mcp (2)/pyproject.toml)) `toml`, `projects`, `api-recon-mcp (2)`
+    - **api-recon-mcp(1)**
+      - **recon**
+        - **core** ([projects/api-recon-mcp(1)/recon/core.py](projects/api-recon-mcp(1)/recon/core.py)) `recon`, `api-recon-mcp(1)`, `projects`, `py`
+        - **emit** ([projects/api-recon-mcp(1)/recon/emit.py](projects/api-recon-mcp(1)/recon/emit.py)) `recon`, `api-recon-mcp(1)`, `projects`, `py`
+      - **http_mount** ([projects/api-recon-mcp(1)/http_mount.py](projects/api-recon-mcp(1)/http_mount.py)) `api-recon-mcp(1)`, `projects`, `py`
+      - **mcp_server** ([projects/api-recon-mcp(1)/mcp_server.py](projects/api-recon-mcp(1)/mcp_server.py)) `api-recon-mcp(1)`, `projects`, `py`
+      - **pyproject** ([projects/api-recon-mcp(1)/pyproject.toml](projects/api-recon-mcp(1)/pyproject.toml)) `api-recon-mcp(1)`, `projects`, `toml`
+    - **autorag-opendiscourse-full**
+      - **db**
+        - **schema** ([projects/autorag-opendiscourse-full/db/schema.sql](projects/autorag-opendiscourse-full/db/schema.sql)) `autorag-opendiscourse-full`, `sql`, `projects`, `db`
+      - **postman**
+        - **Env.postman_environment** ([projects/autorag-opendiscourse-full/postman/Env.postman_environment.json](projects/autorag-opendiscourse-full/postman/Env.postman_environment.json)) `autorag-opendiscourse-full`, `projects`, `postman`, `json`
+      - **scripts**
+        - **gen_secrets** ([projects/autorag-opendiscourse-full/scripts/gen_secrets.py](projects/autorag-opendiscourse-full/scripts/gen_secrets.py)) `scripts`, `autorag-opendiscourse-full`, `projects`, `py`
+        - **ingest_congress** ([projects/autorag-opendiscourse-full/scripts/ingest_congress.py](projects/autorag-opendiscourse-full/scripts/ingest_congress.py)) `scripts`, `autorag-opendiscourse-full`, `projects`, `py`
+        - **ingest_govinfo** ([projects/autorag-opendiscourse-full/scripts/ingest_govinfo.py](projects/autorag-opendiscourse-full/scripts/ingest_govinfo.py)) `scripts`, `autorag-opendiscourse-full`, `projects`, `py`
+      - **selfhost**
+        - **docker-compose** ([projects/autorag-opendiscourse-full/selfhost/docker-compose.yml](projects/autorag-opendiscourse-full/selfhost/docker-compose.yml)) `selfhost`, `autorag-opendiscourse-full`, `projects`, `yml`
+      - **autorag-opendiscourse-full** ([projects/autorag-opendiscourse-full/README.md](projects/autorag-opendiscourse-full/README.md)) `autorag-opendiscourse-full`, `projects`, `md`
+    - **cbw-homelab-bootstrap**
+      - **scripts**
+        - **00_prereqs** ([projects/cbw-homelab-bootstrap/scripts/00_prereqs.sh](projects/cbw-homelab-bootstrap/scripts/00_prereqs.sh)) `scripts`, `cbw-homelab-bootstrap`, `projects`, `sh`
+        - **01_ssh_harden** ([projects/cbw-homelab-bootstrap/scripts/01_ssh_harden.sh](projects/cbw-homelab-bootstrap/scripts/01_ssh_harden.sh)) `scripts`, `cbw-homelab-bootstrap`, `projects`, `sh`
+        - **02_firewall** ([projects/cbw-homelab-bootstrap/scripts/02_firewall.sh](projects/cbw-homelab-bootstrap/scripts/02_firewall.sh)) `scripts`, `cbw-homelab-bootstrap`, `projects`, `sh`
+        - **03_fail2ban** ([projects/cbw-homelab-bootstrap/scripts/03_fail2ban.sh](projects/cbw-homelab-bootstrap/scripts/03_fail2ban.sh)) `scripts`, `cbw-homelab-bootstrap`, `projects`, `sh`
+        - **04_suricata** ([projects/cbw-homelab-bootstrap/scripts/04_suricata.sh](projects/cbw-homelab-bootstrap/scripts/04_suricata.sh)) `scripts`, `cbw-homelab-bootstrap`, `projects`, `sh`
+        - **05_zerotier** ([projects/cbw-homelab-bootstrap/scripts/05_zerotier.sh](projects/cbw-homelab-bootstrap/scripts/05_zerotier.sh)) `scripts`, `cbw-homelab-bootstrap`, `projects`, `sh`
+        - **10_docker** ([projects/cbw-homelab-bootstrap/scripts/10_docker.sh](projects/cbw-homelab-bootstrap/scripts/10_docker.sh)) `scripts`, `cbw-homelab-bootstrap`, `projects`, `sh`
+        - **11_docker_compose** ([projects/cbw-homelab-bootstrap/scripts/11_docker_compose.sh](projects/cbw-homelab-bootstrap/scripts/11_docker_compose.sh)) `scripts`, `cbw-homelab-bootstrap`, `projects`, `sh`
+        - **12_port_watchdog** ([projects/cbw-homelab-bootstrap/scripts/12_port_watchdog.sh](projects/cbw-homelab-bootstrap/scripts/12_port_watchdog.sh)) `scripts`, `cbw-homelab-bootstrap`, `projects`, `sh`
+        - **20_nginx** ([projects/cbw-homelab-bootstrap/scripts/20_nginx.sh](projects/cbw-homelab-bootstrap/scripts/20_nginx.sh)) `scripts`, `cbw-homelab-bootstrap`, `projects`, `sh`
+        - **21_caddy** ([projects/cbw-homelab-bootstrap/scripts/21_caddy.sh](projects/cbw-homelab-bootstrap/scripts/21_caddy.sh)) `scripts`, `cbw-homelab-bootstrap`, `projects`, `sh`
+        - **22_traefik** ([projects/cbw-homelab-bootstrap/scripts/22_traefik.sh](projects/cbw-homelab-bootstrap/scripts/22_traefik.sh)) `scripts`, `cbw-homelab-bootstrap`, `projects`, `sh`
+        - **30_monitoring_stack** ([projects/cbw-homelab-bootstrap/scripts/30_monitoring_stack.sh](projects/cbw-homelab-bootstrap/scripts/30_monitoring_stack.sh)) `scripts`, `cbw-homelab-bootstrap`, `projects`, `sh`
+        - **31_database_stack** ([projects/cbw-homelab-bootstrap/scripts/31_database_stack.sh](projects/cbw-homelab-bootstrap/scripts/31_database_stack.sh)) `scripts`, `cbw-homelab-bootstrap`, `projects`, `sh`
+        - **32_vectordb_stack** ([projects/cbw-homelab-bootstrap/scripts/32_vectordb_stack.sh](projects/cbw-homelab-bootstrap/scripts/32_vectordb_stack.sh)) `scripts`, `cbw-homelab-bootstrap`, `projects`, `sh`
+        - **33_ai_stack** ([projects/cbw-homelab-bootstrap/scripts/33_ai_stack.sh](projects/cbw-homelab-bootstrap/scripts/33_ai_stack.sh)) `scripts`, `cbw-homelab-bootstrap`, `projects`, `sh`
+        - **34_storage_stack** ([projects/cbw-homelab-bootstrap/scripts/34_storage_stack.sh](projects/cbw-homelab-bootstrap/scripts/34_storage_stack.sh)) `scripts`, `cbw-homelab-bootstrap`, `projects`, `sh`
+        - **40_git_setup** ([projects/cbw-homelab-bootstrap/scripts/40_git_setup.sh](projects/cbw-homelab-bootstrap/scripts/40_git_setup.sh)) `scripts`, `cbw-homelab-bootstrap`, `projects`, `sh`
+      - **cbw-homelab-bootstrap** ([projects/cbw-homelab-bootstrap/README.md](projects/cbw-homelab-bootstrap/README.md)) - Turn‑key scripts and Docker stacks to set up: - SSH hardening, UFW, Fail2ban, Suricata, port watchdog - Reverse proxies: Nginx, Traefik, Caddy `projects`, `api`, `database`, `cbw-homelab-bootstrap`, `typescript`
+      - **install** ([projects/cbw-homelab-bootstrap/install.sh](projects/cbw-homelab-bootstrap/install.sh)) `cbw-homelab-bootstrap`, `projects`, `sh`
+    - **cbw-pr-platform-next**
+      - **README** ([projects/cbw-pr-platform-next/README.txt](projects/cbw-pr-platform-next/README.txt)) `txt`, `projects`, `cbw-pr-platform-next`
+    - **cbw-secure-autopilot-v1_2**
+      - **grafana-loki**
+        - **docker-compose** ([projects/cbw-secure-autopilot-v1_2/grafana-loki/docker-compose.yml](projects/cbw-secure-autopilot-v1_2/grafana-loki/docker-compose.yml)) `yml`, `cbw-secure-autopilot-v1_2`, `projects`, `grafana-loki`
+        - **loki-config** ([projects/cbw-secure-autopilot-v1_2/grafana-loki/loki-config.yml](projects/cbw-secure-autopilot-v1_2/grafana-loki/loki-config.yml)) `yml`, `cbw-secure-autopilot-v1_2`, `projects`, `grafana-loki`
+        - **promtail-config** ([projects/cbw-secure-autopilot-v1_2/grafana-loki/promtail-config.yml](projects/cbw-secure-autopilot-v1_2/grafana-loki/promtail-config.yml)) `yml`, `cbw-secure-autopilot-v1_2`, `projects`, `grafana-loki`
+      - **repo**
+        - **repo** ([projects/cbw-secure-autopilot-v1_2/repo/README.md](projects/cbw-secure-autopilot-v1_2/repo/README.md)) - What this installs: - Suricata + Snort (best-effort) - rkhunter + chkrootkit + daily reports `repo`, `projects`, `typescript`, `docker`, `ai`
+      - **cbw-secure-autopilot** ([projects/cbw-secure-autopilot-v1_2/cbw-secure-autopilot.sh](projects/cbw-secure-autopilot-v1_2/cbw-secure-autopilot.sh)) `cbw-secure-autopilot-v1_2`, `projects`, `sh`
+    - **cbw-ubuntu-setup**
+      - **scripts**
+        - **install** ([projects/cbw-ubuntu-setup/scripts/install.sh](projects/cbw-ubuntu-setup/scripts/install.sh)) `scripts`, `projects`, `cbw-ubuntu-setup`, `sh`
+      - **cbw-ubuntu-setup** ([projects/cbw-ubuntu-setup/README.md](projects/cbw-ubuntu-setup/README.md)) - Turnkey scripts and Docker stacks to bootstrap an AI‑ready, monitored, and secured Ubuntu Server. Tested on Ubuntu 22.04/24.04 bare metal. `ai`, `security`, `projects`, `api`, `database`
+    - **cbw-ubuntu-setup-baremetal**
+      - **cbw-ubuntu-setup**
+        - **cbw-ubuntu-setup** ([projects/cbw-ubuntu-setup-baremetal/cbw-ubuntu-setup/README.md](projects/cbw-ubuntu-setup-baremetal/cbw-ubuntu-setup/README.md)) - Turnkey scripts and Docker stacks to bootstrap an AI‑ready, monitored, and secured Ubuntu Server. Tested on Ubuntu 22.04/24.04 bare metal. `ai`, `security`, `projects`, `api`, `database`
+    - **cbw-ubuntu-setup-full**
+      - **cbw-ubuntu-setup**
+        - **cbw-ubuntu-setup** ([projects/cbw-ubuntu-setup-full/cbw-ubuntu-setup/README.md](projects/cbw-ubuntu-setup-full/cbw-ubuntu-setup/README.md)) - Turnkey scripts and stacks to bootstrap an AI-ready, monitored, and secured Ubuntu Server. Tested on Ubuntu 22.04/24.04 **bare metal**. `security`, `cbw-ubuntu-setup-full`, `projects`, `database`, `cbw-ubuntu-setup`
+    - **cbw-ubuntu-setup-with-tools**
+      - **cbw-ubuntu-setup**
+        - **cbw-ubuntu-setup** ([projects/cbw-ubuntu-setup-with-tools/cbw-ubuntu-setup/README.md](projects/cbw-ubuntu-setup-with-tools/cbw-ubuntu-setup/README.md)) - This pack starts DB admin UIs with Docker. `projects`, `cbw-ubuntu-setup-with-tools`, `cbw-ubuntu-setup`, `docker`, `typescript`
+        - **VERSION** ([projects/cbw-ubuntu-setup-with-tools/cbw-ubuntu-setup/VERSION.txt](projects/cbw-ubuntu-setup-with-tools/cbw-ubuntu-setup/VERSION.txt)) `txt`, `projects`, `cbw-ubuntu-setup-with-tools`, `cbw-ubuntu-setup`
+    - **CBW_Apache_Stack**
+      - **ansible**
+        - **site** ([projects/CBW_Apache_Stack/ansible/site.yml](projects/CBW_Apache_Stack/ansible/site.yml)) `yml`, `ansible`, `projects`, `cbw_apache_stack`
+      - **docs**
+        - **global_memory** ([projects/CBW_Apache_Stack/docs/global_memory.md](projects/CBW_Apache_Stack/docs/global_memory.md)) `docs`, `projects`, `cbw_apache_stack`, `typescript`, `md`
+        - **global_rules** ([projects/CBW_Apache_Stack/docs/global_rules.md](projects/CBW_Apache_Stack/docs/global_rules.md)) - 1. Security-first: bind UIs to 127.0.0.1; expose only via Cloudflare Tunnel. 2. Port truth: allocate via /usr/local/sbin/cbw-port-guard.sh and persist to /etc/cbw-ports.conf. 3. Prefer Postgres for ap... `security`, `docs`, `projects`, `cbw_apache_stack`, `api`
+        - **project_memory** ([projects/CBW_Apache_Stack/docs/project_memory.md](projects/CBW_Apache_Stack/docs/project_memory.md)) `docs`, `projects`, `cbw_apache_stack`, `ai`, `md`
+        - **project_rules** ([projects/CBW_Apache_Stack/docs/project_rules.md](projects/CBW_Apache_Stack/docs/project_rules.md)) `docs`, `projects`, `cbw_apache_stack`, `typescript`, `md`
+    - **CBW_Apache_Stack_Full**
+      - **ansible**
+        - **site** ([projects/CBW_Apache_Stack_Full/ansible/site.yml](projects/CBW_Apache_Stack_Full/ansible/site.yml)) `yml`, `ansible`, `projects`, `cbw_apache_stack_full`
+      - **canvas**
+        - **Additions_Pack_2** ([projects/CBW_Apache_Stack_Full/canvas/Additions_Pack_2.md](projects/CBW_Apache_Stack_Full/canvas/Additions_Pack_2.md)) `projects`, `api`, `canvas`, `typescript`, `md`
+        - **Additions_Pack_3** ([projects/CBW_Apache_Stack_Full/canvas/Additions_Pack_3.md](projects/CBW_Apache_Stack_Full/canvas/Additions_Pack_3.md)) `md`, `canvas`, `projects`, `cbw_apache_stack_full`
+        - **Cbw_Apache_Stack_Installers_Ansible_Rules** ([projects/CBW_Apache_Stack_Full/canvas/Cbw_Apache_Stack_Installers_Ansible_Rules.md](projects/CBW_Apache_Stack_Full/canvas/Cbw_Apache_Stack_Installers_Ansible_Rules.md)) `projects`, `canvas`, `typescript`, `md`, `cbw_apache_stack_full`
+      - **docs**
+        - **agents** ([projects/CBW_Apache_Stack_Full/docs/agents.md](projects/CBW_Apache_Stack_Full/docs/agents.md)) `docs`, `projects`, `typescript`, `md`, `cbw_apache_stack_full`
+        - **codex** ([projects/CBW_Apache_Stack_Full/docs/codex.md](projects/CBW_Apache_Stack_Full/docs/codex.md)) `md`, `docs`, `projects`, `cbw_apache_stack_full`
+        - **global_memory** ([projects/CBW_Apache_Stack_Full/docs/global_memory.md](projects/CBW_Apache_Stack_Full/docs/global_memory.md)) `docs`, `projects`, `typescript`, `md`, `python`
+        - **global_rules** ([projects/CBW_Apache_Stack_Full/docs/global_rules.md](projects/CBW_Apache_Stack_Full/docs/global_rules.md)) - 1. Security-first: bind UIs to 127.0.0.1; expose via Cloudflare Tunnel. 2. Port truth: allocate via cbw-port-guard.sh -> /etc/cbw-ports.conf. 3. Prefer Postgres for app state; avoid SQLite. `cbw_apache_stack_full`, `docs`, `security`, `projects`, `api`
+        - **openai** ([projects/CBW_Apache_Stack_Full/docs/openai.md](projects/CBW_Apache_Stack_Full/docs/openai.md)) `docs`, `projects`, `ai`, `md`, `cbw_apache_stack_full`
+        - **project_memory** ([projects/CBW_Apache_Stack_Full/docs/project_memory.md](projects/CBW_Apache_Stack_Full/docs/project_memory.md)) `docs`, `projects`, `ai`, `md`, `cbw_apache_stack_full`
+        - **project_rules** ([projects/CBW_Apache_Stack_Full/docs/project_rules.md](projects/CBW_Apache_Stack_Full/docs/project_rules.md)) `cbw_apache_stack_full`, `docs`, `projects`, `typescript`, `md`
+        - **qwen** ([projects/CBW_Apache_Stack_Full/docs/qwen.md](projects/CBW_Apache_Stack_Full/docs/qwen.md)) `md`, `docs`, `projects`, `cbw_apache_stack_full`
+      - **scripts**
+        - **repo_bootstrap_and_push** ([projects/CBW_Apache_Stack_Full/scripts/repo_bootstrap_and_push.sh](projects/CBW_Apache_Stack_Full/scripts/repo_bootstrap_and_push.sh)) `scripts`, `sh`, `projects`, `cbw_apache_stack_full`
+    - **CBW_Apache_Stack_Full_v3**
+      - **ansible**
+        - **site** ([projects/CBW_Apache_Stack_Full_v3/ansible/site.yml](projects/CBW_Apache_Stack_Full_v3/ansible/site.yml)) `yml`, `cbw_apache_stack_full_v3`, `ansible`, `projects`
+      - **docs**
+        - **agents** ([projects/CBW_Apache_Stack_Full_v3/docs/agents.md](projects/CBW_Apache_Stack_Full_v3/docs/agents.md)) - (Agent routing and usage policies.) `docs`, `projects`, `cbw_apache_stack_full_v3`, `typescript`, `md`
+        - **codex** ([projects/CBW_Apache_Stack_Full_v3/docs/codex.md](projects/CBW_Apache_Stack_Full_v3/docs/codex.md)) - (Codex usage.) `cbw_apache_stack_full_v3`, `docs`, `projects`, `md`
+        - **global_memory** ([projects/CBW_Apache_Stack_Full_v3/docs/global_memory.md](projects/CBW_Apache_Stack_Full_v3/docs/global_memory.md)) - (Long-lived preferences.) `cbw_apache_stack_full_v3`, `docs`, `projects`, `md`
+        - **global_rules** ([projects/CBW_Apache_Stack_Full_v3/docs/global_rules.md](projects/CBW_Apache_Stack_Full_v3/docs/global_rules.md)) - (Security, ports, Postgres, etc.) `security`, `docs`, `projects`, `cbw_apache_stack_full_v3`, `typescript`
+        - **openai** ([projects/CBW_Apache_Stack_Full_v3/docs/openai.md](projects/CBW_Apache_Stack_Full_v3/docs/openai.md)) - (OpenAI model usage.) `docs`, `projects`, `cbw_apache_stack_full_v3`, `ai`, `md`
+        - **project_memory** ([projects/CBW_Apache_Stack_Full_v3/docs/project_memory.md](projects/CBW_Apache_Stack_Full_v3/docs/project_memory.md)) - (Current state of stack.) `cbw_apache_stack_full_v3`, `docs`, `projects`, `md`
+        - **project_rules** ([projects/CBW_Apache_Stack_Full_v3/docs/project_rules.md](projects/CBW_Apache_Stack_Full_v3/docs/project_rules.md)) - (Project-specific rules.) `cbw_apache_stack_full_v3`, `docs`, `projects`, `md`
+        - **qwen** ([projects/CBW_Apache_Stack_Full_v3/docs/qwen.md](projects/CBW_Apache_Stack_Full_v3/docs/qwen.md)) - (Qwen model usage.) `docs`, `projects`, `cbw_apache_stack_full_v3`, `ai`, `md`
+      - **scripts**
+        - **repo_bootstrap_and_push** ([projects/CBW_Apache_Stack_Full_v3/scripts/repo_bootstrap_and_push.sh](projects/CBW_Apache_Stack_Full_v3/scripts/repo_bootstrap_and_push.sh)) `scripts`, `cbw_apache_stack_full_v3`, `projects`, `sh`
+    - **chatgpt---evaluate-apache-software-suite**
+      - **scripts**
+        - **inline-001** ([projects/chatgpt---evaluate-apache-software-suite/scripts/inline-001.js](projects/chatgpt---evaluate-apache-software-suite/scripts/inline-001.js)) `chatgpt---evaluate-apache-software-suite`, `js`, `projects`, `scripts`
+        - **inline-002** ([projects/chatgpt---evaluate-apache-software-suite/scripts/inline-002.js](projects/chatgpt---evaluate-apache-software-suite/scripts/inline-002.js)) `chatgpt---evaluate-apache-software-suite`, `js`, `projects`, `scripts`
+        - **inline-003** ([projects/chatgpt---evaluate-apache-software-suite/scripts/inline-003.js](projects/chatgpt---evaluate-apache-software-suite/scripts/inline-003.js)) `chatgpt---evaluate-apache-software-suite`, `js`, `projects`, `scripts`
+        - **inline-004** ([projects/chatgpt---evaluate-apache-software-suite/scripts/inline-004.js](projects/chatgpt---evaluate-apache-software-suite/scripts/inline-004.js)) `chatgpt---evaluate-apache-software-suite`, `js`, `projects`, `scripts`
+        - **inline-005** ([projects/chatgpt---evaluate-apache-software-suite/scripts/inline-005.js](projects/chatgpt---evaluate-apache-software-suite/scripts/inline-005.js)) `chatgpt---evaluate-apache-software-suite`, `js`, `projects`, `scripts`
+        - **inline-006** ([projects/chatgpt---evaluate-apache-software-suite/scripts/inline-006.js](projects/chatgpt---evaluate-apache-software-suite/scripts/inline-006.js)) `chatgpt---evaluate-apache-software-suite`, `js`, `projects`, `scripts`
+        - **inline-007** ([projects/chatgpt---evaluate-apache-software-suite/scripts/inline-007.js](projects/chatgpt---evaluate-apache-software-suite/scripts/inline-007.js)) `chatgpt---evaluate-apache-software-suite`, `js`, `projects`, `scripts`
+        - **inline-008** ([projects/chatgpt---evaluate-apache-software-suite/scripts/inline-008.js](projects/chatgpt---evaluate-apache-software-suite/scripts/inline-008.js)) `chatgpt---evaluate-apache-software-suite`, `js`, `projects`, `scripts`
+        - **inline-009** ([projects/chatgpt---evaluate-apache-software-suite/scripts/inline-009.js](projects/chatgpt---evaluate-apache-software-suite/scripts/inline-009.js)) `chatgpt---evaluate-apache-software-suite`, `js`, `projects`, `scripts`
+        - **inline-010** ([projects/chatgpt---evaluate-apache-software-suite/scripts/inline-010.js](projects/chatgpt---evaluate-apache-software-suite/scripts/inline-010.js)) `chatgpt---evaluate-apache-software-suite`, `js`, `projects`, `scripts`
+        - **inline-011** ([projects/chatgpt---evaluate-apache-software-suite/scripts/inline-011.js](projects/chatgpt---evaluate-apache-software-suite/scripts/inline-011.js)) `chatgpt---evaluate-apache-software-suite`, `js`, `projects`, `scripts`
+        - **inline-012** ([projects/chatgpt---evaluate-apache-software-suite/scripts/inline-012.js](projects/chatgpt---evaluate-apache-software-suite/scripts/inline-012.js)) `chatgpt---evaluate-apache-software-suite`, `js`, `projects`, `scripts`
+        - **inline-013** ([projects/chatgpt---evaluate-apache-software-suite/scripts/inline-013.js](projects/chatgpt---evaluate-apache-software-suite/scripts/inline-013.js)) `chatgpt---evaluate-apache-software-suite`, `js`, `projects`, `scripts`
+        - **inline-014** ([projects/chatgpt---evaluate-apache-software-suite/scripts/inline-014.js](projects/chatgpt---evaluate-apache-software-suite/scripts/inline-014.js)) `chatgpt---evaluate-apache-software-suite`, `js`, `projects`, `scripts`
+        - **inline-015** ([projects/chatgpt---evaluate-apache-software-suite/scripts/inline-015.js](projects/chatgpt---evaluate-apache-software-suite/scripts/inline-015.js)) `chatgpt---evaluate-apache-software-suite`, `js`, `projects`, `scripts`
+        - **inline-016** ([projects/chatgpt---evaluate-apache-software-suite/scripts/inline-016.js](projects/chatgpt---evaluate-apache-software-suite/scripts/inline-016.js)) `chatgpt---evaluate-apache-software-suite`, `js`, `projects`, `scripts`
+        - **inline-017** ([projects/chatgpt---evaluate-apache-software-suite/scripts/inline-017.js](projects/chatgpt---evaluate-apache-software-suite/scripts/inline-017.js)) `chatgpt---evaluate-apache-software-suite`, `js`, `projects`, `scripts`
+      - **chatgpt---evaluate-apache-software-suite** ([projects/chatgpt---evaluate-apache-software-suite/index.md](projects/chatgpt---evaluate-apache-software-suite/index.md)) - Source: https://chatgpt.com/share/68cc3e08-4e24-800a-b0be-cc84fdc49227 `projects`, `typescript`, `chatgpt---evaluate-apache-software-suite`, `md`, `api`
+      - **conversation** ([projects/chatgpt---evaluate-apache-software-suite/conversation.md](projects/chatgpt---evaluate-apache-software-suite/conversation.md)) - Source: https://chatgpt.com/share/68cc3e08-4e24-800a-b0be-cc84fdc49227 --- `chatgpt---evaluate-apache-software-suite`, `md`, `projects`, `api`
+      - **metadata** ([projects/chatgpt---evaluate-apache-software-suite/metadata.json](projects/chatgpt---evaluate-apache-software-suite/metadata.json)) `chatgpt---evaluate-apache-software-suite`, `projects`, `json`
+    - **cloudcurio-bootstrap**
+      - **cloudflare**
+        - **setup_cloudflared** ([projects/cloudcurio-bootstrap/cloudflare/setup_cloudflared.sh](projects/cloudcurio-bootstrap/cloudflare/setup_cloudflared.sh)) `cloudcurio-bootstrap`, `cloudflare`, `projects`, `sh`
+      - **pigsty**
+        - **install_pigsty** ([projects/cloudcurio-bootstrap/pigsty/install_pigsty.sh](projects/cloudcurio-bootstrap/pigsty/install_pigsty.sh)) `cloudcurio-bootstrap`, `pigsty`, `projects`, `sh`
+      - **supabase**
+        - **up** ([projects/cloudcurio-bootstrap/supabase/up.sh](projects/cloudcurio-bootstrap/supabase/up.sh)) `cloudcurio-bootstrap`, `sh`, `projects`, `supabase`
+      - **tools**
+        - **ports** ([projects/cloudcurio-bootstrap/tools/ports.sh](projects/cloudcurio-bootstrap/tools/ports.sh)) `cloudcurio-bootstrap`, `projects`, `tools`, `sh`
+      - **cloudcurio-bootstrap** ([projects/cloudcurio-bootstrap/README.md](projects/cloudcurio-bootstrap/README.md)) - This bundle gives you a clean, reproducible starting point to self‑host on your own hardware and wire everything to **cloudcurio.cc** via **Cloudflare Tunnel**. `projects`, `database`, `cloudcurio-bootstrap`, `typescript`, `docker`
+      - **cloudcurio-bootstrap** ([projects/cloudcurio-bootstrap/cloudcurio-bootstrap.sh](projects/cloudcurio-bootstrap/cloudcurio-bootstrap.sh)) `cloudcurio-bootstrap`, `projects`, `sh`
+    - **cloudcurio-bootstrap-llm**
+      - **baremetal**
+        - **config_anythingllm_ollama** ([projects/cloudcurio-bootstrap-llm/baremetal/config_anythingllm_ollama.sh](projects/cloudcurio-bootstrap-llm/baremetal/config_anythingllm_ollama.sh)) `baremetal`, `projects`, `cloudcurio-bootstrap-llm`, `sh`
+        - **install_localai_models** ([projects/cloudcurio-bootstrap-llm/baremetal/install_localai_models.sh](projects/cloudcurio-bootstrap-llm/baremetal/install_localai_models.sh)) `baremetal`, `projects`, `cloudcurio-bootstrap-llm`, `sh`
+        - **pull_ollama_models** ([projects/cloudcurio-bootstrap-llm/baremetal/pull_ollama_models.sh](projects/cloudcurio-bootstrap-llm/baremetal/pull_ollama_models.sh)) `baremetal`, `projects`, `cloudcurio-bootstrap-llm`, `sh`
+      - **cloudflare**
+        - **add_default_llm_routes** ([projects/cloudcurio-bootstrap-llm/cloudflare/add_default_llm_routes.sh](projects/cloudcurio-bootstrap-llm/cloudflare/add_default_llm_routes.sh)) `cloudflare`, `projects`, `cloudcurio-bootstrap-llm`, `sh`
+        - **gen_tunnel_config** ([projects/cloudcurio-bootstrap-llm/cloudflare/gen_tunnel_config.sh](projects/cloudcurio-bootstrap-llm/cloudflare/gen_tunnel_config.sh)) `cloudflare`, `projects`, `cloudcurio-bootstrap-llm`, `sh`
+      - **cloudcurio-bootstrap-llm** ([projects/cloudcurio-bootstrap-llm/README.md](projects/cloudcurio-bootstrap-llm/README.md)) - LLM section placeholder `projects`, `typescript`, `ai`, `md`, `cloudcurio-bootstrap-llm`
+    - **cloudcurio-kb**
+      - **scripts**
+        - **install** ([projects/cloudcurio-kb/scripts/install.sh](projects/cloudcurio-kb/scripts/install.sh)) `scripts`, `projects`, `cloudcurio-kb`, `sh`
+        - **nebula_init** ([projects/cloudcurio-kb/scripts/nebula_init.ngql](projects/cloudcurio-kb/scripts/nebula_init.ngql)) `scripts`, `projects`, `cloudcurio-kb`, `ngql`
+        - **neo4j_init** ([projects/cloudcurio-kb/scripts/neo4j_init.cypher](projects/cloudcurio-kb/scripts/neo4j_init.cypher)) `scripts`, `cypher`, `projects`, `cloudcurio-kb`
+        - **opensearch_init** ([projects/cloudcurio-kb/scripts/opensearch_init.sh](projects/cloudcurio-kb/scripts/opensearch_init.sh)) `scripts`, `projects`, `cloudcurio-kb`, `sh`
+        - **qdrant_init** ([projects/cloudcurio-kb/scripts/qdrant_init.sh](projects/cloudcurio-kb/scripts/qdrant_init.sh)) `scripts`, `projects`, `cloudcurio-kb`, `sh`
+        - **run_initializers** ([projects/cloudcurio-kb/scripts/run_initializers.sh](projects/cloudcurio-kb/scripts/run_initializers.sh)) `scripts`, `projects`, `cloudcurio-kb`, `sh`
+        - **setup_users_dirs** ([projects/cloudcurio-kb/scripts/setup_users_dirs.sh](projects/cloudcurio-kb/scripts/setup_users_dirs.sh)) `scripts`, `projects`, `cloudcurio-kb`, `sh`
+        - **terminus_bootstrap** ([projects/cloudcurio-kb/scripts/terminus_bootstrap.py](projects/cloudcurio-kb/scripts/terminus_bootstrap.py)) `scripts`, `py`, `projects`, `cloudcurio-kb`
+      - **sql**
+        - **001_core** ([projects/cloudcurio-kb/sql/001_core.sql](projects/cloudcurio-kb/sql/001_core.sql)) `sql`, `projects`, `cloudcurio-kb`
+      - **terraform**
+        - **main** ([projects/cloudcurio-kb/terraform/main.tf](projects/cloudcurio-kb/terraform/main.tf)) `tf`, `projects`, `cloudcurio-kb`, `terraform`
+        - **outputs** ([projects/cloudcurio-kb/terraform/outputs.tf](projects/cloudcurio-kb/terraform/outputs.tf)) `tf`, `projects`, `cloudcurio-kb`, `terraform`
+        - **terraform** ([projects/cloudcurio-kb/terraform/terraform.tfvars](projects/cloudcurio-kb/terraform/terraform.tfvars)) `projects`, `cloudcurio-kb`, `terraform`, `tfvars`
+        - **variables** ([projects/cloudcurio-kb/terraform/variables.tf](projects/cloudcurio-kb/terraform/variables.tf)) `tf`, `projects`, `cloudcurio-kb`, `terraform`
+        - **versions** ([projects/cloudcurio-kb/terraform/versions.tf](projects/cloudcurio-kb/terraform/versions.tf)) `tf`, `projects`, `cloudcurio-kb`, `terraform`
+      - **cloudcurio-kb** ([projects/cloudcurio-kb/README.md](projects/cloudcurio-kb/README.md)) - Multi-graph, versioned knowledge base using TerminusDB (authoritative), Neo4j, JanusGraph/NebulaGraph, OpenSearch, Qdrant, and a FastAPI BFF. `security`, `projects`, `typescript`, `cloudcurio-kb`, `docker`
+      - **docker-compose** ([projects/cloudcurio-kb/docker-compose.yml](projects/cloudcurio-kb/docker-compose.yml)) `yml`, `projects`, `cloudcurio-kb`
+      - **Makefile** ([projects/cloudcurio-kb/Makefile](projects/cloudcurio-kb/Makefile)) `projects`, `cloudcurio-kb`
+    - **cloudcurio-kb-all-final**
+      - **cloudcurio-kb**
+        - **cloudcurio-kb** ([projects/cloudcurio-kb-all-final/cloudcurio-kb/README.md](projects/cloudcurio-kb-all-final/cloudcurio-kb/README.md)) `security`, `projects`, `cloudcurio-kb-all-final`, `typescript`, `cloudcurio-kb`
+        - **docker-compose** ([projects/cloudcurio-kb-all-final/cloudcurio-kb/docker-compose.yml](projects/cloudcurio-kb-all-final/cloudcurio-kb/docker-compose.yml)) `cloudcurio-kb-all-final`, `projects`, `cloudcurio-kb`, `yml`
+        - **docker-compose.redis-cluster** ([projects/cloudcurio-kb-all-final/cloudcurio-kb/docker-compose.redis-cluster.yml](projects/cloudcurio-kb-all-final/cloudcurio-kb/docker-compose.redis-cluster.yml)) `cloudcurio-kb-all-final`, `projects`, `cloudcurio-kb`, `yml`
+    - **cloudcurio-kb-enterprise**
+      - **cloudcurio-kb**
+        - **cloudcurio-kb** ([projects/cloudcurio-kb-enterprise/cloudcurio-kb/README.md](projects/cloudcurio-kb-enterprise/cloudcurio-kb/README.md)) `security`, `devops`, `projects`, `cloudcurio-kb`, `typescript`
+        - **docker-compose** ([projects/cloudcurio-kb-enterprise/cloudcurio-kb/docker-compose.yml](projects/cloudcurio-kb-enterprise/cloudcurio-kb/docker-compose.yml)) `yml`, `projects`, `cloudcurio-kb`, `cloudcurio-kb-enterprise`
+        - **docker-compose.redis-cluster** ([projects/cloudcurio-kb-enterprise/cloudcurio-kb/docker-compose.redis-cluster.yml](projects/cloudcurio-kb-enterprise/cloudcurio-kb/docker-compose.redis-cluster.yml)) `yml`, `projects`, `cloudcurio-kb`, `cloudcurio-kb-enterprise`
+        - **Makefile** ([projects/cloudcurio-kb-enterprise/cloudcurio-kb/Makefile](projects/cloudcurio-kb-enterprise/cloudcurio-kb/Makefile)) `projects`, `cloudcurio-kb`, `cloudcurio-kb-enterprise`
+        - **SECURITY** ([projects/cloudcurio-kb-enterprise/cloudcurio-kb/SECURITY.md](projects/cloudcurio-kb-enterprise/cloudcurio-kb/SECURITY.md)) - Active development on `main`; releases follow semantic versioning. `security`, `projects`, `cloudcurio-kb`, `cloudcurio-kb-enterprise`, `ai`
+    - **cloudcurio-kb-enterprise (2)**
+      - **cloudcurio-kb**
+        - **cloudcurio-kb** ([projects/cloudcurio-kb-enterprise (2)/cloudcurio-kb/README.md](projects/cloudcurio-kb-enterprise (2)/cloudcurio-kb/README.md)) `security`, `devops`, `projects`, `cloudcurio-kb-enterprise (2)`, `cloudcurio-kb`
+        - **docker-compose** ([projects/cloudcurio-kb-enterprise (2)/cloudcurio-kb/docker-compose.yml](projects/cloudcurio-kb-enterprise (2)/cloudcurio-kb/docker-compose.yml)) `yml`, `cloudcurio-kb-enterprise (2)`, `projects`, `cloudcurio-kb`
+        - **docker-compose.redis-cluster** ([projects/cloudcurio-kb-enterprise (2)/cloudcurio-kb/docker-compose.redis-cluster.yml](projects/cloudcurio-kb-enterprise (2)/cloudcurio-kb/docker-compose.redis-cluster.yml)) `yml`, `cloudcurio-kb-enterprise (2)`, `projects`, `cloudcurio-kb`
+        - **Makefile** ([projects/cloudcurio-kb-enterprise (2)/cloudcurio-kb/Makefile](projects/cloudcurio-kb-enterprise (2)/cloudcurio-kb/Makefile)) `cloudcurio-kb-enterprise (2)`, `projects`, `cloudcurio-kb`
+        - **SECURITY** ([projects/cloudcurio-kb-enterprise (2)/cloudcurio-kb/SECURITY.md](projects/cloudcurio-kb-enterprise (2)/cloudcurio-kb/SECURITY.md)) - Active development on `main`; releases follow semantic versioning. `security`, `projects`, `cloudcurio-kb-enterprise (2)`, `cloudcurio-kb`, `ai`
+    - **cloudcurio-kb-enterprise(1)**
+      - **cloudcurio-kb**
+        - **cloudcurio-kb** ([projects/cloudcurio-kb-enterprise(1)/cloudcurio-kb/README.md](projects/cloudcurio-kb-enterprise(1)/cloudcurio-kb/README.md)) `security`, `devops`, `projects`, `cloudcurio-kb`, `typescript`
+        - **docker-compose** ([projects/cloudcurio-kb-enterprise(1)/cloudcurio-kb/docker-compose.yml](projects/cloudcurio-kb-enterprise(1)/cloudcurio-kb/docker-compose.yml)) `yml`, `projects`, `cloudcurio-kb`, `cloudcurio-kb-enterprise(1)`
+        - **docker-compose.redis-cluster** ([projects/cloudcurio-kb-enterprise(1)/cloudcurio-kb/docker-compose.redis-cluster.yml](projects/cloudcurio-kb-enterprise(1)/cloudcurio-kb/docker-compose.redis-cluster.yml)) `yml`, `projects`, `cloudcurio-kb`, `cloudcurio-kb-enterprise(1)`
+        - **Makefile** ([projects/cloudcurio-kb-enterprise(1)/cloudcurio-kb/Makefile](projects/cloudcurio-kb-enterprise(1)/cloudcurio-kb/Makefile)) `projects`, `cloudcurio-kb`, `cloudcurio-kb-enterprise(1)`
+        - **SECURITY** ([projects/cloudcurio-kb-enterprise(1)/cloudcurio-kb/SECURITY.md](projects/cloudcurio-kb-enterprise(1)/cloudcurio-kb/SECURITY.md)) - Active development on `main`; releases follow semantic versioning. `security`, `projects`, `cloudcurio-kb`, `cloudcurio-kb-enterprise(1)`, `ai`
+    - **cloudcurio-kb-ultimate**
+      - **cloudcurio-kb**
+        - **cloudcurio-kb** ([projects/cloudcurio-kb-ultimate/cloudcurio-kb/README.md](projects/cloudcurio-kb-ultimate/cloudcurio-kb/README.md)) `security`, `projects`, `cloudcurio-kb-ultimate`, `cloudcurio-kb`, `typescript`
+        - **docker-compose.redis-cluster** ([projects/cloudcurio-kb-ultimate/cloudcurio-kb/docker-compose.redis-cluster.yml](projects/cloudcurio-kb-ultimate/cloudcurio-kb/docker-compose.redis-cluster.yml)) `yml`, `cloudcurio-kb-ultimate`, `projects`, `cloudcurio-kb`
+    - **cloudcurio-llm-pack**
+      - **baremetal**
+        - **config_anythingllm_ollama** ([projects/cloudcurio-llm-pack/baremetal/config_anythingllm_ollama.sh](projects/cloudcurio-llm-pack/baremetal/config_anythingllm_ollama.sh)) `baremetal`, `projects`, `cloudcurio-llm-pack`, `sh`
+        - **pull_models_profile** ([projects/cloudcurio-llm-pack/baremetal/pull_models_profile.sh](projects/cloudcurio-llm-pack/baremetal/pull_models_profile.sh)) `baremetal`, `projects`, `cloudcurio-llm-pack`, `sh`
+      - **cloudflare**
+        - **gen_tunnel_config** ([projects/cloudcurio-llm-pack/cloudflare/gen_tunnel_config.sh](projects/cloudcurio-llm-pack/cloudflare/gen_tunnel_config.sh)) `cloudflare`, `projects`, `cloudcurio-llm-pack`, `sh`
+        - **routes** ([projects/cloudcurio-llm-pack/cloudflare/routes.map](projects/cloudcurio-llm-pack/cloudflare/routes.map)) `map`, `cloudflare`, `projects`, `cloudcurio-llm-pack`
+      - **playbooks**
+        - **llm** ([projects/cloudcurio-llm-pack/playbooks/llm.yml](projects/cloudcurio-llm-pack/playbooks/llm.yml)) `playbooks`, `projects`, `cloudcurio-llm-pack`, `yml`
+      - **cloudcurio-llm-pack** ([projects/cloudcurio-llm-pack/README.md](projects/cloudcurio-llm-pack/README.md)) `ai`, `md`, `projects`, `cloudcurio-llm-pack`
+      - **inventory** ([projects/cloudcurio-llm-pack/inventory.yml](projects/cloudcurio-llm-pack/inventory.yml)) `yml`, `projects`, `cloudcurio-llm-pack`
+    - **cloudcurio-monorepo-pro**
+      - **scripts**
+        - **bootstrap** ([projects/cloudcurio-monorepo-pro/scripts/bootstrap.sh](projects/cloudcurio-monorepo-pro/scripts/bootstrap.sh)) `scripts`, `projects`, `cloudcurio-monorepo-pro`, `sh`
+        - **budget_report** ([projects/cloudcurio-monorepo-pro/scripts/budget_report.py](projects/cloudcurio-monorepo-pro/scripts/budget_report.py)) `scripts`, `py`, `projects`, `cloudcurio-monorepo-pro`
+      - **cloudcurio-monorepo-pro** ([projects/cloudcurio-monorepo-pro/README.md](projects/cloudcurio-monorepo-pro/README.md)) - Enhanced with analytics exporter, Grafana provisioning, Cloudflare Access, HA, Loki/Promtail, GHCR, and nightly budgets. `projects`, `typescript`, `ai`, `md`, `cloudcurio-monorepo-pro`
+      - **LICENSE** ([projects/cloudcurio-monorepo-pro/LICENSE](projects/cloudcurio-monorepo-pro/LICENSE)) `projects`, `cloudcurio-monorepo-pro`
+      - **Makefile** ([projects/cloudcurio-monorepo-pro/Makefile](projects/cloudcurio-monorepo-pro/Makefile)) `projects`, `cloudcurio-monorepo-pro`
+    - **cloudcurio-monorepo-pro (2)**
+      - **scripts**
+        - **bootstrap** ([projects/cloudcurio-monorepo-pro (2)/scripts/bootstrap.sh](projects/cloudcurio-monorepo-pro (2)/scripts/bootstrap.sh)) `cloudcurio-monorepo-pro (2)`, `projects`, `scripts`, `sh`
+        - **budget_report** ([projects/cloudcurio-monorepo-pro (2)/scripts/budget_report.py](projects/cloudcurio-monorepo-pro (2)/scripts/budget_report.py)) `cloudcurio-monorepo-pro (2)`, `py`, `projects`, `scripts`
+      - **cloudcurio-monorepo-pro (2)** ([projects/cloudcurio-monorepo-pro (2)/README.md](projects/cloudcurio-monorepo-pro (2)/README.md)) - Enhanced with analytics exporter, Grafana provisioning, Cloudflare Access, HA, Loki/Promtail, GHCR, and nightly budgets. `projects`, `cloudcurio-monorepo-pro (2)`, `typescript`, `ai`, `md`
+      - **LICENSE** ([projects/cloudcurio-monorepo-pro (2)/LICENSE](projects/cloudcurio-monorepo-pro (2)/LICENSE)) `cloudcurio-monorepo-pro (2)`, `projects`
+      - **Makefile** ([projects/cloudcurio-monorepo-pro (2)/Makefile](projects/cloudcurio-monorepo-pro (2)/Makefile)) `cloudcurio-monorepo-pro (2)`, `projects`
+    - **cloudcurio-monorepo-pro-dash**
+      - **scripts**
+        - **bootstrap** ([projects/cloudcurio-monorepo-pro-dash/scripts/bootstrap.sh](projects/cloudcurio-monorepo-pro-dash/scripts/bootstrap.sh)) `scripts`, `projects`, `cloudcurio-monorepo-pro-dash`, `sh`
+        - **budget_report** ([projects/cloudcurio-monorepo-pro-dash/scripts/budget_report.py](projects/cloudcurio-monorepo-pro-dash/scripts/budget_report.py)) `scripts`, `projects`, `py`, `cloudcurio-monorepo-pro-dash`
+      - **cloudcurio-monorepo-pro-dash** ([projects/cloudcurio-monorepo-pro-dash/README.md](projects/cloudcurio-monorepo-pro-dash/README.md)) - Enhanced with analytics exporter, Grafana provisioning, Cloudflare Access, HA, Loki/Promtail, GHCR, and nightly budgets. `projects`, `cloudcurio-monorepo-pro-dash`, `typescript`, `ai`, `md`
+      - **LICENSE** ([projects/cloudcurio-monorepo-pro-dash/LICENSE](projects/cloudcurio-monorepo-pro-dash/LICENSE)) `projects`, `cloudcurio-monorepo-pro-dash`
+      - **Makefile** ([projects/cloudcurio-monorepo-pro-dash/Makefile](projects/cloudcurio-monorepo-pro-dash/Makefile)) `projects`, `cloudcurio-monorepo-pro-dash`
+    - **cloudcurio-stackhub**
+      - **cloudcurio-stackhub** ([projects/cloudcurio-stackhub/README.md](projects/cloudcurio-stackhub/README.md)) - A tiny **Next.js + Tailwind** app for curating your **scripts, configs, tools, and stacks** (Bash, Ansible, Terraform, Pulumi), then **exporting** a single **monolith** file: - **bash** (`stackhub-exp... `cloudcurio-stackhub`, `security`, `projects`, `api`, `database`
+    - **cloudcurio-stackhub-full**
+      - **cloudcurio-stackhub-full** ([projects/cloudcurio-stackhub-full/README.md](projects/cloudcurio-stackhub-full/README.md)) - Next.js app + Cloudflare Worker API (D1, Vectorize, R2, Queues), plus Terraform, Pulumi, and Ansible for IaC. `projects`, `api`, `database`, `typescript`, `md`
+    - **crewai_config_generator_pack**
+      - **Crew Backlogs for crewgen (CSV + YAML)** ([projects/crewai_config_generator_pack/Crew Backlogs for crewgen (CSV + YAML).md](projects/crewai_config_generator_pack/Crew Backlogs for crewgen (CSV + YAML).md)) - (Contents from the canvas document go here.) `md`, `typescript`, `projects`, `crewai_config_generator_pack`
+      - **CrewAI Config Backlog & Status (CBW)** ([projects/crewai_config_generator_pack/CrewAI Config Backlog & Status (CBW).md](projects/crewai_config_generator_pack/CrewAI Config Backlog & Status (CBW).md)) - (Contents from the canvas document go here.) `projects`, `typescript`, `ai`, `md`, `crewai_config_generator_pack`
+      - **crewgen** ([projects/crewai_config_generator_pack/crewgen.py](projects/crewai_config_generator_pack/crewgen.py)) `py`, `projects`, `crewai_config_generator_pack`
+    - **crewai_crews_pack (2)**
+      - **cybersecurity_incident_response_crew** ([projects/crewai_crews_pack (2)/cybersecurity_incident_response_crew.yaml](projects/crewai_crews_pack (2)/cybersecurity_incident_response_crew.yaml)) `yaml`, `projects`, `crewai_crews_pack (2)`
+      - **ecommerce_growth_crew** ([projects/crewai_crews_pack (2)/ecommerce_growth_crew.yaml](projects/crewai_crews_pack (2)/ecommerce_growth_crew.yaml)) `yaml`, `projects`, `crewai_crews_pack (2)`
+      - **healthcare_prior_auth_coding_crew** ([projects/crewai_crews_pack (2)/healthcare_prior_auth_coding_crew.yaml](projects/crewai_crews_pack (2)/healthcare_prior_auth_coding_crew.yaml)) `yaml`, `projects`, `crewai_crews_pack (2)`
+      - **legal_compliance_audit_crew** ([projects/crewai_crews_pack (2)/legal_compliance_audit_crew.yaml](projects/crewai_crews_pack (2)/legal_compliance_audit_crew.yaml)) `yaml`, `projects`, `crewai_crews_pack (2)`
+      - **legal_contract_lifecycle_crew** ([projects/crewai_crews_pack (2)/legal_contract_lifecycle_crew.yaml](projects/crewai_crews_pack (2)/legal_contract_lifecycle_crew.yaml)) `yaml`, `projects`, `crewai_crews_pack (2)`
+      - **legal_ediscovery_review_crew** ([projects/crewai_crews_pack (2)/legal_ediscovery_review_crew.yaml](projects/crewai_crews_pack (2)/legal_ediscovery_review_crew.yaml)) `yaml`, `projects`, `crewai_crews_pack (2)`
+      - **legal_legislation_tracking_crew** ([projects/crewai_crews_pack (2)/legal_legislation_tracking_crew.yaml](projects/crewai_crews_pack (2)/legal_legislation_tracking_crew.yaml)) `yaml`, `projects`, `crewai_crews_pack (2)`
+      - **legal_public_records_foia_crew** ([projects/crewai_crews_pack (2)/legal_public_records_foia_crew.yaml](projects/crewai_crews_pack (2)/legal_public_records_foia_crew.yaml)) `yaml`, `projects`, `crewai_crews_pack (2)`
+      - **real_estate_due_diligence_crew** ([projects/crewai_crews_pack (2)/real_estate_due_diligence_crew.yaml](projects/crewai_crews_pack (2)/real_estate_due_diligence_crew.yaml)) `yaml`, `projects`, `crewai_crews_pack (2)`
+      - **scientific_literature_scout_crew** ([projects/crewai_crews_pack (2)/scientific_literature_scout_crew.yaml](projects/crewai_crews_pack (2)/scientific_literature_scout_crew.yaml)) `yaml`, `projects`, `crewai_crews_pack (2)`
+    - **kbgen-suite**
+      - **nextjs**
+        - **next.config** ([projects/kbgen-suite/nextjs/next.config.mjs](projects/kbgen-suite/nextjs/next.config.mjs)) `mjs`, `projects`, `kbgen-suite`, `nextjs`
+        - **package** ([projects/kbgen-suite/nextjs/package.json](projects/kbgen-suite/nextjs/package.json)) `projects`, `kbgen-suite`, `nextjs`, `json`
+      - **plugins**
+        - **docs_mode** ([projects/kbgen-suite/plugins/docs_mode.py](projects/kbgen-suite/plugins/docs_mode.py)) `py`, `plugins`, `projects`, `kbgen-suite`
+      - **auto_topic** ([projects/kbgen-suite/auto_topic.py](projects/kbgen-suite/auto_topic.py)) `py`, `projects`, `kbgen-suite`
+      - **docker-compose.qdrant** ([projects/kbgen-suite/docker-compose.qdrant.yml](projects/kbgen-suite/docker-compose.qdrant.yml)) `yml`, `projects`, `kbgen-suite`
+      - **docker-compose.redis** ([projects/kbgen-suite/docker-compose.redis.yml](projects/kbgen-suite/docker-compose.redis.yml)) `yml`, `projects`, `kbgen-suite`
+      - **export_s3** ([projects/kbgen-suite/export_s3.py](projects/kbgen-suite/export_s3.py)) `py`, `projects`, `kbgen-suite`
+      - **job_queue** ([projects/kbgen-suite/job_queue.py](projects/kbgen-suite/job_queue.py)) `py`, `projects`, `kbgen-suite`
+      - **kbgen** ([projects/kbgen-suite/kbgen.py](projects/kbgen-suite/kbgen.py)) `py`, `projects`, `kbgen-suite`
+      - **kbgen-suite** ([projects/kbgen-suite/README.md](projects/kbgen-suite/README.md)) - ```bash python3 -m venv .venv && source .venv/bin/activate pip install --upgrade pip `security`, `projects`, `database`, `kbgen-suite`, `typescript`
+      - **requirements** ([projects/kbgen-suite/requirements.txt](projects/kbgen-suite/requirements.txt)) - rich>=13.7.0 typer>=0.12.3 pydantic>=2.7.0 `txt`, `projects`, `kbgen-suite`
+      - **server** ([projects/kbgen-suite/server.py](projects/kbgen-suite/server.py)) `py`, `projects`, `kbgen-suite`
+      - **tui_app** ([projects/kbgen-suite/tui_app.py](projects/kbgen-suite/tui_app.py)) `py`, `projects`, `kbgen-suite`
+      - **worker** ([projects/kbgen-suite/worker.py](projects/kbgen-suite/worker.py)) `py`, `projects`, `kbgen-suite`
+    - **kbgen-suite(3)**
+      - **nextjs**
+        - **next.config** ([projects/kbgen-suite(3)/nextjs/next.config.mjs](projects/kbgen-suite(3)/nextjs/next.config.mjs)) `mjs`, `kbgen-suite(3)`, `projects`, `nextjs`
+        - **package** ([projects/kbgen-suite(3)/nextjs/package.json](projects/kbgen-suite(3)/nextjs/package.json)) `kbgen-suite(3)`, `projects`, `nextjs`, `json`
+      - **plugins**
+        - **docs_mode** ([projects/kbgen-suite(3)/plugins/docs_mode.py](projects/kbgen-suite(3)/plugins/docs_mode.py)) `plugins`, `kbgen-suite(3)`, `projects`, `py`
+      - **auto_topic** ([projects/kbgen-suite(3)/auto_topic.py](projects/kbgen-suite(3)/auto_topic.py)) `kbgen-suite(3)`, `projects`, `py`
+      - **docker-compose.qdrant** ([projects/kbgen-suite(3)/docker-compose.qdrant.yml](projects/kbgen-suite(3)/docker-compose.qdrant.yml)) `yml`, `kbgen-suite(3)`, `projects`
+      - **docker-compose.redis** ([projects/kbgen-suite(3)/docker-compose.redis.yml](projects/kbgen-suite(3)/docker-compose.redis.yml)) `yml`, `kbgen-suite(3)`, `projects`
+      - **export_s3** ([projects/kbgen-suite(3)/export_s3.py](projects/kbgen-suite(3)/export_s3.py)) `kbgen-suite(3)`, `projects`, `py`
+      - **job_queue** ([projects/kbgen-suite(3)/job_queue.py](projects/kbgen-suite(3)/job_queue.py)) `kbgen-suite(3)`, `projects`, `py`
+      - **kbgen** ([projects/kbgen-suite(3)/kbgen.py](projects/kbgen-suite(3)/kbgen.py)) `kbgen-suite(3)`, `projects`, `py`
+      - **kbgen-suite(3)** ([projects/kbgen-suite(3)/README.md](projects/kbgen-suite(3)/README.md)) - ```bash python3 -m venv .venv && source .venv/bin/activate pip install --upgrade pip `security`, `projects`, `database`, `typescript`, `docker`
+      - **requirements** ([projects/kbgen-suite(3)/requirements.txt](projects/kbgen-suite(3)/requirements.txt)) - rich>=13.7.0 typer>=0.12.3 pydantic>=2.7.0 `txt`, `kbgen-suite(3)`, `projects`
+      - **server** ([projects/kbgen-suite(3)/server.py](projects/kbgen-suite(3)/server.py)) `kbgen-suite(3)`, `projects`, `py`
+      - **tui_app** ([projects/kbgen-suite(3)/tui_app.py](projects/kbgen-suite(3)/tui_app.py)) `kbgen-suite(3)`, `projects`, `py`
+      - **worker** ([projects/kbgen-suite(3)/worker.py](projects/kbgen-suite(3)/worker.py)) `kbgen-suite(3)`, `projects`, `py`
+    - **local-ai-packaged-bundle**
+      - **deploy**
+        - **docker-compose.override** ([projects/local-ai-packaged-bundle/deploy/docker-compose.override.yml](projects/local-ai-packaged-bundle/deploy/docker-compose.override.yml)) `yml`, `local-ai-packaged-bundle`, `deploy`, `projects`
+      - **etl**
+        - **ingest_congress** ([projects/local-ai-packaged-bundle/etl/ingest_congress.py](projects/local-ai-packaged-bundle/etl/ingest_congress.py)) `local-ai-packaged-bundle`, `projects`, `py`, `etl`
+      - **eval**
+        - **ragas_eval** ([projects/local-ai-packaged-bundle/eval/ragas_eval.py](projects/local-ai-packaged-bundle/eval/ragas_eval.py)) `local-ai-packaged-bundle`, `projects`, `py`, `eval`
+        - **requirements** ([projects/local-ai-packaged-bundle/eval/requirements.txt](projects/local-ai-packaged-bundle/eval/requirements.txt)) `local-ai-packaged-bundle`, `txt`, `projects`, `eval`
+        - **sample_eval** ([projects/local-ai-packaged-bundle/eval/sample_eval.csv](projects/local-ai-packaged-bundle/eval/sample_eval.csv)) `local-ai-packaged-bundle`, `csv`, `projects`, `eval`
+      - **graphs**
+        - **graphs** ([projects/local-ai-packaged-bundle/graphs/README.md](projects/local-ai-packaged-bundle/graphs/README.md)) `local-ai-packaged-bundle`, `graphs`, `projects`, `md`
+        - **ingest_graph** ([projects/local-ai-packaged-bundle/graphs/ingest_graph.py](projects/local-ai-packaged-bundle/graphs/ingest_graph.py)) `local-ai-packaged-bundle`, `graphs`, `projects`, `py`
+        - **requirements** ([projects/local-ai-packaged-bundle/graphs/requirements.txt](projects/local-ai-packaged-bundle/graphs/requirements.txt)) `local-ai-packaged-bundle`, `txt`, `graphs`, `projects`
+      - **qa**
+        - **requirements** ([projects/local-ai-packaged-bundle/qa/requirements.txt](projects/local-ai-packaged-bundle/qa/requirements.txt)) `local-ai-packaged-bundle`, `txt`, `qa`, `projects`
+        - **run_gx** ([projects/local-ai-packaged-bundle/qa/run_gx.py](projects/local-ai-packaged-bundle/qa/run_gx.py)) `local-ai-packaged-bundle`, `qa`, `projects`, `py`
+      - **scripts**
+        - **backup_all** ([projects/local-ai-packaged-bundle/scripts/backup_all.sh](projects/local-ai-packaged-bundle/scripts/backup_all.sh)) `scripts`, `local-ai-packaged-bundle`, `projects`, `sh`
+        - **ensure_secrets** ([projects/local-ai-packaged-bundle/scripts/ensure_secrets.sh](projects/local-ai-packaged-bundle/scripts/ensure_secrets.sh)) `scripts`, `local-ai-packaged-bundle`, `projects`, `sh`
+        - **restore_all** ([projects/local-ai-packaged-bundle/scripts/restore_all.sh](projects/local-ai-packaged-bundle/scripts/restore_all.sh)) `scripts`, `local-ai-packaged-bundle`, `projects`, `sh`
+      - **Makefile** ([projects/local-ai-packaged-bundle/Makefile](projects/local-ai-packaged-bundle/Makefile)) `local-ai-packaged-bundle`, `projects`
+      - **README_PERSISTENCE** ([projects/local-ai-packaged-bundle/README_PERSISTENCE.md](projects/local-ai-packaged-bundle/README_PERSISTENCE.md)) `local-ai-packaged-bundle`, `projects`, `md`
+    - **opendiscourse-mcp**
+      - **tests**
+        - **test_govdocs** ([projects/opendiscourse-mcp/tests/test_govdocs.py](projects/opendiscourse-mcp/tests/test_govdocs.py)) `opendiscourse-mcp`, `tests`, `projects`, `py`
+        - **test_tokenbroker** ([projects/opendiscourse-mcp/tests/test_tokenbroker.py](projects/opendiscourse-mcp/tests/test_tokenbroker.py)) `opendiscourse-mcp`, `tests`, `projects`, `py`
+      - **docker-compose** ([projects/opendiscourse-mcp/docker-compose.yml](projects/opendiscourse-mcp/docker-compose.yml)) `yml`, `opendiscourse-mcp`, `projects`
+      - **Makefile** ([projects/opendiscourse-mcp/Makefile](projects/opendiscourse-mcp/Makefile)) `opendiscourse-mcp`, `projects`
+      - **opendiscourse-mcp** ([projects/opendiscourse-mcp/README.md](projects/opendiscourse-mcp/README.md)) - This bundle provides two **Python/FastAPI** MCP-style servers plus infra: - `mcp_govdocs`: Autonomous GovDocs collector (domain learning, crawler memory stubs, schema, health checks) `opendiscourse-mcp`, `security`, `devops`, `projects`, `kubernetes`
+      - **pyproject** ([projects/opendiscourse-mcp/pyproject.toml](projects/opendiscourse-mcp/pyproject.toml)) `opendiscourse-mcp`, `toml`, `projects`
+    - **opendiscourse-mcp-aug**
+      - **tests**
+        - **test_govdocs** ([projects/opendiscourse-mcp-aug/tests/test_govdocs.py](projects/opendiscourse-mcp-aug/tests/test_govdocs.py)) `opendiscourse-mcp-aug`, `projects`, `py`, `tests`
+        - **test_tokenbroker** ([projects/opendiscourse-mcp-aug/tests/test_tokenbroker.py](projects/opendiscourse-mcp-aug/tests/test_tokenbroker.py)) `opendiscourse-mcp-aug`, `projects`, `py`, `tests`
+      - **docker-compose** ([projects/opendiscourse-mcp-aug/docker-compose.yml](projects/opendiscourse-mcp-aug/docker-compose.yml)) `yml`, `opendiscourse-mcp-aug`, `projects`
+      - **Makefile** ([projects/opendiscourse-mcp-aug/Makefile](projects/opendiscourse-mcp-aug/Makefile)) `opendiscourse-mcp-aug`, `projects`
+      - **opendiscourse-mcp-aug** ([projects/opendiscourse-mcp-aug/README.md](projects/opendiscourse-mcp-aug/README.md)) - This bundle provides two **Python/FastAPI** MCP-style servers plus infra: - `mcp_govdocs`: Autonomous GovDocs collector (domain learning, crawler memory stubs, schema, health checks) `security`, `devops`, `projects`, `kubernetes`, `api`
+      - **pyproject** ([projects/opendiscourse-mcp-aug/pyproject.toml](projects/opendiscourse-mcp-aug/pyproject.toml)) `opendiscourse-mcp-aug`, `projects`, `toml`
+    - **opendiscourse-mcp-batchsearch**
+      - **tests**
+        - **test_govdocs** ([projects/opendiscourse-mcp-batchsearch/tests/test_govdocs.py](projects/opendiscourse-mcp-batchsearch/tests/test_govdocs.py)) `opendiscourse-mcp-batchsearch`, `projects`, `py`, `tests`
+        - **test_tokenbroker** ([projects/opendiscourse-mcp-batchsearch/tests/test_tokenbroker.py](projects/opendiscourse-mcp-batchsearch/tests/test_tokenbroker.py)) `opendiscourse-mcp-batchsearch`, `projects`, `py`, `tests`
+      - **docker-compose** ([projects/opendiscourse-mcp-batchsearch/docker-compose.yml](projects/opendiscourse-mcp-batchsearch/docker-compose.yml)) `yml`, `opendiscourse-mcp-batchsearch`, `projects`
+      - **Makefile** ([projects/opendiscourse-mcp-batchsearch/Makefile](projects/opendiscourse-mcp-batchsearch/Makefile)) `opendiscourse-mcp-batchsearch`, `projects`
+      - **opendiscourse-mcp-batchsearch** ([projects/opendiscourse-mcp-batchsearch/README.md](projects/opendiscourse-mcp-batchsearch/README.md)) - This bundle provides two **Python/FastAPI** MCP-style servers plus infra: - `mcp_govdocs`: Autonomous GovDocs collector (domain learning, crawler memory stubs, schema, health checks) `security`, `devops`, `projects`, `kubernetes`, `api`
+      - **pyproject** ([projects/opendiscourse-mcp-batchsearch/pyproject.toml](projects/opendiscourse-mcp-batchsearch/pyproject.toml)) `opendiscourse-mcp-batchsearch`, `projects`, `toml`
+    - **opendiscourse-mcp-crawlcfg**
+      - **tests**
+        - **test_govdocs** ([projects/opendiscourse-mcp-crawlcfg/tests/test_govdocs.py](projects/opendiscourse-mcp-crawlcfg/tests/test_govdocs.py)) `py`, `tests`, `projects`, `opendiscourse-mcp-crawlcfg`
+        - **test_tokenbroker** ([projects/opendiscourse-mcp-crawlcfg/tests/test_tokenbroker.py](projects/opendiscourse-mcp-crawlcfg/tests/test_tokenbroker.py)) `py`, `tests`, `projects`, `opendiscourse-mcp-crawlcfg`
+      - **docker-compose** ([projects/opendiscourse-mcp-crawlcfg/docker-compose.yml](projects/opendiscourse-mcp-crawlcfg/docker-compose.yml)) `yml`, `projects`, `opendiscourse-mcp-crawlcfg`
+      - **Makefile** ([projects/opendiscourse-mcp-crawlcfg/Makefile](projects/opendiscourse-mcp-crawlcfg/Makefile)) `projects`, `opendiscourse-mcp-crawlcfg`
+      - **opendiscourse-mcp-crawlcfg** ([projects/opendiscourse-mcp-crawlcfg/README.md](projects/opendiscourse-mcp-crawlcfg/README.md)) - This bundle provides two **Python/FastAPI** MCP-style servers plus infra: - `mcp_govdocs`: Autonomous GovDocs collector (domain learning, crawler memory stubs, schema, health checks) `security`, `devops`, `projects`, `kubernetes`, `api`
+      - **pyproject** ([projects/opendiscourse-mcp-crawlcfg/pyproject.toml](projects/opendiscourse-mcp-crawlcfg/pyproject.toml)) `toml`, `projects`, `opendiscourse-mcp-crawlcfg`
+    - **opendiscourse-mcp-robust**
+      - **tests**
+        - **test_govdocs** ([projects/opendiscourse-mcp-robust/tests/test_govdocs.py](projects/opendiscourse-mcp-robust/tests/test_govdocs.py)) `tests`, `projects`, `py`, `opendiscourse-mcp-robust`
+        - **test_tokenbroker** ([projects/opendiscourse-mcp-robust/tests/test_tokenbroker.py](projects/opendiscourse-mcp-robust/tests/test_tokenbroker.py)) `tests`, `projects`, `py`, `opendiscourse-mcp-robust`
+      - **docker-compose** ([projects/opendiscourse-mcp-robust/docker-compose.yml](projects/opendiscourse-mcp-robust/docker-compose.yml)) `yml`, `projects`, `opendiscourse-mcp-robust`
+      - **Makefile** ([projects/opendiscourse-mcp-robust/Makefile](projects/opendiscourse-mcp-robust/Makefile)) `projects`, `opendiscourse-mcp-robust`
+      - **opendiscourse-mcp-robust** ([projects/opendiscourse-mcp-robust/README.md](projects/opendiscourse-mcp-robust/README.md)) - This bundle provides two **Python/FastAPI** MCP-style servers plus infra: - `mcp_govdocs`: Autonomous GovDocs collector (domain learning, crawler memory stubs, schema, health checks) `security`, `devops`, `projects`, `kubernetes`, `api`
+      - **pyproject** ([projects/opendiscourse-mcp-robust/pyproject.toml](projects/opendiscourse-mcp-robust/pyproject.toml)) `toml`, `projects`, `opendiscourse-mcp-robust`
+    - **opendiscourse-mcp-scaffold**
+      - **docker-compose** ([projects/opendiscourse-mcp-scaffold/docker-compose.yml](projects/opendiscourse-mcp-scaffold/docker-compose.yml)) `yml`, `projects`, `opendiscourse-mcp-scaffold`
+      - **opendiscourse-mcp-scaffold** ([projects/opendiscourse-mcp-scaffold/README.md](projects/opendiscourse-mcp-scaffold/README.md)) - This bundle provides two **Python/FastAPI** MCP-style servers plus infra: - `mcp_govdocs`: Autonomous GovDocs collector (domain learning, crawler memory stubs, schema, health checks) `security`, `devops`, `projects`, `kubernetes`, `api`
+    - **opendiscourse-stack**
+      - **provisioning**
+        - **alert_rules** ([projects/opendiscourse-stack/provisioning/alert_rules.yml](projects/opendiscourse-stack/provisioning/alert_rules.yml)) `yml`, `provisioning`, `projects`, `opendiscourse-stack`
+        - **alertmanager** ([projects/opendiscourse-stack/provisioning/alertmanager.yml](projects/opendiscourse-stack/provisioning/alertmanager.yml)) `yml`, `provisioning`, `projects`, `opendiscourse-stack`
+        - **Caddyfile** ([projects/opendiscourse-stack/provisioning/Caddyfile](projects/opendiscourse-stack/provisioning/Caddyfile)) `provisioning`, `projects`, `opendiscourse-stack`
+        - **loki-local-config** ([projects/opendiscourse-stack/provisioning/loki-local-config.yaml](projects/opendiscourse-stack/provisioning/loki-local-config.yaml)) `provisioning`, `yaml`, `projects`, `opendiscourse-stack`
+        - **prometheus** ([projects/opendiscourse-stack/provisioning/prometheus.yml](projects/opendiscourse-stack/provisioning/prometheus.yml)) `yml`, `provisioning`, `projects`, `opendiscourse-stack`
+      - **scripts**
+        - **backup_pg** ([projects/opendiscourse-stack/scripts/backup_pg.sh](projects/opendiscourse-stack/scripts/backup_pg.sh)) `scripts`, `sh`, `projects`, `opendiscourse-stack`
+        - **env_from_bw** ([projects/opendiscourse-stack/scripts/env_from_bw.sh](projects/opendiscourse-stack/scripts/env_from_bw.sh)) `scripts`, `sh`, `projects`, `opendiscourse-stack`
+        - **gen_env** ([projects/opendiscourse-stack/scripts/gen_env.sh](projects/opendiscourse-stack/scripts/gen_env.sh)) `scripts`, `sh`, `projects`, `opendiscourse-stack`
+        - **install_docker** ([projects/opendiscourse-stack/scripts/install_docker.sh](projects/opendiscourse-stack/scripts/install_docker.sh)) `scripts`, `sh`, `projects`, `opendiscourse-stack`
+      - **bootstrap** ([projects/opendiscourse-stack/bootstrap.sh](projects/opendiscourse-stack/bootstrap.sh)) `sh`, `projects`, `opendiscourse-stack`
+      - **docker-compose** ([projects/opendiscourse-stack/docker-compose.yml](projects/opendiscourse-stack/docker-compose.yml)) `yml`, `projects`, `opendiscourse-stack`
+      - **LICENSE** ([projects/opendiscourse-stack/LICENSE](projects/opendiscourse-stack/LICENSE)) `projects`, `opendiscourse-stack`
+      - **Makefile** ([projects/opendiscourse-stack/Makefile](projects/opendiscourse-stack/Makefile)) `projects`, `opendiscourse-stack`
+      - **opendiscourse-stack** ([projects/opendiscourse-stack/README.md](projects/opendiscourse-stack/README.md)) `md`, `projects`, `opendiscourse-stack`
+    - **OpenDiscourse_All_Canvases**
+      - **ansible**
+        - **inventory** ([projects/OpenDiscourse_All_Canvases/ansible/inventory.ini](projects/OpenDiscourse_All_Canvases/ansible/inventory.ini)) `ini`, `ansible`, `projects`, `opendiscourse_all_canvases`
+      - **api**
+        - **models** ([projects/OpenDiscourse_All_Canvases/api/models.py](projects/OpenDiscourse_All_Canvases/api/models.py)) `py`, `projects`, `opendiscourse_all_canvases`, `api`
+      - **database**
+        - **DDL** ([projects/OpenDiscourse_All_Canvases/database/DDL.sql](projects/OpenDiscourse_All_Canvases/database/DDL.sql)) `database`, `sql`, `projects`, `opendiscourse_all_canvases`
+      - **docs**
+        - **ChaosPlaybook** ([projects/OpenDiscourse_All_Canvases/docs/ChaosPlaybook.md](projects/OpenDiscourse_All_Canvases/docs/ChaosPlaybook.md)) - Fault injection, rollback procedures. `md`, `docs`, `projects`, `opendiscourse_all_canvases`
+        - **CostControls** ([projects/OpenDiscourse_All_Canvases/docs/CostControls.md](projects/OpenDiscourse_All_Canvases/docs/CostControls.md)) - Budget caps, alert thresholds. `md`, `docs`, `projects`, `opendiscourse_all_canvases`
+        - **ModerationPolicy** ([projects/OpenDiscourse_All_Canvases/docs/ModerationPolicy.md](projects/OpenDiscourse_All_Canvases/docs/ModerationPolicy.md)) - Rules and enforcement ladder. `md`, `docs`, `projects`, `opendiscourse_all_canvases`
+        - **PII-Policy** ([projects/OpenDiscourse_All_Canvases/docs/PII-Policy.md](projects/OpenDiscourse_All_Canvases/docs/PII-Policy.md)) - Retention, DSAR, contact. `md`, `docs`, `projects`, `opendiscourse_all_canvases`
+        - **ProviderLicenses** ([projects/OpenDiscourse_All_Canvases/docs/ProviderLicenses.md](projects/OpenDiscourse_All_Canvases/docs/ProviderLicenses.md)) - List of providers, ToS, rate limits. `docs`, `projects`, `typescript`, `opendiscourse_all_canvases`, `md`
+        - **SRS** ([projects/OpenDiscourse_All_Canvases/docs/SRS.md](projects/OpenDiscourse_All_Canvases/docs/SRS.md)) - Full requirements doc from canvases. `docs`, `projects`, `typescript`, `opendiscourse_all_canvases`, `md`
+        - **Tasks** ([projects/OpenDiscourse_All_Canvases/docs/Tasks.md](projects/OpenDiscourse_All_Canvases/docs/Tasks.md)) `md`, `docs`, `projects`, `opendiscourse_all_canvases`
+      - **etl**
+        - **compute_kpis** ([projects/OpenDiscourse_All_Canvases/etl/compute_kpis.py](projects/OpenDiscourse_All_Canvases/etl/compute_kpis.py)) `py`, `projects`, `opendiscourse_all_canvases`, `etl`
+        - **ingest_social** ([projects/OpenDiscourse_All_Canvases/etl/ingest_social.py](projects/OpenDiscourse_All_Canvases/etl/ingest_social.py)) `py`, `projects`, `opendiscourse_all_canvases`, `etl`
+        - **neo4j_etl** ([projects/OpenDiscourse_All_Canvases/etl/neo4j_etl.py](projects/OpenDiscourse_All_Canvases/etl/neo4j_etl.py)) `py`, `projects`, `opendiscourse_all_canvases`, `etl`
+      - **iac**
+        - **iac_bootstrap** ([projects/OpenDiscourse_All_Canvases/iac/iac_bootstrap.md](projects/OpenDiscourse_All_Canvases/iac/iac_bootstrap.md)) - Terraform, Ansible, Pulumi snippets. `projects`, `iac`, `typescript`, `opendiscourse_all_canvases`, `md`
+      - **Makefile** ([projects/OpenDiscourse_All_Canvases/Makefile](projects/OpenDiscourse_All_Canvases/Makefile)) `projects`, `opendiscourse_all_canvases`
+      - **OpenDiscourse_All_Canvases** ([projects/OpenDiscourse_All_Canvases/README.md](projects/OpenDiscourse_All_Canvases/README.md)) - This archive contains all scripts, configs, docs, and workflows from canvases. `projects`, `typescript`, `opendiscourse_all_canvases`, `ai`, `md`
+    - **opendiscourse_automation_bundle**
+      - **scripts**
+        - **agent_router** ([projects/opendiscourse_automation_bundle/scripts/agent_router.py](projects/opendiscourse_automation_bundle/scripts/agent_router.py)) `scripts`, `opendiscourse_automation_bundle`, `projects`, `py`
+        - **common** ([projects/opendiscourse_automation_bundle/scripts/common.py](projects/opendiscourse_automation_bundle/scripts/common.py)) `scripts`, `opendiscourse_automation_bundle`, `projects`, `py`
+        - **manage_issues** ([projects/opendiscourse_automation_bundle/scripts/manage_issues.py](projects/opendiscourse_automation_bundle/scripts/manage_issues.py)) `scripts`, `opendiscourse_automation_bundle`, `projects`, `py`
+        - **parse_srs** ([projects/opendiscourse_automation_bundle/scripts/parse_srs.py](projects/opendiscourse_automation_bundle/scripts/parse_srs.py)) `scripts`, `opendiscourse_automation_bundle`, `projects`, `py`
+        - **parse_tasks** ([projects/opendiscourse_automation_bundle/scripts/parse_tasks.py](projects/opendiscourse_automation_bundle/scripts/parse_tasks.py)) `scripts`, `opendiscourse_automation_bundle`, `projects`, `py`
+      - **README_AUTOMATION** ([projects/opendiscourse_automation_bundle/README_AUTOMATION.md](projects/opendiscourse_automation_bundle/README_AUTOMATION.md)) - This bundle adds: 1) **Issue conversion** from `project_tasks.md` and `SRS.md` → GitHub Issues. 2) **Agent assignment** via labels/assignees. `security`, `projects`, `opendiscourse_automation_bundle`, `api`, `database`
+      - **requirements** ([projects/opendiscourse_automation_bundle/requirements.txt](projects/opendiscourse_automation_bundle/requirements.txt)) - requests>=2.32.0 PyYAML>=6.0.2 python-slugify>=8.0.4 `opendiscourse_automation_bundle`, `txt`, `projects`
+    - **OpenDiscourse_bundle**
+      - **ansible**
+        - **inventory** ([projects/OpenDiscourse_bundle/ansible/inventory.ini](projects/OpenDiscourse_bundle/ansible/inventory.ini)) `ini`, `ansible`, `projects`, `opendiscourse_bundle`
+      - **api**
+        - **models** ([projects/OpenDiscourse_bundle/api/models.py](projects/OpenDiscourse_bundle/api/models.py)) `api`, `projects`, `py`, `opendiscourse_bundle`
+      - **database**
+        - **DDL** ([projects/OpenDiscourse_bundle/database/DDL.sql](projects/OpenDiscourse_bundle/database/DDL.sql)) `database`, `sql`, `projects`, `opendiscourse_bundle`
+      - **docs**
+        - **ChaosPlaybook** ([projects/OpenDiscourse_bundle/docs/ChaosPlaybook.md](projects/OpenDiscourse_bundle/docs/ChaosPlaybook.md)) - Failure modes, blast radius, abort conditions, rollback. `docs`, `projects`, `opendiscourse_bundle`, `ai`, `md`
+        - **CostControls** ([projects/OpenDiscourse_bundle/docs/CostControls.md](projects/OpenDiscourse_bundle/docs/CostControls.md)) - Budget caps, alert thresholds, storage growth policy. `md`, `docs`, `projects`, `opendiscourse_bundle`
+        - **ModerationPolicy** ([projects/OpenDiscourse_bundle/docs/ModerationPolicy.md](projects/OpenDiscourse_bundle/docs/ModerationPolicy.md)) - Prohibited content, enforcement ladder, appeals. `md`, `docs`, `projects`, `opendiscourse_bundle`
+        - **PII-Policy** ([projects/OpenDiscourse_bundle/docs/PII-Policy.md](projects/OpenDiscourse_bundle/docs/PII-Policy.md)) - What we store, retention, DSAR workflow, DPO contact. `md`, `docs`, `projects`, `opendiscourse_bundle`
+        - **ProviderLicenses** ([projects/OpenDiscourse_bundle/docs/ProviderLicenses.md](projects/OpenDiscourse_bundle/docs/ProviderLicenses.md)) - List providers, license types, renewal dates, contacts, rate limits. `docs`, `projects`, `opendiscourse_bundle`, `typescript`, `md`
+      - **etl**
+        - **compute_kpis** ([projects/OpenDiscourse_bundle/etl/compute_kpis.py](projects/OpenDiscourse_bundle/etl/compute_kpis.py)) `projects`, `py`, `etl`, `opendiscourse_bundle`
+        - **ingest_social** ([projects/OpenDiscourse_bundle/etl/ingest_social.py](projects/OpenDiscourse_bundle/etl/ingest_social.py)) `projects`, `py`, `etl`, `opendiscourse_bundle`
+        - **neo4j_etl** ([projects/OpenDiscourse_bundle/etl/neo4j_etl.py](projects/OpenDiscourse_bundle/etl/neo4j_etl.py)) `projects`, `py`, `etl`, `opendiscourse_bundle`
+      - **tools**
+        - **port_probe** ([projects/OpenDiscourse_bundle/tools/port_probe.py](projects/OpenDiscourse_bundle/tools/port_probe.py)) `py`, `projects`, `tools`, `opendiscourse_bundle`
+      - **Makefile** ([projects/OpenDiscourse_bundle/Makefile](projects/OpenDiscourse_bundle/Makefile)) `projects`, `opendiscourse_bundle`
+      - **OpenDiscourse_bundle** ([projects/OpenDiscourse_bundle/README.md](projects/OpenDiscourse_bundle/README.md)) - Generated: 2025-09-18T17:56:55.735916Z This bundle contains the key scripts, configs, and docs discussed in our canvases: `security`, `projects`, `opendiscourse_bundle`, `typescript`, `ai`
+    - **OpenDiscourse_bundle_full**
+      - **ansible**
+        - **inventory** ([projects/OpenDiscourse_bundle_full/ansible/inventory.ini](projects/OpenDiscourse_bundle_full/ansible/inventory.ini)) `ini`, `opendiscourse_bundle_full`, `ansible`, `projects`
+      - **api**
+        - **models** ([projects/OpenDiscourse_bundle_full/api/models.py](projects/OpenDiscourse_bundle_full/api/models.py)) `opendiscourse_bundle_full`, `projects`, `py`, `api`
+      - **database**
+        - **DDL** ([projects/OpenDiscourse_bundle_full/database/DDL.sql](projects/OpenDiscourse_bundle_full/database/DDL.sql)) `opendiscourse_bundle_full`, `database`, `sql`, `projects`
+      - **docs**
+        - **ChaosPlaybook** ([projects/OpenDiscourse_bundle_full/docs/ChaosPlaybook.md](projects/OpenDiscourse_bundle_full/docs/ChaosPlaybook.md)) - Failure modes, blast radius, abort conditions, rollback. `opendiscourse_bundle_full`, `docs`, `projects`, `ai`, `md`
+        - **CostControls** ([projects/OpenDiscourse_bundle_full/docs/CostControls.md](projects/OpenDiscourse_bundle_full/docs/CostControls.md)) - Budget caps, alert thresholds, storage growth policy. `opendiscourse_bundle_full`, `docs`, `projects`, `md`
+        - **ModerationPolicy** ([projects/OpenDiscourse_bundle_full/docs/ModerationPolicy.md](projects/OpenDiscourse_bundle_full/docs/ModerationPolicy.md)) - Prohibited content, enforcement ladder, appeals. `opendiscourse_bundle_full`, `docs`, `projects`, `md`
+        - **PII-Policy** ([projects/OpenDiscourse_bundle_full/docs/PII-Policy.md](projects/OpenDiscourse_bundle_full/docs/PII-Policy.md)) - What we store, retention, DSAR workflow, DPO contact. `opendiscourse_bundle_full`, `docs`, `projects`, `md`
+        - **ProviderLicenses** ([projects/OpenDiscourse_bundle_full/docs/ProviderLicenses.md](projects/OpenDiscourse_bundle_full/docs/ProviderLicenses.md)) - List providers, license types, renewal dates, contacts, rate limits. `opendiscourse_bundle_full`, `docs`, `projects`, `typescript`, `md`
+      - **etl**
+        - **compute_kpis** ([projects/OpenDiscourse_bundle_full/etl/compute_kpis.py](projects/OpenDiscourse_bundle_full/etl/compute_kpis.py)) `opendiscourse_bundle_full`, `projects`, `py`, `etl`
+        - **ingest_social** ([projects/OpenDiscourse_bundle_full/etl/ingest_social.py](projects/OpenDiscourse_bundle_full/etl/ingest_social.py)) `opendiscourse_bundle_full`, `projects`, `py`, `etl`
+        - **neo4j_etl** ([projects/OpenDiscourse_bundle_full/etl/neo4j_etl.py](projects/OpenDiscourse_bundle_full/etl/neo4j_etl.py)) `opendiscourse_bundle_full`, `projects`, `py`, `etl`
+      - **tools**
+        - **port_probe** ([projects/OpenDiscourse_bundle_full/tools/port_probe.py](projects/OpenDiscourse_bundle_full/tools/port_probe.py)) `py`, `opendiscourse_bundle_full`, `projects`, `tools`
+      - **Makefile** ([projects/OpenDiscourse_bundle_full/Makefile](projects/OpenDiscourse_bundle_full/Makefile)) `opendiscourse_bundle_full`, `projects`
+      - **OpenDiscourse_bundle_full** ([projects/OpenDiscourse_bundle_full/README.md](projects/OpenDiscourse_bundle_full/README.md)) - Generated: 2025-09-18T17:56:55.735916Z This bundle contains the key scripts, configs, and docs discussed in our canvases: `opendiscourse_bundle_full`, `security`, `projects`, `typescript`, `ai`
+    - **opendiscourse_db_bundle**
+      - **db**
+        - **helpers_queries** ([projects/opendiscourse_db_bundle/db/helpers_queries.sql](projects/opendiscourse_db_bundle/db/helpers_queries.sql)) `db`, `sql`, `projects`, `opendiscourse_db_bundle`
+        - **pgvector_setup** ([projects/opendiscourse_db_bundle/db/pgvector_setup.sql](projects/opendiscourse_db_bundle/db/pgvector_setup.sql)) `db`, `sql`, `projects`, `opendiscourse_db_bundle`
+        - **refresh_matviews** ([projects/opendiscourse_db_bundle/db/refresh_matviews.sql](projects/opendiscourse_db_bundle/db/refresh_matviews.sql)) `db`, `sql`, `projects`, `opendiscourse_db_bundle`
+        - **schema_postgres** ([projects/opendiscourse_db_bundle/db/schema_postgres.sql](projects/opendiscourse_db_bundle/db/schema_postgres.sql)) `db`, `sql`, `projects`, `opendiscourse_db_bundle`
+      - **qdrant**
+        - **create_collections** ([projects/opendiscourse_db_bundle/qdrant/create_collections.sh](projects/opendiscourse_db_bundle/qdrant/create_collections.sh)) `qdrant`, `projects`, `sh`, `opendiscourse_db_bundle`
+      - **scripts**
+        - **backup** ([projects/opendiscourse_db_bundle/scripts/backup.sh](projects/opendiscourse_db_bundle/scripts/backup.sh)) `scripts`, `sh`, `projects`, `opendiscourse_db_bundle`
+        - **refresh_kpis** ([projects/opendiscourse_db_bundle/scripts/refresh_kpis.sh](projects/opendiscourse_db_bundle/scripts/refresh_kpis.sh)) `scripts`, `sh`, `projects`, `opendiscourse_db_bundle`
+        - **restore** ([projects/opendiscourse_db_bundle/scripts/restore.sh](projects/opendiscourse_db_bundle/scripts/restore.sh)) `scripts`, `sh`, `projects`, `opendiscourse_db_bundle`
+      - **docker-compose** ([projects/opendiscourse_db_bundle/docker-compose.yml](projects/opendiscourse_db_bundle/docker-compose.yml)) `yml`, `projects`, `opendiscourse_db_bundle`
+      - **Makefile** ([projects/opendiscourse_db_bundle/Makefile](projects/opendiscourse_db_bundle/Makefile)) `projects`, `opendiscourse_db_bundle`
+      - **README_DB** ([projects/opendiscourse_db_bundle/README_DB.md](projects/opendiscourse_db_bundle/README_DB.md)) `md`, `projects`, `opendiscourse_db_bundle`
+    - **priority_slice_crews**
+      - **ai_dataset_quality_assurance_crew** ([projects/priority_slice_crews/ai_dataset_quality_assurance_crew.yaml](projects/priority_slice_crews/ai_dataset_quality_assurance_crew.yaml)) `yaml`, `projects`, `priority_slice_crews`
+      - **ai_guardrail_policy_tuning_crew** ([projects/priority_slice_crews/ai_guardrail_policy_tuning_crew.yaml](projects/priority_slice_crews/ai_guardrail_policy_tuning_crew.yaml)) `yaml`, `projects`, `priority_slice_crews`
+      - **ai_multilingual_localization_crew** ([projects/priority_slice_crews/ai_multilingual_localization_crew.yaml](projects/priority_slice_crews/ai_multilingual_localization_crew.yaml)) `yaml`, `projects`, `priority_slice_crews`
+      - **data_pipeline_reliability_crew** ([projects/priority_slice_crews/data_pipeline_reliability_crew.yaml](projects/priority_slice_crews/data_pipeline_reliability_crew.yaml)) `yaml`, `projects`, `priority_slice_crews`
+      - **devops_platform_engineering_crew** ([projects/priority_slice_crews/devops_platform_engineering_crew.yaml](projects/priority_slice_crews/devops_platform_engineering_crew.yaml)) `yaml`, `projects`, `priority_slice_crews`
+      - **legal_export_controls_sanctions_screening_crew** ([projects/priority_slice_crews/legal_export_controls_sanctions_screening_crew.yaml](projects/priority_slice_crews/legal_export_controls_sanctions_screening_crew.yaml)) `yaml`, `projects`, `priority_slice_crews`
+      - **legal_matter_intake_triage_crew** ([projects/priority_slice_crews/legal_matter_intake_triage_crew.yaml](projects/priority_slice_crews/legal_matter_intake_triage_crew.yaml)) `yaml`, `projects`, `priority_slice_crews`
+      - **legal_privacy_dpia_crew** ([projects/priority_slice_crews/legal_privacy_dpia_crew.yaml](projects/priority_slice_crews/legal_privacy_dpia_crew.yaml)) `yaml`, `projects`, `priority_slice_crews`
+      - **product_spec_writer_crew** ([projects/priority_slice_crews/product_spec_writer_crew.yaml](projects/priority_slice_crews/product_spec_writer_crew.yaml)) `yaml`, `projects`, `priority_slice_crews`
+      - **sales_intel_listbuilder_crew** ([projects/priority_slice_crews/sales_intel_listbuilder_crew.yaml](projects/priority_slice_crews/sales_intel_listbuilder_crew.yaml)) `yaml`, `projects`, `priority_slice_crews`
+      - **seo_content_planner_crew** ([projects/priority_slice_crews/seo_content_planner_crew.yaml](projects/priority_slice_crews/seo_content_planner_crew.yaml)) `yaml`, `projects`, `priority_slice_crews`
+      - **sre_error_budget_enforcer_crew** ([projects/priority_slice_crews/sre_error_budget_enforcer_crew.yaml](projects/priority_slice_crews/sre_error_budget_enforcer_crew.yaml)) `yaml`, `projects`, `priority_slice_crews`
+    - **proxmox-postinstall-kit**
+      - **scripts**
+        - **00-preflight** ([projects/proxmox-postinstall-kit/scripts/00-preflight.sh](projects/proxmox-postinstall-kit/scripts/00-preflight.sh)) `scripts`, `proxmox-postinstall-kit`, `projects`, `sh`
+        - **10-os-and-repos** ([projects/proxmox-postinstall-kit/scripts/10-os-and-repos.sh](projects/proxmox-postinstall-kit/scripts/10-os-and-repos.sh)) `scripts`, `proxmox-postinstall-kit`, `projects`, `sh`
+        - **15-iommu-and-kernel** ([projects/proxmox-postinstall-kit/scripts/15-iommu-and-kernel.sh](projects/proxmox-postinstall-kit/scripts/15-iommu-and-kernel.sh)) `scripts`, `proxmox-postinstall-kit`, `projects`, `sh`
+        - **20-hostname-and-network** ([projects/proxmox-postinstall-kit/scripts/20-hostname-and-network.sh](projects/proxmox-postinstall-kit/scripts/20-hostname-and-network.sh)) `scripts`, `proxmox-postinstall-kit`, `projects`, `sh`
+        - **25-user-and-ssh** ([projects/proxmox-postinstall-kit/scripts/25-user-and-ssh.sh](projects/proxmox-postinstall-kit/scripts/25-user-and-ssh.sh)) `scripts`, `proxmox-postinstall-kit`, `projects`, `sh`
+        - **30-firewall** ([projects/proxmox-postinstall-kit/scripts/30-firewall.sh](projects/proxmox-postinstall-kit/scripts/30-firewall.sh)) `scripts`, `proxmox-postinstall-kit`, `projects`, `sh`
+        - **35-zerotier** ([projects/proxmox-postinstall-kit/scripts/35-zerotier.sh](projects/proxmox-postinstall-kit/scripts/35-zerotier.sh)) `scripts`, `proxmox-postinstall-kit`, `projects`, `sh`
+        - **40-cloudflared** ([projects/proxmox-postinstall-kit/scripts/40-cloudflared.sh](projects/proxmox-postinstall-kit/scripts/40-cloudflared.sh)) `scripts`, `proxmox-postinstall-kit`, `projects`, `sh`
+        - **45-docker** ([projects/proxmox-postinstall-kit/scripts/45-docker.sh](projects/proxmox-postinstall-kit/scripts/45-docker.sh)) `scripts`, `proxmox-postinstall-kit`, `projects`, `sh`
+        - **50-monitoring** ([projects/proxmox-postinstall-kit/scripts/50-monitoring.sh](projects/proxmox-postinstall-kit/scripts/50-monitoring.sh)) `scripts`, `proxmox-postinstall-kit`, `projects`, `sh`
+        - **60-ansible** ([projects/proxmox-postinstall-kit/scripts/60-ansible.sh](projects/proxmox-postinstall-kit/scripts/60-ansible.sh)) `scripts`, `proxmox-postinstall-kit`, `projects`, `sh`
+      - **proxmox-postinstall-kit** ([projects/proxmox-postinstall-kit/README.md](projects/proxmox-postinstall-kit/README.md)) - Generated: 2025-09-14T13:31:08.134888 This kit bootstraps a **fresh Proxmox VE** install on a Dell R720 with sensible defaults and optional integrations (ZeroTier, Cloudflare Tunnel, Docker, monitorin... `security`, `projects`, `proxmox-postinstall-kit`, `typescript`, `docker`
+      - **run-all** ([projects/proxmox-postinstall-kit/run-all.sh](projects/proxmox-postinstall-kit/run-all.sh)) `proxmox-postinstall-kit`, `projects`, `sh`
+    - **proxmox-postinstall-suite**
+      - **base**
+        - **run-all** ([projects/proxmox-postinstall-suite/base/run-all.sh](projects/proxmox-postinstall-suite/base/run-all.sh)) `proxmox-postinstall-suite`, `sh`, `projects`, `base`
+      - **plus**
+        - **repos** ([projects/proxmox-postinstall-suite/plus/repos.txt](projects/proxmox-postinstall-suite/plus/repos.txt)) - https://github.com/cbwinslow/opendiscourse https://github.com/cbwinslow/local-ai-packaged https://github.com/open-webui/open-webui `proxmox-postinstall-suite`, `txt`, `projects`, `plus`
+      - **proxmox-postinstall-suite** ([projects/proxmox-postinstall-suite/README.md](projects/proxmox-postinstall-suite/README.md)) - Generated: 2025-09-14T14:35:55.205778 This kit bootstraps a fresh Proxmox VE install on a Dell R720. It’s safe to re-run and fully logged. `proxmox-postinstall-suite`, `md`, `projects`, `typescript`
+      - **README-PLUS** ([projects/proxmox-postinstall-suite/README-PLUS.md](projects/proxmox-postinstall-suite/README-PLUS.md)) - Generated: 2025-09-14T14:35:55.205778 - Docker stacks: Supabase, Postgres+pgvector, Qdrant, OpenWebUI, AnythingLLM, MCP (hub+agent), Observability (Grafana/Prom/Loki/Promtail/Node Exporter/cAdvisor/Po... `projects`, `proxmox-postinstall-suite`, `typescript`, `docker`, `ai`
+    - **roop_cuda_setup**
+      - **Dockerfile** ([projects/roop_cuda_setup/Dockerfile.roop-onnx-gpu](projects/roop_cuda_setup/Dockerfile.roop-onnx-gpu)) `roop-onnx-gpu`, `projects`, `roop_cuda_setup`
+      - **install_cuda_cudnn_onnx** ([projects/roop_cuda_setup/install_cuda_cudnn_onnx.sh](projects/roop_cuda_setup/install_cuda_cudnn_onnx.sh)) `projects`, `roop_cuda_setup`, `sh`
+      - **validate_onnx_cuda** ([projects/roop_cuda_setup/validate_onnx_cuda.py](projects/roop_cuda_setup/validate_onnx_cuda.py)) `projects`, `py`, `roop_cuda_setup`
+    - **trades-tracker**
+      - **backend**
+        - **app** ([projects/trades-tracker/backend/app.py](projects/trades-tracker/backend/app.py)) `backend`, `trades-tracker`, `projects`, `py`
+        - **Dockerfile** ([projects/trades-tracker/backend/Dockerfile](projects/trades-tracker/backend/Dockerfile)) `backend`, `trades-tracker`, `projects`
+        - **requirements** ([projects/trades-tracker/backend/requirements.txt](projects/trades-tracker/backend/requirements.txt)) - uvicorn[standard]==0.30.6 SQLAlchemy==2.0.34 pydantic==2.9.2 `backend`, `trades-tracker`, `projects`, `txt`
+      - **frontend**
+        - **next.config** ([projects/trades-tracker/frontend/next.config.ts](projects/trades-tracker/frontend/next.config.ts)) `frontend`, `ts`, `trades-tracker`, `projects`
+        - **package** ([projects/trades-tracker/frontend/package.json](projects/trades-tracker/frontend/package.json)) `frontend`, `trades-tracker`, `projects`, `json`
+        - **tailwind.config** ([projects/trades-tracker/frontend/tailwind.config.ts](projects/trades-tracker/frontend/tailwind.config.ts)) `frontend`, `ts`, `trades-tracker`, `projects`
+    - **uptostandards-code-scaffold-ci**
+      - **supabase**
+        - **payments** ([projects/uptostandards-code-scaffold-ci/supabase/payments.sql](projects/uptostandards-code-scaffold-ci/supabase/payments.sql)) `supabase`, `sql`, `projects`, `uptostandards-code-scaffold-ci`
+      - **middleware** ([projects/uptostandards-code-scaffold-ci/middleware.ts](projects/uptostandards-code-scaffold-ci/middleware.ts)) `ts`, `projects`, `uptostandards-code-scaffold-ci`
+      - **uptostandards-code-scaffold-ci** ([projects/uptostandards-code-scaffold-ci/README.md](projects/uptostandards-code-scaffold-ci/README.md)) - This bundle contains lightweight payment routes (Stripe/PayPal), webhooks, admin orders page, DB migrations, middleware, and CI workflows. `projects`, `database`, `typescript`, `uptostandards-code-scaffold-ci`, `ai`
+    - **agents** ([projects/agents.md](projects/agents.md)) - This file contains documentation about the various agents used in this knowledge base. `ai`, `md`, `projects`, `typescript`
+    - **auto_rag_open_discourse_v_0** ([projects/auto_rag_open_discourse_v_0.md](projects/auto_rag_open_discourse_v_0.md)) - Below are all project files with their paths and full contents. Copy/edit inline as needed. --- `security`, `devops`, `projects`, `kubernetes`, `api`
+    - **automation_github_integration** ([projects/automation_github_integration.md](projects/automation_github_integration.md)) - **Doc ID:** ODS‑AUTOMATION‑20250721‑01\ **Revision Date:** 2025‑07‑21\ **Status:** Draft for internal review `security`, `devops`, `projects`, `kubernetes`, `api`
+    - **cbw_baseline_starter_code_bundle** ([projects/cbw_baseline_starter_code_bundle.md](projects/cbw_baseline_starter_code_bundle.md)) - This update adds: - **Secrets management** using SOPS + age + Bitwarden CLI. - **CI hardening** with ansible-lint, shellcheck, chezmoi validation. `security`, `projects`, `database`, `typescript`, `ai`
+    - **cbw_baseline_starter_code_bundle(1)** ([projects/cbw_baseline_starter_code_bundle(1).md](projects/cbw_baseline_starter_code_bundle(1).md)) - This update adds: - **Secrets management** using SOPS + age + Bitwarden CLI. - **CI hardening** with ansible-lint, shellcheck, chezmoi validation. `security`, `projects`, `database`, `typescript`, `ai`
+    - **cbw_lan_xfer_suite_v_1** ([projects/cbw_lan_xfer_suite_v_1.md](projects/cbw_lan_xfer_suite_v_1.md)) - A complete, reusable toolkit to transfer big files across your LAN fast, now with: 1) **Rsync sharding & parallelism** `security`, `projects`, `api`, `database`, `typescript`
+    - **cbw_secure_autopilot_v_1** ([projects/cbw_secure_autopilot_v_1.md](projects/cbw_secure_autopilot_v_1.md)) - This is the full system bundle with: - Suricata + Snort IDS - rkhunter + chkrootkit scanners `security`, `projects`, `api`, `typescript`, `docker`
+    - **cbw_secure_autopilot_v_1(1)** ([projects/cbw_secure_autopilot_v_1(1).md](projects/cbw_secure_autopilot_v_1(1).md)) - Below are **all the scripts and code files** from the security autopilot project, organized for full deployment. --- `security`, `devops`, `projects`, `kubernetes`, `api`
+    - **cloud_curio_llm_auto_deploy_improvements_pack** ([projects/cloud_curio_llm_auto_deploy_improvements_pack.md](projects/cloud_curio_llm_auto_deploy_improvements_pack.md)) - This customized pack wires everything directly for **cloudcurio.cc** with your preferred defaults. --- `security`, `devops`, `projects`, `kubernetes`, `database`
+    - **config** ([projects/config.md](projects/config.md)) - Codex supports several mechanisms for setting config values: - Config-specific command-line flags, such as `--model o3` (highest precedence). `security`, `projects`, `api`, `database`, `typescript`
+    - **context_documents** ([projects/context_documents.md](projects/context_documents.md)) - This file collects concise context summaries—in Markdown—for each major area covered in the project. --- `security`, `devops`, `projects`, `kubernetes`, `api`
+    - **kbgen_suite_tui_search_topics_docs_mode_jobs_s_3** ([projects/kbgen_suite_tui_search_topics_docs_mode_jobs_s_3.md](projects/kbgen_suite_tui_search_topics_docs_mode_jobs_s_3.md)) - Below is a cohesive, production‑minded bundle that extends the previously shared `kbgen.py` with: 1) **Textual TUI** (`tui_app.py`) `security`, `devops`, `projects`, `api`, `database`
+    - **lite_llm_cloudflare_tunnel_stack_cloudcurio** ([projects/lite_llm_cloudflare_tunnel_stack_cloudcurio.md](projects/lite_llm_cloudflare_tunnel_stack_cloudcurio.md)) - This repository is a full-featured monorepo for CloudCurio infrastructure apps. It includes: - `apps/litellm-cloudcurio`: LiteLLM proxy behind Cloudflare Tunnel, Redis, Prometheus/Grafana. - `apps/key... `security`, `projects`, `api`, `database`, `typescript`
+    - **lite_llm_cloudflare_tunnel_stack_cloudcurio(1)** ([projects/lite_llm_cloudflare_tunnel_stack_cloudcurio(1).md](projects/lite_llm_cloudflare_tunnel_stack_cloudcurio(1).md)) - This repository is a full-featured monorepo for CloudCurio infrastructure apps. It includes: - `apps/litellm-cloudcurio`: LiteLLM proxy behind Cloudflare Tunnel, Redis, Prometheus/Grafana. - `apps/key... `security`, `projects`, `api`, `database`, `typescript`
+    - **lite_llm_cloudflare_tunnel_stack_cloudcurio(2)** ([projects/lite_llm_cloudflare_tunnel_stack_cloudcurio(2).md](projects/lite_llm_cloudflare_tunnel_stack_cloudcurio(2).md)) - This repository is a full-featured monorepo for CloudCurio infrastructure apps. It includes: - `apps/litellm-cloudcurio`: LiteLLM proxy behind Cloudflare Tunnel, Redis, Prometheus/Grafana. - `apps/key... `security`, `projects`, `api`, `database`, `typescript`
+    - **lite_llm_cloudflare_tunnel_stack_cloudcurio(3)** ([projects/lite_llm_cloudflare_tunnel_stack_cloudcurio(3).md](projects/lite_llm_cloudflare_tunnel_stack_cloudcurio(3).md)) - This repository is a full-featured monorepo for CloudCurio infrastructure apps. It includes: - `apps/litellm-cloudcurio`: LiteLLM proxy behind Cloudflare Tunnel, Redis, Prometheus/Grafana. - `apps/key... `security`, `projects`, `api`, `database`, `typescript`
+    - **local_ai_packaged_hardening_political_docs_pipeline_canvas** ([projects/local_ai_packaged_hardening_political_docs_pipeline_canvas.md](projects/local_ai_packaged_hardening_political_docs_pipeline_canvas.md)) - A single place to capture the plan, docs, and **drop-in code** to make this project stable, self-hostable, and capable of analyzing political documents with repeatable methods. --- `security`, `devops`, `projects`, `kubernetes`, `api`
+    - **local_ai_packaged_hardening_political_docs_pipeline_canvas(1)** ([projects/local_ai_packaged_hardening_political_docs_pipeline_canvas(1).md](projects/local_ai_packaged_hardening_political_docs_pipeline_canvas(1).md)) - A single place to capture the plan, docs, and **drop-in code** to make this project stable, self-hostable, and capable of analyzing political documents with repeatable methods. --- `security`, `devops`, `projects`, `kubernetes`, `api`
+    - **mcp_gov_docs_collector_autonomous_srs_design** ([projects/mcp_gov_docs_collector_autonomous_srs_design.md](projects/mcp_gov_docs_collector_autonomous_srs_design.md)) - An MCP server that autonomously discovers, evaluates, ingests, normalizes, and publishes government documents across jurisdictions. Adds **domain learning**, **crawler memory**, **site ranking**, and ... `security`, `devops`, `projects`, `kubernetes`, `api`
+    - **mcp_token_broker_api_token_assistant_srs_design** ([projects/mcp_token_broker_api_token_assistant_srs_design.md](projects/mcp_token_broker_api_token_assistant_srs_design.md)) - An MCP server that helps users acquire API tokens/keys safely and compliantly using **guided** or **semi‑automated** browser flows. Ships a recorder to capture a one‑time manual token creation and con... `security`, `devops`, `projects`, `kubernetes`, `api`
+    - **open_discourse_documentation_structure_proposal** ([projects/open_discourse_documentation_structure_proposal.md](projects/open_discourse_documentation_structure_proposal.md)) - | ✅ | Task | Microgoals | Description | Criteria for Completion | Completed On | Completed By | Solution Summary | |----|------|------------|-------------|-------------------------|--------------|----... `security`, `projects`, `api`, `database`, `typescript`
+    - **open_discourse_documentation_structure_proposal(1)** ([projects/open_discourse_documentation_structure_proposal(1).md](projects/open_discourse_documentation_structure_proposal(1).md)) - | ✅ | Task | Microgoals | Description | Criteria for Completion | Completed On | Completed By | Solution Summary | |----|------|------------|-------------|-------------------------|--------------|----... `security`, `projects`, `api`, `database`, `typescript`
+    - **open_discourse_documentation_structure_proposal(2)** ([projects/open_discourse_documentation_structure_proposal(2).md](projects/open_discourse_documentation_structure_proposal(2).md)) - | ✅ | Task | Microgoals | Description | Criteria for Completion | Completed On | Completed By | Solution Summary | |----|------|------------|-------------|-------------------------|--------------|----... `security`, `projects`, `api`, `database`, `typescript`
+    - **open_discourse_federated_architecture** ([projects/open_discourse_federated_architecture.svg](projects/open_discourse_federated_architecture.svg)) `svg`, `projects`
+    - **open_discourse_master_feature_systems_plan_v_0** ([projects/open_discourse_master_feature_systems_plan_v_0.md](projects/open_discourse_master_feature_systems_plan_v_0.md)) - > A consolidated blueprint for building a real‑time, objective political intelligence and news analytics platform. Optimized for local or server deployment, with clear inter‑app contracts and an exten... `security`, `devops`, `projects`, `kubernetes`, `api`
+    - **open_discourse_operational_appendices_code_tasks** ([projects/open_discourse_operational_appendices_code_tasks.md](projects/open_discourse_operational_appendices_code_tasks.md)) - This document appends governance, compliance, resilience, cost and API sections with **granular task tables** and **code skeletons** ready to drop into the repo. --- `security`, `devops`, `projects`, `api`, `database`
+    - **open_discourse_stack_repo_git_hub_ready** ([projects/open_discourse_stack_repo_git_hub_ready.md](projects/open_discourse_stack_repo_git_hub_ready.md)) - Below is the complete repository content. Copy these files into a new repo (e.g., `opendiscourse-stack`). Everything is organized by path with full, ready‑to‑run code. --- `security`, `projects`, `api`, `database`, `typescript`
+    - **profile_trades_tracker_backend_repo_fast_api** ([projects/profile_trades_tracker_backend_repo_fast_api.md](projects/profile_trades_tracker_backend_repo_fast_api.md)) - A production‑minded starter to follow high‑profile people and list their trades, surface leaders (YTD performance), generate per‑profile RSS feeds, allow alert subscriptions, and simulate “mirror” pap... `security`, `projects`, `api`, `database`, `typescript`
+    - **profile_trades_tracker_frontend_next** ([projects/profile_trades_tracker_frontend_next.md](projects/profile_trades_tracker_frontend_next.md)) - A production‑grade Next.js UI to navigate the FastAPI backend, plus infrastructure as code to deploy and wire domains, tunnels, and services. > Built for Cloudflare/Ubuntu homelab or small VPS. Secure... `security`, `devops`, `projects`, `kubernetes`, `api`
+    - **profile_trades_tracker_frontend_next(1)** ([projects/profile_trades_tracker_frontend_next(1).md](projects/profile_trades_tracker_frontend_next(1).md)) - A production‑grade Next.js UI to navigate the FastAPI backend, plus infrastructure as code to deploy and wire domains, tunnels, and services. > Built for Cloudflare/Ubuntu homelab or small VPS. Secure... `security`, `devops`, `projects`, `kubernetes`, `api`
+    - **qwen** ([projects/qwen.md](projects/qwen.md)) - This file contains documentation about Qwen Code, an interactive CLI agent developed by Alibaba Group. `ai`, `md`, `projects`, `typescript`
+    - **stack_hub_10_repo_tree_how_to_deploy_and_download_link** ([projects/stack_hub_10_repo_tree_how_to_deploy_and_download_link.md](projects/stack_hub_10_repo_tree_how_to_deploy_and_download_link.md)) - This canvas summarizes the repo you can download, including Worker+Queues+Access+R2 improvements and the Next.js app. `projects`, `api`, `database`, `typescript`, `react`
+    - **tasks** ([projects/tasks.md](projects/tasks.md)) - This file contains documentation about how tasks are managed in this knowledge base. `ai`, `md`, `projects`
+  - **scripts**
+    - **ai_monitoring**
+      - **ai_credentials_config** ([scripts/ai_monitoring/ai_credentials_config.sh](scripts/ai_monitoring/ai_credentials_config.sh)) `scripts`, `ai_monitoring`, `sh`
+      - **ai_monitoring** ([scripts/ai_monitoring/README.md](scripts/ai_monitoring/README.md)) - This directory contains scripts related to AI monitoring and related tools. `ai`, `ai_monitoring`, `typescript`, `scripts`, `md`
+      - **ai_monitoring_demo** ([scripts/ai_monitoring/ai_monitoring_demo.sh](scripts/ai_monitoring/ai_monitoring_demo.sh)) `scripts`, `ai_monitoring`, `sh`
+      - **cbw_maintenance** ([scripts/ai_monitoring/cbw_maintenance.sh](scripts/ai_monitoring/cbw_maintenance.sh)) `scripts`, `ai_monitoring`, `sh`
+      - **install_localai** ([scripts/ai_monitoring/install_localai.sh](scripts/ai_monitoring/install_localai.sh)) `scripts`, `ai_monitoring`, `sh`
+      - **install_monitoring_tools** ([scripts/ai_monitoring/install_monitoring_tools.sh](scripts/ai_monitoring/install_monitoring_tools.sh)) `scripts`, `ai_monitoring`, `sh`
+      - **setup_ai_monitoring** ([scripts/ai_monitoring/setup_ai_monitoring.sh](scripts/ai_monitoring/setup_ai_monitoring.sh)) `scripts`, `ai_monitoring`, `sh`
+      - **setup_ai_stack** ([scripts/ai_monitoring/setup_ai_stack.sh](scripts/ai_monitoring/setup_ai_stack.sh)) `scripts`, `ai_monitoring`, `sh`
+      - **test_monitoring** ([scripts/ai_monitoring/test_monitoring.sh](scripts/ai_monitoring/test_monitoring.sh)) `scripts`, `ai_monitoring`, `sh`
+    - **database**
+      - **cbw-pg-backup** ([scripts/database/cbw-pg-backup.sh](scripts/database/cbw-pg-backup.sh)) `scripts`, `database`, `sh`
+      - **cbw_db_port_mapper** ([scripts/database/cbw_db_port_mapper.sh](scripts/database/cbw_db_port_mapper.sh)) `scripts`, `database`, `sh`
+      - **cbw_init_port_db** ([scripts/database/cbw_init_port_db.sh](scripts/database/cbw_init_port_db.sh)) `scripts`, `database`, `sh`
+      - **cbw_simple_port_db** ([scripts/database/cbw_simple_port_db.sh](scripts/database/cbw_simple_port_db.sh)) `scripts`, `database`, `sh`
+      - **check_postgresql** ([scripts/database/check_postgresql.sh](scripts/database/check_postgresql.sh)) `scripts`, `database`, `sh`
+      - **create_postgres_install_script** ([scripts/database/create_postgres_install_script.sh](scripts/database/create_postgres_install_script.sh)) `scripts`, `database`, `sh`
+      - **database** ([scripts/database/README.md](scripts/database/README.md)) - This directory contains scripts related to database management, including PostgreSQL setup, backups, and port mapping. `ai`, `database`, `typescript`, `scripts`, `md`
+      - **fix_pg_backup_service** ([scripts/database/fix_pg_backup_service.sh](scripts/database/fix_pg_backup_service.sh)) `scripts`, `database`, `sh`
+      - **install_postgresql** ([scripts/database/install_postgresql.sh](scripts/database/install_postgresql.sh)) `scripts`, `database`, `sh`
+      - **vector_db_tool** ([scripts/database/vector_db_tool.sh](scripts/database/vector_db_tool.sh)) `scripts`, `database`, `sh`
+    - **deployment**
+      - **ansible_terraform_pulumi_installer** ([scripts/deployment/ansible_terraform_pulumi_installer.sh](scripts/deployment/ansible_terraform_pulumi_installer.sh)) `scripts`, `deployment`, `sh`
+      - **bitwarden_vaultwarden_installer** ([scripts/deployment/bitwarden_vaultwarden_installer.sh](scripts/deployment/bitwarden_vaultwarden_installer.sh)) `scripts`, `deployment`, `sh`
+      - **cbw-install-guacamole** ([scripts/deployment/cbw-install-guacamole.sh](scripts/deployment/cbw-install-guacamole.sh)) `scripts`, `deployment`, `sh`
+      - **cbw-install-superset** ([scripts/deployment/cbw-install-superset.sh](scripts/deployment/cbw-install-superset.sh)) `scripts`, `deployment`, `sh`
+      - **cbw-install-tika-pdfbox** ([scripts/deployment/cbw-install-tika-pdfbox.sh](scripts/deployment/cbw-install-tika-pdfbox.sh)) `scripts`, `deployment`, `sh`
+      - **cbw_complete_deployment** ([scripts/deployment/cbw_complete_deployment.sh](scripts/deployment/cbw_complete_deployment.sh)) `scripts`, `deployment`, `sh`
+      - **cbw_deployment_status** ([scripts/deployment/cbw_deployment_status.sh](scripts/deployment/cbw_deployment_status.sh)) `scripts`, `deployment`, `sh`
+      - **cbw_manual_deployment** ([scripts/deployment/cbw_manual_deployment.sh](scripts/deployment/cbw_manual_deployment.sh)) `scripts`, `deployment`, `sh`
+      - **cbw_setup_summary** ([scripts/deployment/cbw_setup_summary.sh](scripts/deployment/cbw_setup_summary.sh)) `scripts`, `deployment`, `sh`
+      - **cbw_sudo_setup** ([scripts/deployment/cbw_sudo_setup.sh](scripts/deployment/cbw_sudo_setup.sh)) `scripts`, `deployment`, `sh`
+      - **cbw_user_deployment** ([scripts/deployment/cbw_user_deployment.sh](scripts/deployment/cbw_user_deployment.sh)) `scripts`, `deployment`, `sh`
+      - **celebrate_phase1** ([scripts/deployment/celebrate_phase1.sh](scripts/deployment/celebrate_phase1.sh)) `scripts`, `deployment`, `sh`
+      - **check_nextcloud_deps** ([scripts/deployment/check_nextcloud_deps.sh](scripts/deployment/check_nextcloud_deps.sh)) `scripts`, `deployment`, `sh`
+      - **check_phase2_readiness** ([scripts/deployment/check_phase2_readiness.sh](scripts/deployment/check_phase2_readiness.sh)) `scripts`, `deployment`, `sh`
+      - **check_ports** ([scripts/deployment/check_ports.sh](scripts/deployment/check_ports.sh)) `scripts`, `deployment`, `sh`
+      - **check_security_tools_status** ([scripts/deployment/check_security_tools_status.sh](scripts/deployment/check_security_tools_status.sh)) `scripts`, `deployment`, `sh`
+      - **check_status** ([scripts/deployment/check_status.sh](scripts/deployment/check_status.sh)) `scripts`, `deployment`, `sh`
+      - **cleanup_nextcloud** ([scripts/deployment/cleanup_nextcloud.sh](scripts/deployment/cleanup_nextcloud.sh)) `scripts`, `deployment`, `sh`
+      - **cloudflare_tunnel_helper** ([scripts/deployment/cloudflare_tunnel_helper.sh](scripts/deployment/cloudflare_tunnel_helper.sh)) `scripts`, `deployment`, `sh`
+      - **complete_setup** ([scripts/deployment/complete_setup.sh](scripts/deployment/complete_setup.sh)) `scripts`, `deployment`, `sh`
+      - **configure_ssh_access** ([scripts/deployment/configure_ssh_access.sh](scripts/deployment/configure_ssh_access.sh)) `scripts`, `deployment`, `sh`
+      - **continue_cloudflare_setup** ([scripts/deployment/continue_cloudflare_setup.sh](scripts/deployment/continue_cloudflare_setup.sh)) `scripts`, `deployment`, `sh`
+      - **create_postgres_install_script** ([scripts/deployment/create_postgres_install_script.sh](scripts/deployment/create_postgres_install_script.sh)) `scripts`, `deployment`, `sh`
+      - **deploy_all** ([scripts/deployment/deploy_all.sh](scripts/deployment/deploy_all.sh)) `scripts`, `deployment`, `sh`
+      - **deploy_cbw_services** ([scripts/deployment/deploy_cbw_services.sh](scripts/deployment/deploy_cbw_services.sh)) `scripts`, `deployment`, `sh`
+      - **deploy_cloudflare** ([scripts/deployment/deploy_cloudflare.sh](scripts/deployment/deploy_cloudflare.sh)) `scripts`, `deployment`, `sh`
+      - **deploy_dell_server** ([scripts/deployment/deploy_dell_server.sh](scripts/deployment/deploy_dell_server.sh)) `scripts`, `deployment`, `sh`
+      - **deploy_nextcloud_simple** ([scripts/deployment/deploy_nextcloud_simple.sh](scripts/deployment/deploy_nextcloud_simple.sh)) `scripts`, `deployment`, `sh`
+      - **deployment** ([scripts/deployment/README.md](scripts/deployment/README.md)) - This directory contains scripts related to system deployment, setup, and installation of various services and tools. `ai`, `devops`, `kubernetes`, `typescript`, `scripts`
+      - **display_final_summary** ([scripts/deployment/display_final_summary.sh](scripts/deployment/display_final_summary.sh)) `scripts`, `deployment`, `sh`
+      - **enhanced_server_setup** ([scripts/deployment/enhanced_server_setup.sh](scripts/deployment/enhanced_server_setup.sh)) `scripts`, `deployment`, `sh`
+      - **enhanced_server_setup_final** ([scripts/deployment/enhanced_server_setup_final.sh](scripts/deployment/enhanced_server_setup_final.sh)) `scripts`, `deployment`, `sh`
+      - **final_setup_verification** ([scripts/deployment/final_setup_verification.sh](scripts/deployment/final_setup_verification.sh)) `scripts`, `deployment`, `sh`
+      - **fix_docker** ([scripts/deployment/fix_docker.sh](scripts/deployment/fix_docker.sh)) `scripts`, `deployment`, `sh`
+      - **fix_firewall** ([scripts/deployment/fix_firewall.sh](scripts/deployment/fix_firewall.sh)) `scripts`, `deployment`, `sh`
+      - **fix_ssh** ([scripts/deployment/fix_ssh.sh](scripts/deployment/fix_ssh.sh)) `scripts`, `deployment`, `sh`
+      - **fix_suricata** ([scripts/deployment/fix_suricata.sh](scripts/deployment/fix_suricata.sh)) `scripts`, `deployment`, `sh`
+      - **generate_setup_docs** ([scripts/deployment/generate_setup_docs.sh](scripts/deployment/generate_setup_docs.sh)) `scripts`, `deployment`, `sh`
+      - **getting_started** ([scripts/deployment/getting_started.sh](scripts/deployment/getting_started.sh)) `scripts`, `deployment`, `sh`
+      - **getting_started_immediate** ([scripts/deployment/getting_started_immediate.sh](scripts/deployment/getting_started_immediate.sh)) `scripts`, `deployment`, `sh`
+      - **immediate_actions** ([scripts/deployment/immediate_actions.sh](scripts/deployment/immediate_actions.sh)) `scripts`, `deployment`, `sh`
+      - **install_additional_ide** ([scripts/deployment/install_additional_ide.sh](scripts/deployment/install_additional_ide.sh)) `scripts`, `deployment`, `sh`
+      - **install_code_server** ([scripts/deployment/install_code_server.sh](scripts/deployment/install_code_server.sh)) `scripts`, `deployment`, `sh`
+      - **install_developer_tools** ([scripts/deployment/install_developer_tools.sh](scripts/deployment/install_developer_tools.sh)) `scripts`, `deployment`, `sh`
+      - **install_enhanced_setup** ([scripts/deployment/install_enhanced_setup.sh](scripts/deployment/install_enhanced_setup.sh)) `scripts`, `deployment`, `sh`
+      - **install_essential_services** ([scripts/deployment/install_essential_services.sh](scripts/deployment/install_essential_services.sh)) `scripts`, `deployment`, `sh`
+      - **install_localai** ([scripts/deployment/install_localai.sh](scripts/deployment/install_localai.sh)) `scripts`, `deployment`, `sh`
+      - **install_localrecall** ([scripts/deployment/install_localrecall.sh](scripts/deployment/install_localrecall.sh)) `scripts`, `deployment`, `sh`
+      - **install_monitoring_tools** ([scripts/deployment/install_monitoring_tools.sh](scripts/deployment/install_monitoring_tools.sh)) `scripts`, `deployment`, `sh`
+      - **install_nextcloud** ([scripts/deployment/install_nextcloud.sh](scripts/deployment/install_nextcloud.sh)) `scripts`, `deployment`, `sh`
+      - **install_nextcloud_cloudcurio** ([scripts/deployment/install_nextcloud_cloudcurio.sh](scripts/deployment/install_nextcloud_cloudcurio.sh)) `scripts`, `deployment`, `sh`
+      - **install_nextcloud_deps** ([scripts/deployment/install_nextcloud_deps.sh](scripts/deployment/install_nextcloud_deps.sh)) `scripts`, `deployment`, `sh`
+      - **install_nextcloud_enhanced** ([scripts/deployment/install_nextcloud_enhanced.sh](scripts/deployment/install_nextcloud_enhanced.sh)) `scripts`, `deployment`, `sh`
+      - **install_nextcloud_simple** ([scripts/deployment/install_nextcloud_simple.sh](scripts/deployment/install_nextcloud_simple.sh)) `scripts`, `deployment`, `sh`
+      - **install_ollama** ([scripts/deployment/install_ollama.sh](scripts/deployment/install_ollama.sh)) `scripts`, `deployment`, `sh`
+      - **install_pen_testing_tools** ([scripts/deployment/install_pen_testing_tools.sh](scripts/deployment/install_pen_testing_tools.sh)) `scripts`, `deployment`, `sh`
+      - **install_postgresql** ([scripts/deployment/install_postgresql.sh](scripts/deployment/install_postgresql.sh)) `scripts`, `deployment`, `sh`
+      - **install_security_tools** ([scripts/deployment/install_security_tools.sh](scripts/deployment/install_security_tools.sh)) `scripts`, `deployment`, `sh`
+      - **install_threat_intel_tools** ([scripts/deployment/install_threat_intel_tools.sh](scripts/deployment/install_threat_intel_tools.sh)) `scripts`, `deployment`, `sh`
+      - **launch_setup_tools** ([scripts/deployment/launch_setup_tools.sh](scripts/deployment/launch_setup_tools.sh)) `scripts`, `deployment`, `sh`
+      - **manual_cloudflare_setup** ([scripts/deployment/manual_cloudflare_setup.sh](scripts/deployment/manual_cloudflare_setup.sh)) `scripts`, `deployment`, `sh`
+      - **manual_cloudflare_tunnel_cloudcurio** ([scripts/deployment/manual_cloudflare_tunnel_cloudcurio.sh](scripts/deployment/manual_cloudflare_tunnel_cloudcurio.sh)) `scripts`, `deployment`, `sh`
+      - **manual_nextcloud_deploy** ([scripts/deployment/manual_nextcloud_deploy.sh](scripts/deployment/manual_nextcloud_deploy.sh)) `scripts`, `deployment`, `sh`
+      - **manual_storage_setup** ([scripts/deployment/manual_storage_setup.sh](scripts/deployment/manual_storage_setup.sh)) `scripts`, `deployment`, `sh`
+      - **nextcloud_installer** ([scripts/deployment/nextcloud_installer.sh](scripts/deployment/nextcloud_installer.sh)) `scripts`, `deployment`, `sh`
+      - **orchestrate_install** ([scripts/deployment/orchestrate_install.sh](scripts/deployment/orchestrate_install.sh)) `scripts`, `deployment`, `sh`
+      - **podman_playground_installer** ([scripts/deployment/podman_playground_installer.sh](scripts/deployment/podman_playground_installer.sh)) `scripts`, `deployment`, `sh`
+      - **quick_status** ([scripts/deployment/quick_status.sh](scripts/deployment/quick_status.sh)) `scripts`, `deployment`, `sh`
+      - **quick_status_next_steps** ([scripts/deployment/quick_status_next_steps.sh](scripts/deployment/quick_status_next_steps.sh)) `scripts`, `deployment`, `sh`
+      - **resolve_setup_conflicts** ([scripts/deployment/resolve_setup_conflicts.sh](scripts/deployment/resolve_setup_conflicts.sh)) `scripts`, `deployment`, `sh`
+      - **run_bare_metal_setup** ([scripts/deployment/run_bare_metal_setup.sh](scripts/deployment/run_bare_metal_setup.sh)) `scripts`, `deployment`, `sh`
+      - **run_complete_security_setup** ([scripts/deployment/run_complete_security_setup.sh](scripts/deployment/run_complete_security_setup.sh)) `scripts`, `deployment`, `sh`
+      - **run_complete_setup** ([scripts/deployment/run_complete_setup.sh](scripts/deployment/run_complete_setup.sh)) `scripts`, `deployment`, `sh`
+      - **run_master_installation** ([scripts/deployment/run_master_installation.sh](scripts/deployment/run_master_installation.sh)) `scripts`, `deployment`, `sh`
+      - **setup_activity_logging** ([scripts/deployment/setup_activity_logging.sh](scripts/deployment/setup_activity_logging.sh)) `scripts`, `deployment`, `sh`
+      - **setup_ai_monitoring** ([scripts/deployment/setup_ai_monitoring.sh](scripts/deployment/setup_ai_monitoring.sh)) `scripts`, `deployment`, `sh`
+      - **setup_ai_stack** ([scripts/deployment/setup_ai_stack.sh](scripts/deployment/setup_ai_stack.sh)) `scripts`, `deployment`, `sh`
+      - **setup_cloudflare_tunnel** ([scripts/deployment/setup_cloudflare_tunnel.sh](scripts/deployment/setup_cloudflare_tunnel.sh)) `scripts`, `deployment`, `sh`
+      - **setup_cloudflare_tunnel_cloudcurio** ([scripts/deployment/setup_cloudflare_tunnel_cloudcurio.sh](scripts/deployment/setup_cloudflare_tunnel_cloudcurio.sh)) `scripts`, `deployment`, `sh`
+      - **setup_completion_checklist** ([scripts/deployment/setup_completion_checklist.sh](scripts/deployment/setup_completion_checklist.sh)) `scripts`, `deployment`, `sh`
+      - **setup_nextcloud_manual** ([scripts/deployment/setup_nextcloud_manual.sh](scripts/deployment/setup_nextcloud_manual.sh)) `scripts`, `deployment`, `sh`
+      - **setup_nextcloud_simple** ([scripts/deployment/setup_nextcloud_simple.sh](scripts/deployment/setup_nextcloud_simple.sh)) `scripts`, `deployment`, `sh`
+      - **setup_nextcloud_simple_fixed** ([scripts/deployment/setup_nextcloud_simple_fixed.sh](scripts/deployment/setup_nextcloud_simple_fixed.sh)) `scripts`, `deployment`, `sh`
+      - **show_completion** ([scripts/deployment/show_completion.sh](scripts/deployment/show_completion.sh)) `scripts`, `deployment`, `sh`
+      - **simple_nextcloud_deploy** ([scripts/deployment/simple_nextcloud_deploy.sh](scripts/deployment/simple_nextcloud_deploy.sh)) `scripts`, `deployment`, `sh`
+      - **status_report** ([scripts/deployment/status_report.sh](scripts/deployment/status_report.sh)) `scripts`, `deployment`, `sh`
+      - **strap** ([scripts/deployment/strap.sh](scripts/deployment/strap.sh)) `scripts`, `deployment`, `sh`
+      - **test_monitoring** ([scripts/deployment/test_monitoring.sh](scripts/deployment/test_monitoring.sh)) `scripts`, `deployment`, `sh`
+      - **test_pen_testing** ([scripts/deployment/test_pen_testing.sh](scripts/deployment/test_pen_testing.sh)) `scripts`, `deployment`, `sh`
+      - **test_threat_intel** ([scripts/deployment/test_threat_intel.sh](scripts/deployment/test_threat_intel.sh)) `scripts`, `deployment`, `sh`
+      - **troubleshoot** ([scripts/deployment/troubleshoot.sh](scripts/deployment/troubleshoot.sh)) `scripts`, `deployment`, `sh`
+      - **verify_cloudflare_nextcloud** ([scripts/deployment/verify_cloudflare_nextcloud.sh](scripts/deployment/verify_cloudflare_nextcloud.sh)) `scripts`, `deployment`, `sh`
+      - **verify_core_components** ([scripts/deployment/verify_core_components.sh](scripts/deployment/verify_core_components.sh)) `scripts`, `deployment`, `sh`
+      - **verify_security_setup** ([scripts/deployment/verify_security_setup.sh](scripts/deployment/verify_security_setup.sh)) `scripts`, `deployment`, `sh`
+      - **verify_setup** ([scripts/deployment/verify_setup.sh](scripts/deployment/verify_setup.sh)) `scripts`, `deployment`, `sh`
+      - **verify_setup_solutions** ([scripts/deployment/verify_setup_solutions.sh](scripts/deployment/verify_setup_solutions.sh)) `scripts`, `deployment`, `sh`
+    - **documentation**
+      - **simple_rag_db**
+        - **documents** ([scripts/documentation/simple_rag_db/documents.json](scripts/documentation/simple_rag_db/documents.json)) `scripts`, `json`, `documentation`, `simple_rag_db`
+        - **tfidf_index** ([scripts/documentation/simple_rag_db/tfidf_index.json](scripts/documentation/simple_rag_db/tfidf_index.json)) `scripts`, `json`, `documentation`, `simple_rag_db`
+        - **vocabulary** ([scripts/documentation/simple_rag_db/vocabulary.json](scripts/documentation/simple_rag_db/vocabulary.json)) `scripts`, `json`, `documentation`, `simple_rag_db`
+      - **ARCHITECTURE** ([scripts/documentation/ARCHITECTURE.md](scripts/documentation/ARCHITECTURE.md)) - The documentation management system is designed to automatically download, process, organize, and maintain a comprehensive knowledge base from various sources. `ai`, `security`, `documentation`, `kubernetes`, `api`
+      - **deep_research** ([scripts/documentation/deep_research.py](scripts/documentation/deep_research.py)) `scripts`, `documentation`, `py`
+      - **documentation** ([scripts/documentation/README.md](scripts/documentation/README.md)) - This directory contains Python scripts for managing the knowledge base documentation system. `ai`, `documentation`, `kubernetes`, `api`, `database`
+      - **documentation_config** ([scripts/documentation/documentation_config.yaml](scripts/documentation/documentation_config.yaml)) `scripts`, `yaml`, `documentation`
+      - **download_documentation** ([scripts/documentation/download_documentation.py](scripts/documentation/download_documentation.py)) `scripts`, `documentation`, `py`
+      - **dynamic_toc** ([scripts/documentation/dynamic_toc.py](scripts/documentation/dynamic_toc.py)) `scripts`, `documentation`, `py`
+      - **ingest_examples** ([scripts/documentation/ingest_examples.py](scripts/documentation/ingest_examples.py)) `scripts`, `documentation`, `py`
+      - **ingest_knowledge** ([scripts/documentation/ingest_knowledge.py](scripts/documentation/ingest_knowledge.py)) `scripts`, `documentation`, `py`
+      - **kb** ([scripts/documentation/kb](scripts/documentation/kb)) `scripts`, `documentation`
+      - **kb_functions** ([scripts/documentation/kb_functions.sh](scripts/documentation/kb_functions.sh)) `scripts`, `documentation`, `sh`
+      - **kb_shell_config** ([scripts/documentation/kb_shell_config.sh](scripts/documentation/kb_shell_config.sh)) `scripts`, `documentation`, `sh`
+      - **label_content** ([scripts/documentation/label_content.py](scripts/documentation/label_content.py)) `scripts`, `documentation`, `py`
+      - **manage_knowledge_base** ([scripts/documentation/manage_knowledge_base.py](scripts/documentation/manage_knowledge_base.py)) `scripts`, `documentation`, `py`
+      - **QUICKSTART** ([scripts/documentation/QUICKSTART.md](scripts/documentation/QUICKSTART.md)) - This guide will help you get started with the documentation management system quickly. `ai`, `devops`, `documentation`, `kubernetes`, `api`
+      - **rag_knowledge_base** ([scripts/documentation/rag_knowledge_base.py](scripts/documentation/rag_knowledge_base.py)) `scripts`, `documentation`, `py`
+      - **requirements** ([scripts/documentation/requirements.txt](scripts/documentation/requirements.txt)) - crawl4ai>=0.2.0 beautifulsoup4>=4.12.0 requests>=2.31.0 `scripts`, `txt`, `documentation`
+      - **setup** ([scripts/documentation/setup.sh](scripts/documentation/setup.sh)) `scripts`, `documentation`, `sh`
+      - **simple_rag_knowledge_base** ([scripts/documentation/simple_rag_knowledge_base.py](scripts/documentation/simple_rag_knowledge_base.py)) `scripts`, `documentation`, `py`
+      - **sources** ([scripts/documentation/sources.yaml](scripts/documentation/sources.yaml)) `scripts`, `yaml`, `documentation`
+      - **test_basic** ([scripts/documentation/test_basic.py](scripts/documentation/test_basic.py)) `scripts`, `documentation`, `py`
+      - **web_crawler** ([scripts/documentation/web_crawler.py](scripts/documentation/web_crawler.py)) `scripts`, `documentation`, `py`
+    - **networking**
+      - **apache_suite** ([scripts/networking/apache_suite.sh](scripts/networking/apache_suite.sh)) `scripts`, `networking`, `sh`
+      - **cbw-apache-suite** ([scripts/networking/cbw-apache-suite.sh](scripts/networking/cbw-apache-suite.sh)) `scripts`, `networking`, `sh`
+      - **docker-entrypoint** ([scripts/networking/docker-entrypoint.sh](scripts/networking/docker-entrypoint.sh)) `scripts`, `networking`, `sh`
+      - **networking** ([scripts/networking/README.md](scripts/networking/README.md)) - This directory contains scripts related to networking configuration, including Apache setup, WireGuard VPN, and ZeroTier networking. `ai`, `typescript`, `scripts`, `md`, `networking`
+      - **PROXY_CONFIGURATION** ([scripts/networking/PROXY_CONFIGURATION.sh](scripts/networking/PROXY_CONFIGURATION.sh)) `scripts`, `networking`, `sh`
+      - **setup_networking_services** ([scripts/networking/setup_networking_services.sh](scripts/networking/setup_networking_services.sh)) `scripts`, `networking`, `sh`
+      - **setup_wireguard** ([scripts/networking/setup_wireguard.sh](scripts/networking/setup_wireguard.sh)) `scripts`, `networking`, `sh`
+      - **setup_zerotier** ([scripts/networking/setup_zerotier.sh](scripts/networking/setup_zerotier.sh)) `scripts`, `networking`, `sh`
+      - **static_network** ([scripts/networking/static_network.sh](scripts/networking/static_network.sh)) `scripts`, `networking`, `sh`
+    - **server_setup**
+      - **apache_suite** ([scripts/server_setup/apache_suite.sh](scripts/server_setup/apache_suite.sh)) `scripts`, `server_setup`, `sh`
+      - **automation_github_integration** ([scripts/server_setup/automation_github_integration.md](scripts/server_setup/automation_github_integration.md)) - **Doc ID:** ODS‑AUTOMATION‑20250721‑01\ **Revision Date:** 2025‑07‑21\ **Status:** Draft for internal review `ai`, `security`, `devops`, `kubernetes`, `api`
+      - **cbw-add-airflow-user** ([scripts/server_setup/cbw-add-airflow-user.sh](scripts/server_setup/cbw-add-airflow-user.sh)) `scripts`, `server_setup`, `sh`
+      - **cbw-airflow-diagnose-fix** ([scripts/server_setup/cbw-airflow-diagnose-fix.sh](scripts/server_setup/cbw-airflow-diagnose-fix.sh)) `scripts`, `server_setup`, `sh`
+      - **cbw-apache-suite** ([scripts/server_setup/cbw-apache-suite.sh](scripts/server_setup/cbw-apache-suite.sh)) `scripts`, `server_setup`, `sh`
+      - **cbw-pg-backup** ([scripts/server_setup/cbw-pg-backup.sh](scripts/server_setup/cbw-pg-backup.sh)) `scripts`, `server_setup`, `sh`
+      - **context_documents** ([scripts/server_setup/context_documents.md](scripts/server_setup/context_documents.md)) - This file collects concise context summaries—in Markdown—for each major area covered in the project. --- `ai`, `security`, `devops`, `kubernetes`, `api`
+      - **FEDORA_MULTIMEDIA_README** ([scripts/server_setup/FEDORA_MULTIMEDIA_README.md](scripts/server_setup/FEDORA_MULTIMEDIA_README.md)) - This directory contains scripts for automating multimedia package installation on Fedora Linux systems. `ai`, `server_setup`, `react`, `typescript`, `scripts`
+      - **github_workflows_ci** ([scripts/server_setup/github_workflows_ci.yml](scripts/server_setup/github_workflows_ci.yml)) `scripts`, `yml`, `server_setup`
+      - **install_essential_services** ([scripts/server_setup/install_essential_services.sh](scripts/server_setup/install_essential_services.sh)) `scripts`, `server_setup`, `sh`
+      - **install_fedora_multimedia** ([scripts/server_setup/install_fedora_multimedia.sh](scripts/server_setup/install_fedora_multimedia.sh)) `scripts`, `server_setup`, `sh`
+      - **install_fedora_multimedia_gist** ([scripts/server_setup/install_fedora_multimedia_gist.sh](scripts/server_setup/install_fedora_multimedia_gist.sh)) `scripts`, `server_setup`, `sh`
+      - **mcp_gov_docs_collector_autonomous_srs_design** ([scripts/server_setup/mcp_gov_docs_collector_autonomous_srs_design.md](scripts/server_setup/mcp_gov_docs_collector_autonomous_srs_design.md)) - An MCP server that autonomously discovers, evaluates, ingests, normalizes, and publishes government documents across jurisdictions. Adds **domain learning**, **crawler memory**, **site ranking**, and ... `ai`, `security`, `devops`, `kubernetes`, `api`
+      - **mcp_token_broker_api_token_assistant_srs_design** ([scripts/server_setup/mcp_token_broker_api_token_assistant_srs_design.md](scripts/server_setup/mcp_token_broker_api_token_assistant_srs_design.md)) - An MCP server that helps users acquire API tokens/keys safely and compliantly using **guided** or **semi‑automated** browser flows. Ships a recorder to capture a one‑time manual token creation and con... `ai`, `security`, `devops`, `kubernetes`, `api`
+      - **open_discourse_master_feature_systems_plan_v_0** ([scripts/server_setup/open_discourse_master_feature_systems_plan_v_0.md](scripts/server_setup/open_discourse_master_feature_systems_plan_v_0.md)) - > A consolidated blueprint for building a real‑time, objective political intelligence and news analytics platform. Optimized for local or server deployment, with clear inter‑app contracts and an exten... `ai`, `security`, `devops`, `kubernetes`, `api`
+      - **Qwen_bash_20250914_1ruxtifij** ([scripts/server_setup/Qwen_bash_20250914_1ruxtifij.sh](scripts/server_setup/Qwen_bash_20250914_1ruxtifij.sh)) `scripts`, `server_setup`, `sh`
+      - **Qwen_bash_20250914_4muxu3nyw** ([scripts/server_setup/Qwen_bash_20250914_4muxu3nyw.sh](scripts/server_setup/Qwen_bash_20250914_4muxu3nyw.sh)) `scripts`, `server_setup`, `sh`
+      - **Qwen_bash_20250914_5q0evqdo5** ([scripts/server_setup/Qwen_bash_20250914_5q0evqdo5.sh](scripts/server_setup/Qwen_bash_20250914_5q0evqdo5.sh)) `scripts`, `server_setup`, `sh`
+      - **Qwen_bash_20250914_7b16eq3tq** ([scripts/server_setup/Qwen_bash_20250914_7b16eq3tq.sh](scripts/server_setup/Qwen_bash_20250914_7b16eq3tq.sh)) `scripts`, `server_setup`, `sh`
+      - **Qwen_bash_20250914_7fjnx6b3k** ([scripts/server_setup/Qwen_bash_20250914_7fjnx6b3k.sh](scripts/server_setup/Qwen_bash_20250914_7fjnx6b3k.sh)) `scripts`, `server_setup`, `sh`
+      - **Qwen_bash_20250914_9nwvpihno** ([scripts/server_setup/Qwen_bash_20250914_9nwvpihno.sh](scripts/server_setup/Qwen_bash_20250914_9nwvpihno.sh)) `scripts`, `server_setup`, `sh`
+      - **Qwen_bash_20250914_a9033gzql** ([scripts/server_setup/Qwen_bash_20250914_a9033gzql.sh](scripts/server_setup/Qwen_bash_20250914_a9033gzql.sh)) `scripts`, `server_setup`, `sh`
+      - **Qwen_bash_20250914_b7v1c0rej** ([scripts/server_setup/Qwen_bash_20250914_b7v1c0rej.sh](scripts/server_setup/Qwen_bash_20250914_b7v1c0rej.sh)) `scripts`, `server_setup`, `sh`
+      - **Qwen_bash_20250914_dnbxe1xc8** ([scripts/server_setup/Qwen_bash_20250914_dnbxe1xc8.sh](scripts/server_setup/Qwen_bash_20250914_dnbxe1xc8.sh)) `scripts`, `server_setup`, `sh`
+      - **Qwen_bash_20250914_e4yx2ny9t** ([scripts/server_setup/Qwen_bash_20250914_e4yx2ny9t.sh](scripts/server_setup/Qwen_bash_20250914_e4yx2ny9t.sh)) `scripts`, `server_setup`, `sh`
+      - **Qwen_bash_20250914_gp7oz8u9y** ([scripts/server_setup/Qwen_bash_20250914_gp7oz8u9y.sh](scripts/server_setup/Qwen_bash_20250914_gp7oz8u9y.sh)) `scripts`, `server_setup`, `sh`
+      - **Qwen_bash_20250914_jydpo2kq5** ([scripts/server_setup/Qwen_bash_20250914_jydpo2kq5.sh](scripts/server_setup/Qwen_bash_20250914_jydpo2kq5.sh)) `scripts`, `server_setup`, `sh`
+      - **Qwen_bash_20250914_nb2aabs17** ([scripts/server_setup/Qwen_bash_20250914_nb2aabs17.sh](scripts/server_setup/Qwen_bash_20250914_nb2aabs17.sh)) `scripts`, `server_setup`, `sh`
+      - **Qwen_bash_20250914_ok4ndogst** ([scripts/server_setup/Qwen_bash_20250914_ok4ndogst.sh](scripts/server_setup/Qwen_bash_20250914_ok4ndogst.sh)) `scripts`, `server_setup`, `sh`
+      - **Qwen_bash_20250914_qv1oxi3wg** ([scripts/server_setup/Qwen_bash_20250914_qv1oxi3wg.sh](scripts/server_setup/Qwen_bash_20250914_qv1oxi3wg.sh)) `scripts`, `server_setup`, `sh`
+      - **Qwen_bash_20250914_qyezogkis** ([scripts/server_setup/Qwen_bash_20250914_qyezogkis.sh](scripts/server_setup/Qwen_bash_20250914_qyezogkis.sh)) `scripts`, `server_setup`, `sh`
+      - **Qwen_bash_20250914_y1q69n69p** ([scripts/server_setup/Qwen_bash_20250914_y1q69n69p.sh](scripts/server_setup/Qwen_bash_20250914_y1q69n69p.sh)) `scripts`, `server_setup`, `sh`
+      - **Qwen_bash_20250914_zusg98682** ([scripts/server_setup/Qwen_bash_20250914_zusg98682.sh](scripts/server_setup/Qwen_bash_20250914_zusg98682.sh)) `scripts`, `server_setup`, `sh`
+      - **run_complete_setup** ([scripts/server_setup/run_complete_setup.sh](scripts/server_setup/run_complete_setup.sh)) `scripts`, `server_setup`, `sh`
+      - **server_setup** ([scripts/server_setup/README.md](scripts/server_setup/README.md)) - This directory contains various bash scripts for server setup and automation tasks. `ai`, `database`, `server_setup`, `typescript`, `scripts`
+      - **setup_networking_services** ([scripts/server_setup/setup_networking_services.sh](scripts/server_setup/setup_networking_services.sh)) `scripts`, `server_setup`, `sh`
+      - **setup_wireguard** ([scripts/server_setup/setup_wireguard.sh](scripts/server_setup/setup_wireguard.sh)) `scripts`, `server_setup`, `sh`
+      - **setup_zerotier** ([scripts/server_setup/setup_zerotier.sh](scripts/server_setup/setup_zerotier.sh)) `scripts`, `server_setup`, `sh`
+      - **strap** ([scripts/server_setup/strap.sh](scripts/server_setup/strap.sh)) `scripts`, `server_setup`, `sh`
+      - **verify_setup** ([scripts/server_setup/verify_setup.sh](scripts/server_setup/verify_setup.sh)) `scripts`, `server_setup`, `sh`
+    - **storage**
+      - **check_storage** ([scripts/storage/check_storage.sh](scripts/storage/check_storage.sh)) `scripts`, `storage`, `sh`
+      - **disk_prefetch** ([scripts/storage/disk_prefetch.sh](scripts/storage/disk_prefetch.sh)) `scripts`, `storage`, `sh`
+      - **manual_storage_setup** ([scripts/storage/manual_storage_setup.sh](scripts/storage/manual_storage_setup.sh)) `scripts`, `storage`, `sh`
+      - **optimize_storage** ([scripts/storage/optimize_storage.sh](scripts/storage/optimize_storage.sh)) `scripts`, `storage`, `sh`
+      - **optimize_storage_better_sizes** ([scripts/storage/optimize_storage_better_sizes.sh](scripts/storage/optimize_storage_better_sizes.sh)) `scripts`, `storage`, `sh`
+      - **recover_zfs** ([scripts/storage/recover_zfs.sh](scripts/storage/recover_zfs.sh)) `scripts`, `storage`, `sh`
+      - **storage** ([scripts/storage/README.md](scripts/storage/README.md)) - This directory contains scripts related to storage management, including ZFS recovery and disk optimization. `ai`, `storage`, `typescript`, `scripts`, `md`
+      - **storage_decision_helper** ([scripts/storage/storage_decision_helper.sh](scripts/storage/storage_decision_helper.sh)) `scripts`, `storage`, `sh`
+      - **storage_manager** ([scripts/storage/storage_manager.sh](scripts/storage/storage_manager.sh)) `scripts`, `storage`, `sh`
+      - **storage_reconfiguration** ([scripts/storage/storage_reconfiguration.sh](scripts/storage/storage_reconfiguration.sh)) `scripts`, `storage`, `sh`
+      - **storage_reconfiguration_fixed** ([scripts/storage/storage_reconfiguration_fixed.sh](scripts/storage/storage_reconfiguration_fixed.sh)) `scripts`, `storage`, `sh`
+    - **utilities**
+      - **activity_logger** ([scripts/utilities/activity_logger.sh](scripts/utilities/activity_logger.sh)) `scripts`, `utilities`, `sh`
+      - **ai_credentials_config** ([scripts/utilities/ai_credentials_config.sh](scripts/utilities/ai_credentials_config.sh)) `scripts`, `utilities`, `sh`
+      - **ai_monitoring_demo** ([scripts/utilities/ai_monitoring_demo.sh](scripts/utilities/ai_monitoring_demo.sh)) `scripts`, `utilities`, `sh`
+      - **ansible_terraform_pulumi_installer** ([scripts/utilities/ansible_terraform_pulumi_installer.sh](scripts/utilities/ansible_terraform_pulumi_installer.sh)) `scripts`, `utilities`, `sh`
+      - **bitwarden_vaultwarden_installer** ([scripts/utilities/bitwarden_vaultwarden_installer.sh](scripts/utilities/bitwarden_vaultwarden_installer.sh)) `scripts`, `utilities`, `sh`
+      - **cbw-install-guacamole** ([scripts/utilities/cbw-install-guacamole.sh](scripts/utilities/cbw-install-guacamole.sh)) `scripts`, `utilities`, `sh`
+      - **cbw-install-superset** ([scripts/utilities/cbw-install-superset.sh](scripts/utilities/cbw-install-superset.sh)) `scripts`, `utilities`, `sh`
+      - **cbw-install-tika-pdfbox** ([scripts/utilities/cbw-install-tika-pdfbox.sh](scripts/utilities/cbw-install-tika-pdfbox.sh)) `scripts`, `utilities`, `sh`
+      - **cbw-pg-backup** ([scripts/utilities/cbw-pg-backup.sh](scripts/utilities/cbw-pg-backup.sh)) `scripts`, `utilities`, `sh`
+      - **cbw_complete_deployment** ([scripts/utilities/cbw_complete_deployment.sh](scripts/utilities/cbw_complete_deployment.sh)) `scripts`, `utilities`, `sh`
+      - **cbw_db_port_mapper** ([scripts/utilities/cbw_db_port_mapper.sh](scripts/utilities/cbw_db_port_mapper.sh)) `scripts`, `utilities`, `sh`
+      - **cbw_deployment_status** ([scripts/utilities/cbw_deployment_status.sh](scripts/utilities/cbw_deployment_status.sh)) `scripts`, `utilities`, `sh`
+      - **cbw_final_report** ([scripts/utilities/cbw_final_report.sh](scripts/utilities/cbw_final_report.sh)) `scripts`, `utilities`, `sh`
+      - **cbw_infrastructure_orchestrator** ([scripts/utilities/cbw_infrastructure_orchestrator.sh](scripts/utilities/cbw_infrastructure_orchestrator.sh)) `scripts`, `utilities`, `sh`
+      - **cbw_init_port_config** ([scripts/utilities/cbw_init_port_config.sh](scripts/utilities/cbw_init_port_config.sh)) `scripts`, `utilities`, `sh`
+      - **cbw_init_port_db** ([scripts/utilities/cbw_init_port_db.sh](scripts/utilities/cbw_init_port_db.sh)) `scripts`, `utilities`, `sh`
+      - **cbw_maintenance** ([scripts/utilities/cbw_maintenance.sh](scripts/utilities/cbw_maintenance.sh)) `scripts`, `utilities`, `sh`
+      - **cbw_manual_deployment** ([scripts/utilities/cbw_manual_deployment.sh](scripts/utilities/cbw_manual_deployment.sh)) `scripts`, `utilities`, `sh`
+      - **cbw_port_mapper** ([scripts/utilities/cbw_port_mapper.sh](scripts/utilities/cbw_port_mapper.sh)) `scripts`, `utilities`, `sh`
+      - **cbw_resolve_permissions** ([scripts/utilities/cbw_resolve_permissions.sh](scripts/utilities/cbw_resolve_permissions.sh)) `scripts`, `utilities`, `sh`
+      - **cbw_setup_summary** ([scripts/utilities/cbw_setup_summary.sh](scripts/utilities/cbw_setup_summary.sh)) `scripts`, `utilities`, `sh`
+      - **cbw_show_status** ([scripts/utilities/cbw_show_status.sh](scripts/utilities/cbw_show_status.sh)) `scripts`, `utilities`, `sh`
+      - **cbw_simple_fix_permissions** ([scripts/utilities/cbw_simple_fix_permissions.sh](scripts/utilities/cbw_simple_fix_permissions.sh)) `scripts`, `utilities`, `sh`
+      - **cbw_simple_port_db** ([scripts/utilities/cbw_simple_port_db.sh](scripts/utilities/cbw_simple_port_db.sh)) `scripts`, `utilities`, `sh`
+      - **cbw_startup_guide** ([scripts/utilities/cbw_startup_guide.sh](scripts/utilities/cbw_startup_guide.sh)) `scripts`, `utilities`, `sh`
+      - **cbw_sudo_setup** ([scripts/utilities/cbw_sudo_setup.sh](scripts/utilities/cbw_sudo_setup.sh)) `scripts`, `utilities`, `sh`
+      - **cbw_user_deployment** ([scripts/utilities/cbw_user_deployment.sh](scripts/utilities/cbw_user_deployment.sh)) `scripts`, `utilities`, `sh`
+      - **celebrate_phase1** ([scripts/utilities/celebrate_phase1.sh](scripts/utilities/celebrate_phase1.sh)) `scripts`, `utilities`, `sh`
+      - **check_nextcloud_deps** ([scripts/utilities/check_nextcloud_deps.sh](scripts/utilities/check_nextcloud_deps.sh)) `scripts`, `utilities`, `sh`
+      - **check_phase2_readiness** ([scripts/utilities/check_phase2_readiness.sh](scripts/utilities/check_phase2_readiness.sh)) `scripts`, `utilities`, `sh`
+      - **check_ports** ([scripts/utilities/check_ports.sh](scripts/utilities/check_ports.sh)) `scripts`, `utilities`, `sh`
+      - **check_postgresql** ([scripts/utilities/check_postgresql.sh](scripts/utilities/check_postgresql.sh)) `scripts`, `utilities`, `sh`
+      - **check_security_tools_status** ([scripts/utilities/check_security_tools_status.sh](scripts/utilities/check_security_tools_status.sh)) `scripts`, `utilities`, `sh`
+      - **check_status** ([scripts/utilities/check_status.sh](scripts/utilities/check_status.sh)) `scripts`, `utilities`, `sh`
+      - **check_storage** ([scripts/utilities/check_storage.sh](scripts/utilities/check_storage.sh)) `scripts`, `utilities`, `sh`
+      - **cleanup_nextcloud** ([scripts/utilities/cleanup_nextcloud.sh](scripts/utilities/cleanup_nextcloud.sh)) `scripts`, `utilities`, `sh`
+      - **cloudcurio-bootstrap** ([scripts/utilities/cloudcurio-bootstrap.sh](scripts/utilities/cloudcurio-bootstrap.sh)) `scripts`, `utilities`, `sh`
+      - **cloudflare_tunnel_helper** ([scripts/utilities/cloudflare_tunnel_helper.sh](scripts/utilities/cloudflare_tunnel_helper.sh)) `scripts`, `utilities`, `sh`
+      - **complete_setup** ([scripts/utilities/complete_setup.sh](scripts/utilities/complete_setup.sh)) `scripts`, `utilities`, `sh`
+      - **configure_ssh_access** ([scripts/utilities/configure_ssh_access.sh](scripts/utilities/configure_ssh_access.sh)) `scripts`, `utilities`, `sh`
+      - **continue_cloudflare_setup** ([scripts/utilities/continue_cloudflare_setup.sh](scripts/utilities/continue_cloudflare_setup.sh)) `scripts`, `utilities`, `sh`
+      - **create_ansible_playbook** ([scripts/utilities/create_ansible_playbook.sh](scripts/utilities/create_ansible_playbook.sh)) `scripts`, `utilities`, `sh`
+      - **create_postgres_install_script** ([scripts/utilities/create_postgres_install_script.sh](scripts/utilities/create_postgres_install_script.sh)) `scripts`, `utilities`, `sh`
+      - **create_pulumi_config** ([scripts/utilities/create_pulumi_config.sh](scripts/utilities/create_pulumi_config.sh)) `scripts`, `utilities`, `sh`
+      - **create_terraform_config** ([scripts/utilities/create_terraform_config.sh](scripts/utilities/create_terraform_config.sh)) `scripts`, `utilities`, `sh`
+      - **deploy_all** ([scripts/utilities/deploy_all.sh](scripts/utilities/deploy_all.sh)) `scripts`, `utilities`, `sh`
+      - **deploy_cbw_services** ([scripts/utilities/deploy_cbw_services.sh](scripts/utilities/deploy_cbw_services.sh)) `scripts`, `utilities`, `sh`
+      - **deploy_nextcloud_simple** ([scripts/utilities/deploy_nextcloud_simple.sh](scripts/utilities/deploy_nextcloud_simple.sh)) `scripts`, `utilities`, `sh`
+      - **developer_tools_status** ([scripts/utilities/developer_tools_status.sh](scripts/utilities/developer_tools_status.sh)) `scripts`, `utilities`, `sh`
+      - **disable_numa** ([scripts/utilities/disable_numa.sh](scripts/utilities/disable_numa.sh)) `scripts`, `utilities`, `sh`
+      - **disable_thp** ([scripts/utilities/disable_thp.sh](scripts/utilities/disable_thp.sh)) `scripts`, `utilities`, `sh`
+      - **disk_prefetch** ([scripts/utilities/disk_prefetch.sh](scripts/utilities/disk_prefetch.sh)) `scripts`, `utilities`, `sh`
+      - **display_final_summary** ([scripts/utilities/display_final_summary.sh](scripts/utilities/display_final_summary.sh)) `scripts`, `utilities`, `sh`
+      - **docker** ([scripts/utilities/docker.sh](scripts/utilities/docker.sh)) `scripts`, `utilities`, `sh`
+      - **docker-entrypoint** ([scripts/utilities/docker-entrypoint.sh](scripts/utilities/docker-entrypoint.sh)) `scripts`, `utilities`, `sh`
+      - **docker_status_check** ([scripts/utilities/docker_status_check.sh](scripts/utilities/docker_status_check.sh)) `scripts`, `utilities`, `sh`
+      - **enhanced_server_setup** ([scripts/utilities/enhanced_server_setup.sh](scripts/utilities/enhanced_server_setup.sh)) `scripts`, `utilities`, `sh`
+      - **enhanced_server_setup_final** ([scripts/utilities/enhanced_server_setup_final.sh](scripts/utilities/enhanced_server_setup_final.sh)) `scripts`, `utilities`, `sh`
+      - **etcdctl** ([scripts/utilities/etcdctl.sh](scripts/utilities/etcdctl.sh)) `scripts`, `utilities`, `sh`
+      - **final_setup_verification** ([scripts/utilities/final_setup_verification.sh](scripts/utilities/final_setup_verification.sh)) `scripts`, `utilities`, `sh`
+      - **fix_docker** ([scripts/utilities/fix_docker.sh](scripts/utilities/fix_docker.sh)) `scripts`, `utilities`, `sh`
+      - **fix_firewall** ([scripts/utilities/fix_firewall.sh](scripts/utilities/fix_firewall.sh)) `scripts`, `utilities`, `sh`
+      - **fix_guacamole_deps** ([scripts/utilities/fix_guacamole_deps.sh](scripts/utilities/fix_guacamole_deps.sh)) `scripts`, `utilities`, `sh`
+      - **fix_missing_package** ([scripts/utilities/fix_missing_package.sh](scripts/utilities/fix_missing_package.sh)) `scripts`, `utilities`, `sh`
+      - **fix_pg_backup_service** ([scripts/utilities/fix_pg_backup_service.sh](scripts/utilities/fix_pg_backup_service.sh)) `scripts`, `utilities`, `sh`
+      - **fix_ssh** ([scripts/utilities/fix_ssh.sh](scripts/utilities/fix_ssh.sh)) `scripts`, `utilities`, `sh`
+      - **fix_suricata** ([scripts/utilities/fix_suricata.sh](scripts/utilities/fix_suricata.sh)) `scripts`, `utilities`, `sh`
+      - **generate_setup_docs** ([scripts/utilities/generate_setup_docs.sh](scripts/utilities/generate_setup_docs.sh)) `scripts`, `utilities`, `sh`
+      - **getting_started** ([scripts/utilities/getting_started.sh](scripts/utilities/getting_started.sh)) `scripts`, `utilities`, `sh`
+      - **getting_started_immediate** ([scripts/utilities/getting_started_immediate.sh](scripts/utilities/getting_started_immediate.sh)) `scripts`, `utilities`, `sh`
+      - **git_repo_manager** ([scripts/utilities/git_repo_manager.sh](scripts/utilities/git_repo_manager.sh)) `scripts`, `utilities`, `sh`
+      - **immediate_actions** ([scripts/utilities/immediate_actions.sh](scripts/utilities/immediate_actions.sh)) `scripts`, `utilities`, `sh`
+      - **install_additional_ide** ([scripts/utilities/install_additional_ide.sh](scripts/utilities/install_additional_ide.sh)) `scripts`, `utilities`, `sh`
+      - **install_code_server** ([scripts/utilities/install_code_server.sh](scripts/utilities/install_code_server.sh)) `scripts`, `utilities`, `sh`
+      - **install_developer_tools** ([scripts/utilities/install_developer_tools.sh](scripts/utilities/install_developer_tools.sh)) `scripts`, `utilities`, `sh`
+      - **install_enhanced_setup** ([scripts/utilities/install_enhanced_setup.sh](scripts/utilities/install_enhanced_setup.sh)) `scripts`, `utilities`, `sh`
+      - **install_localai** ([scripts/utilities/install_localai.sh](scripts/utilities/install_localai.sh)) `scripts`, `utilities`, `sh`
+      - **install_localrecall** ([scripts/utilities/install_localrecall.sh](scripts/utilities/install_localrecall.sh)) `scripts`, `utilities`, `sh`
+      - **install_monitoring_tools** ([scripts/utilities/install_monitoring_tools.sh](scripts/utilities/install_monitoring_tools.sh)) `scripts`, `utilities`, `sh`
+      - **install_nextcloud** ([scripts/utilities/install_nextcloud.sh](scripts/utilities/install_nextcloud.sh)) `scripts`, `utilities`, `sh`
+      - **install_nextcloud_cloudcurio** ([scripts/utilities/install_nextcloud_cloudcurio.sh](scripts/utilities/install_nextcloud_cloudcurio.sh)) `scripts`, `utilities`, `sh`
+      - **install_nextcloud_deps** ([scripts/utilities/install_nextcloud_deps.sh](scripts/utilities/install_nextcloud_deps.sh)) `scripts`, `utilities`, `sh`
+      - **install_nextcloud_enhanced** ([scripts/utilities/install_nextcloud_enhanced.sh](scripts/utilities/install_nextcloud_enhanced.sh)) `scripts`, `utilities`, `sh`
+      - **install_nextcloud_simple** ([scripts/utilities/install_nextcloud_simple.sh](scripts/utilities/install_nextcloud_simple.sh)) `scripts`, `utilities`, `sh`
+      - **install_ollama** ([scripts/utilities/install_ollama.sh](scripts/utilities/install_ollama.sh)) `scripts`, `utilities`, `sh`
+      - **install_pen_testing_tools** ([scripts/utilities/install_pen_testing_tools.sh](scripts/utilities/install_pen_testing_tools.sh)) `scripts`, `utilities`, `sh`
+      - **install_postgresql** ([scripts/utilities/install_postgresql.sh](scripts/utilities/install_postgresql.sh)) `scripts`, `utilities`, `sh`
+      - **install_security_tools** ([scripts/utilities/install_security_tools.sh](scripts/utilities/install_security_tools.sh)) `scripts`, `utilities`, `sh`
+      - **install_threat_intel_tools** ([scripts/utilities/install_threat_intel_tools.sh](scripts/utilities/install_threat_intel_tools.sh)) `scripts`, `utilities`, `sh`
+      - **kb_manager** ([scripts/utilities/kb_manager.sh](scripts/utilities/kb_manager.sh)) `scripts`, `utilities`, `sh`
+      - **launch_setup_tools** ([scripts/utilities/launch_setup_tools.sh](scripts/utilities/launch_setup_tools.sh)) `scripts`, `utilities`, `sh`
+      - **log_manager** ([scripts/utilities/log_manager.sh](scripts/utilities/log_manager.sh)) `scripts`, `utilities`, `sh`
+      - **manual_cloudflare_setup** ([scripts/utilities/manual_cloudflare_setup.sh](scripts/utilities/manual_cloudflare_setup.sh)) `scripts`, `utilities`, `sh`
+      - **manual_cloudflare_tunnel_cloudcurio** ([scripts/utilities/manual_cloudflare_tunnel_cloudcurio.sh](scripts/utilities/manual_cloudflare_tunnel_cloudcurio.sh)) `scripts`, `utilities`, `sh`
+      - **manual_nextcloud_deploy** ([scripts/utilities/manual_nextcloud_deploy.sh](scripts/utilities/manual_nextcloud_deploy.sh)) `scripts`, `utilities`, `sh`
+      - **manual_storage_setup** ([scripts/utilities/manual_storage_setup.sh](scripts/utilities/manual_storage_setup.sh)) `scripts`, `utilities`, `sh`
+      - **nextcloud_installer** ([scripts/utilities/nextcloud_installer.sh](scripts/utilities/nextcloud_installer.sh)) `scripts`, `utilities`, `sh`
+      - **node** ([scripts/utilities/node.sh](scripts/utilities/node.sh)) `scripts`, `utilities`, `sh`
+      - **optimize_demo** ([scripts/utilities/optimize_demo.sh](scripts/utilities/optimize_demo.sh)) `scripts`, `utilities`, `sh`
+      - **optimize_storage** ([scripts/utilities/optimize_storage.sh](scripts/utilities/optimize_storage.sh)) `scripts`, `utilities`, `sh`
+      - **optimize_storage_better_sizes** ([scripts/utilities/optimize_storage_better_sizes.sh](scripts/utilities/optimize_storage_better_sizes.sh)) `scripts`, `utilities`, `sh`
+      - **orchestrate_install** ([scripts/utilities/orchestrate_install.sh](scripts/utilities/orchestrate_install.sh)) `scripts`, `utilities`, `sh`
+      - **podman_playground_installer** ([scripts/utilities/podman_playground_installer.sh](scripts/utilities/podman_playground_installer.sh)) `scripts`, `utilities`, `sh`
+      - **port_manager** ([scripts/utilities/port_manager.sh](scripts/utilities/port_manager.sh)) `scripts`, `utilities`, `sh`
+      - **ports** ([scripts/utilities/ports.sh](scripts/utilities/ports.sh)) `scripts`, `utilities`, `sh`
+      - **PROXY_CONFIGURATION** ([scripts/utilities/PROXY_CONFIGURATION.sh](scripts/utilities/PROXY_CONFIGURATION.sh)) `scripts`, `utilities`, `sh`
+      - **quick_status** ([scripts/utilities/quick_status.sh](scripts/utilities/quick_status.sh)) `scripts`, `utilities`, `sh`
+      - **quick_status_next_steps** ([scripts/utilities/quick_status_next_steps.sh](scripts/utilities/quick_status_next_steps.sh)) `scripts`, `utilities`, `sh`
+      - **recover_zfs** ([scripts/utilities/recover_zfs.sh](scripts/utilities/recover_zfs.sh)) `scripts`, `utilities`, `sh`
+      - **resolve_setup_conflicts** ([scripts/utilities/resolve_setup_conflicts.sh](scripts/utilities/resolve_setup_conflicts.sh)) `scripts`, `utilities`, `sh`
+      - **run_bare_metal_setup** ([scripts/utilities/run_bare_metal_setup.sh](scripts/utilities/run_bare_metal_setup.sh)) `scripts`, `utilities`, `sh`
+      - **run_complete_security_setup** ([scripts/utilities/run_complete_security_setup.sh](scripts/utilities/run_complete_security_setup.sh)) `scripts`, `utilities`, `sh`
+      - **run_master_installation** ([scripts/utilities/run_master_installation.sh](scripts/utilities/run_master_installation.sh)) `scripts`, `utilities`, `sh`
+      - **setup_activity_logging** ([scripts/utilities/setup_activity_logging.sh](scripts/utilities/setup_activity_logging.sh)) `scripts`, `utilities`, `sh`
+      - **setup_ai_monitoring** ([scripts/utilities/setup_ai_monitoring.sh](scripts/utilities/setup_ai_monitoring.sh)) `scripts`, `utilities`, `sh`
+      - **setup_ai_stack** ([scripts/utilities/setup_ai_stack.sh](scripts/utilities/setup_ai_stack.sh)) `scripts`, `utilities`, `sh`
+      - **setup_cloudflare_tunnel** ([scripts/utilities/setup_cloudflare_tunnel.sh](scripts/utilities/setup_cloudflare_tunnel.sh)) `scripts`, `utilities`, `sh`
+      - **setup_cloudflare_tunnel_cloudcurio** ([scripts/utilities/setup_cloudflare_tunnel_cloudcurio.sh](scripts/utilities/setup_cloudflare_tunnel_cloudcurio.sh)) `scripts`, `utilities`, `sh`
+      - **setup_completion_checklist** ([scripts/utilities/setup_completion_checklist.sh](scripts/utilities/setup_completion_checklist.sh)) `scripts`, `utilities`, `sh`
+      - **setup_nextcloud_manual** ([scripts/utilities/setup_nextcloud_manual.sh](scripts/utilities/setup_nextcloud_manual.sh)) `scripts`, `utilities`, `sh`
+      - **setup_nextcloud_simple** ([scripts/utilities/setup_nextcloud_simple.sh](scripts/utilities/setup_nextcloud_simple.sh)) `scripts`, `utilities`, `sh`
+      - **setup_nextcloud_simple_fixed** ([scripts/utilities/setup_nextcloud_simple_fixed.sh](scripts/utilities/setup_nextcloud_simple_fixed.sh)) `scripts`, `utilities`, `sh`
+      - **show_completion** ([scripts/utilities/show_completion.sh](scripts/utilities/show_completion.sh)) `scripts`, `utilities`, `sh`
+      - **show_final_status** ([scripts/utilities/show_final_status.sh](scripts/utilities/show_final_status.sh)) `scripts`, `utilities`, `sh`
+      - **simple_nextcloud_deploy** ([scripts/utilities/simple_nextcloud_deploy.sh](scripts/utilities/simple_nextcloud_deploy.sh)) `scripts`, `utilities`, `sh`
+      - **static_network** ([scripts/utilities/static_network.sh](scripts/utilities/static_network.sh)) `scripts`, `utilities`, `sh`
+      - **status_check** ([scripts/utilities/status_check.sh](scripts/utilities/status_check.sh)) `scripts`, `utilities`, `sh`
+      - **status_report** ([scripts/utilities/status_report.sh](scripts/utilities/status_report.sh)) `scripts`, `utilities`, `sh`
+      - **stop_conflicting_services** ([scripts/utilities/stop_conflicting_services.sh](scripts/utilities/stop_conflicting_services.sh)) `scripts`, `utilities`, `sh`
+      - **storage_decision_helper** ([scripts/utilities/storage_decision_helper.sh](scripts/utilities/storage_decision_helper.sh)) `scripts`, `utilities`, `sh`
+      - **storage_manager** ([scripts/utilities/storage_manager.sh](scripts/utilities/storage_manager.sh)) `scripts`, `utilities`, `sh`
+      - **storage_reconfiguration** ([scripts/utilities/storage_reconfiguration.sh](scripts/utilities/storage_reconfiguration.sh)) `scripts`, `utilities`, `sh`
+      - **storage_reconfiguration_fixed** ([scripts/utilities/storage_reconfiguration_fixed.sh](scripts/utilities/storage_reconfiguration_fixed.sh)) `scripts`, `utilities`, `sh`
+      - **system_status** ([scripts/utilities/system_status.sh](scripts/utilities/system_status.sh)) `scripts`, `utilities`, `sh`
+      - **system_tools_launcher** ([scripts/utilities/system_tools_launcher.sh](scripts/utilities/system_tools_launcher.sh)) `scripts`, `utilities`, `sh`
+      - **test_docker** ([scripts/utilities/test_docker.sh](scripts/utilities/test_docker.sh)) `scripts`, `utilities`, `sh`
+      - **test_monitoring** ([scripts/utilities/test_monitoring.sh](scripts/utilities/test_monitoring.sh)) `scripts`, `utilities`, `sh`
+      - **test_pen_testing** ([scripts/utilities/test_pen_testing.sh](scripts/utilities/test_pen_testing.sh)) `scripts`, `utilities`, `sh`
+      - **test_threat_intel** ([scripts/utilities/test_threat_intel.sh](scripts/utilities/test_threat_intel.sh)) `scripts`, `utilities`, `sh`
+      - **troubleshoot** ([scripts/utilities/troubleshoot.sh](scripts/utilities/troubleshoot.sh)) `scripts`, `utilities`, `sh`
+      - **utilities** ([scripts/utilities/README.md](scripts/utilities/README.md)) - This directory contains various utility scripts that don't fit into other categories. `ai`, `devops`, `kubernetes`, `utilities`, `typescript`
+      - **vector_db_tool** ([scripts/utilities/vector_db_tool.sh](scripts/utilities/vector_db_tool.sh)) `scripts`, `utilities`, `sh`
+      - **verify_cloudflare_nextcloud** ([scripts/utilities/verify_cloudflare_nextcloud.sh](scripts/utilities/verify_cloudflare_nextcloud.sh)) `scripts`, `utilities`, `sh`
+      - **verify_core_components** ([scripts/utilities/verify_core_components.sh](scripts/utilities/verify_core_components.sh)) `scripts`, `utilities`, `sh`
+      - **verify_security_setup** ([scripts/utilities/verify_security_setup.sh](scripts/utilities/verify_security_setup.sh)) `scripts`, `utilities`, `sh`
+      - **verify_setup_solutions** ([scripts/utilities/verify_setup_solutions.sh](scripts/utilities/verify_setup_solutions.sh)) `scripts`, `utilities`, `sh`
+    - **scripts** ([scripts/README.md](scripts/README.md)) - This directory contains various scripts organized by category. `ai`, `security`, `devops`, `kubernetes`, `database`
+  - **templates**
+    - **ai_agents**
+      - **crews**
+        - **documentation-crew** ([templates/ai_agents/crews/documentation-crew.md](templates/ai_agents/crews/documentation-crew.md)) - This CrewAI configuration defines a crew of AI agents specialized in researching, documenting, and organizing knowledge base content. `security`, `devops`, `ai_agents`, `kubernetes`, `crews`
+      - **mcp_servers**
+        - **knowledge-base-mcp-server** ([templates/ai_agents/mcp_servers/knowledge-base-mcp-server.py](templates/ai_agents/mcp_servers/knowledge-base-mcp-server.py)) `mcp_servers`, `py`, `ai_agents`, `templates`
+    - **components**
+      - **shadcn**
+        - **code-block** ([templates/components/shadcn/code-block.tsx](templates/components/shadcn/code-block.tsx)) `components`, `tsx`, `templates`, `shadcn`
+        - **command-palette** ([templates/components/shadcn/command-palette.tsx](templates/components/shadcn/command-palette.tsx)) `components`, `tsx`, `templates`, `shadcn`
+        - **documentation-card** ([templates/components/shadcn/documentation-card.tsx](templates/components/shadcn/documentation-card.tsx)) `components`, `tsx`, `templates`, `shadcn`
+    - **frameworks**
+      - **nextjs**
+        - **app-router-starter** ([templates/frameworks/nextjs/app-router-starter.md](templates/frameworks/nextjs/app-router-starter.md)) - Modern Next.js 14+ starter template using App Router, TypeScript, Tailwind CSS, and best practices. `security`, `devops`, `frameworks`, `kubernetes`, `api`
+    - **languages**
+      - **python**
+        - **fastapi-template** ([templates/languages/python/fastapi-template.py](templates/languages/python/fastapi-template.py)) `py`, `languages`, `python`, `templates`
+  - **tools**
+    - **code_analysis**
+      - **code_analysis** ([tools/code_analysis/README.md](tools/code_analysis/README.md)) - Tools for analyzing code quality, detecting bugs, and enforcing coding standards. `security`, `devops`, `tools`, `api`, `typescript`
+    - **deployment**
+      - **deployment** ([tools/deployment/README.md](tools/deployment/README.md)) - Tools for deploying applications to various environments and platforms. `devops`, `tools`, `python`, `kubernetes`, `database`
+    - **monitoring**
+      - **monitoring** ([tools/monitoring/README.md](tools/monitoring/README.md)) - Comprehensive monitoring and observability tools for applications and infrastructure. `security`, `tools`, `api`, `monitoring`, `database`
+    - **testing**
+      - **testing** ([tools/testing/README.md](tools/testing/README.md)) - Comprehensive testing tools for unit, integration, E2E, performance, and security testing. `security`, `devops`, `tools`, `api`, `database`
+    - **tools** ([tools/README.md](tools/README.md)) - Comprehensive collection of development, operations, and quality assurance tools organized by category. `security`, `devops`, `tools`, `kubernetes`, `api`
+  - **web**
+    - **.next**
+      - **cache**
+        - **.previewinfo** ([web/.next/cache/.previewinfo](web/.next/cache/.previewinfo)) `cache`, `web`, `.next`
+        - **.rscinfo** ([web/.next/cache/.rscinfo](web/.next/cache/.rscinfo)) `cache`, `web`, `.next`
+      - **diagnostics**
+        - **build-diagnostics** ([web/.next/diagnostics/build-diagnostics.json](web/.next/diagnostics/build-diagnostics.json)) `diagnostics`, `web`, `.next`, `json`
+        - **framework** ([web/.next/diagnostics/framework.json](web/.next/diagnostics/framework.json)) `diagnostics`, `web`, `.next`, `json`
+      - **server**
+        - **app-paths-manifest** ([web/.next/server/app-paths-manifest.json](web/.next/server/app-paths-manifest.json)) `web`, `.next`, `server`, `json`
+        - **dynamic-css-manifest** ([web/.next/server/dynamic-css-manifest.js](web/.next/server/dynamic-css-manifest.js)) `js`, `web`, `.next`, `server`
+        - **functions-config-manifest** ([web/.next/server/functions-config-manifest.json](web/.next/server/functions-config-manifest.json)) `web`, `.next`, `server`, `json`
+        - **interception-route-rewrite-manifest** ([web/.next/server/interception-route-rewrite-manifest.js](web/.next/server/interception-route-rewrite-manifest.js)) `js`, `web`, `.next`, `server`
+        - **middleware-build-manifest** ([web/.next/server/middleware-build-manifest.js](web/.next/server/middleware-build-manifest.js)) `js`, `web`, `.next`, `server`
+        - **middleware-manifest** ([web/.next/server/middleware-manifest.json](web/.next/server/middleware-manifest.json)) `web`, `.next`, `server`, `json`
+        - **middleware-react-loadable-manifest** ([web/.next/server/middleware-react-loadable-manifest.js](web/.next/server/middleware-react-loadable-manifest.js)) `js`, `web`, `.next`, `server`
+        - **next-font-manifest** ([web/.next/server/next-font-manifest.js](web/.next/server/next-font-manifest.js)) `js`, `web`, `.next`, `server`
+        - **next-font-manifest** ([web/.next/server/next-font-manifest.json](web/.next/server/next-font-manifest.json)) `web`, `.next`, `server`, `json`
+        - **pages-manifest** ([web/.next/server/pages-manifest.json](web/.next/server/pages-manifest.json)) `web`, `.next`, `server`, `json`
+        - **server-reference-manifest** ([web/.next/server/server-reference-manifest.js](web/.next/server/server-reference-manifest.js)) `js`, `web`, `.next`, `server`
+        - **server-reference-manifest** ([web/.next/server/server-reference-manifest.json](web/.next/server/server-reference-manifest.json)) `web`, `.next`, `server`, `json`
+        - **webpack-runtime** ([web/.next/server/webpack-runtime.js](web/.next/server/webpack-runtime.js)) `js`, `web`, `.next`, `server`
+      - **types**
+        - **cache-life.d** ([web/.next/types/cache-life.d.ts](web/.next/types/cache-life.d.ts)) `ts`, `types`, `web`, `.next`
+        - **package** ([web/.next/types/package.json](web/.next/types/package.json)) `types`, `web`, `.next`, `json`
+        - **routes.d** ([web/.next/types/routes.d.ts](web/.next/types/routes.d.ts)) `ts`, `types`, `web`, `.next`
+        - **validator** ([web/.next/types/validator.ts](web/.next/types/validator.ts)) `ts`, `types`, `web`, `.next`
+      - **app-build-manifest** ([web/.next/app-build-manifest.json](web/.next/app-build-manifest.json)) `web`, `.next`, `json`
+      - **app-path-routes-manifest** ([web/.next/app-path-routes-manifest.json](web/.next/app-path-routes-manifest.json)) `web`, `.next`, `json`
+      - **build-manifest** ([web/.next/build-manifest.json](web/.next/build-manifest.json)) `web`, `.next`, `json`
+      - **BUILD_ID** ([web/.next/BUILD_ID](web/.next/BUILD_ID)) `web`, `.next`
+      - **dynamic-css-manifest** ([web/.next/dynamic-css-manifest.json](web/.next/dynamic-css-manifest.json)) `web`, `.next`, `json`
+      - **export-detail** ([web/.next/export-detail.json](web/.next/export-detail.json)) `web`, `.next`, `json`
+      - **export-marker** ([web/.next/export-marker.json](web/.next/export-marker.json)) `web`, `.next`, `json`
+      - **images-manifest** ([web/.next/images-manifest.json](web/.next/images-manifest.json)) `web`, `.next`, `json`
+      - **next-minimal-server.js.nft** ([web/.next/next-minimal-server.js.nft.json](web/.next/next-minimal-server.js.nft.json)) `web`, `.next`, `json`
+      - **next-server.js.nft** ([web/.next/next-server.js.nft.json](web/.next/next-server.js.nft.json)) `web`, `.next`, `json`
+      - **package** ([web/.next/package.json](web/.next/package.json)) `web`, `.next`, `json`
+      - **prerender-manifest** ([web/.next/prerender-manifest.json](web/.next/prerender-manifest.json)) `web`, `.next`, `json`
+      - **react-loadable-manifest** ([web/.next/react-loadable-manifest.json](web/.next/react-loadable-manifest.json)) `web`, `.next`, `json`
+      - **required-server-files** ([web/.next/required-server-files.json](web/.next/required-server-files.json)) `web`, `.next`, `json`
+      - **routes-manifest** ([web/.next/routes-manifest.json](web/.next/routes-manifest.json)) `web`, `.next`, `json`
+      - **trace** ([web/.next/trace](web/.next/trace)) `web`, `.next`
+    - **out**
+      - **api**
+        - **files** ([web/out/api/files](web/out/api/files)) `out`, `web`, `api`
+      - **404** ([web/out/404.html](web/out/404.html)) `out`, `web`, `html`
+      - **index** ([web/out/index.html](web/out/index.html)) `out`, `web`, `html`
+      - **index** ([web/out/index.txt](web/out/index.txt)) - 2:I[9766,[],""] 3:I[8924,[],""] 4:I[1959,[],"ClientPageRoot"] `txt`, `out`, `web`
+    - **src**
+      - **app**
+        - **globals** ([web/src/app/globals.css](web/src/app/globals.css)) `app`, `css`, `src`, `web`
+        - **layout** ([web/src/app/layout.js](web/src/app/layout.js)) `app`, `js`, `src`, `web`
+        - **page** ([web/src/app/page.js](web/src/app/page.js)) `app`, `js`, `src`, `web`
+      - **components**
+        - **FileListing** ([web/src/components/FileListing.js](web/src/components/FileListing.js)) `js`, `src`, `web`, `components`
+        - **Navigation** ([web/src/components/Navigation.js](web/src/components/Navigation.js)) `js`, `src`, `web`, `components`
+        - **SearchBar** ([web/src/components/SearchBar.js](web/src/components/SearchBar.js)) `js`, `src`, `web`, `components`
+      - **styles**
+        - **globals** ([web/src/styles/globals.css](web/src/styles/globals.css)) `styles`, `css`, `src`, `web`
+    - **tests**
+      - **homepage.test** ([web/tests/homepage.test.js](web/tests/homepage.test.js)) `js`, `tests`, `web`
+    - **.eslintrc** ([web/.eslintrc.json](web/.eslintrc.json)) `web`, `json`
+    - **next.config** ([web/next.config.js](web/next.config.js)) `js`, `web`
+    - **package** ([web/package.json](web/package.json)) `web`, `json`
+    - **package-lock** ([web/package-lock.json](web/package-lock.json)) `web`, `json`
+    - **pages-functions-routing** ([web/pages-functions-routing.json](web/pages-functions-routing.json)) `web`, `json`
+    - **playwright.config** ([web/playwright.config.js](web/playwright.config.js)) `js`, `web`
+    - **postcss.config** ([web/postcss.config.js](web/postcss.config.js)) `js`, `web`
+    - **tailwind.config** ([web/tailwind.config.js](web/tailwind.config.js)) `js`, `web`
+    - **wrangler** ([web/wrangler.toml](web/wrangler.toml)) `toml`, `web`
+  - **.pre-commit-config** ([.pre-commit-config.yaml](.pre-commit-config.yaml)) `yaml`
+  - **A Technical Blueprint for the Development of a Real-Time AI Assistant for Blackjack and Poker** ([A Technical Blueprint for the Development of a Real-Time AI Assistant for Blackjack and Poker.txt](A Technical Blueprint for the Development of a Real-Time AI Assistant for Blackjack and Poker.txt)) - Part 1: Foundational Game Theory and AI Models `txt`
+  - **AI Blackjack Poker Assistant Development** ([AI Blackjack Poker Assistant Development.md](AI Blackjack Poker Assistant Development.md)) - This section establishes the theoretical bedrock of the AI's decision-making engines. It dissects the mathematical and strategic principles governing optimal play in both Blackjack and Poker, transiti... `security`, `devops`, `api`, `database`, `react`
+  - **AI Blackjack Poker Assistant Development** ([AI Blackjack Poker Assistant Development.pdf](AI Blackjack Poker Assistant Development.pdf)) `pdf`
+  - **AI Blackjack Poker Assistant Development** ([AI Blackjack Poker Assistant Development.txt](AI Blackjack Poker Assistant Development.txt)) - Part 1: Foundational Game Theory and AI Models `txt`
+  - **AI for Poker and Blackjack Analysis** ([AI for Poker and Blackjack Analysis.md](AI for Poker and Blackjack Analysis.md)) - The foundational layer of any AI agent designed to interact with a graphical user interface is its perception system. This system is responsible for the critical task of translating raw pixel data fro... `security`, `devops`, `api`, `database`, `typescript`
+  - **AI for Poker and Blackjack Analysis** ([AI for Poker and Blackjack Analysis.txt](AI for Poker and Blackjack Analysis.txt)) - An Expert Report on the Design and Implementation of a Vision-Based AI Agent for Strategic Poker and Blackjack Play `txt`
+  - **AI_AGENT_WORKFLOWS** ([AI_AGENT_WORKFLOWS.md](AI_AGENT_WORKFLOWS.md)) - This document provides comprehensive information about using the AI agent workflows and configuration management system in this repository. `security`, `devops`, `kubernetes`, `api`, `database`
+  - **AI_AGENTS_CREWS_MCP_SUMMARY** ([AI_AGENTS_CREWS_MCP_SUMMARY.md](AI_AGENTS_CREWS_MCP_SUMMARY.md)) - This repository now contains a comprehensive ecosystem for AI-powered DevOps operations, including specialized agent configurations, collaborative crew definitions, modular tool documentation, and Mod... `security`, `devops`, `kubernetes`, `api`, `database`
+  - **Blaine Winslow Resume Accountant** ([Blaine Winslow Resume Accountant.pdf](Blaine Winslow Resume Accountant.pdf)) `pdf`
+  - **Blaine Winslow Resume Driver** ([Blaine Winslow Resume Driver.pdf](Blaine Winslow Resume Driver.pdf)) `pdf`
+  - **cloud_curio** ([cloud_curio.md](cloud_curio.md)) - > This canvas contains the **full code** for the pack: model pullers, proxies, Cloudflare routes, Ansible role, and optional logging. You can copy/paste from here. A downloadable zip is also provided ... `security`, `api`, `typescript`, `docker`, `ai`
+  - **cloud_curio_installer_crawler_final_repo_canvas** ([cloud_curio_installer_crawler_final_repo_canvas.txt](cloud_curio_installer_crawler_final_repo_canvas.txt)) - Below is the **complete repo** laid out as file blocks. Save these into files with the same paths. --- `txt`
+  - **cloud_curio_installer_crawler_final_repo_canvas (1)** ([cloud_curio_installer_crawler_final_repo_canvas (1).txt](cloud_curio_installer_crawler_final_repo_canvas (1).txt)) - Below is the **complete repo** laid out as file blocks. Save these into files with the same paths. --- `txt`
+  - **cloudcurio_monorepo_template_v_1_cbwdellr_720** ([cloudcurio_monorepo_template_v_1_cbwdellr_720.md](cloudcurio_monorepo_template_v_1_cbwdellr_720.md)) - A batteries-included starter monorepo for Blaine’s stack on **cbwdellr720** with: - **Apps**: Next.js web, FastAPI API, Workers/Edge functions, Supabase functions `security`, `devops`, `kubernetes`, `api`, `database`
+  - **CLOUDFLARE_PAGES_SETUP** ([CLOUDFLARE_PAGES_SETUP.md](CLOUDFLARE_PAGES_SETUP.md)) - This guide will help you set up Cloudflare Pages to host your Knowledge Base web interface. `security`, `devops`, `kubernetes`, `api`, `typescript`
+  - **DEPLOYMENT** ([DEPLOYMENT.md](DEPLOYMENT.md)) - This guide explains how to deploy the Knowledge Base web interface to Cloudflare Pages. `devops`, `kubernetes`, `typescript`, `ai`, `md`
+  - **DEVELOPMENT** ([DEVELOPMENT.md](DEVELOPMENT.md)) - This guide explains how to set up and work with the Knowledge Base web interface. `devops`, `kubernetes`, `api`, `typescript`, `react`
+  - **dynamic_toc** ([dynamic_toc.json](dynamic_toc.json)) `json`
+  - **IMPLEMENTATION_SUMMARY** ([IMPLEMENTATION_SUMMARY.md](IMPLEMENTATION_SUMMARY.md)) - This document summarizes the complete implementation of the documentation management system for the Knowledge Base repository. `security`, `api`, `database`, `typescript`, `react`
+  - **IMPLEMENTATION_SUMMARY_DOCUMENTATION** ([IMPLEMENTATION_SUMMARY_DOCUMENTATION.md](IMPLEMENTATION_SUMMARY_DOCUMENTATION.md)) - This document summarizes the extensive documentation and working examples added to the Knowledge Base repository to address the requirement: "add lots and lots of working examples and usage examples a... `security`, `devops`, `kubernetes`, `api`, `database`
+  - **Knowledge-Base** ([README.md](README.md)) - This repository contains documentation, scripts, and configurations for server setup and management, including AI agent memories, rules, dotfiles, and various configuration files. `security`, `devops`, `kubernetes`, `database`, `typescript`
+  - **KNOWLEDGE_BASE_CLI_GUIDE** ([KNOWLEDGE_BASE_CLI_GUIDE.md](KNOWLEDGE_BASE_CLI_GUIDE.md)) - Add this line to your `~/.bashrc` (or `~/.zshrc` for Zsh): ```bash `devops`, `kubernetes`, `api`, `database`, `typescript`
+  - **KNOWLEDGE_BASE_IMPROVEMENTS** ([KNOWLEDGE_BASE_IMPROVEMENTS.md](KNOWLEDGE_BASE_IMPROVEMENTS.md)) - **Document Created**: 2025-11-01 **Purpose**: Comprehensive recommendations for enhancing the knowledge base as a context library and reference system `security`, `devops`, `api`, `database`, `typescript`
+  - **LICENSE** ([LICENSE](LICENSE))
+  - **open_discourse_ci_cd_agents_pack_workflows_crews_mcp_prompts (2)** ([open_discourse_ci_cd_agents_pack_workflows_crews_mcp_prompts (2).md](open_discourse_ci_cd_agents_pack_workflows_crews_mcp_prompts (2).md)) - This bundle adds production‑grade GitHub Actions, QA gates, container publish, static analysis, CrewAI team orchestration, MCP server wiring, and AI prompt/instructions files. Copy the files into your... `security`, `devops`, `api`, `database`, `typescript`
+  - **QUICK_START** ([QUICK_START.md](QUICK_START.md)) - Get started with the Knowledge Base AI agent workflows in minutes! `security`, `database`, `typescript`, `docker`, `ai`
+  - **Reference List** ([Reference List.docx](Reference List.docx)) `docx`
+  - **Resume_08.22.23** ([Resume_08.22.23.docx](Resume_08.22.23.docx)) `docx`
+  - **resume_09.01.22** ([resume_09.01.22.docx](resume_09.01.22.docx)) `docx`
+  - **resume_09.01.22 (1)** ([resume_09.01.22 (1).docx](resume_09.01.22 (1).docx)) `docx`
+  - **Resume_3.11.21_nc** ([Resume_3.11.21_nc.docx](Resume_3.11.21_nc.docx)) `docx`
+  - **Resume_combined_11_25_21** ([Resume_combined_11_25_21.docx](Resume_combined_11_25_21.docx)) `docx`
+  - **SETUP_SUMMARY** ([SETUP_SUMMARY.md](SETUP_SUMMARY.md)) - This document provides a comprehensive overview of the Knowledge Base project setup, including all components and configurations. `security`, `devops`, `kubernetes`, `api`, `database`
+  - **TABLE_OF_CONTENTS** ([TABLE_OF_CONTENTS.md](TABLE_OF_CONTENTS.md)) - *Generated on: 2025-11-12T13:44:36.146119* *Total items: 1322* `security`, `devops`, `kubernetes`, `api`, `database`
+
+
+---
+
+## Statistics
+
+- **Total Items**: 1333
+- **Knowledge Base Path**: `/home/cbwinslow/Knowledge-Base`
+- **Last Updated**: 2025-11-12T14:45:45.301087
+
+## Usage
+
+This table of contents is automatically generated and includes:
+- All directories and files in the knowledge base
+- File descriptions extracted from content
+- Tags based on path and content analysis
+- Modification timestamps
+
+To regenerate this table of contents, run:
+```bash
+python3 scripts/documentation/dynamic_toc.py
+```
