@@ -1,11 +1,25 @@
 # Knowledge Base
 
-This repository contains documentation, scripts, and configurations for server setup and management, including AI agent memories, rules, dotfiles, and various configuration files.
+This repository contains documentation, scripts, and configurations for server setup and management, including AI agent memories, rules, dotfiles, and various configuration files. The document library has been consolidated under the new `docs/` directory for easier navigation.
 
 ## Directories
 
+- [docs](docs/) - Consolidated documentation library organized by topic (setup, architecture, agents, projects, resumes, metadata)
+- [documentation](documentation/) - Existing documentation system with guides, examples, and research (being consolidated into `docs/`)
+- [master_documents](master_documents/) - Legacy setup bundles, reports, and configuration archives
 - [scripts](scripts/) - Organized collection of utility scripts
-- [master_documents](master_documents/) - Core documentation and setup files
+- [agents](agents/) - AI agent definitions and supporting material
+- [ai_agents](ai_agents/) - CrewAI configurations, rules, memories, and workflows
+- [dotfiles](dotfiles/) - Shell configuration files, functions, and aliases
+- [mcp_servers](mcp_servers/) - Model Context Protocol server configs
+- [docker_configs](docker_configs/) - Docker Compose and container configs
+
+## Documentation Organization
+
+- Start with the consolidated index at [docs/README.md](docs/README.md) to see how files are grouped.
+- Use [docs/overview/README.md](docs/overview/README.md) for navigation tips and recommended entry points.
+- The legacy [TABLE_OF_CONTENTS.md](TABLE_OF_CONTENTS.md) remains at the repository root with links updated to the new paths.
+- Supporting metadata for generated indexes now lives in [docs/metadata/](docs/metadata/).
 
 
 ## Master Documents
