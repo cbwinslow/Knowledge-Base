@@ -5,8 +5,8 @@ This repository contains documentation, scripts, and configurations for server s
 ## Directories
 
 - [docs](docs/) - Consolidated documentation library organized by topic (setup, architecture, agents, projects, resumes, metadata)
-- [documentation](documentation/) - Comprehensive documentation management system with guides, examples, and research
-- [master_documents](master_documents/) - Core documentation and setup files
+- [documentation](documentation/) - Existing documentation system with guides, examples, and research (being consolidated into `docs/`)
+- [master_documents](master_documents/) - Legacy setup bundles, reports, and configuration archives
 - [scripts](scripts/) - Organized collection of utility scripts
 - [agents](agents/) - AI agent definitions and supporting material
 - [ai_agents](ai_agents/) - CrewAI configurations, rules, memories, and workflows
