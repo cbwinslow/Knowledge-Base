@@ -6,7 +6,7 @@ This guide defines the categories for all scripts in the repository and explains
 
 | Category | Directory | Purpose | Example script types |
 | --- | --- | --- | --- |
-| Deployment automation | `scripts/deployment/` | End-to-end provisioning, cloudflare setup, and phased rollout orchestration for the platform. | Full setup orchestrators, installer bundles, readiness or verification checks, and troubleshooting helpers tied to deployments. |
+| Deployment automation | `scripts/deployment/` | End-to-end provisioning, Cloudflare setup, and phased rollout orchestration for the platform. | Full setup orchestrators, installer bundles, readiness or verification checks, and troubleshooting helpers tied to deployments. |
 | Server setup | `scripts/server_setup/` | Host-level configuration, service hardening, and one-off administrative tasks for servers. | System service installs, access control helpers, networking services, and ad hoc maintenance utilities. |
 | Database | `scripts/database/` | Database provisioning, backups, port mapping, and helper utilities. | PostgreSQL installers, backup routines, vector database helpers, and port mapping scripts. |
 | Storage | `scripts/storage/` | Storage planning, reconfiguration, optimization, and recovery workflows. | Disk prefetching, ZFS recovery, storage decision helpers, and tuning scripts. |
