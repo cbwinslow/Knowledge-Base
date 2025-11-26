@@ -30,7 +30,7 @@ const formatValue = (value) => {
   return value || '—';
 };
 
-export default function FileListing({ items, config, searchQuery }) {
+export default function AssetListing({ items, config, searchQuery }) {
   const searchableFields = config?.searchFields || ['name'];
   const normalizedQuery = searchQuery.toLowerCase();
 
