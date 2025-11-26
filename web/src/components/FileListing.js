@@ -35,11 +35,14 @@ export default function AssetListing({ items, config, searchQuery }) {
   const normalizedQuery = searchQuery.toLowerCase();
 
   const filteredItems = items.filter((item) =>
-    searchableFields.some((field) =>
-      String(item[field] || '')
-        .toLowerCase()
-        .includes(normalizedQuery)
-    )
+    searchableFields.some((field) => {
+      // Handle array fields explicitly for better search matching
+      const value = item[field];
+      const normalizedValue = Array.isArray(value)
+        ? value.join(' ')
+        : String(value || '');
+      return normalizedValue.toLowerCase().includes(normalizedQuery);
+    })
   );
 
   return (
