@@ -19,7 +19,7 @@ export default function SearchBar({ onSearch }) {
         <input
           type="text"
           className="focus:ring-indigo-500 focus:border-indigo-500 block w-full rounded-none rounded-l-md pl-10 sm:text-sm border-gray-300"
-          placeholder="Search files..."
+          placeholder="Search agents, tools, crews, configs..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
