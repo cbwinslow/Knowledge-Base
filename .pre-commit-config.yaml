@@ -1,6 +1,6 @@
 # Pre-commit hooks configuration
 repos:
   - repo: https://github.com/gitleaks/gitleaks
-    rev: v8.16.0
+    rev: v8.30.0
     hooks:
       - id: gitleaks
